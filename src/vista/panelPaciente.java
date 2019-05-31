@@ -18,7 +18,7 @@ public class panelPaciente extends JPanel {
 		JButton botonDarDeAlta = new JButton("Dar de alta");
 		botonDarDeAlta.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15));
 		botonDarDeAlta.setContentAreaFilled(false);
-		botonDarDeAlta.setForeground(Color.WHITE);
+		botonDarDeAlta.setForeground(Color.BLACK);
 		botonDarDeAlta.setBackground(new Color(0, 153, 255));
 		botonDarDeAlta.setBounds(72, 67, 174, 33);
 		botonDarDeAlta.setOpaque(true);
