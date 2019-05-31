@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class MedicoActivo extends Medico{
 	
@@ -22,31 +23,27 @@ public class MedicoActivo extends Medico{
 		this.setCitas(null);
 	}
 	
-
-	
-	
-	
-	
-	
 	public Horario getHorario() {
 		return horario;
 	}
-
-	public void setHorario(Horario horario) {
-		this.horario = horario;
-	}
-
 	public String getConsulta() {
 		return consulta;
-	}
-
-	public void setConsulta(String consulta) {
-		this.consulta = consulta;
 	}
 	public ArrayList <Cita> getCitas() {
 		return citas;
 	}
+	
+	public void setHorario(Horario horario) {
+		this.horario = horario;
+	}
+	public void setConsulta(String consulta) {
+		assert consulta!=null&&validaConsulta(consulta).isResultado();
+		this.consulta = consulta;
+	}
 	public void setCitas(ArrayList <Cita> citas) {
 		this.citas = citas;
+	}
+	public static Respuesta validaConsulta(String consulta) {
+		return new Respuesta(Pattern.matches("[1234]", consulta), "El consulta no cumple con los requisitos");
 	}
 }

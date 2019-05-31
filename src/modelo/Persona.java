@@ -54,7 +54,7 @@ public abstract class Persona {
 		return new Respuesta(Pattern.matches("[67]\\d{8}", telefono), "El telefono no cumple con los requisitos") ;
 	}
 	public static Respuesta validaDireccion(String direccion) {
-		return new Respuesta(Pattern.matches(" ", direccion), "El direccion no cumple con los requisitos");
+		return new Respuesta(Pattern.matches("{30}", direccion), "El direccion no cumple con los requisitos")  ;
 	}
 	public static Respuesta validaIdUnico(String idUnico) {
 		return new Respuesta(Pattern.matches("\\d{9}", idUnico), "El idUnico no cumple con los requisitos");

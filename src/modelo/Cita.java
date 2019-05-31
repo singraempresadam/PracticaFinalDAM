@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.regex.Pattern;
+
 public class Cita {
 	private String idUnicoCita;
 	private String idUnicoPaciente;
@@ -22,45 +24,59 @@ public class Cita {
 	public String getHora() {
 		return hora;
 	}
-	public void setHora(String hora) {
-		this.hora=hora;
-	}
 	public String getIdUnicoCita() {
 		return idUnicoCita;
-	}
-	public void setIdUnicoCita(String idUnicoCita) {
-		this.idUnicoCita = idUnicoCita;
 	}
 	public String getIdUnicoPaciente() {
 		return idUnicoPaciente;
 	}
-	public void setIdUnicoPaciente(String idUnicoPaciente) {
-		this.idUnicoPaciente = idUnicoPaciente;
-	}
 	public String getIdUnicoMedico() {
 		return idUnicoMedico;
-	}
-	public void setIdUnicoMedico(String idUnicoMedico) {
-		this.idUnicoMedico = idUnicoMedico;
 	}
 	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
 	public boolean isConfirmacion() {
 		return confirmacion;
-	}
-	public void setConfirmacion(boolean confirmacion) {
-		this.confirmacion = confirmacion;
 	}
 	public String getObservaciones() {
 		return observaciones;
 	}
+	
+	public void setHora(String hora) {
+		this.hora=hora;
+	}
+	public void setIdUnicoCita(String idUnicoCita) {
+		assert idUnicoCita!=null&&validaIdUnico(idUnicoCita).isResultado();
+		this.idUnicoCita = idUnicoCita;
+	}
+	public void setIdUnicoPaciente(String idUnicoPaciente) {
+		assert idUnicoPaciente!=null&&validaIdUnico(idUnicoPaciente).isResultado();
+		this.idUnicoPaciente = idUnicoPaciente;
+	}
+	public void setIdUnicoMedico(String idUnicoMedico) {
+		assert idUnicoMedico!=null&&validaIdUnico(idUnicoMedico).isResultado();
+		this.idUnicoMedico = idUnicoMedico;
+	}
+	public void setFecha(String fecha) {
+		assert fecha!=null&&validaFecha(fecha).isResultado();
+		this.fecha = fecha;
+	}
+	public void setConfirmacion(boolean confirmacion) {
+		this.confirmacion = confirmacion;
+	}
 	public void setObservaciones(String observaciones) {
+		assert observaciones!=null&&validaObservaciones(observaciones).isResultado();
 		this.observaciones = observaciones;
 	}
 	
-	
+	public static Respuesta validaIdUnico(String idUnico) {
+		return new Respuesta(Pattern.matches("\\d{9}", idUnico), "El idUnico no cumple con los requisitos");
+	}
+	public static Respuesta validaFecha(String fecha) {
+		return new Respuesta(Pattern.matches("\\d{1,2}/\\d{1,2}/\\d{4}", fecha), "El fecha no cumple con los requisitos");
+	}
+	public static Respuesta validaObservaciones(String observaciones) {
+		return new Respuesta(Pattern.matches("{200}", observaciones), "Las observaciones no cumple con los requisitos");
+	}
 }
