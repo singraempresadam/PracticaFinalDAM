@@ -21,9 +21,6 @@ public class Paciente extends Persona{
 		this.setCitas(null);
 		this.setTratamientos(null);
 	}
-
-	
-	
 	
 	
 	
