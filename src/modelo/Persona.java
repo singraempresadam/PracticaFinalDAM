@@ -28,7 +28,7 @@ public abstract class Persona {
 		return idUnico;
 	}
 	
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) { 
 		assert nombre!=null&&validaNombre(nombre).isResultado();
 		this.nombre = nombre;
 	}
