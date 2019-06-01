@@ -2,13 +2,14 @@ package modelo;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class MedicoActivo extends Medico{
 	
 	private Horario horario;
 	private String consulta;
-	private ArrayList <Cita> citas;
+	private HashMap<String, Cita> citas = new HashMap<String, Cita>();
 	
 	public MedicoActivo(MedicoActivo leido)
 	{
@@ -32,9 +33,10 @@ public class MedicoActivo extends Medico{
 	public String getConsulta() {
 		return consulta;
 	}
-	public ArrayList <Cita> getCitas() {
+	public HashMap<String, Cita> getCitas() {
 		return citas;
 	}
+	
 	
 	public void setHorario(Horario horario) {
 		this.horario = horario;
@@ -43,7 +45,7 @@ public class MedicoActivo extends Medico{
 		assert consulta!=null&&validaConsulta(consulta).isResultado();
 		this.consulta = consulta;
 	}
-	public void setCitas(ArrayList <Cita> citas) {
+	public void setCitas(HashMap<String, Cita> citas) {
 		this.citas = citas;
 	}
 	public static Respuesta validaConsulta(String consulta) {
