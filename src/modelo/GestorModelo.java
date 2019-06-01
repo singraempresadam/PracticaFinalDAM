@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -17,21 +18,91 @@ public class GestorModelo {
 	HashMap<String, Medico> medicos = new HashMap<String, Medico>();
 	HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
 	HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
+
+	DTO <Paciente> dtoPaciente = new DTO<>("pacientes.dat");
+	DTO <Medico> dtoMedico = new DTO<>("medicos.dat");
+	DTO <MedicoActivo> dtoMedicoActivo = new DTO<>("medicosActivo.dat");
+	DTO <Cirujano> dtoCirujano = new DTO<>("cirujanos.dat");
 	
 	DAO dao;
-	DTO dto;
-	public void cargarColeccionesMap(){
-		/*	Leer todos los pacientes de pacientes.dat
-		 * 		Añadir a personas
-		 * 	Leer todos los medicos de medicos.dat
-		 * 		Añadir a personas
-		 * 	Leer todos los medicosActivos de medicosActivos.dat
-		 * 		Añadir a personas
-		 * 	Leer todos los cirujanos de cirujanos.dat
-		 * 		Añadir a personas
-		 * */
+	
+	public void darAltaPacienteNuevo(String nombre, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
+	{
+		Paciente paciente = new Paciente(nombre, telefono, direccion, idUnico, fechaDeNacimiento);
+		pacientes.put(paciente.getIdUnico(), paciente);
+		//Escribir nueva lista pacientes
+	}
+	public void darAltaMedico(String nombre, String telefono, String direccion, String idUnico, String especialidad)
+	{
+		Medico medico= new Medico(nombre, telefono, direccion, idUnico, especialidad);
+		medicos.put(medico.getIdUnico(), medico);
+		//Escribir nueva lista medicos
+	}
+	public void darAltaMedicoActivo(String nombre, String telefono, String direccion, String idUnico, String especialidad, 
+			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta)
+	{
+		MedicoActivo medicoActivo = new MedicoActivo(nombre, telefono, direccion, idUnico, especialidad, horaInicio, horaFin ,dias, consulta);
+		medicosActivo.put(medicoActivo.getIdUnico(),medicoActivo);
 	}
 	
+	public void cargarPaciente(Paciente pacienteLeido)
+	{
+		Paciente paciente = new Paciente(pacienteLeido);
+		pacientes.put(paciente.getIdUnico(), paciente);
+	}
+	public void cargarMedico(Medico medicoLeido)
+	{
+		Medico medico = new Medico(medicoLeido);
+		medicos.put(medico.getIdUnico(), medico);
+	}
+	public void cargarMedicoActivo(MedicoActivo medicoActivoLeido)
+	{
+		MedicoActivo medicoActivo = new MedicoActivo(medicoActivoLeido);
+		medicosActivo.put(medicoActivo.getIdUnico(), medicoActivo);
+	}
+	public void cargarCirujano(Cirujano cirujanoLeido)
+	{
+		Cirujano cirujano = new Cirujano(cirujanoLeido);
+		cirujanos.put(cirujano.getIdUnico(), cirujano);
+	}
+	public void cargarColeccionesMap(){
+		cargarColeccionMapPacientes();
+		cargarColeccionMapMedicos();
+		cargarColeccionMapMedicosActivo();
+		cargarColeccionMapCirujanos();
+	}
+	public void cargarColeccionMapPacientes()
+	{
+		Paciente pacienteLeido;
+		do {
+			pacienteLeido=dtoPaciente.leer();
+			this.cargarPaciente(pacienteLeido);
+		} while (pacienteLeido != null);
+	}
+	public void cargarColeccionMapMedicos()
+	{
+		Medico medicoLeido;
+		do {
+			medicoLeido= dtoMedico.leer();
+			this.cargarMedico(medicoLeido);
+		} while (medicoLeido != null);
+	}
+	public void cargarColeccionMapMedicosActivo()
+	{
+		MedicoActivo medicoActivoLeido;
+		do {
+			medicoActivoLeido=dtoMedicoActivo.leer();
+			this.cargarMedicoActivo(medicoActivoLeido);
+		} while (medicoActivoLeido != null);
+	}
+	public void cargarColeccionMapCirujanos()
+	{
+		Cirujano cirujanoLeido;
+		do {
+			cirujanoLeido=dtoCirujano.leer();
+			this.cargarCirujano(cirujanoLeido);
+		} while (cirujanoLeido != null);
+	}
 	
 	//personas.put(pepito.getIdUnico(), pepito);
 	//personas.get("123456789").getNombre());

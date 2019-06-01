@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
@@ -16,9 +17,11 @@ public class MedicoActivo extends Medico{
 		this.setHorario(leido.getHorario());
 		this.setCitas(leido.getCitas());
 	}
-	public MedicoActivo(String nombre, String telefono, String direccion, String idUnico, String especialidad, Horario horario, String consulta) {
+	public MedicoActivo(String nombre, String telefono, String direccion, String idUnico, String especialidad, 
+			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta) {
 		super(nombre, telefono, direccion, idUnico, especialidad);
 		this.setConsulta(consulta);
+		Horario horario=new Horario(horaInicio,horaFin,dias);
 		this.setHorario(horario);
 		this.setCitas(null);
 	}

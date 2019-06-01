@@ -10,6 +10,12 @@ public class Medico extends Persona{
 		this.setEspecialidad(especialidad);
 	}
 
+	public Medico(Medico leido) 
+	{
+		super(leido.getNombre(), leido.getTelefono(), leido.getDireccion(), leido.getIdUnico());
+		this.setEspecialidad(leido.getEspecialidad());
+	}
+
 	public String getEspecialidad() {
 		return especialidad;
 	}

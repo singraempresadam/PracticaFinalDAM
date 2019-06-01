@@ -8,6 +8,11 @@ public class Cirujano extends Persona{
 		this.setNumeroDeOperaciones(numeroDeOperaciones);
 	}
 
+	public Cirujano(Cirujano leido) {
+		super(leido.getNombre(),leido.getTelefono(),leido.getDireccion(),leido.getIdUnico());
+		this.setNumeroDeOperaciones(leido.getNumeroDeOperaciones());
+	}
+
 	public String getNumeroDeOperaciones() {
 		return numeroDeOperaciones;
 	}
