@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="modelo.Horario" project="PracticaFinalDAM" 
     file="/PracticaFinalDAM/src/modelo/Horario.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1393" y="623"/>    
+    <position height="-1" width="-1" x="1316" y="739"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -82,16 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="modelo.Auxiliar" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Auxiliar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1381" y="846"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="modelo.GestorModelo" project="PracticaFinalDAM" 
+  <class id="10" language="java" name="modelo.GestorModelo" project="PracticaFinalDAM" 
     file="/PracticaFinalDAM/src/modelo/GestorModelo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="298" y="161"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -100,68 +91,68 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="12">    
+  <association id="11">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="13" name="horario">        
-        <position height="0" width="0" x="1285" y="287"/>      
+      <attribute id="12" name="horario">        
+        <position height="0" width="0" x="1208" y="403"/>      
       </attribute>      
-      <multiplicity id="14" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1285" y="287"/>      
+      <multiplicity id="13" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1208" y="403"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="15">    
+  <generalization id="14">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="16">    
+  <generalization id="15">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <generalization id="17">    
+  <generalization id="16">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="18">    
+  <association id="17">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="19" name="citas">        
+      <attribute id="18" name="citas">        
         <position height="0" width="0" x="132" y="347"/>      
       </attribute>      
-      <multiplicity id="20" minimum="0" maximum="2147483647">        
+      <multiplicity id="19" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="132" y="347"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="21">    
+  <generalization id="20">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="22">    
+  <generalization id="21">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="23">    
+  <association id="22">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="24" name="tratamientos">        
+      <attribute id="23" name="tratamientos">        
         <position height="0" width="0" x="-466" y="559"/>      
       </attribute>      
-      <multiplicity id="25" minimum="0" maximum="2147483647">        
+      <multiplicity id="24" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="-466" y="559"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="26">    
+  <association id="25">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="27" name="citas">        
+      <attribute id="26" name="citas">        
         <position height="0" width="0" x="132" y="347"/>      
       </attribute>      
-      <multiplicity id="28" minimum="0" maximum="2147483647">        
+      <multiplicity id="27" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="132" y="347"/>      
       </multiplicity>    
     </end>    

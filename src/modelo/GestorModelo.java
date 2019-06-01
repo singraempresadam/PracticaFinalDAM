@@ -7,10 +7,20 @@ import lecturaYEscritura.DAO;
 import lecturaYEscritura.DTO;
 
 public class GestorModelo {
-	HashMap<String, Persona> personas = new HashMap<String, Persona>();
+	/*
+	 * "Anytime you find yourself writing code of
+	 * the from "if the object is of type T1, then do
+	 * something, but if it´s of type T2, then do
+	 * something else," slap yourself
+	 * */
+	HashMap<String, Paciente> pacientes = new HashMap<String, Paciente>();
+	HashMap<String, Medico> medicos = new HashMap<String, Medico>();
+	HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
+	HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
+	
 	DAO dao;
 	DTO dto;
-	public void cargarColeccionMap(){
+	public void cargarColeccionesMap(){
 		/*	Leer todos los pacientes de pacientes.dat
 		 * 		Añadir a personas
 		 * 	Leer todos los medicos de medicos.dat
@@ -19,33 +29,12 @@ public class GestorModelo {
 		 * 		Añadir a personas
 		 * 	Leer todos los cirujanos de cirujanos.dat
 		 * 		Añadir a personas
-		 * 
-		 * 
-		 * 
 		 * */
 	}
 	
 	
-	public static void main(String[] args) {
-		HashMap<String, Persona> personas = new HashMap<String, Persona>();
-		Paciente juan = new Paciente("Adrian", "622865620", "CalleMerida", "123456789", "17/05/1997");
-		Paciente Juan1 = new Paciente("Adrian", "622865620", "CalleMerida", "123456785", "17/05/1997");
-		Paciente Juan2 = new Paciente("Adrian", "622865620", "CalleMerida", "123456786", "17/05/1997");
-		Paciente Juan3 = new Paciente("Adrian", "622865620", "CalleMerida", "123456787", "17/05/1997");
-		Paciente Juan4 = new Paciente("Adrian", "622865620", "CalleMerida", "123456788", "17/05/1997");
-		Medico pedro = new Medico("Javier", "656854524", "CalleFernando",   "854698513", "Urologo");
-		Medico pedro1 = new Medico("Javier", "656854524", "CalleFernando",   "854698542", "Urologo");
-		Medico pedro2 = new Medico("Javier", "656854524", "CalleFernando",   "854698552", "Urologo");
-		Medico pedro3 = new Medico("Javier", "656854524", "CalleFernando",   "854698562", "Urologo");
-		Medico pedro4 = new Medico("Javier", "656854524", "CalleFernando",   "854698572", "Urologo");
-		Cirujano pepito = new Cirujano("Pedro", "639008656", "EnriqueTribiño", "789654123", "2");
-		
-		personas.put(pedro.getIdUnico(), pedro);
-		personas.put(juan.getIdUnico(), juan);
-		personas.put(pepito.getIdUnico(), pepito);
-		
-		System.out.println(personas.get("123456789").getNombre());
-		
-	}
+	//personas.put(pepito.getIdUnico(), pepito);
+	//personas.get("123456789").getNombre());
+	
 	
 }
