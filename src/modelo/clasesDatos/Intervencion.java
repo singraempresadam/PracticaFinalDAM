@@ -1,13 +1,15 @@
-package modelo;
+package modelo.clasesDatos;
 
 import java.util.regex.Pattern;
 
+import modelo.enumeraciones.TipoDeIntervencion;
+
 public class Intervencion extends Cita{
 	String idUnicoCirujano;
-	String tipoDeIntervencion;
+	TipoDeIntervencion tipoDeIntervencion;
 	
 	public Intervencion(String idUnicoCita, String idUnicoPaciente, String idUnicoMedico, 
-						String fecha, String idUnicoCirujano, String tipoDeIntervencion, String hora) {
+						String fecha, String idUnicoCirujano, TipoDeIntervencion tipoDeIntervencion, String hora) {
 		super(idUnicoCita, idUnicoPaciente, idUnicoMedico, fecha, hora);
 		this.setIdUnicoCirujano(idUnicoCirujano);
 		this.setTipoDeIntervencion(tipoDeIntervencion);
@@ -16,7 +18,7 @@ public class Intervencion extends Cita{
 	public String getIdUnicoCirujano() {
 		return idUnicoCirujano;
 	}
-	public String getTipoDeIntervencion() {
+	public TipoDeIntervencion getTipoDeIntervencion() {
 		return tipoDeIntervencion;
 	}
 	
@@ -24,15 +26,12 @@ public class Intervencion extends Cita{
 		assert idUnicoCirujano!=null&&validaIdUnico(idUnicoCirujano).isResultado();
 		this.idUnicoCirujano = idUnicoCirujano;
 	}
-	public void setTipoDeIntervencion(String tipoDeIntervencion) {
-		assert tipoDeIntervencion!=null&&validaIntervencion(tipoDeIntervencion).isResultado();
+	public void setTipoDeIntervencion(TipoDeIntervencion tipoDeIntervencion) {
+		assert tipoDeIntervencion != null;
 		this.tipoDeIntervencion = tipoDeIntervencion;
 	}
 	
 	public static Respuesta validaIdUnico(String idUnico) {
 		return new Respuesta(Pattern.matches("\\d{9}", idUnico), "El idUnico no cumple con los requisitos");
-	}
-	public static Respuesta validaIntervencion(String tipoDeIntervencion) {
-		return new Respuesta(Pattern.matches("[a-zA-Z]{15}", tipoDeIntervencion), "El idUnico no cumple con los requisitos");
 	}
 }

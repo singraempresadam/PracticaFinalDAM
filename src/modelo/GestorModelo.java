@@ -8,6 +8,11 @@ import java.util.regex.Pattern;
 
 import lecturaYEscritura.DAO;
 import lecturaYEscritura.DTO;
+import modelo.clasesDatos.Cirujano;
+import modelo.clasesDatos.Medico;
+import modelo.clasesDatos.MedicoActivo;
+import modelo.clasesDatos.Paciente;
+import modelo.enumeraciones.Especialidad;
 
 public class GestorModelo {
 	/*
@@ -39,7 +44,7 @@ public class GestorModelo {
 			dtoPaciente.grabar(pacienteLista.getValue());
 		}
 	}
-	public void darAltaMedicoNuevo(String nombre, String telefono, String direccion, String idUnico, String especialidad)
+	public void darAltaMedicoNuevo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad)
 	{
 		Medico medico= new Medico(nombre, telefono, direccion, idUnico, especialidad);
 		medicos.put(medico.getIdUnico(), medico);
@@ -47,7 +52,7 @@ public class GestorModelo {
 			dtoMedico.grabar(medicoLista.getValue());
 		}
 	}
-	public void darAltaMedicoActivoNuevo(String nombre, String telefono, String direccion, String idUnico, String especialidad, 
+	public void darAltaMedicoActivoNuevo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad, 
 			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta)
 	{
 		MedicoActivo medicoActivo = new MedicoActivo(nombre, telefono, direccion, idUnico, especialidad, horaInicio, horaFin ,dias, consulta);

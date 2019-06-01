@@ -1,9 +1,11 @@
-package modelo;
+package modelo.clasesDatos;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
+
+import modelo.enumeraciones.Especialidad;
 
 public class MedicoActivo extends Medico{
 	
@@ -18,7 +20,7 @@ public class MedicoActivo extends Medico{
 		this.setHorario(leido.getHorario());
 		this.setCitas(leido.getCitas());
 	}
-	public MedicoActivo(String nombre, String telefono, String direccion, String idUnico, String especialidad, 
+	public MedicoActivo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad, 
 			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta) {
 		super(nombre, telefono, direccion, idUnico, especialidad);
 		this.setConsulta(consulta);

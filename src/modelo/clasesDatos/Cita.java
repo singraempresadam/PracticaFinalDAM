@@ -1,4 +1,4 @@
-package modelo;
+package modelo.clasesDatos;
 
 import java.util.regex.Pattern;
 
@@ -77,6 +77,6 @@ public class Cita {
 		return new Respuesta(Pattern.matches("\\d{1,2}/\\d{1,2}/\\d{4}", fecha), "El fecha no cumple con los requisitos");
 	}
 	public static Respuesta validaObservaciones(String observaciones) {
-		return new Respuesta(Pattern.matches("{200}", observaciones), "Las observaciones no cumple con los requisitos");
+		return new Respuesta(Pattern.matches("[\\s\\S]{0,200}", observaciones), "Las observaciones no cumple con los requisitos");
 	}
 }

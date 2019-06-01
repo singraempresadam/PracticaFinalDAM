@@ -1,4 +1,4 @@
-package modelo;
+package modelo.clasesDatos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
