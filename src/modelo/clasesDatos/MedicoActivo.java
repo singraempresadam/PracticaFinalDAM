@@ -53,4 +53,8 @@ public class MedicoActivo extends Medico{
 	public static Respuesta validaConsulta(String consulta) {
 		return new Respuesta(Pattern.matches("[1234]", consulta), "El consulta no cumple con los requisitos");
 	}
+	public void crearCita(String idCita, String idUnicoPaciente, String fecha, String hora) {
+		Cita cita = new Cita(idCita,idUnicoPaciente,this.getIdUnico(),fecha,hora);
+		this.citas.put(cita.getIdUnicoCita(),cita);
+	}
 }

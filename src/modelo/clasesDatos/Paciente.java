@@ -8,7 +8,7 @@ public class Paciente extends Persona{
 	
 	private String fechaDeNacimiento;
 	private HashMap<String, Cita> citas = new HashMap<String, Cita>();
-	private HashMap <String, Tratamiento> tratamientos = new HashMap<String, Tratamiento>();
+	private ArrayList<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
 	private HashMap<String, Intervencion> intervenciones = new HashMap<String, Intervencion>();
 	
 	public Paciente(Paciente leido)
@@ -29,6 +29,18 @@ public class Paciente extends Persona{
 	}
 	
 	
+	
+	public void crearTratamiento(String medicamento, String dosis, String fechaInicio, String fechaFin) {
+		this.tratamientos.add(new Tratamiento(this.getIdUnico(),medicamento,dosis,fechaInicio,fechaFin));
+		
+	}
+	public void crearCita(String idCita, String idUnicoMedico, String fecha, String hora) {
+		Cita cita = new Cita(idCita,this.getIdUnico(),idUnicoMedico,fecha,hora);
+		this.citas.put(cita.getIdUnicoCita(),cita);
+		
+	}
+	
+	// GETTERS AND SETTERS
 	public String getFechaDeNacimiento() {
 		
 		return fechaDeNacimiento;
@@ -36,7 +48,7 @@ public class Paciente extends Persona{
 	public HashMap<String, Cita> getCitas() {
 		return citas;
 	}
-	public HashMap<String, Tratamiento> getTratamientos() {
+	public ArrayList<Tratamiento> getTratamientos() {
 		return tratamientos;
 	}
 	public HashMap<String, Intervencion> getIntervenciones() {
@@ -50,14 +62,17 @@ public class Paciente extends Persona{
 	public void setCitas(HashMap<String, Cita> citas) {
 		this.citas = citas;
 	}
-	public void setTratamientos(HashMap<String, Tratamiento> tratamientos) {
+	public void setTratamientos(ArrayList<Tratamiento> tratamientos) {
 		this.tratamientos = tratamientos;
 	}
 	public void setIntervenciones(HashMap<String, Intervencion> intervenciones) {
 		this.intervenciones = intervenciones;
 	}
+	//VALIDADORES
 	public static Respuesta validaFechaNacimiento(String fechaNacimiento) {
 		return new Respuesta(Pattern.matches("\\d{1,2}/\\d{1,2}/\\d{4}", fechaNacimiento), "El fecha nacimiento no cumple con los requisitos");
 	}
+	
+	
 
 }
