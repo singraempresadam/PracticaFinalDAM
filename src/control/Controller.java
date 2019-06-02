@@ -42,7 +42,7 @@ public class Controller {
 								String fecha, String hora, String idUnicoCirujano, 
 								TipoDeIntervencion tipoDeIntervencion)
 	{
-		
+		miGestor.solicitarIntervencion(idUnicoPaciente, idUnicoMedico, idUnicoCirujano, tipoDeIntervencion, fecha, hora);
 	}
 	String [] obtenerElementosAMostrarPaciente()
 	{
