@@ -13,19 +13,19 @@ public class Controller {
 	
 	
 	
-	void darAltaPacienteNuevo(String nombre, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
+	void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
 	{
-		miGestor.darAltaPacienteNuevo(nombre, telefono, direccion, idUnico, fechaDeNacimiento);
+		miGestor.darAltaPacienteNuevo(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
 	}
-	void darAltaMedicoNuevo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad)
+	void darAltaMedicoNuevo(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad)
 	{
-		miGestor.darAltaMedicoNuevo(nombre, telefono, direccion, idUnico, especialidad);
+		miGestor.darAltaMedicoNuevo(nombre, apellidos,telefono, direccion, idUnico, especialidad);
 	}
-	void darAltaMedicoActivoNuevo(String nombre, String telefono, String direccion, 
+	void darAltaMedicoActivoNuevo(String nombre, String apellidos,String telefono, String direccion, 
 			String idUnico, Especialidad especialidad, LocalTime horaInicio, 
 			LocalTime horaFin, boolean [] dias, String consulta)
 	{
-		miGestor.darAltaMedicoActivoNuevo(nombre, telefono, direccion, idUnico, especialidad, horaInicio, horaFin, dias, consulta);
+		miGestor.darAltaMedicoActivoNuevo(nombre,apellidos, telefono, direccion, idUnico, especialidad, horaInicio, horaFin, dias, consulta);
 	}
 	
 	void recetarUnTratamiento(String idUnicoPaciente, String medicamento, 
@@ -43,5 +43,17 @@ public class Controller {
 								TipoDeIntervencion tipoDeIntervencion)
 	{
 		
+	}
+	String [] obtenerElementosAMostrarPaciente()
+	{
+		return miGestor.obtenerElementosAMostrarPaciente();
+	}
+	String [] obtenerElementosAMostrarMedico()
+	{
+		return miGestor.obtenerElementosAMostrarMedico();
+	}
+	String [] obtenerElementosAMostrarMedicoActivo()
+	{
+		return miGestor.obtenerElementosAMostrarMedicoActivo();
 	}
 }

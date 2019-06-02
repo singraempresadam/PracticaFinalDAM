@@ -4,11 +4,11 @@ import java.util.regex.Pattern;
 
 public abstract class Persona {
 	private String nombre;
+	private String apellidos;
 	private String telefono;
 	private String direccion;
 	private String idUnico;
-	
-	public Persona(String nombre, String telefono, String direccion, String idUnico) {
+	public Persona(String nombre,String apellidos, String telefono, String direccion, String idUnico) {
 		super();
 		this.setNombre(nombre);
 		this.setTelefono(telefono);
@@ -17,6 +17,9 @@ public abstract class Persona {
 	}
 	public String getNombre() {
 		return nombre;
+	}
+	public String getApellidos() {
+		return apellidos;
 	}
 	public String getTelefono() {
 		return telefono;
@@ -28,9 +31,15 @@ public abstract class Persona {
 		return idUnico;
 	}
 	
+	
+	
 	public void setNombre(String nombre) { 
 		assert nombre!=null&&validaNombre(nombre).isResultado();
 		this.nombre = nombre;
+	}
+	public void setApellidos(String apellidos) {
+		assert apellidos!=null&&validaNombre(apellidos).isResultado();
+		this.apellidos = apellidos;
 	}
 	public void setTelefono(String telefono) {
 		assert telefono!=null&&validaTelefono(telefono).isResultado();

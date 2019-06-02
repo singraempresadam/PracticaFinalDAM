@@ -14,6 +14,7 @@ import modelo.clasesDatos.Medico;
 import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
 import modelo.enumeraciones.Especialidad;
+import modelo.enumeraciones.TipoDeIntervencion;
 
 public class GestorModelo {
 	/*
@@ -49,32 +50,87 @@ public class GestorModelo {
 		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
 		dtoMedicoActivo.grabar(medicosActivo.get(idUnicoMedico));
 	}
-	public void darAltaPacienteNuevo(String nombre, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
+	public void solicitarIntervencion(String idUnicoPaciente, String idUnicoMedico, String idUnicoCirujano,
+										TipoDeIntervencion tipoDeIntervencion, String fecha, String hora) {
+		String idCita= this.generarId();
+		pacientes.get(idUnicoPaciente).crearIntervencion(idCita,idUnicoMedico,fecha,
+														hora,idUnicoCirujano,tipoDeIntervencion);
+		cirujanos.get(idUnicoCirujano).crearIntervencion(idCita,idUnicoPaciente, idUnicoMedico,fecha,
+														hora,tipoDeIntervencion);
+		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
+		dtoCirujano.grabar(cirujanos.get(idUnicoCirujano));
+	}
+	public void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
 	{
-		Paciente paciente = new Paciente(nombre, telefono, direccion, idUnico, fechaDeNacimiento);
+		Paciente paciente = new Paciente(nombre, apellidos,telefono, direccion, 
+										idUnico, fechaDeNacimiento);
 		pacientes.put(paciente.getIdUnico(), paciente);
 		for (Entry<String, Paciente> pacienteLista : pacientes.entrySet()) {
 			dtoPaciente.grabar(pacienteLista.getValue());
 		}
 	}
-	public void darAltaMedicoNuevo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad)
+	public void darAltaMedicoNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico, Especialidad especialidad)
 	{
-		Medico medico= new Medico(nombre, telefono, direccion, idUnico, especialidad);
+		Medico medico= new Medico(nombre, apellidos,telefono, direccion,
+									idUnico, especialidad);
 		medicos.put(medico.getIdUnico(), medico);
 		for (Entry<String, Medico> medicoLista : medicos.entrySet()) {
 			dtoMedico.grabar(medicoLista.getValue());
 		}
 	}
-	public void darAltaMedicoActivoNuevo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad, 
+	public void darAltaMedicoActivoNuevo(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad, 
 			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta)
 	{
-		MedicoActivo medicoActivo = new MedicoActivo(nombre, telefono, direccion, idUnico, especialidad, horaInicio, horaFin ,dias, consulta);
+		MedicoActivo medicoActivo = new MedicoActivo(nombre, apellidos,telefono, direccion, idUnico, especialidad, horaInicio, horaFin ,dias, consulta);
 		medicosActivo.put(medicoActivo.getIdUnico(),medicoActivo);
 		for (Entry<String, MedicoActivo> medicoActivoLista : medicosActivo.entrySet()) {
 			dtoMedico.grabar(medicoActivoLista.getValue());
 		}
 	}
+	//BLoque para vistas
 	
+	public String [] obtenerElementosAMostrarPaciente()
+	{
+		String [] retorno = new String [pacientes.size()];
+		int i=0;
+		for (Entry<String, Paciente> pacienteLista : pacientes.entrySet()) {
+			retorno[i]=pacienteLista.getValue().getNombre() + " " +
+						pacienteLista.getValue().getApellidos() + " " + 
+						pacienteLista.getKey() + " " +
+						pacienteLista.getValue().getTelefono() + " " +
+						pacienteLista.getValue().getFechaDeNacimiento();
+			i++;
+		}
+		return retorno;
+	}
+	public String [] obtenerElementosAMostrarMedico()
+	{
+		String [] retorno = new String [medicos.size()];
+		int i=0;
+		for (Entry<String, Medico> medicoLista : medicos.entrySet()) {
+			retorno[i]=medicoLista.getValue().getNombre() + " " +
+					medicoLista.getValue().getApellidos() + " " + 
+					medicoLista.getKey() + " " +
+					medicoLista.getValue().getTelefono() + " " +
+					medicoLista.getValue().getEspecialidad();
+			i++;
+		}
+		return retorno;
+	}
+	public String [] obtenerElementosAMostrarMedicoActivo()
+	{
+		String [] retorno = new String [medicosActivo.size()];
+		int i=0;
+		for (Entry<String, MedicoActivo> medicoActivoLista : medicosActivo.entrySet()) {
+			retorno[i]=medicoActivoLista.getValue().getNombre() + " " +
+					medicoActivoLista.getValue().getApellidos() + " " + 
+					medicoActivoLista.getKey() + " " +
+					medicoActivoLista.getValue().getTelefono() + " " +
+					medicoActivoLista.getValue().getEspecialidad();
+			i++;
+		}
+		return retorno;
+	}
 	//Bloque para cargar colecciones
 	private void cargarPaciente(Paciente pacienteLeido)
 	{

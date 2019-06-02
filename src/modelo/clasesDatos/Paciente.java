@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
+import modelo.enumeraciones.TipoDeIntervencion;
+
 public class Paciente extends Persona{
 	
 	private String fechaDeNacimiento;
@@ -13,15 +15,15 @@ public class Paciente extends Persona{
 	
 	public Paciente(Paciente leido)
 	{
-		super(leido.getNombre(), leido.getTelefono(), leido.getDireccion(), leido.getIdUnico());
+		super(leido.getNombre(), leido.getApellidos(),leido.getTelefono(), leido.getDireccion(), leido.getIdUnico());
 		this.setFechaDeNacimiento(leido.getFechaDeNacimiento());
 		this.setCitas(leido.getCitas());
 		this.setTratamientos(leido.getTratamientos());
 		this.setIntervenciones(leido.getIntervenciones());
 	}
-	public Paciente(String nombre, String telefono, String direccion, 
+	public Paciente(String nombre, String apellidos, String telefono, String direccion, 
 					String idUnico, String fechaDeNacimiento) {
-		super(nombre, telefono, direccion, idUnico);
+		super(nombre,apellidos, telefono, direccion, idUnico);
 		this.setFechaDeNacimiento(fechaDeNacimiento);
 		this.setCitas(null);
 		this.setTratamientos(null);
@@ -37,9 +39,13 @@ public class Paciente extends Persona{
 	public void crearCita(String idCita, String idUnicoMedico, String fecha, String hora) {
 		Cita cita = new Cita(idCita,this.getIdUnico(),idUnicoMedico,fecha,hora);
 		this.citas.put(cita.getIdUnicoCita(),cita);
-		
 	}
-	
+	public void crearIntervencion(String idCita, String idUnicoMedico, String fecha, String hora, 
+								String idUnicoCirujano, TipoDeIntervencion tipoDeIntervencion ) {
+		Intervencion intervencion = new Intervencion(idCita,this.getIdUnico(),idUnicoMedico,fecha, 
+														idUnicoCirujano, tipoDeIntervencion,hora);
+		this.intervenciones.put(intervencion.getIdUnicoCita(),intervencion);
+	}
 	// GETTERS AND SETTERS
 	public String getFechaDeNacimiento() {
 		

@@ -15,14 +15,14 @@ public class MedicoActivo extends Medico{
 	
 	public MedicoActivo(MedicoActivo leido)
 	{
-		super(leido.getNombre(),leido.getTelefono(), leido.getDireccion(), leido.getIdUnico(), leido.getEspecialidad());
+		super(leido.getNombre(),leido.getApellidos(),leido.getTelefono(), leido.getDireccion(), leido.getIdUnico(), leido.getEspecialidad());
 		this.setConsulta(leido.getConsulta());
 		this.setHorario(leido.getHorario());
 		this.setCitas(leido.getCitas());
 	}
-	public MedicoActivo(String nombre, String telefono, String direccion, String idUnico, Especialidad especialidad, 
+	public MedicoActivo(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad, 
 			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta) {
-		super(nombre, telefono, direccion, idUnico, especialidad);
+		super(nombre, apellidos, telefono, direccion, idUnico, especialidad);
 		this.setConsulta(consulta);
 		Horario horario=new Horario(horaInicio,horaFin,dias);
 		this.setHorario(horario);
