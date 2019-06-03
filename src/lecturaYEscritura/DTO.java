@@ -1,21 +1,21 @@
 package lecturaYEscritura;
 
-public class DTO <T>{
+public class DTO <Object>{
 	private DAO miDao;
-	private String path;
+	private String ruta;
 	
-	public DTO(String path)
+	public DTO(String ruta)
 	{
 		super();
-		assert path != null;
+		assert ruta != null;
 		miDao = new DAO();
-		this.path = path;
+		this.ruta = ruta;
 	}
-	public T leer() {
-		return (T) miDao.leer(this.path);
+	public Object leer() {
+		return (Object) miDao.leer(this.ruta);
 	}
-	public boolean grabar (T t) {
+	public boolean grabar (Object objeto) {
 		
-		return miDao.grabar(this.path, t);
+		return miDao.grabar(this.ruta, objeto);
 	}
 }

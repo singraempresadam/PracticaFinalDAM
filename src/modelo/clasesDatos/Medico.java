@@ -1,10 +1,11 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
 import modelo.enumeraciones.Especialidad;
 
-public class Medico extends Persona{
+public class Medico extends Persona implements Serializable{
 	private Especialidad especialidad;
 	
 	public Medico(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad) {

@@ -1,5 +1,6 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +8,7 @@ import java.util.regex.Pattern;
 
 import modelo.enumeraciones.Especialidad;
 
-public class MedicoActivo extends Medico{
+public class MedicoActivo extends Medico implements Serializable{
 	
 	private Horario horario;
 	private String consulta;

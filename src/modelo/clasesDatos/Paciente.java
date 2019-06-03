@@ -1,12 +1,13 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import modelo.enumeraciones.TipoDeIntervencion;
 
-public class Paciente extends Persona{
+public class Paciente extends Persona implements Serializable{
 	
 	private String fechaDeNacimiento;
 	private HashMap<String, Cita> citas = new HashMap<String, Cita>();
