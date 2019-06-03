@@ -1,10 +1,11 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import modelo.enumeraciones.TipoDeIntervencion;
 
-public class Cirujano extends Persona{
+public class Cirujano extends Persona implements Serializable{
 	private String numeroDeOperaciones;
 	private HashMap<String, Intervencion> intervenciones = new HashMap<String, Intervencion>();
 	
