@@ -1,10 +1,8 @@
 package control;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 
 import modelo.GestorModelo;
-import modelo.clasesDatos.Tratamiento;
 import modelo.enumeraciones.Especialidad;
 import modelo.enumeraciones.TipoDeIntervencion;
 
