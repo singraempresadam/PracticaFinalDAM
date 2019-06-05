@@ -1,8 +1,9 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Horario {
+public class Horario implements Serializable {
 
 	LocalTime horaInicio;
 	LocalTime horaFin;
