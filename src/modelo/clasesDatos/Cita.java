@@ -1,8 +1,9 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
-public class Cita {
+public class Cita implements Serializable{
 	private String idUnicoCita;
 	private String idUnicoPaciente;
 	private String idUnicoMedico;
