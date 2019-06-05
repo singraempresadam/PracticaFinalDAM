@@ -23,9 +23,9 @@ public class TestParaUI {
 		String[] retorno = new String[pacientesTest.size()];
 		int i = 0;
 		for (Entry<String, Paciente> pacienteLista : pacientesTest.entrySet()) {
-			retorno[i] = pacienteLista.getValue().getNombre() + " " + pacienteLista.getValue().getApellidos() + " "
-					+ pacienteLista.getKey() + " " + pacienteLista.getValue().getTelefono() + " "
-					+ pacienteLista.getValue().getFechaDeNacimiento();
+			retorno[i] = pacienteLista.getValue().getNombre() + "-" + pacienteLista.getValue().getApellidos() + "-"
+					+ pacienteLista.getKey() + "-" + pacienteLista.getValue().getTelefono() + "-"
+					+ pacienteLista.getValue().getFechaDeNacimiento() + "-" + pacienteLista.getValue().getDireccion();
 			i++;
 		}
 		return retorno;
