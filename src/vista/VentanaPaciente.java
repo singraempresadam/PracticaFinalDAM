@@ -35,7 +35,7 @@ public class VentanaPaciente extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPaciente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/images/iconsalud.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		

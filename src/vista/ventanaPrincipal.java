@@ -27,7 +27,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
-public class ventana extends JFrame {
+public class ventanaPrincipal extends JFrame {
 
 	protected JPanel contentPane;
 
@@ -36,8 +36,8 @@ public class ventana extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ventana() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/images/iconsalud.png")));
+	public ventanaPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		setForeground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		this.setMinimumSize(new Dimension(750, 500));
@@ -51,8 +51,6 @@ public class ventana extends JFrame {
 		panel.setBackground(Color.WHITE);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-
-
 		
 		JLabel lblClnicaBuenaSalud = new JLabel("Healthy Code");
 		lblClnicaBuenaSalud.setBounds(10, 0, 717, 98);
@@ -63,17 +61,17 @@ public class ventana extends JFrame {
 		lblClnicaBuenaSalud.setForeground(Color.WHITE);
 		
 		JButton botonPaciente = new JButton("");
-		botonPaciente.setIcon(new ImageIcon(ventana.class.getResource("/images/paciente.png")));
+		botonPaciente.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/paciente.png")));
 		botonPaciente.setBounds(68, 225, 135, 160);
 		panel.add(botonPaciente);
 		
 		JButton botonMedico = new JButton("");
-		botonMedico.setIcon(new ImageIcon(ventana.class.getResource("/images/medicuo.png")));
+		botonMedico.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/medicuo.png")));
 		botonMedico.setBounds(286, 225, 133, 160);
 		panel.add(botonMedico);
 		
 		JButton botonCita = new JButton("");
-		botonCita.setIcon(new ImageIcon(ventana.class.getResource("/images/cita.png")));
+		botonCita.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cita.png")));
 		botonCita.setBounds(490, 225, 181, 160);
 		panel.add(botonCita);
 		
