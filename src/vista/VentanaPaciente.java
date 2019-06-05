@@ -21,6 +21,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaPaciente extends JFrame {
 	protected JPanel contentPane;
@@ -31,6 +33,8 @@ public class VentanaPaciente extends JFrame {
 	protected JTextField getTxtDireccion;
 	protected JTextField getTxtBuscar;
 	private JPanel panelBuscarPaciente;
+	private JButton btnConsultarPaciente;
+	private JButton btnBuscar;
 
 	/**
 	 * Create the frame.
@@ -59,7 +63,7 @@ public class VentanaPaciente extends JFrame {
 		getTxtBuscar.setColumns(10);
 		getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar = new JButton("Buscar");
 		btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
 		btnBuscar.setForeground(Color.WHITE);
 		btnBuscar.setContentAreaFilled(false);
@@ -70,6 +74,10 @@ public class VentanaPaciente extends JFrame {
 		btnBuscar.setBackground(new Color(0, 102, 204));
 		btnBuscar.setBounds(511, 45, 89, 23);
 		panelBuscarPaciente.add(btnBuscar);
+		
+		btnConsultarPaciente = new JButton("consultar");
+		btnConsultarPaciente.setBounds(520, 235, 97, 25);
+		panelBuscarPaciente.add(btnConsultarPaciente);
 		
 		
 		
@@ -147,13 +155,69 @@ public class VentanaPaciente extends JFrame {
 		
 		
 	}
+	
+	public JButton getBtnConsultarPaciente() {
+		return btnConsultarPaciente;
+	}
 
 	public JPanel getPanelBuscarPaciente() {
 		return panelBuscarPaciente;
 	}
 
-	
+	public JTextField getGetTxtNombre() {
+		return getTxtNombre;
+	}
 
-	
+	public void setGetTxtNombre(JTextField getTxtNombre) {
+		this.getTxtNombre = getTxtNombre;
+	}
+
+	public JTextField getGetTxtApellidos() {
+		return getTxtApellidos;
+	}
+
+	public void setGetTxtApellidos(JTextField getTxtApellidos) {
+		this.getTxtApellidos = getTxtApellidos;
+	}
+
+	public JTextField getGetTxtTelefono() {
+		return getTxtTelefono;
+	}
+
+	public void setGetTxtTelefono(JTextField getTxtTelefono) {
+		this.getTxtTelefono = getTxtTelefono;
+	}
+
+	public JTextField getGetTxtFechaNacimiento() {
+		return getTxtFechaNacimiento;
+	}
+
+	public void setGetTxtFechaNacimiento(JTextField getTxtFechaNacimiento) {
+		this.getTxtFechaNacimiento = getTxtFechaNacimiento;
+	}
+
+	public JTextField getGetTxtDireccion() {
+		return getTxtDireccion;
+	}
+
+	public void setGetTxtDireccion(JTextField getTxtDireccion) {
+		this.getTxtDireccion = getTxtDireccion;
+	}
+
+	public JTextField getGetTxtBuscar() {
+		return getTxtBuscar;
+	}
+
+	public void setGetTxtBuscar(JTextField getTxtBuscar) {
+		this.getTxtBuscar = getTxtBuscar;
+	}
+
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
+	}
 	
 }

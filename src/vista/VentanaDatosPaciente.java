@@ -163,4 +163,28 @@ public class VentanaDatosPaciente extends JFrame{
 		this.setMinimumSize(new Dimension(750, 500));
 	}
 
+	public JTextField getGetTxtNombre() {
+		return getTxtNombre;
+	}
+
+	public JTextField getGetTxtApellidos() {
+		return getTxtApellidos;
+	}
+
+	public JTextField getGetTxtTelefono() {
+		return getTxtTelefono;
+	}
+
+	public JTextField getGetTxtFechaNacimiento() {
+		return getTxtFechaNacimiento;
+	}
+
+	public JTextField getGetTxtDireccion() {
+		return getTxtDireccion;
+	}
+
+	public JTextField getGetTxtBuscar() {
+		return getTxtBuscar;
+	}
+	
 }
