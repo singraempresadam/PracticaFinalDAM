@@ -72,6 +72,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 		getBtnBuscar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				getPanelBuscarPaciente().setVisible(false);
 				String filtro=getGetTxtBuscar().getText();
 				getPanelBuscarPaciente().remove(scrollListaPaciente);
 				pacientes=new JList<String>(filtrar(filtro,test.obtenerElementosAMostrarPacienteTest()));
@@ -79,6 +80,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 				scrollListaPaciente.setBounds(79, 108, 345, 213);
 				scrollListaPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 				getPanelBuscarPaciente().add(scrollListaPaciente);
+				getPanelBuscarPaciente().setVisible(true);
 				
 				
 			}
