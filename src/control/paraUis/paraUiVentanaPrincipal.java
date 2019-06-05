@@ -1,5 +1,10 @@
 package control.paraUis;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+
 import vista.ventanaPrincipal;
 
 public class paraUiVentanaPrincipal extends ventanaPrincipal{
@@ -13,8 +18,30 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 
 	private void crearListeners() {
 		
-		
+		this.getBotonPaciente().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente();
+				paraUiVentanaPaciente.setVisible(true);
+			}
+		});
+		this.getBotonMedico().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				paraUiVentanaMedico paraUiVentanaMedico = new paraUiVentanaMedico();
+				paraUiVentanaMedico.setVisible(true);
+			}
+		});
+		this.getBotonCita().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				paraUiVentanaCita paraUiVentanaCita = new paraUiVentanaCita();
+				paraUiVentanaCita.setVisible(true);
+			}
+		});
 	}
-	
+	private Validator getValidator(){
+		return this.validator;
+	}
 	
 }

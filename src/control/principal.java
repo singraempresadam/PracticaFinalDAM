@@ -2,6 +2,7 @@ package control;
 
 import java.awt.EventQueue;
 
+import control.paraUis.paraUiVentanaPrincipal;
 import vista.ventanaPrincipal;
 
 public class principal {
@@ -12,7 +13,7 @@ public class principal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ventanaPrincipal frame = new ventanaPrincipal();
+					paraUiVentanaPrincipal frame = new paraUiVentanaPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

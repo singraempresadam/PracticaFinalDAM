@@ -30,6 +30,9 @@ import javax.swing.JButton;
 public class ventanaPrincipal extends JFrame {
 
 	protected JPanel contentPane;
+	private JButton botonPaciente;
+	private JButton botonCita;
+	private JButton botonMedico;
 
 	
 
@@ -60,17 +63,17 @@ public class ventanaPrincipal extends JFrame {
 		lblClnicaBuenaSalud.setOpaque(true);
 		lblClnicaBuenaSalud.setForeground(Color.WHITE);
 		
-		JButton botonPaciente = new JButton("");
+		botonPaciente = new JButton("");
 		botonPaciente.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/paciente.png")));
 		botonPaciente.setBounds(68, 225, 135, 160);
 		panel.add(botonPaciente);
 		
-		JButton botonMedico = new JButton("");
+		botonMedico = new JButton("");
 		botonMedico.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/medicuo.png")));
 		botonMedico.setBounds(286, 225, 133, 160);
 		panel.add(botonMedico);
 		
-		JButton botonCita = new JButton("");
+		botonCita = new JButton("");
 		botonCita.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cita.png")));
 		botonCita.setBounds(490, 225, 181, 160);
 		panel.add(botonCita);
@@ -82,4 +85,43 @@ public class ventanaPrincipal extends JFrame {
 		ImageIcon img4=new ImageIcon(imgcita.getScaledInstance(100, 130, Image.SCALE_SMOOTH));
 	
 	}
+
+
+
+
+
+	public JButton getBotonPaciente() {
+		return botonPaciente;
+	}
+
+
+
+	public void setBotonPaciente(JButton botonPaciente) {
+		this.botonPaciente = botonPaciente;
+	}
+
+
+
+	public JButton getBotonCita() {
+		return botonCita;
+	}
+
+
+
+	public void setBotonCita(JButton botonCita) {
+		this.botonCita = botonCita;
+	}
+
+
+
+	public JButton getBotonMedico() {
+		return botonMedico;
+	}
+
+
+
+	public void setBotonMedico(JButton botonMedico) {
+		this.botonMedico = botonMedico;
+	}
+	
 }
