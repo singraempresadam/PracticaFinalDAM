@@ -1,10 +1,11 @@
 package modelo.clasesDatos;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
 import modelo.enumeraciones.TipoDeIntervencion;
 
-public class Intervencion extends Cita{
+public class Intervencion extends Cita implements Serializable{
 	String idUnicoCirujano;
 	TipoDeIntervencion tipoDeIntervencion;
 	
