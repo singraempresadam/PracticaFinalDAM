@@ -30,9 +30,9 @@ import javax.swing.JButton;
 public class ventanaPrincipal extends JFrame {
 
 	protected JPanel contentPane;
-	private JButton botonPaciente;
-	private JButton botonCita;
-	private JButton botonMedico;
+	protected JButton botonPaciente;
+	protected JButton botonCita;
+	protected JButton botonMedico;
 
 	
 
@@ -64,25 +64,32 @@ public class ventanaPrincipal extends JFrame {
 		lblClnicaBuenaSalud.setForeground(Color.WHITE);
 		
 		botonPaciente = new JButton("");
+		botonPaciente.setContentAreaFilled(false);
+		botonPaciente.setBorderPainted(false);
+		botonPaciente.setOpaque(true);
+		botonPaciente.setBackground(new Color(204, 255, 255));
 		botonPaciente.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/paciente.png")));
 		botonPaciente.setBounds(68, 225, 135, 160);
 		panel.add(botonPaciente);
 		
 		botonMedico = new JButton("");
+		botonMedico.setContentAreaFilled(false);
+		botonMedico.setBorderPainted(false);
+		botonMedico.setOpaque(true);
+		botonMedico.setBackground(new Color(204, 255, 255));
 		botonMedico.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/medicuo.png")));
-		botonMedico.setBounds(286, 225, 133, 160);
+		botonMedico.setBounds(291, 225, 133, 160);
 		panel.add(botonMedico);
 		
 		botonCita = new JButton("");
-		botonCita.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cita.png")));
-		botonCita.setBounds(490, 225, 181, 160);
+		botonCita.setContentAreaFilled(false);
+		botonCita.setBorderPainted(false);
+		botonCita.setOpaque(true);
+		botonCita.setBackground(new Color(204, 255, 255));
+		botonCita.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cirujano.png")));
+		botonCita.setBounds(502, 225, 157, 160);
 		panel.add(botonCita);
 		
-		Image imgmedico= new ImageIcon("medico.png").getImage();
-		ImageIcon img5=new ImageIcon(imgmedico.getScaledInstance(100, 130, Image.SCALE_SMOOTH));
-		
-		Image imgcita= new ImageIcon("cita.png").getImage();
-		ImageIcon img4=new ImageIcon(imgcita.getScaledInstance(100, 130, Image.SCALE_SMOOTH));
 	
 	}
 

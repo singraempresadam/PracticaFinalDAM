@@ -33,6 +33,7 @@ public class VentanaHistorialPaciente extends JFrame {
 			{"Mercurio",2443,0,false}
 			
 	};
+	private JTextField setTxtNombre;
 	
 	public VentanaHistorialPaciente() {
 	
@@ -42,14 +43,14 @@ public class VentanaHistorialPaciente extends JFrame {
 	
 	JLabel lblidPaciente = new JLabel("Id Paciente");
 	lblidPaciente.setForeground(new Color(0, 102, 204));
-	lblidPaciente.setFont(new Font("Verdana", Font.BOLD, 14));
-	lblidPaciente.setBounds(20, 75, 103, 26);
+	lblidPaciente.setFont(new Font("Verdana", Font.BOLD, 13));
+	lblidPaciente.setBounds(20, 63, 103, 26);
 	getContentPane().add(lblidPaciente);
 	
 	setTxtIdPaciente = new JTextField();
 	setTxtIdPaciente.setBackground(Color.WHITE);
 	setTxtIdPaciente.setEditable(false);
-	setTxtIdPaciente.setBounds(133, 80, 82, 20);
+	setTxtIdPaciente.setBounds(136, 68, 82, 20);
 	getContentPane().add(setTxtIdPaciente);
 	setTxtIdPaciente.setColumns(10);
 	setTxtIdPaciente.setBorder(new LineBorder(new Color(204, 255, 204)));
@@ -64,17 +65,21 @@ public class VentanaHistorialPaciente extends JFrame {
 	getContentPane().add(lblHistorial);
 	
 	JLabel lblTratamiento = new JLabel("Tratamiento");
-	lblTratamiento.setBounds(37, 129, 82, 14);
+	lblTratamiento.setForeground(new Color(0, 51, 153));
+	lblTratamiento.setFont(new Font("Tahoma", Font.BOLD, 11));
+	lblTratamiento.setBounds(37, 146, 82, 14);
 	getContentPane().add(lblTratamiento);
 	
 	JLabel lblCitas = new JLabel("Citas");
-	lblCitas.setBounds(37, 293, 86, 14);
+	lblCitas.setFont(new Font("Tahoma", Font.BOLD, 11));
+	lblCitas.setForeground(new Color(0, 51, 153));
+	lblCitas.setBounds(37, 303, 86, 14);
 	getContentPane().add(lblCitas);
 	
 	JTable tablaTratamiento = new JTable(datosFila,nombresColumnas);
 	tablaTratamiento.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 	tablaTratamiento.setBorder(new LineBorder(new Color(204, 255, 204), 3));
-	tablaTratamiento.setBounds(37, 150, 533, 132);
+	tablaTratamiento.setBounds(37, 160, 533, 132);
 	tablaTratamiento.setAutoscrolls(true);
 	getContentPane().add(tablaTratamiento);
 	
@@ -82,6 +87,20 @@ public class VentanaHistorialPaciente extends JFrame {
 	tablaCitas.setBorder(new LineBorder(new Color(204, 255, 204), 3));
 	tablaCitas.setBounds(37, 318, 533, 120);
 	getContentPane().add(tablaCitas);
+	
+	JLabel lblNombre = new JLabel("Nombre");
+	lblNombre.setForeground(new Color(0, 102, 204));
+	lblNombre.setFont(new Font("Verdana", Font.BOLD, 13));
+	lblNombre.setBounds(20, 100, 103, 26);
+	getContentPane().add(lblNombre);
+	
+	setTxtNombre = new JTextField();
+	setTxtNombre.setEditable(false);
+	setTxtNombre.setColumns(10);
+	setTxtNombre.setBorder(new LineBorder(new Color(204, 255, 204)));
+	setTxtNombre.setBackground(Color.WHITE);
+	setTxtNombre.setBounds(136, 99, 181, 20);
+	getContentPane().add(setTxtNombre);
 	
 
 	
