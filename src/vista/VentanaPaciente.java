@@ -30,6 +30,7 @@ public class VentanaPaciente extends JFrame {
 	protected JTextField getTxtFechaNacimiento;
 	protected JTextField getTxtDireccion;
 	protected JTextField getTxtBuscar;
+	private JPanel panelBuscarPaciente;
 
 	/**
 	 * Create the frame.
@@ -47,7 +48,7 @@ public class VentanaPaciente extends JFrame {
 		tabbedPane.setBounds(0, 0, 734, 461);
 		getContentPane().add(tabbedPane);
 		
-		JPanel panelBuscarPaciente = new JPanel();
+		panelBuscarPaciente = new JPanel();
 		panelBuscarPaciente.setBackground(Color.WHITE);
 		tabbedPane.addTab("Buscar Paciente", iconbuscar, panelBuscarPaciente, null);
 		panelBuscarPaciente.setLayout(null);
@@ -72,10 +73,7 @@ public class VentanaPaciente extends JFrame {
 		
 		
 		
-		JScrollPane scrollListaPaciente = new JScrollPane();
-		scrollListaPaciente.setBounds(79, 108, 345, 213);
-		panelBuscarPaciente.add(scrollListaPaciente);
-		scrollListaPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		
 		
 		JPanel panelDarAltaPaciente = new JPanel();
 		panelDarAltaPaciente.setBorder(null);
@@ -149,4 +147,13 @@ public class VentanaPaciente extends JFrame {
 		
 		
 	}
+
+	public JPanel getPanelBuscarPaciente() {
+		return panelBuscarPaciente;
+	}
+
+	
+
+	
+	
 }
