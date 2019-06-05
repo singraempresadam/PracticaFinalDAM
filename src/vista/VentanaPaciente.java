@@ -151,6 +151,15 @@ public class VentanaPaciente extends JFrame {
 		getTxtDireccion.setColumns(10);
 		getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
+		JButton btnAnadir = new JButton("A\u00F1adir");
+		btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAnadir.setBackground(new Color(204, 255, 204));
+		btnAnadir.setContentAreaFilled(false);
+		btnAnadir.setBorderPainted(false);
+		btnAnadir.setOpaque(true);
+		btnAnadir.setBounds(600, 361, 89, 23);
+		panelDarAltaPaciente.add(btnAnadir);
+		
 		this.setMinimumSize(new Dimension(750, 500));
 		
 		
