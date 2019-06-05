@@ -1,8 +1,8 @@
 package control.paraUis;
 
-import vista.ventana;
+import vista.ventanaPrincipal;
 
-public class paraUiVentanaPrincipal extends ventana{
+public class paraUiVentanaPrincipal extends ventanaPrincipal{
 	private Validator validator;
 	
 	public paraUiVentanaPrincipal ()
