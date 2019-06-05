@@ -36,5 +36,29 @@ public class TestParaUI {
 			System.out.println(cosas[i]);
 		}
 	}
+	String[] filtrar(String filtro, String[] vectorPacientes) {
+		String retorno [];
+		int j=0;
+		for (int i = 0; i < vectorPacientes.length; i++) {
+			if(vectorPacientes[i].contains(filtro))
+			{
+				j++;
+			}
+		}
+		
+		retorno= new String[j];
+		j=0;
+		for (int i = 0; i < vectorPacientes.length; i++) {
+			if(vectorPacientes[i].contains(filtro))
+			{
+				retorno[j]=vectorPacientes[i];
+				j++;
+			}
+		}
+		return retorno;
+	}
+	public static void main(String[] args) {
+		
+	}
 	
 }
