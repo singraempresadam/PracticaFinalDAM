@@ -19,6 +19,9 @@ public class VentanaCita extends JFrame {
 	protected JTextField setTxtIdPaciente;
 	protected JTextField setTxtIdMedico;
 	protected JTextField getTxtBuscar;
+	private JButton btnVerHorario;
+	private JButton btnSolicitar;
+	private JPanel panelHorarioMedico;
 	
 	public VentanaCita() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/images/iconsalud.png")));
@@ -61,7 +64,7 @@ public class VentanaCita extends JFrame {
 		lblSolicitarCita.setBounds(10, 11, 714, 41);
 		getContentPane().add(lblSolicitarCita);
 		
-		JButton btnSolicitar = new JButton("Solicitar");
+		btnSolicitar = new JButton("Solicitar");
 		btnSolicitar.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnSolicitar.setBackground(new Color(204, 255, 204));
 		btnSolicitar.setContentAreaFilled(false);
@@ -72,7 +75,7 @@ public class VentanaCita extends JFrame {
 		btnSolicitar.setBounds(622, 416, 89, 23);
 		getContentPane().add(btnSolicitar);
 		
-		JButton btnVerHorario = new JButton("Ver horario");
+		btnVerHorario = new JButton("Ver horario");
 		btnVerHorario.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnVerHorario.setBackground(new Color(204, 255, 204));
 		btnVerHorario.setContentAreaFilled(false);
@@ -83,7 +86,7 @@ public class VentanaCita extends JFrame {
 		btnVerHorario.setBounds(492, 115, 122, 23);
 		getContentPane().add(btnVerHorario);
 		
-		JPanel panelHorarioMedico = new JPanel();
+		panelHorarioMedico = new JPanel();
 		panelHorarioMedico.setBounds(120, 207, 500, 200);
 		getContentPane().add(panelHorarioMedico);
 		panelHorarioMedico.setLayout(null);
@@ -172,4 +175,53 @@ public class VentanaCita extends JFrame {
 		
 		this.setMinimumSize(new Dimension(750, 500));
 	}
+
+	public JTextField getSetTxtIdPaciente() {
+		return setTxtIdPaciente;
+	}
+
+	public void setSetTxtIdPaciente(JTextField setTxtIdPaciente) {
+		this.setTxtIdPaciente = setTxtIdPaciente;
+	}
+
+	public JTextField getSetTxtIdMedico() {
+		return setTxtIdMedico;
+	}
+
+	public void setSetTxtIdMedico(JTextField setTxtIdMedico) {
+		this.setTxtIdMedico = setTxtIdMedico;
+	}
+
+	public JTextField getGetTxtBuscar() {
+		return getTxtBuscar;
+	}
+
+	public void setGetTxtBuscar(JTextField getTxtBuscar) {
+		this.getTxtBuscar = getTxtBuscar;
+	}
+
+	public JButton getBtnVerHorario() {
+		return btnVerHorario;
+	}
+
+	public void setBtnVerHorario(JButton btnVerHorario) {
+		this.btnVerHorario = btnVerHorario;
+	}
+
+	public JButton getBtnSolicitar() {
+		return btnSolicitar;
+	}
+
+	public void setBtnSolicitar(JButton btnSolicitar) {
+		this.btnSolicitar = btnSolicitar;
+	}
+
+	public JPanel getPanelHorarioMedico() {
+		return panelHorarioMedico;
+	}
+
+	public void setPanelHorarioMedico(JPanel panelHorarioMedico) {
+		this.panelHorarioMedico = panelHorarioMedico;
+	}
+	
 }
