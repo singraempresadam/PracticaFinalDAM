@@ -1,4 +1,4 @@
-package modelo;
+package modelo.clasesDatos;
 
 public class Tratamiento {
 

@@ -1,137 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="modelo.Cirujano" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Cirujano.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1113" y="82"/>    
+  <class id="1" language="java" name="modelo.clasesDatos.Cirujano" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Cirujano.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="122" width="240" x="-15" y="428"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="modelo.clasesDatos.Paciente" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Paciente.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="169" width="255" x="518" y="396"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="modelo.clasesDatos.Medico" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Medico.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1337" y="463"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="modelo.Persona" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Persona.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="824" y="160"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="4" language="java" name="modelo.clasesDatos.Tratamiento" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Tratamiento.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="218" x="257" y="407"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="modelo.Paciente" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Paciente.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1119" y="297"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="5" language="java" name="modelo.clasesDatos.Horario" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Horario.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="143" width="161" x="946" y="183"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="modelo.Medico" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Medico.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="487" y="156"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="6" language="java" name="modelo.clasesDatos.MedicoActivo" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/MedicoActivo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="121" width="262" x="809" y="391"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="modelo.Tratamiento" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Tratamiento.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1120" y="599"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="7" language="java" name="modelo.clasesDatos.Cita" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Cita.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="150" width="166" x="717" y="138"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="modelo.Horario" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Horario.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="143" y="446"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="8" language="java" name="modelo.GestorModelo" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/GestorModelo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="211" width="268" x="552" y="671"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="modelo.MedicoActivo" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/MedicoActivo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="488" y="477"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="modelo.Cita" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Cita.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="823" y="537"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="modelo.Intervencion" project="PracticaFinalDAM" 
-    file="/PracticaFinalDAM/src/modelo/Intervencion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="507" y="719"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <class id="9" language="java" name="modelo.clasesDatos.Intervencion" project="PracticaFinalDAM" 
+    file="/PracticaFinalDAM/src/modelo/clasesDatos/Intervencion.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="271" width="232" x="401" y="26"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <association id="10">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="11" name="citas"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="11" name="citas">        
+        <position height="20" width="36" x="692" y="267"/>      
+      </attribute>      
+      <multiplicity id="12" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="19" y="-139"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="13">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="14" name="tratamientos"/>      
-      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
+  <generalization id="13">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="14">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="15" name="pacientes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="16" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="17" name="horario"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+  <association id="17">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="18" name="medicosActivo">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="19">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="22">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="24">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="25" name="citas"/>      
-      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
+  <association id="20">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="21" name="medicos">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="24" name="cirujanos">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="27" name="intervenciones">        
+        <position height="20" width="90" x="455" y="210"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="11" y="-112"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="30">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="31" name="citas">        
+        <position height="0" width="0" x="19" y="-139"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="19" y="-139"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="33">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="34" name="horario">        
+        <position height="0" width="0" x="965" y="-37"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="1">        
+        <position height="0" width="0" x="965" y="-37"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="37" name="intervenciones">        
+        <position height="0" width="0" x="11" y="-112"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="11" y="-112"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="40" name="tratamientos">        
+        <position height="0" width="0" x="-719" y="-13"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-719" y="-13"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
