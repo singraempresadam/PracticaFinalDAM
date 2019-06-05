@@ -35,7 +35,7 @@ public class VentanaMedico extends JFrame {
 	private JTextField textField;
 
 		public VentanaMedico() {
-			setIconImage(Toolkit.getDefaultToolkit().getImage(ventana.class.getResource("/images/iconsalud.png")));
+			setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 			getContentPane().setBackground(new Color(255, 255, 255));
 			getContentPane().setLayout(null);
 			
