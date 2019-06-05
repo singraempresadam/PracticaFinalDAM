@@ -25,6 +25,7 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 
 public class ventana extends JFrame {
 
@@ -46,35 +47,38 @@ public class ventana extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(-44, 5, 823, 567);
+		panel.setBounds(0, 0, 734, 541);
 		panel.setBackground(Color.WHITE);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		
-		
-		
-		JLabel lblPaciente = new JLabel("");
-		lblPaciente.setIcon(new ImageIcon(ventana.class.getResource("/images/iconPaciente.png")));
-		lblPaciente.setBounds(100, 204, 208, 193);
-		panel.add(lblPaciente);
 
 
 		
 		JLabel lblClnicaBuenaSalud = new JLabel("Healthy Code");
-		lblClnicaBuenaSalud.setBounds(45, 0, 731, 98);
+		lblClnicaBuenaSalud.setBounds(10, 0, 717, 98);
 		lblClnicaBuenaSalud.setBackground(new Color(51, 153, 255));
 		panel.add(lblClnicaBuenaSalud);
 		lblClnicaBuenaSalud.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 39));
 		lblClnicaBuenaSalud.setOpaque(true);
 		lblClnicaBuenaSalud.setForeground(Color.WHITE);
 		
+		JButton botonPaciente = new JButton("");
+		botonPaciente.setIcon(new ImageIcon(ventana.class.getResource("/images/paciente.png")));
+		botonPaciente.setBounds(68, 225, 135, 160);
+		panel.add(botonPaciente);
 		
+		JButton botonMedico = new JButton("");
+		botonMedico.setIcon(new ImageIcon(ventana.class.getResource("/images/medicuo.png")));
+		botonMedico.setBounds(286, 225, 133, 160);
+		panel.add(botonMedico);
 		
-		
+		JButton botonCita = new JButton("");
+		botonCita.setIcon(new ImageIcon(ventana.class.getResource("/images/cita.png")));
+		botonCita.setBounds(490, 225, 181, 160);
+		panel.add(botonCita);
 		
 		Image imgmedico= new ImageIcon("medico.png").getImage();
-		ImageIcon img3=new ImageIcon(imgmedico.getScaledInstance(100, 130, Image.SCALE_SMOOTH));
+		ImageIcon img5=new ImageIcon(imgmedico.getScaledInstance(100, 130, Image.SCALE_SMOOTH));
 		
 		Image imgcita= new ImageIcon("cita.png").getImage();
 		ImageIcon img4=new ImageIcon(imgcita.getScaledInstance(100, 130, Image.SCALE_SMOOTH));

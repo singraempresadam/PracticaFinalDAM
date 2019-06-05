@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+import javax.swing.border.MatteBorder;
 
 public class VentanaCita extends JFrame {
 	protected JTextField setTxtIdPaciente;
@@ -83,54 +84,90 @@ public class VentanaCita extends JFrame {
 		getContentPane().add(btnVerHorario);
 		
 		JPanel panelHorarioMedico = new JPanel();
-		panelHorarioMedico.setBounds(126, 207, 500, 200);
+		panelHorarioMedico.setBounds(120, 207, 500, 200);
 		getContentPane().add(panelHorarioMedico);
 		panelHorarioMedico.setLayout(null);
 		
 		JLabel lblLunes = new JLabel("Lunes");
-		lblLunes.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+		lblLunes.setBorder(new MatteBorder(2, 2, 0, 1, (Color) new Color(0, 102, 204)));
 		lblLunes.setBackground(new Color(204, 255, 255));
 		lblLunes.setOpaque(true);
 		lblLunes.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblLunes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLunes.setBounds(126, 159, 100, 50);
+		lblLunes.setBounds(120, 159, 100, 50);
 		getContentPane().add(lblLunes);
 		
 		JLabel lblMartes = new JLabel("Martes");
-		lblMartes.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+		lblMartes.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
 		lblMartes.setOpaque(true);
 		lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMartes.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblMartes.setBackground(new Color(204, 255, 255));
-		lblMartes.setBounds(226, 159, 100, 50);
+		lblMartes.setBounds(220, 159, 100, 50);
 		getContentPane().add(lblMartes);
 		
 		JLabel lblMiercoles = new JLabel("Mi\u00E9rcoles");
 		lblMiercoles.setOpaque(true);
 		lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMiercoles.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblMiercoles.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+		lblMiercoles.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
 		lblMiercoles.setBackground(new Color(204, 255, 255));
-		lblMiercoles.setBounds(326, 159, 100, 50);
+		lblMiercoles.setBounds(320, 159, 100, 50);
 		getContentPane().add(lblMiercoles);
 		
 		JLabel lblJueves = new JLabel("Jueves");
 		lblJueves.setOpaque(true);
 		lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
 		lblJueves.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblJueves.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+		lblJueves.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
 		lblJueves.setBackground(new Color(204, 255, 255));
-		lblJueves.setBounds(426, 159, 100, 50);
+		lblJueves.setBounds(420, 159, 100, 50);
 		getContentPane().add(lblJueves);
 		
 		JLabel lblViernes = new JLabel("Viernes");
 		lblViernes.setOpaque(true);
 		lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblViernes.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblViernes.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+		lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
 		lblViernes.setBackground(new Color(204, 255, 255));
-		lblViernes.setBounds(526, 159, 100, 50);
+		lblViernes.setBounds(520, 159, 100, 50);
 		getContentPane().add(lblViernes);
+		
+		JLabel lblHoraInicio = new JLabel("");
+		lblHoraInicio.setOpaque(true);
+		lblHoraInicio.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHoraInicio.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
+		lblHoraInicio.setBackground(new Color(204, 255, 255));
+		lblHoraInicio.setBounds(20, 207, 100, 50);
+		getContentPane().add(lblHoraInicio);
+		
+		JLabel lblHoraDos = new JLabel("");
+		lblHoraDos.setOpaque(true);
+		lblHoraDos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHoraDos.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
+		lblHoraDos.setBackground(new Color(204, 255, 255));
+		lblHoraDos.setBounds(20, 257, 100, 50);
+		getContentPane().add(lblHoraDos);
+		
+		JLabel lblHoraTres = new JLabel("");
+		lblHoraTres.setOpaque(true);
+		lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
+		lblHoraTres.setBackground(new Color(204, 255, 255));
+		lblHoraTres.setBounds(20, 307, 100, 50);
+		getContentPane().add(lblHoraTres);
+		
+		JLabel lblHoraFinal = new JLabel("");
+		lblHoraFinal.setOpaque(true);
+		lblHoraFinal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHoraFinal.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblHoraFinal.setBorder(new MatteBorder(0, 2, 2, 1, (Color) new Color(0, 102, 204)));
+		lblHoraFinal.setBackground(new Color(204, 255, 255));
+		lblHoraFinal.setBounds(20, 357, 100, 50);
+		getContentPane().add(lblHoraFinal);
 		
 		
 		this.setMinimumSize(new Dimension(750, 500));
