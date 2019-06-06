@@ -1,4 +1,4 @@
-package vista;
+package vista.medico;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import vista.ventanaPrincipal;
 
 public class VentanaDatosMedico extends JFrame {
 	protected JTextField getTxtNombre;

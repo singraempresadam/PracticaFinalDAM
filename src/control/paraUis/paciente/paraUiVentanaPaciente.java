@@ -1,4 +1,4 @@
-package control.paraUis;
+package control.paraUis.paciente;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -9,11 +9,13 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
-import vista.VentanaPaciente;
+import control.paraUis.ExceptionDatos;
+import control.paraUis.ParaUiVentanaError;
+import control.paraUis.TestParaUI;
+import control.paraUis.Validator;
+import vista.paciente.VentanaPaciente;
 
 public class paraUiVentanaPaciente extends VentanaPaciente {
-	Validator validator;
-
 	private JScrollPane scrollListaPaciente;
 	TestParaUI test = new TestParaUI();
 	private JList<String> pacientes;
@@ -21,7 +23,6 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 	public paraUiVentanaPaciente() {
 		super();
 		agregarListener();
-		Validator validator = new Validator();
 		pacientes = new JList<String>(test.obtenerElementosAMostrarPacienteTest());
 		pacientes.getSelectionMode();
 		pacientes.setVisible(true);

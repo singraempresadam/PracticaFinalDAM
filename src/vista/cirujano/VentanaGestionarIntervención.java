@@ -1,4 +1,4 @@
-package vista;
+package vista.cirujano;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,6 +11,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextPane;
 import javax.swing.border.MatteBorder;
+
+import vista.ventanaPrincipal;
+
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 

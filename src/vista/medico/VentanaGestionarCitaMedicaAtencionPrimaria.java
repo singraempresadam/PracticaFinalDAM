@@ -1,4 +1,4 @@
-package vista;
+package vista.medico;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +8,9 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import vista.ventanaPrincipal;
+
 import javax.swing.JButton;
 
 public class VentanaGestionarCitaMedicaAtencionPrimaria extends JFrame{

@@ -1,6 +1,6 @@
-package control.paraUis;
+package control.paraUis.paciente;
 
-import vista.VentanaDatosPaciente;
+import vista.paciente.VentanaDatosPaciente;
 
 public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente{
 	String[] ayudante;

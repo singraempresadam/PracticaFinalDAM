@@ -1,4 +1,4 @@
-package vista;
+package vista.paciente;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import vista.ventanaPrincipal;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;

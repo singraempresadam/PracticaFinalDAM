@@ -1,4 +1,4 @@
-package vista;
+package vista.medico;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

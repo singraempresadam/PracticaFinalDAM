@@ -1,4 +1,4 @@
-package vista;
+package vista.paciente;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -19,6 +19,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
+
+import vista.ventanaPrincipal;
+
 import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;

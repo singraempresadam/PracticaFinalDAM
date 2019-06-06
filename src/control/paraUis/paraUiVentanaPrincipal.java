@@ -5,6 +5,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 
+import control.paraUis.cirujano.paraUiVentanaCirujano;
+import control.paraUis.medico.paraUiVentanaMedico;
+import control.paraUis.paciente.paraUiVentanaPaciente;
 import vista.ventanaPrincipal;
 
 public class paraUiVentanaPrincipal extends ventanaPrincipal{

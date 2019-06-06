@@ -1,6 +1,7 @@
-package control.paraUis;
+package control.paraUis.cirujano;
 
-import vista.VentanaCirujano;
+import control.paraUis.Validator;
+import vista.cirujano.VentanaCirujano;
 
 
 public class paraUiVentanaCirujano extends VentanaCirujano{

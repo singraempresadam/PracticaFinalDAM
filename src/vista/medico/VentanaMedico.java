@@ -1,4 +1,4 @@
-package vista;
+package vista.medico;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import net.miginfocom.swing.MigLayout;
+import vista.ventanaPrincipal;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -44,6 +46,17 @@ public class VentanaMedico extends JFrame {
 	private JTextField getTxtApellidosMedico;
 	private JTextField getTxtTelefonoMedico;
 	private JTextField getTxtDireccionMedico;
+	private JPanel panelBuscarMedico;
+	private JButton btnBuscar;
+	private JButton btnConsultarMedico;
+	private JButton btnBuscarEspecialista;
+	private Checkbox checkLMV;
+	private Checkbox checkMJ;
+	private JComboBox comboBoxTurnoEspecialista;
+	private JButton btnAnadirEspecialista;
+	private JButton btnBuscarMedicoAP;
+	private JComboBox comboBoxTurnoMedicoAP;
+	private JButton btnAnadirAtencionPrimaria;
 
 		public VentanaMedico() {
 			setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
@@ -60,7 +73,7 @@ public class VentanaMedico extends JFrame {
 			tabbedPane.setBounds(0, 0, 734, 461);
 			getContentPane().add(tabbedPane);
 			
-			JPanel panelBuscarMedico = new JPanel();
+			panelBuscarMedico = new JPanel();
 			panelBuscarMedico.setBackground(Color.WHITE);
 			tabbedPane.addTab("Buscar Medico", iconbuscar, panelBuscarMedico, null);
 			panelBuscarMedico.setLayout(null);
@@ -71,7 +84,7 @@ public class VentanaMedico extends JFrame {
 			txtgetNombre.setColumns(10);
 			txtgetNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 			
-			JButton btnBuscar = new JButton("Buscar");
+			btnBuscar = new JButton("Buscar");
 			btnBuscar.setBackground(new Color(0, 102, 204));
 			btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnBuscar.setForeground(Color.WHITE);
@@ -81,7 +94,7 @@ public class VentanaMedico extends JFrame {
 			btnBuscar.setBounds(520, 50, 89, 23);
 			panelBuscarMedico.add(btnBuscar);
 			
-			JButton btnConsultarMedico = new JButton("Consultar");
+			btnConsultarMedico = new JButton("Consultar");
 			btnConsultarMedico.setBackground(new Color(0, 102, 204));
 			btnConsultarMedico.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnConsultarMedico.setForeground(Color.WHITE);
@@ -180,7 +193,7 @@ public class VentanaMedico extends JFrame {
 			txtNombreEspecialista.setBounds(44, 56, 405, 25);
 			panelAñadirMedicoEspecialista.add(txtNombreEspecialista);
 			
-			JButton btnBuscarEspecialista = new JButton("Buscar");
+			btnBuscarEspecialista = new JButton("Buscar");
 			btnBuscarEspecialista.setContentAreaFilled(false);
 			btnBuscarEspecialista.setBorderPainted(false);
 			btnBuscarEspecialista.setOpaque(true);
@@ -190,26 +203,21 @@ public class VentanaMedico extends JFrame {
 			btnBuscarEspecialista.setBounds(517, 56, 89, 23);
 			panelAñadirMedicoEspecialista.add(btnBuscarEspecialista);
 			
-			JList listMedicoEspecialista = new JList();
-			listMedicoEspecialista.setBackground(Color.LIGHT_GRAY);
-			listMedicoEspecialista.setBounds(44, 108, 405, 160);
-			panelAñadirMedicoEspecialista.add(listMedicoEspecialista);
-			
-			Checkbox checkLMV = new Checkbox("Lunes Mi\u00E9rcoles Viernes");
+			checkLMV = new Checkbox("Lunes Mi\u00E9rcoles Viernes");
 			checkLMV.setFont(new Font("Georgia", Font.BOLD, 12));
 			checkLMV.setForeground(new Color(0, 51, 102));
 			checkLMV.setBackground(new Color(204, 255, 255));
 			checkLMV.setBounds(502, 124, 160, 22);
 			panelAñadirMedicoEspecialista.add(checkLMV);
 			
-			Checkbox checkMJ = new Checkbox("Martes Jueves");
+			checkMJ = new Checkbox("Martes Jueves");
 			checkMJ.setForeground(new Color(0, 51, 102));
 			checkMJ.setFont(new Font("Georgia", Font.BOLD, 12));
 			checkMJ.setBackground(new Color(204, 255, 255));
 			checkMJ.setBounds(502, 152, 139, 22);
 			panelAñadirMedicoEspecialista.add(checkMJ);
 			
-			JButton btnAnadirEspecialista = new JButton("A\u00F1adir");
+			btnAnadirEspecialista = new JButton("A\u00F1adir");
 			btnAnadirEspecialista.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnAnadirEspecialista.setBackground(new Color(204, 255, 204));
 			btnAnadirEspecialista.setContentAreaFilled(false);
@@ -218,7 +226,7 @@ public class VentanaMedico extends JFrame {
 			btnAnadirEspecialista.setBounds(600, 361, 89, 23);
 			panelAñadirMedicoEspecialista.add(btnAnadirEspecialista);
 			
-			JComboBox comboBoxTurnoEspecialista = new JComboBox();
+			comboBoxTurnoEspecialista = new JComboBox();
 			comboBoxTurnoEspecialista.setMaximumRowCount(2);
 			comboBoxTurnoEspecialista.setBackground(Color.LIGHT_GRAY);
 			comboBoxTurnoEspecialista.setForeground(new Color(0, 0, 0));
@@ -242,7 +250,7 @@ public class VentanaMedico extends JFrame {
 			txtNombreMedicoAP.setBounds(44, 56, 405, 25);
 			panelAñadirMedicoAP.add(txtNombreMedicoAP);
 			
-			JButton btnBuscarMedicoAP = new JButton("Buscar");
+			btnBuscarMedicoAP = new JButton("Buscar");
 			btnBuscarMedicoAP.setForeground(Color.WHITE);
 			btnBuscarMedicoAP.setContentAreaFilled(false);
 			btnBuscarMedicoAP.setBorderPainted(false);
@@ -258,19 +266,14 @@ public class VentanaMedico extends JFrame {
 			labelTurno.setBounds(513, 191, 61, 14);
 			panelAñadirMedicoAP.add(labelTurno);
 			
-			JList listMedicoAP = new JList();
-			listMedicoAP.setBackground(Color.LIGHT_GRAY);
-			listMedicoAP.setBounds(44, 108, 405, 160);
-			panelAñadirMedicoAP.add(listMedicoAP);
-			
-			JComboBox comboBoxTurnoMedicoAP = new JComboBox();
+			comboBoxTurnoMedicoAP = new JComboBox();
 			comboBoxTurnoMedicoAP.setMaximumRowCount(2);
 			comboBoxTurnoMedicoAP.setForeground(Color.BLACK);
 			comboBoxTurnoMedicoAP.setBackground(Color.LIGHT_GRAY);
 			comboBoxTurnoMedicoAP.setBounds(581, 188, 114, 20);
 			panelAñadirMedicoAP.add(comboBoxTurnoMedicoAP);
 			
-			JButton btnAnadirAtencionPrimaria = new JButton("A\u00F1adir");
+			btnAnadirAtencionPrimaria = new JButton("A\u00F1adir");
 			btnAnadirAtencionPrimaria.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnAnadirAtencionPrimaria.setBackground(new Color(204, 255, 204));
 			btnAnadirAtencionPrimaria.setContentAreaFilled(false);
@@ -280,7 +283,83 @@ public class VentanaMedico extends JFrame {
 			panelAñadirMedicoAP.add(btnAnadirAtencionPrimaria);
 			
 			this.setMinimumSize(new Dimension(750, 500));
-			
-			
 		}
+
+		public JTextField getGetTxtBuscar() {
+			return getTxtBuscar;
+		}
+
+		public JTextField getTxtgetNombre() {
+			return txtgetNombre;
+		}
+
+		public JTextField getTxtNombreEspecialista() {
+			return txtNombreEspecialista;
+		}
+
+		public JTextField getTxtNombreMedicoAP() {
+			return txtNombreMedicoAP;
+		}
+
+		public JTextField getGetTxtNombreMedico() {
+			return getTxtNombreMedico;
+		}
+
+		public JTextField getGetTxtApellidosMedico() {
+			return getTxtApellidosMedico;
+		}
+
+		public JTextField getGetTxtTelefonoMedico() {
+			return getTxtTelefonoMedico;
+		}
+
+		public JTextField getGetTxtDireccionMedico() {
+			return getTxtDireccionMedico;
+		}
+
+		public JPanel getPanelBuscarMedico() {
+			return panelBuscarMedico;
+		}
+
+		public JButton getBtnBuscar() {
+			return btnBuscar;
+		}
+
+		public JButton getBtnConsultarMedico() {
+			return btnConsultarMedico;
+		}
+
+		public JButton getBtnBuscarEspecialista() {
+			return btnBuscarEspecialista;
+		}
+
+		public Checkbox getCheckLMV() {
+			return checkLMV;
+		}
+
+		public Checkbox getCheckMJ() {
+			return checkMJ;
+		}
+
+		public JComboBox getComboBoxTurnoEspecialista() {
+			return comboBoxTurnoEspecialista;
+		}
+
+		public JButton getBtnAnadirEspecialista() {
+			return btnAnadirEspecialista;
+		}
+
+		public JButton getBtnBuscarMedicoAP() {
+			return btnBuscarMedicoAP;
+		}
+
+		public JComboBox getComboBoxTurnoMedicoAP() {
+			return comboBoxTurnoMedicoAP;
+		}
+
+		public JButton getBtnAnadirAtencionPrimaria() {
+			return btnAnadirAtencionPrimaria;
+		}
+		
+		
 }
