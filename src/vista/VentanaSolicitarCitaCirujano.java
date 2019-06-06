@@ -5,75 +5,34 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
-public class VentanaSolicitarCitaEspecialista extends JFrame {
-	private JTextField setTxtIdPaciente;
-	private JTextField setTxtIdMedicoEspecialista;
-	private JButton btnSolicitarEspecialista;
+public class VentanaSolicitarCitaCirujano extends JFrame {
 	private JButton btnVerHorario;
 	private JPanel panelHorarioMedico;
+	private JTextField textField;
+	private JTextField textField_1;
 
-	public VentanaSolicitarCitaEspecialista() {
+	public VentanaSolicitarCitaCirujano() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		this.setMinimumSize(new Dimension(750, 500));
-		JLabel lblSolicitarCitaEspecialista = new JLabel("SOLICITAR CITA ESPECIALISTA");
-		lblSolicitarCitaEspecialista.setOpaque(true);
-		lblSolicitarCitaEspecialista.setBackground(new Color(0, 102, 204));
-		lblSolicitarCitaEspecialista.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblSolicitarCitaEspecialista.setForeground(Color.WHITE);
-		lblSolicitarCitaEspecialista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSolicitarCitaEspecialista.setBounds(10, 11, 714, 41);
-		getContentPane().add(lblSolicitarCitaEspecialista);
-		
-		JLabel lblidPaciente = new JLabel("Id Paciente");
-		lblidPaciente.setForeground(new Color(0, 102, 204));
-		lblidPaciente.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblidPaciente.setBounds(41, 79, 179, 26);
-		getContentPane().add(lblidPaciente);
-		
-		JLabel lblidMedico = new JLabel("Id M\u00E9dico Especialista");
-		lblidMedico.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblidMedico.setForeground(new Color(0, 102, 204));
-		lblidMedico.setBounds(41, 116, 196, 19);
-		getContentPane().add(lblidMedico);
-		
-		setTxtIdPaciente = new JTextField();
-		setTxtIdPaciente.setBackground(Color.WHITE);
-		setTxtIdPaciente.setEditable(false);
-		setTxtIdPaciente.setBounds(283, 84, 169, 20);
-		getContentPane().add(setTxtIdPaciente);
-		setTxtIdPaciente.setColumns(10);
-		setTxtIdPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		
-		setTxtIdMedicoEspecialista = new JTextField();
-		setTxtIdMedicoEspecialista.setBackground(Color.WHITE);
-		setTxtIdMedicoEspecialista.setBounds(283, 117, 169, 20);
-		getContentPane().add(setTxtIdMedicoEspecialista);
-		setTxtIdMedicoEspecialista.setColumns(10);
-		setTxtIdMedicoEspecialista.setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		
-		btnSolicitarEspecialista = new JButton("Solicitar");
-		btnSolicitarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnSolicitarEspecialista.setBackground(new Color(204, 255, 204));
-		btnSolicitarEspecialista.setContentAreaFilled(false);
-		btnSolicitarEspecialista.setBorderPainted(false);
-		btnSolicitarEspecialista.setOpaque(true);
-		btnSolicitarEspecialista.setRequestFocusEnabled(false);
-		btnSolicitarEspecialista.setFocusable(false);
-		btnSolicitarEspecialista.setBounds(622, 416, 89, 23);
-		getContentPane().add(btnSolicitarEspecialista);
+		JLabel lblSolicitarCitaCirujano = new JLabel("SOLICITAR CITA CIRUJANO");
+		lblSolicitarCitaCirujano.setOpaque(true);
+		lblSolicitarCitaCirujano.setBackground(new Color(0, 102, 204));
+		lblSolicitarCitaCirujano.setFont(new Font("Verdana", Font.BOLD, 15));
+		lblSolicitarCitaCirujano.setForeground(Color.WHITE);
+		lblSolicitarCitaCirujano.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSolicitarCitaCirujano.setBounds(10, 11, 714, 41);
+		getContentPane().add(lblSolicitarCitaCirujano);
 		
 		btnVerHorario = new JButton("Ver horario");
 		btnVerHorario.setFont(new Font("Verdana", Font.BOLD, 12));
@@ -81,8 +40,6 @@ public class VentanaSolicitarCitaEspecialista extends JFrame {
 		btnVerHorario.setContentAreaFilled(false);
 		btnVerHorario.setBorderPainted(false);
 		btnVerHorario.setOpaque(true);
-		btnVerHorario.setRequestFocusEnabled(false);
-		btnVerHorario.setFocusable(false);
 		btnVerHorario.setBounds(492, 115, 122, 23);
 		getContentPane().add(btnVerHorario);
 		
@@ -163,7 +120,44 @@ public class VentanaSolicitarCitaEspecialista extends JFrame {
 		lblHoraFinal.setBounds(20, 307, 100, 50);
 		getContentPane().add(lblHoraFinal);
 		
+		JLabel label = new JLabel("Id Paciente");
+		label.setForeground(new Color(0, 102, 204));
+		label.setFont(new Font("Verdana", Font.BOLD, 14));
+		label.setBounds(24, 83, 179, 26);
+		getContentPane().add(label);
+		
+		JLabel lblIdCirujano = new JLabel("Id Cirujano");
+		lblIdCirujano.setForeground(new Color(0, 102, 204));
+		lblIdCirujano.setFont(new Font("Verdana", Font.BOLD, 14));
+		lblIdCirujano.setBounds(24, 120, 196, 19);
+		getContentPane().add(lblIdCirujano);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		textField.setBackground(Color.WHITE);
+		textField.setBounds(211, 88, 169, 20);
+		getContentPane().add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		textField_1.setBackground(Color.WHITE);
+		textField_1.setBounds(211, 117, 169, 20);
+		getContentPane().add(textField_1);
+		
+		JButton btnSolicitarCirujano = new JButton("Solicitar");
+		btnSolicitarCirujano.setFont(new Font("Verdana", Font.BOLD, 12));
+		btnSolicitarCirujano.setBackground(new Color(204, 255, 204));
+		btnSolicitarCirujano.setContentAreaFilled(false);
+		btnSolicitarCirujano.setBorderPainted(false);
+		btnSolicitarCirujano.setOpaque(true);
+		btnSolicitarCirujano.setBounds(608, 410, 89, 23);
+		getContentPane().add(btnSolicitarCirujano);
+		
 		
 		this.setMinimumSize(new Dimension(750, 500));
-		}
+	}
+
 }

@@ -97,18 +97,18 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 				String fechaDeNacimiento=getTxtFechaNacimiento.getText();
 				String total=nombre+"-"+apellidos+"-"+telefono+"-"
 							+direccion+"-"+fechaDeNacimiento;
-				try {
-					if(validator.validarDatosPaciente(total).isResultado())
-					{
+//				try {
+//					if(validator.validarDatosPaciente(total).isResultado())
+//					{
 						test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
 						getTxtNombre.setText("");
 						getTxtApellidos.setText("");
 						getTxtFechaNacimiento.setText("");
 						getTxtTelefono.setText("");
-					}
-				} catch (ExceptionDatos e) {
-					/*TABLON MENSAJE*/
-				}
+//					}
+//				} catch (ExceptionDatos e) {
+//					/*TABLON MENSAJE*/
+//				}
 				
 				
 			}

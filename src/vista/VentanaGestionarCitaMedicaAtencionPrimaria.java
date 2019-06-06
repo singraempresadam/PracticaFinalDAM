@@ -30,13 +30,13 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JFrame{
 	lblNombre.setBounds(56, 97, 46, 14);
 	getContentPane().add(lblNombre);
 	
-	JButton btnNewButton = new JButton("Solicitar Especialista");
-	btnNewButton.setBounds(567, 405, 139, 23);
-	getContentPane().add(btnNewButton);
+	JButton btnSolicitarEspecialista = new JButton("Solicitar Especialista");
+	btnSolicitarEspecialista.setBounds(567, 405, 139, 23);
+	getContentPane().add(btnSolicitarEspecialista);
 	
-	JButton btnGestionar = new JButton("Gestionar");
-	btnGestionar.setBounds(455, 405, 89, 23);
-	getContentPane().add(btnGestionar);
+	JButton btnGestionarMedicoAP = new JButton("Gestionar");
+	btnGestionarMedicoAP.setBounds(455, 405, 89, 23);
+	getContentPane().add(btnGestionarMedicoAP);
 	
 	JLabel lblObservaciones = new JLabel("Observaciones");
 	lblObservaciones.setBounds(56, 143, 101, 14);

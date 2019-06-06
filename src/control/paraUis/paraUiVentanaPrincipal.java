@@ -32,11 +32,11 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 				paraUiVentanaMedico.setVisible(true);
 			}
 		});
-		this.getBotonCita().addMouseListener(new MouseAdapter() {
+		this.getBotonCirujano().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				paraUiVentanaCita paraUiVentanaCita = new paraUiVentanaCita();
-				paraUiVentanaCita.setVisible(true);
+				paraUiVentanaCirujano paraUiVentanaCirujano = new paraUiVentanaCirujano();
+				paraUiVentanaCirujano.setVisible(true);
 			}
 		});
 	}

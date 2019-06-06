@@ -25,9 +25,9 @@ public class VentanaGestionarCitaEspecialista extends JFrame{
 		lblGestionarCitaEspecialista.setBounds(10, 11, 714, 41);
 		getContentPane().add(lblGestionarCitaEspecialista);
 		
-		JButton btnNewButton = new JButton("Gestionar");
-		btnNewButton.setBounds(451, 411, 89, 23);
-		getContentPane().add(btnNewButton);
+		JButton btnGestionarEspecialista = new JButton("Gestionar");
+		btnGestionarEspecialista.setBounds(451, 411, 89, 23);
+		getContentPane().add(btnGestionarEspecialista);
 		
 		JButton btnSolicitarCirujano = new JButton("Solicitar Cirujano");
 		btnSolicitarCirujano.setBounds(565, 411, 124, 23);

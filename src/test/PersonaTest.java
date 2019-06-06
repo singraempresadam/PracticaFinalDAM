@@ -34,6 +34,26 @@ class PersonaTest {
 	}
 	
 	@Test
+	void testValidaApellidos() {
+		String apellidoBienUno = "Fernandez";
+		String apellidoBienDos = "Javie Encho";
+		String apellidoBienTres = "Francisco Javier";
+		
+		String apellidoMalUno = "juan";
+		String apellidoMalDos = "JaViE rNChO";
+		String apellidoMalTres = "Yo Soy Tu Padre";
+		
+		
+		assertTrue(Persona.validaNombre(apellidoBienUno).isResultado());
+		assertTrue(Persona.validaNombre(apellidoBienDos).isResultado());
+		assertTrue(Persona.validaNombre(apellidoBienTres).isResultado());
+		
+		assertFalse(Persona.validaNombre(apellidoMalUno).isResultado());
+		assertFalse(Persona.validaNombre(apellidoMalDos).isResultado());
+		assertFalse(Persona.validaNombre(apellidoMalTres).isResultado());
+	}
+	
+	@Test
 	void testValidaTelefono() {
 		String telefonoBienUno = "622865620";
 		String telefonoBienDos = "722277147";

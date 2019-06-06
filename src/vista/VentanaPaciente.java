@@ -85,74 +85,71 @@ public class VentanaPaciente extends JFrame {
 		panelBuscarPaciente.add(btnConsultarPaciente);
 		
 		
-		
-		
-		
-		JPanel panelDarAltaPaciente = new JPanel();
-		panelDarAltaPaciente.setBorder(null);
-		panelDarAltaPaciente.setBackground(Color.WHITE);
-		tabbedPane.addTab("Añadir Paciente", iconagregar, panelDarAltaPaciente, null);
-		panelDarAltaPaciente.setLayout(null);
+		JPanel panelAñadirPaciente = new JPanel();
+		panelAñadirPaciente.setBorder(null);
+		panelAñadirPaciente.setBackground(Color.WHITE);
+		tabbedPane.addTab("Añadir Paciente", iconagregar, panelAñadirPaciente, null);
+		panelAñadirPaciente.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(0, 102, 204));
 		lblNombre.setFont(new Font("Verdana", Font.BOLD, 14));
 		lblNombre.setBounds(24, 47, 86, 26);
-		panelDarAltaPaciente.add(lblNombre);
+		panelAñadirPaciente.add(lblNombre);
 		
 		JLabel lblApellidos = new JLabel("Apellidos");
 		lblApellidos.setForeground(new Color(0, 102, 204));
 		lblApellidos.setFont(new Font("Verdana", Font.BOLD, 14));
 		lblApellidos.setBounds(24, 99, 86, 26);
-		panelDarAltaPaciente.add(lblApellidos);
+		panelAñadirPaciente.add(lblApellidos);
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono");
 		lblTelefono.setFont(new Font("Verdana", Font.BOLD, 14));
 		lblTelefono.setForeground(new Color(0, 102, 204));
 		lblTelefono.setBounds(24, 151, 86, 19);
-		panelDarAltaPaciente.add(lblTelefono);
+		panelAñadirPaciente.add(lblTelefono);
 		
 		JLabel lblDireccion = new JLabel("Direcci\u00F3n");
 		lblDireccion.setForeground(new Color(0, 102, 204));
 		lblDireccion.setFont(new Font("Verdana", Font.BOLD, 14));
 		lblDireccion.setBounds(24, 189, 86, 26);
-		panelDarAltaPaciente.add(lblDireccion);
+		panelAñadirPaciente.add(lblDireccion);
 		
-		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
-		lblFechaDeNacimiento.setForeground(new Color(0, 102, 204));
-		lblFechaDeNacimiento.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblFechaDeNacimiento.setBounds(24, 238, 160, 19);
-		panelDarAltaPaciente.add(lblFechaDeNacimiento);
+		JLabel lblFechaNacimiento = new JLabel("Fecha de nacimiento");
+		lblFechaNacimiento.setForeground(new Color(0, 102, 204));
+		lblFechaNacimiento.setFont(new Font("Verdana", Font.BOLD, 14));
+		lblFechaNacimiento.setBounds(24, 238, 160, 19);
+		panelAñadirPaciente.add(lblFechaNacimiento);
 		
 		
 		getTxtNombre = new JTextField();
 		getTxtNombre.setBackground(new Color(255, 255, 255));
 		getTxtNombre.setBounds(223, 52, 169, 20);
-		panelDarAltaPaciente.add(getTxtNombre);
+		panelAñadirPaciente.add(getTxtNombre);
 		getTxtNombre.setColumns(10);
 		getTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
 		getTxtApellidos = new JTextField();
 		getTxtApellidos.setBounds(223, 97, 169, 20);
-		panelDarAltaPaciente.add(getTxtApellidos);
+		panelAñadirPaciente.add(getTxtApellidos);
 		getTxtApellidos.setColumns(10);
 		getTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
 		getTxtTelefono = new JTextField();
 		getTxtTelefono.setBounds(223, 152, 169, 20);
-		panelDarAltaPaciente.add(getTxtTelefono);
+		panelAñadirPaciente.add(getTxtTelefono);
 		getTxtTelefono.setColumns(10);
 		getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
 		getTxtFechaNacimiento = new JTextField();
 		getTxtFechaNacimiento.setBounds(223, 239, 169, 20);
-		panelDarAltaPaciente.add(getTxtFechaNacimiento);
+		panelAñadirPaciente.add(getTxtFechaNacimiento);
 		getTxtFechaNacimiento.setColumns(10);
 		getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
 		getTxtDireccion = new JTextField();
 		getTxtDireccion.setBounds(223, 194, 169, 20);
-		panelDarAltaPaciente.add(getTxtDireccion);
+		panelAñadirPaciente.add(getTxtDireccion);
 		getTxtDireccion.setColumns(10);
 		getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
@@ -164,7 +161,7 @@ public class VentanaPaciente extends JFrame {
 		btnAnadir.setBorderPainted(false);
 		btnAnadir.setOpaque(true);
 		btnAnadir.setBounds(600, 361, 89, 23);
-		panelDarAltaPaciente.add(btnAnadir);
+		panelAñadirPaciente.add(btnAnadir);
 		
 		this.setMinimumSize(new Dimension(750, 500));
 		
