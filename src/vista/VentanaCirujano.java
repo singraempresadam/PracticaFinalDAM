@@ -19,7 +19,7 @@ public class VentanaCirujano extends JFrame{
 		lblCirujano.setOpaque(true);
 		lblCirujano.setBackground(new Color(0, 102, 204));
 		lblCirujano.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblCirujano.setForeground(Color.WHITE);
+		lblCirujano.setForeground(Color.BLACK);
 		lblCirujano.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCirujano.setBounds(10, 11, 714, 41);
 		getContentPane().add(lblCirujano);
