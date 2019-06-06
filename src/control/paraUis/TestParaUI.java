@@ -19,6 +19,11 @@ public class TestParaUI {
 		pacientesTest.put(tres.getIdUnico(), tres);
 		pacientesTest.put(cuatro.getIdUnico(), cuatro);
 	}
+	public void crearPaciente(String nombre, String apellidos, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
+	{
+		Paciente paciente = new Paciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
+		pacientesTest.put(paciente.getIdUnico(), paciente);
+	}
 	public String[] obtenerElementosAMostrarPacienteTest() {
 		String[] retorno = new String[pacientesTest.size()];
 		int i = 0;
