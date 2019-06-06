@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 public class VentanaError extends JFrame {
 	public VentanaError() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
+		setLocationRelativeTo(null);
 		setForeground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
 		
@@ -23,6 +24,7 @@ public class VentanaError extends JFrame {
 		lblError.setFont(new Font("Tahoma", Font.BOLD, 11));
 		getContentPane().add(lblError, BorderLayout.CENTER);
 		this.setMinimumSize(new Dimension(300, 150));
+		
 	}
 
 }

@@ -34,21 +34,19 @@ public class ventanaPrincipal extends JFrame {
 	protected JButton botonCirujano;
 	protected JButton botonMedico;
 
-	
-
 	/**
 	 * Create the frame.
 	 */
 	public ventanaPrincipal() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		setForeground(Color.WHITE);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
 		this.setMinimumSize(new Dimension(750, 500));
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 580);
 		getContentPane().setLayout(null);
-		setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 734, 541);
