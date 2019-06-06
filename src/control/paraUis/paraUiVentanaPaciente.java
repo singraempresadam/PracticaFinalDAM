@@ -98,16 +98,26 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 				String total=nombre+"-"+apellidos+"-"+telefono+"-"
 							+direccion+"-"+fechaDeNacimiento;
 				try {
-					if(validator.validarDatosPaciente(total).isResultado())
-					{
-						test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
-						getTxtNombre.setText("");
-						getTxtApellidos.setText("");
-						getTxtFechaNacimiento.setText("");
-						getTxtTelefono.setText("");
+					try {
+						if((validator.validarDatosPaciente(total)).isResultado())
+						{
+							test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
+							getTxtNombre.setText("");
+							getTxtApellidos.setText("");
+							getTxtFechaNacimiento.setText("");
+							getTxtTelefono.setText("");
+						}
+					} catch (ExceptionDatos e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (ExceptionDatos e) {
-					/*TABLON MENSAJE*/
+				} catch (NullPointerException e) {
+					try {
+						System.out.println(validator.validarDatosPaciente(total).isResultado());
+					} catch (ExceptionDatos e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 				
 				

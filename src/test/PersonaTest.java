@@ -51,4 +51,12 @@ class PersonaTest {
 		assertFalse(Persona.validaTelefono(telefonoMalDos).isResultado());
 		assertFalse(Persona.validaTelefono(telefonoMalTres).isResultado());
 	}
+	@Test
+	void testValidaDireccion() {
+		String direccionBienUno = "Calle Merida";
+		String direccionBienDos = "Avenida America";
+		String direccionBienTres = "Puertas de tu corazon";
+		
+		String direccionMalUno = "Socialdemocratificación de los derechos según el manifiesto comunista nazi";
+	}
 }

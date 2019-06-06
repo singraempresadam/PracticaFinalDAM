@@ -1,15 +1,17 @@
 package control.paraUis;
 
+import java.util.function.BooleanSupplier;
+
 import modelo.clasesDatos.Paciente;
 import modelo.clasesDatos.Respuesta;
 
 public class Validator{
-	Respuesta validarDatosPaciente(String datosPaciente) throws ExceptionDatos
+	public Respuesta validarDatosPaciente(String datosPaciente) throws ExceptionDatos
 	{
-		int i=-1;
+		int i=0;
 		String datosFragmentados[]= datosPaciente.split("-");
 		Respuesta retorno= new Respuesta(true,"No hay fallo");
-		Respuesta [] retornoArray= new Respuesta [4];
+		Respuesta [] retornoArray= new Respuesta [5];
 		retornoArray[0]=Paciente.validaNombre(datosFragmentados[0]);
 		//retornoArray[1]=Paciente.validaApellidos(datosFragmentados[1]);
 		retornoArray[1]=new Respuesta (true, "nada");
@@ -18,13 +20,12 @@ public class Validator{
 		retornoArray[3]=new Respuesta (true, "nada");
 		retornoArray[4]=Paciente.validaFechaNacimiento(datosFragmentados[4]);
 		
-		while(retorno.isResultado())
+		while(retorno.isResultado() && i < retornoArray.length)
 		{
-			i++;
 			retorno=retornoArray[i];
 			if(!retornoArray[i].isResultado()) throw new ExceptionDatos(retornoArray[i].getComentario());
+			i++;
 		}
-		
 		return retorno; 
 	}
 }
