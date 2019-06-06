@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class VentanaSolicitarCitaEspecialista extends JFrame {
-	private JTextField setTxtIdPaciente;
 	private JTextField setTxtIdMedicoEspecialista;
 	private JButton btnSolicitarEspecialista;
 	private JButton btnVerHorario;
@@ -37,29 +36,15 @@ public class VentanaSolicitarCitaEspecialista extends JFrame {
 		lblSolicitarCitaEspecialista.setBounds(10, 11, 714, 41);
 		getContentPane().add(lblSolicitarCitaEspecialista);
 		
-		JLabel lblidPaciente = new JLabel("Id Paciente");
-		lblidPaciente.setForeground(new Color(0, 102, 204));
-		lblidPaciente.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblidPaciente.setBounds(41, 79, 179, 26);
-		getContentPane().add(lblidPaciente);
-		
 		JLabel lblidMedico = new JLabel("Id M\u00E9dico Especialista");
 		lblidMedico.setFont(new Font("Verdana", Font.BOLD, 14));
 		lblidMedico.setForeground(new Color(0, 102, 204));
-		lblidMedico.setBounds(41, 116, 196, 19);
+		lblidMedico.setBounds(38, 63, 196, 19);
 		getContentPane().add(lblidMedico);
-		
-		setTxtIdPaciente = new JTextField();
-		setTxtIdPaciente.setBackground(Color.WHITE);
-		setTxtIdPaciente.setEditable(false);
-		setTxtIdPaciente.setBounds(283, 84, 169, 20);
-		getContentPane().add(setTxtIdPaciente);
-		setTxtIdPaciente.setColumns(10);
-		setTxtIdPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
 		setTxtIdMedicoEspecialista = new JTextField();
 		setTxtIdMedicoEspecialista.setBackground(Color.WHITE);
-		setTxtIdMedicoEspecialista.setBounds(283, 117, 169, 20);
+		setTxtIdMedicoEspecialista.setBounds(279, 63, 169, 20);
 		getContentPane().add(setTxtIdMedicoEspecialista);
 		setTxtIdMedicoEspecialista.setColumns(10);
 		setTxtIdMedicoEspecialista.setBorder(new LineBorder(new Color(0, 102, 204), 2));

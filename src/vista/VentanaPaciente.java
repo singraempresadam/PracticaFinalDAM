@@ -43,7 +43,8 @@ public class VentanaPaciente extends JFrame {
 	public VentanaPaciente() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
-		getContentPane().setLayout(null);
+		setBounds(100, 100, 750, 500);
+		setLocationRelativeTo(null);
 		
 		ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
 		ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
@@ -59,7 +60,7 @@ public class VentanaPaciente extends JFrame {
 		panelBuscarPaciente.setLayout(null);
 		
 		getTxtBuscar = new JTextField();
-		getTxtBuscar.setBounds(79, 43, 345, 27);
+		getTxtBuscar.setBounds(80, 50, 345, 27);
 		panelBuscarPaciente.add(getTxtBuscar);
 		getTxtBuscar.setColumns(10);
 		getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 2));
@@ -71,7 +72,7 @@ public class VentanaPaciente extends JFrame {
 		btnBuscar.setBorderPainted(false);
 		btnBuscar.setOpaque(true);
 		btnBuscar.setBackground(new Color(0, 102, 204));
-		btnBuscar.setBounds(511, 45, 89, 23);
+		btnBuscar.setBounds(520, 50, 89, 23);
 		panelBuscarPaciente.add(btnBuscar);
 		
 		btnConsultarPaciente = new JButton("Consultar");
@@ -81,7 +82,7 @@ public class VentanaPaciente extends JFrame {
 		btnConsultarPaciente.setBorderPainted(false);
 		btnConsultarPaciente.setOpaque(true);
 		btnConsultarPaciente.setBackground(new Color(0, 102, 204));
-		btnConsultarPaciente.setBounds(511, 134, 97, 25);
+		btnConsultarPaciente.setBounds(520, 130, 125, 25);
 		panelBuscarPaciente.add(btnConsultarPaciente);
 		
 		

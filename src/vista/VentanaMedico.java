@@ -49,6 +49,8 @@ public class VentanaMedico extends JFrame {
 			setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 			getContentPane().setBackground(new Color(255, 255, 255));
 			getContentPane().setLayout(null);
+			setBounds(100, 100, 750, 500);
+			setLocationRelativeTo(null);
 			
 			ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
 			ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
@@ -64,10 +66,10 @@ public class VentanaMedico extends JFrame {
 			panelBuscarMedico.setLayout(null);
 			
 			txtgetNombre = new JTextField();
-			txtgetNombre.setBounds(56, 47, 405, 25);
+			txtgetNombre.setBounds(80, 50, 345, 27);
 			panelBuscarMedico.add(txtgetNombre);
 			txtgetNombre.setColumns(10);
-			txtgetNombre.setBorder(new LineBorder(new Color(102, 153, 255), 2));
+			txtgetNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 			
 			JButton btnBuscar = new JButton("Buscar");
 			btnBuscar.setBackground(new Color(0, 102, 204));
@@ -76,13 +78,8 @@ public class VentanaMedico extends JFrame {
 			btnBuscar.setContentAreaFilled(false);
 			btnBuscar.setBorderPainted(false);
 			btnBuscar.setOpaque(true);
-			btnBuscar.setBounds(520, 47, 89, 23);
+			btnBuscar.setBounds(520, 50, 89, 23);
 			panelBuscarMedico.add(btnBuscar);
-			
-			JList listMedicos = new JList();
-			listMedicos.setBackground(Color.LIGHT_GRAY);
-			listMedicos.setBounds(56, 103, 405, 160);
-			panelBuscarMedico.add(listMedicos);
 			
 			JButton btnConsultarMedico = new JButton("Consultar");
 			btnConsultarMedico.setBackground(new Color(0, 102, 204));
@@ -91,7 +88,7 @@ public class VentanaMedico extends JFrame {
 			btnConsultarMedico.setContentAreaFilled(false);
 			btnConsultarMedico.setBorderPainted(false);
 			btnConsultarMedico.setOpaque(true);
-			btnConsultarMedico.setBounds(520, 138, 114, 23);
+			btnConsultarMedico.setBounds(520, 130, 125, 25);
 			panelBuscarMedico.add(btnConsultarMedico);
 			
 			JPanel panelAnadirMedico = new JPanel();

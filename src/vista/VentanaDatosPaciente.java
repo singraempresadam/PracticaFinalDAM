@@ -35,6 +35,8 @@ public class VentanaDatosPaciente extends JFrame{
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
+		setBounds(100, 100, 750, 500);
+		setLocationRelativeTo(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(0, 102, 204));
@@ -112,8 +114,6 @@ public class VentanaDatosPaciente extends JFrame{
 		btnModificar.setContentAreaFilled(false);
 		btnModificar.setBorderPainted(false);
 		btnModificar.setOpaque(true);
-		btnModificar.setRequestFocusEnabled(false);
-		btnModificar.setFocusable(false);
 		btnModificar.setBounds(71, 361, 109, 23);
 		getContentPane().add(btnModificar);
 		
@@ -123,8 +123,6 @@ public class VentanaDatosPaciente extends JFrame{
 		btnEliminar.setContentAreaFilled(false);
 		btnEliminar.setBorderPainted(false);
 		btnEliminar.setOpaque(true);
-		btnEliminar.setRequestFocusEnabled(false);
-		btnEliminar.setFocusable(false);
 		btnEliminar.setBounds(226, 361, 97, 23);
 		getContentPane().add(btnEliminar);
 		
@@ -134,8 +132,6 @@ public class VentanaDatosPaciente extends JFrame{
 		btnSolicitarCita.setContentAreaFilled(false);
 		btnSolicitarCita.setBorderPainted(false);
 		btnSolicitarCita.setOpaque(true);
-		btnSolicitarCita.setRequestFocusEnabled(false);
-		btnSolicitarCita.setFocusable(false);
 		btnSolicitarCita.setBounds(528, 361, 136, 23);
 		getContentPane().add(btnSolicitarCita);
 		
@@ -154,8 +150,6 @@ public class VentanaDatosPaciente extends JFrame{
 		btnHistorial.setContentAreaFilled(false);
 		btnHistorial.setBorderPainted(false);
 		btnHistorial.setOpaque(true);
-		btnHistorial.setRequestFocusEnabled(false);
-		btnHistorial.setFocusable(false);
 		btnHistorial.setBounds(381, 361, 109, 23);
 		getContentPane().add(btnHistorial);
 		
