@@ -7,7 +7,6 @@ import modelo.clasesDatos.Respuesta;
 public class Validator{
 	public Respuesta validarDatosPaciente(String datosPaciente) throws ExceptionDatos
 	{
-		int i=0;
 		String datosFragmentados[]= datosPaciente.split("-");
 		Respuesta retorno= new Respuesta(true,"No hay fallo");
 		Respuesta [] retornoArray= new Respuesta [5];
@@ -16,11 +15,11 @@ public class Validator{
 		retornoArray[2]=Paciente.validaTelefono(datosFragmentados[2]);
 		retornoArray[3]=Paciente.validaDireccion(datosFragmentados[3]);
 		retornoArray[4]=Paciente.validaFechaNacimiento(datosFragmentados[4]);
-		
+		int i=0;
 		while(retorno.isResultado() && i < retornoArray.length)
 		{
 			retorno=retornoArray[i];
-			if(!retornoArray[i].isResultado()) throw new ExceptionDatos(retornoArray[i].getComentario());
+			if(!retorno.isResultado()) throw new ExceptionDatos(retorno.getComentario());
 			i++;
 		}
 		return retorno; 

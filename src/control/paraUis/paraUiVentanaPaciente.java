@@ -88,7 +88,6 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				Validator validator = new Validator();
-				String respuesta = null;
 				String nombre = getTxtNombre.getText();
 				String apellidos = getTxtApellidos.getText();
 				String telefono = getTxtTelefono.getText();
