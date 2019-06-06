@@ -35,6 +35,8 @@ public class VentanaDatosPaciente extends JFrame{
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
+		setBounds(100, 100, 750, 500);
+		setLocationRelativeTo(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(0, 102, 204));

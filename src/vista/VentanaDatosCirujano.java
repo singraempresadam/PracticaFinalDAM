@@ -12,15 +12,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-public class VentanaDatosMedico extends JFrame {
+public class VentanaDatosCirujano extends JFrame {
 	protected JTextField getTxtNombre;
 	protected JTextField getTxtApellidos;
 	protected JTextField getTxtTelefono;
-	protected JTextField getTxtFechaNacimiento;
 	protected JTextField getTxtDireccion;
 	protected JTextField getTxtBuscar;
 	
-	public VentanaDatosMedico() {
+	public VentanaDatosCirujano() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
@@ -50,12 +49,6 @@ public class VentanaDatosMedico extends JFrame {
 		lblDireccion.setBounds(83, 189, 86, 26);
 		getContentPane().add(lblDireccion);
 		
-		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
-		lblFechaDeNacimiento.setForeground(new Color(0, 102, 204));
-		lblFechaDeNacimiento.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblFechaDeNacimiento.setBounds(83, 238, 160, 19);
-		getContentPane().add(lblFechaDeNacimiento);
-		
 		getTxtNombre = new JTextField();
 		getTxtNombre.setEditable(false);
 		getTxtNombre.setBackground(new Color(255, 255, 255));
@@ -80,14 +73,6 @@ public class VentanaDatosMedico extends JFrame {
 		getTxtTelefono.setColumns(10);
 		getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		getTxtFechaNacimiento = new JTextField();
-		getTxtFechaNacimiento.setBackground(Color.WHITE);
-		getTxtFechaNacimiento.setEditable(false);
-		getTxtFechaNacimiento.setBounds(283, 239, 169, 20);
-		getContentPane().add(getTxtFechaNacimiento);
-		getTxtFechaNacimiento.setColumns(10);
-		getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		
 		getTxtDireccion = new JTextField();
 		getTxtDireccion.setBackground(Color.WHITE);
 		getTxtDireccion.setEditable(false);
@@ -96,46 +81,25 @@ public class VentanaDatosMedico extends JFrame {
 		getTxtDireccion.setColumns(10);
 		getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		JButton btnModificar = new JButton("Modificar");
-		btnModificar.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnModificar.setBackground(new Color(204, 255, 204));
-		btnModificar.setContentAreaFilled(false);
-		btnModificar.setBorderPainted(false);
-		btnModificar.setOpaque(true);
-		btnModificar.setRequestFocusEnabled(false);
-		btnModificar.setFocusable(false);
-		btnModificar.setBounds(102, 361, 103, 23);
-		getContentPane().add(btnModificar);
+		JButton btnGestionarIntervencion = new JButton("Gestionar Intervenci\u00F3n");
+		btnGestionarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
+		btnGestionarIntervencion.setBackground(new Color(204, 255, 204));
+		btnGestionarIntervencion.setContentAreaFilled(false);
+		btnGestionarIntervencion.setBorderPainted(false);
+		btnGestionarIntervencion.setOpaque(true);
+		btnGestionarIntervencion.setRequestFocusEnabled(false);
+		btnGestionarIntervencion.setFocusable(false);
+		btnGestionarIntervencion.setBounds(474, 391, 185, 23);
+		getContentPane().add(btnGestionarIntervencion);
 		
-		JButton btnDardebaja = new JButton("Dar de Baja");
-		btnDardebaja.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnDardebaja.setBackground(new Color(204, 255, 204));
-		btnDardebaja.setContentAreaFilled(false);
-		btnDardebaja.setBorderPainted(false);
-		btnDardebaja.setOpaque(true);
-		btnDardebaja.setRequestFocusEnabled(false);
-		btnDardebaja.setFocusable(false);
-		btnDardebaja.setBounds(292, 361, 126, 23);
-		getContentPane().add(btnDardebaja);
-		
-		JButton btnGestionarCita = new JButton("Gestionar Cita");
-		btnGestionarCita.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnGestionarCita.setBackground(new Color(204, 255, 204));
-		btnGestionarCita.setContentAreaFilled(false);
-		btnGestionarCita.setBorderPainted(false);
-		btnGestionarCita.setOpaque(true);
-		btnGestionarCita.setRequestFocusEnabled(false);
-		btnGestionarCita.setFocusable(false);
-		btnGestionarCita.setBounds(483, 361, 136, 23);
-		getContentPane().add(btnGestionarCita);
-		
-		JLabel lblMedico = new JLabel("MEDICO");
-		lblMedico.setOpaque(true);
-		lblMedico.setBackground(new Color(0, 102, 204));
-		lblMedico.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblMedico.setForeground(Color.WHITE);
-		lblMedico.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMedico.setBounds(10, 11, 714, 41);
-		getContentPane().add(lblMedico);
+		JLabel lblCirujano = new JLabel("CIRUJANO");
+		lblCirujano.setOpaque(true);
+		lblCirujano.setBackground(new Color(0, 102, 204));
+		lblCirujano.setFont(new Font("Verdana", Font.BOLD, 15));
+		lblCirujano.setForeground(Color.WHITE);
+		lblCirujano.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCirujano.setBounds(10, 11, 714, 41);
+		getContentPane().add(lblCirujano);
 	}
+
 }

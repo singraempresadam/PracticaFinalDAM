@@ -21,11 +21,13 @@ public class VentanaCirujano extends JFrame{
 	private JTextField getTxtApellidoCirujano;
 	private JTextField getTxtTelefonoCirujano;
 	private JTextField getTxtDireccionCirujano;
+	private JTextField getTxtCirujano;
 	public VentanaCirujano() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
-		this.setMinimumSize(new Dimension(750, 500));
+		setBounds(100, 100, 750, 500);
+		setLocationRelativeTo(null);
 		
 		ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
 		ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
@@ -34,6 +36,37 @@ public class VentanaCirujano extends JFrame{
 		tabbedPane.setBackground(Color.WHITE);
 		tabbedPane.setBounds(0, 0, 734, 461);
 		getContentPane().add(tabbedPane);
+		
+		JPanel panelBuscar = new JPanel();
+		panelBuscar.setBackground(Color.WHITE);
+		tabbedPane.addTab("Buscar Cirujano", iconbuscar, panelBuscar, null);
+		panelBuscar.setLayout(null);
+		
+		getTxtCirujano = new JTextField();
+		getTxtCirujano.setColumns(10);
+		getTxtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		getTxtCirujano.setBounds(80, 50, 345, 27);
+		panelBuscar.add(getTxtCirujano);
+		
+		JButton btnBuscarCirujano = new JButton("Buscar");
+		btnBuscarCirujano.setFont(new Font("Verdana", Font.BOLD, 11));
+		btnBuscarCirujano.setForeground(Color.WHITE);
+		btnBuscarCirujano.setContentAreaFilled(false);
+		btnBuscarCirujano.setBorderPainted(false);
+		btnBuscarCirujano.setOpaque(true);
+		btnBuscarCirujano.setBackground(new Color(0, 102, 204));
+		btnBuscarCirujano.setBounds(520, 50, 89, 23);
+		panelBuscar.add(btnBuscarCirujano);
+		
+		JButton btnConsultarCirujano = new JButton("Consultar");
+		btnConsultarCirujano.setFont(new Font("Verdana", Font.BOLD, 11));
+		btnConsultarCirujano.setForeground(Color.WHITE);
+		btnConsultarCirujano.setContentAreaFilled(false);
+		btnConsultarCirujano.setBorderPainted(false);
+		btnConsultarCirujano.setOpaque(true);
+		btnConsultarCirujano.setBackground(new Color(0, 102, 204));
+		btnConsultarCirujano.setBounds(520, 130, 125, 25);
+		panelBuscar.add(btnConsultarCirujano);
 		
 		JPanel panelAnadirCirujano = new JPanel();
 		panelAnadirCirujano.setBackground(Color.WHITE);
@@ -100,10 +133,6 @@ public class VentanaCirujano extends JFrame{
 		btnAnadirCirujano.setContentAreaFilled(false);
 		btnAnadirCirujano.setBorderPainted(false);
 		btnAnadirCirujano.setOpaque(true);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		tabbedPane.addTab("New tab", null, panel, null);
 	}
 
 }
