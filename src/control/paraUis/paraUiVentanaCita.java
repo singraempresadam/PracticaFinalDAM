@@ -1,8 +1,8 @@
 package control.paraUis;
 
-import vista.VentanaCita;
+import vista.VentanaSolicitarCitaPaciente;
 
-public class paraUiVentanaCita extends VentanaCita{
+public class paraUiVentanaCita extends VentanaSolicitarCitaPaciente{
 	
 private Validator validator;
 	

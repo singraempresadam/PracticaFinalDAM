@@ -69,14 +69,18 @@ public class VentanaPaciente extends JFrame {
 		btnBuscar.setContentAreaFilled(false);
 		btnBuscar.setBorderPainted(false);
 		btnBuscar.setOpaque(true);
-		btnBuscar.setRequestFocusEnabled(false);
-		btnBuscar.setFocusable(false);
 		btnBuscar.setBackground(new Color(0, 102, 204));
 		btnBuscar.setBounds(511, 45, 89, 23);
 		panelBuscarPaciente.add(btnBuscar);
 		
-		btnConsultarPaciente = new JButton("consultar");
-		btnConsultarPaciente.setBounds(520, 235, 97, 25);
+		btnConsultarPaciente = new JButton("Consultar");
+		btnConsultarPaciente.setFont(new Font("Verdana", Font.BOLD, 11));
+		btnConsultarPaciente.setForeground(Color.WHITE);
+		btnConsultarPaciente.setContentAreaFilled(false);
+		btnConsultarPaciente.setBorderPainted(false);
+		btnConsultarPaciente.setOpaque(true);
+		btnConsultarPaciente.setBackground(new Color(0, 102, 204));
+		btnConsultarPaciente.setBounds(511, 134, 97, 25);
 		panelBuscarPaciente.add(btnConsultarPaciente);
 		
 		
