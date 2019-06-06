@@ -13,6 +13,7 @@ public abstract class Persona implements Serializable{
 		super();
 		this.setNombre(nombre);
 		this.setTelefono(telefono);
+		this.setApellidos(apellidos);
 		this.setDireccion(direccion);
 		this.setIdUnico(idUnico);
 	}
@@ -64,7 +65,7 @@ public abstract class Persona implements Serializable{
 		return new Respuesta(Pattern.matches("[67]\\d{8}", telefono), "El telefono no cumple con los requisitos") ;
 	}
 	public static Respuesta validaDireccion(String direccion) {
-		return new Respuesta(Pattern.matches("{30}", direccion), "El direccion no cumple con los requisitos")  ;
+		return new Respuesta(Pattern.matches("{1-30}", direccion), "El direccion no cumple con los requisitos")  ;
 	}
 	public static Respuesta validaIdUnico(String idUnico) {
 		return new Respuesta(Pattern.matches("\\d{9}", idUnico), "El idUnico no cumple con los requisitos");

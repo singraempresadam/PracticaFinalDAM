@@ -35,6 +35,7 @@ public class VentanaPaciente extends JFrame {
 	private JPanel panelBuscarPaciente;
 	private JButton btnConsultarPaciente;
 	private JButton btnBuscar;
+	private JButton btnAnadir;
 
 	/**
 	 * Create the frame.
@@ -155,7 +156,8 @@ public class VentanaPaciente extends JFrame {
 		getTxtDireccion.setColumns(10);
 		getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		JButton btnAnadir = new JButton("A\u00F1adir");
+		btnAnadir = new JButton("A\u00F1adir");
+		
 		btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAnadir.setBackground(new Color(204, 255, 204));
 		btnAnadir.setContentAreaFilled(false);
@@ -169,6 +171,10 @@ public class VentanaPaciente extends JFrame {
 		
 	}
 	
+	public JButton getBtnAnadir() {
+		return btnAnadir;
+	}
+
 	public JButton getBtnConsultarPaciente() {
 		return btnConsultarPaciente;
 	}
@@ -232,5 +238,4 @@ public class VentanaPaciente extends JFrame {
 	public void setBtnBuscar(JButton btnBuscar) {
 		this.btnBuscar = btnBuscar;
 	}
-	
 }

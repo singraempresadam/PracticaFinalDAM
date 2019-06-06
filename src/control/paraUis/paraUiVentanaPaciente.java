@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ListModel;
 import javax.swing.border.LineBorder;
 
+import modelo.clasesDatos.Paciente;
 import vista.VentanaPaciente;
 
 
@@ -23,6 +24,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 	{
 		super();
 		agregarListener();
+		Validator validator= new Validator();
 		pacientes=new JList<String>(test.obtenerElementosAMostrarPacienteTest());
 		pacientes.getSelectionMode();
 		pacientes.setVisible(true);
@@ -67,6 +69,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 			public void mouseClicked(MouseEvent arg0) {
 				paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(obtenerIdSeleccionado());
 				paraUiVentanaDatosPaciente.setVisible(true);
+				
 			}
 		});
 		getBtnBuscar().addMouseListener(new MouseAdapter() {
@@ -81,6 +84,31 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 				scrollListaPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 				getPanelBuscarPaciente().add(scrollListaPaciente);
 				getPanelBuscarPaciente().setVisible(true);
+			}
+		});
+		this.getBtnAnadir().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String nombre=getTxtNombre.getText();
+				String apellidos=getTxtApellidos.getText();
+				String telefono=getTxtTelefono.getText();
+				String direccion=getTxtDireccion.getText();
+				String idUnico="123";
+				String fechaDeNacimiento=getTxtFechaNacimiento.getText();
+				String total=nombre+"-"+apellidos+"-"+telefono+"-"
+							+direccion+"-"+fechaDeNacimiento;
+				try {
+					if(validator.validarDatosPaciente(total).isResultado())
+					{
+						test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
+						getTxtNombre.setText("");
+						getTxtApellidos.setText("");
+						getTxtFechaNacimiento.setText("");
+						getTxtTelefono.setText("");
+					}
+				} catch (ExceptionDatos e) {
+					/*TABLON MENSAJE*/
+				}
 				
 				
 			}
