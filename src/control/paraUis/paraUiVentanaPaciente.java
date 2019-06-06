@@ -7,12 +7,9 @@ import java.util.List;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 import javax.swing.border.LineBorder;
 
-import modelo.clasesDatos.Paciente;
 import vista.VentanaPaciente;
-
 
 public class paraUiVentanaPaciente extends VentanaPaciente {
 	Validator validator;
@@ -20,65 +17,66 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 	private JScrollPane scrollListaPaciente;
 	TestParaUI test = new TestParaUI();
 	private JList<String> pacientes;
-	public paraUiVentanaPaciente()
-	{
+
+	public paraUiVentanaPaciente() {
 		super();
 		agregarListener();
-		Validator validator= new Validator();
-		pacientes=new JList<String>(test.obtenerElementosAMostrarPacienteTest());
+		Validator validator = new Validator();
+		pacientes = new JList<String>(test.obtenerElementosAMostrarPacienteTest());
 		pacientes.getSelectionMode();
 		pacientes.setVisible(true);
 		scrollListaPaciente = new JScrollPane(pacientes);
 		scrollListaPaciente.setBounds(79, 108, 345, 213);
 		scrollListaPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		getPanelBuscarPaciente().add(scrollListaPaciente);
-		
+
 	}
-	private String obtenerIdSeleccionado()
-	{
-		List<String> lista= pacientes.getSelectedValuesList();
-		String retorno=lista.get(0);
+
+	private String obtenerIdSeleccionado() {
+		List<String> lista = pacientes.getSelectedValuesList();
+		String retorno = lista.get(0);
 		return retorno;
-		
+
 	}
+
 	private String[] filtrar(String filtro, String[] vectorPacientes) {
-		String retorno [];
-		int j=0;
+		String retorno[];
+		int j = 0;
 		for (int i = 0; i < vectorPacientes.length; i++) {
-			if(vectorPacientes[i].contains(filtro))
-			{
+			if (vectorPacientes[i].contains(filtro)) {
 				j++;
 			}
 		}
-		
-		retorno= new String[j];
-		j=0;
+
+		retorno = new String[j];
+		j = 0;
 		for (int i = 0; i < vectorPacientes.length; i++) {
-			if(vectorPacientes[i].contains(filtro))
-			{
-				retorno[j]=vectorPacientes[i];
+			if (vectorPacientes[i].contains(filtro)) {
+				retorno[j] = vectorPacientes[i];
 				j++;
 			}
 		}
 		return retorno;
 	}
+
 	private void agregarListener() {
 		// TODO Auto-generated method stub
 		getBtnConsultarPaciente().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(obtenerIdSeleccionado());
+				paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(
+						obtenerIdSeleccionado());
 				paraUiVentanaDatosPaciente.setVisible(true);
-				
+
 			}
 		});
 		getBtnBuscar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				getPanelBuscarPaciente().setVisible(false);
-				String filtro=getGetTxtBuscar().getText();
+				String filtro = getGetTxtBuscar().getText();
 				getPanelBuscarPaciente().remove(scrollListaPaciente);
-				pacientes=new JList<String>(filtrar(filtro,test.obtenerElementosAMostrarPacienteTest()));
+				pacientes = new JList<String>(filtrar(filtro, test.obtenerElementosAMostrarPacienteTest()));
 				scrollListaPaciente = new JScrollPane(pacientes);
 				scrollListaPaciente.setBounds(79, 108, 345, 213);
 				scrollListaPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
@@ -89,40 +87,32 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 		this.getBtnAnadir().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				String nombre=getTxtNombre.getText();
-				String apellidos=getTxtApellidos.getText();
-				String telefono=getTxtTelefono.getText();
-				String direccion=getTxtDireccion.getText();
-				String idUnico="123";
-				String fechaDeNacimiento=getTxtFechaNacimiento.getText();
-				String total=nombre+"-"+apellidos+"-"+telefono+"-"
-							+direccion+"-"+fechaDeNacimiento;
+				Validator validator = new Validator();
+				String respuesta = null;
+				String nombre = getTxtNombre.getText();
+				String apellidos = getTxtApellidos.getText();
+				String telefono = getTxtTelefono.getText();
+				String direccion = getTxtDireccion.getText();
+				String idUnico = "123123123";
+				String fechaDeNacimiento = getTxtFechaNacimiento.getText();
+				String total = nombre + "-" + apellidos + "-" + telefono + "-" + direccion + "-" + fechaDeNacimiento;
+				
 				try {
-					try {
-						if((validator.validarDatosPaciente(total)).isResultado())
-						{
-							test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
-							getTxtNombre.setText("");
-							getTxtApellidos.setText("");
-							getTxtFechaNacimiento.setText("");
-							getTxtTelefono.setText("");
-						}
-					} catch (ExceptionDatos e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					if ((validator.validarDatosPaciente(total)).isResultado()) {
+						test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
+						getTxtNombre.setText("");
+						getTxtApellidos.setText("");
+						getTxtFechaNacimiento.setText("");
+						getTxtTelefono.setText("");
+						getTxtDireccion.setText("");
 					}
-				} catch (NullPointerException e) {
-					try {
-						System.out.println(validator.validarDatosPaciente(total).isResultado());
-					} catch (ExceptionDatos e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+				} catch (ExceptionDatos e) {
+					ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e.getMsg());
+					paraUiVentanaError.setVisible(true);
 				}
-				
-				
+
 			}
 		});
-	
+
 	}
 }

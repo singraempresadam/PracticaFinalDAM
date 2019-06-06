@@ -7,10 +7,10 @@ import modelo.clasesDatos.Paciente;
 
 public class TestParaUI {
 	public HashMap<String, Paciente> pacientesTest = new HashMap<String, Paciente>();
-	public Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456", "17/05/1997");
-	public Paciente dos = new Paciente("Pepe", "Fernandez Cardenal", "622963425", "calle merida", "223456", "17/05/1997");
-	public Paciente tres = new Paciente("Felipe", "Fernandez Cardenal", "622963425", "calle merida", "323456", "17/05/1997");
-	public Paciente cuatro = new Paciente("Carmen", "Fernandez Cardenal", "622963425", "calle merida", "423456", "17/05/1997");
+	public Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456789", "17/05/1997");
+	public Paciente dos = new Paciente("Pepe", "Fernandez Cardenal", "622963425", "calle merida", "223456789", "17/05/1997");
+	public Paciente tres = new Paciente("Felipe", "Fernandez Cardenal", "622963425", "calle merida", "323456789", "17/05/1997");
+	public Paciente cuatro = new Paciente("Carmen", "Fernandez Cardenal", "622963425", "calle merida", "423456789", "17/05/1997");
 
 	public TestParaUI() {
 		super();

@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 
 public class VentanaError extends JFrame {
+	private JLabel lblInfo;
 	public VentanaError() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		setForeground(Color.WHITE);
@@ -22,7 +23,16 @@ public class VentanaError extends JFrame {
 		lblError.setHorizontalAlignment(SwingConstants.CENTER);
 		lblError.setFont(new Font("Tahoma", Font.BOLD, 11));
 		getContentPane().add(lblError, BorderLayout.CENTER);
+		
+		lblInfo = new JLabel("");
+		getContentPane().add(lblInfo, BorderLayout.SOUTH);
 		this.setMinimumSize(new Dimension(300, 150));
 	}
-
+	public JLabel getLblInfo() {
+		return lblInfo;
+	}
+	public void setLblInfo(JLabel lblInfo) {
+		this.lblInfo = lblInfo;
+	}
+	
 }
