@@ -38,7 +38,8 @@ public class VentanaMedico extends JFrame {
 	protected JPanel contentPane;
 	protected JTextField getTxtBuscar;
 	private JTextField txtgetNombre;
-	private JTextField txtNombreActivo;
+	private JTextField txtNombreEspecialista;
+	private JTextField txtNombreMedicoAP;
 
 		public VentanaMedico() {
 			setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
@@ -79,58 +80,52 @@ public class VentanaMedico extends JFrame {
 			listMedicos.setBounds(56, 103, 405, 160);
 			panelBuscarMedico.add(listMedicos);
 			
+			JPanel panelAnadirMedico = new JPanel();
+			panelAnadirMedico.setBackground(Color.WHITE);
+			tabbedPane.addTab("Añadir médico", iconagregar, panelAnadirMedico, null);
+			panelAnadirMedico.setLayout(null);
 			
-			JPanel panelAñadirMedicoActivo = new JPanel();
-			panelAñadirMedicoActivo.setBorder(null);
-			panelAñadirMedicoActivo.setBackground(Color.WHITE);
-			tabbedPane.addTab("Añadir Medico Activo", iconagregar, panelAñadirMedicoActivo, null);
-			panelAñadirMedicoActivo.setLayout(null);
 			
-			txtNombreActivo = new JTextField();
-			txtNombreActivo.setColumns(10);
-			txtNombreActivo.setBorder(new LineBorder(new Color(102, 153, 255), 2));
-			txtNombreActivo.setBounds(44, 56, 405, 25);
-			panelAñadirMedicoActivo.add(txtNombreActivo);
+			JPanel panelAñadirMedicoEspecialista = new JPanel();
+			panelAñadirMedicoEspecialista.setBorder(null);
+			panelAñadirMedicoEspecialista.setBackground(Color.WHITE);
+			tabbedPane.addTab("Alta Medico Especialista", iconagregar, panelAñadirMedicoEspecialista, null);
+			panelAñadirMedicoEspecialista.setLayout(null);
 			
-			JButton btnBuscarActivo = new JButton("Buscar");
-			btnBuscarActivo.setContentAreaFilled(false);
-			btnBuscarActivo.setBorderPainted(false);
-			btnBuscarActivo.setOpaque(true);
-			btnBuscarActivo.setForeground(Color.WHITE);
-			btnBuscarActivo.setFont(new Font("Verdana", Font.BOLD, 11));
-			btnBuscarActivo.setBackground(new Color(0, 102, 204));
-			btnBuscarActivo.setBounds(517, 56, 89, 23);
-			panelAñadirMedicoActivo.add(btnBuscarActivo);
+			txtNombreEspecialista = new JTextField();
+			txtNombreEspecialista.setColumns(10);
+			txtNombreEspecialista.setBorder(new LineBorder(new Color(102, 153, 255), 2));
+			txtNombreEspecialista.setBounds(44, 56, 405, 25);
+			panelAñadirMedicoEspecialista.add(txtNombreEspecialista);
 			
-			JList listMedicosActivos = new JList();
-			listMedicosActivos.setBackground(Color.LIGHT_GRAY);
-			listMedicosActivos.setBounds(44, 108, 405, 160);
-			panelAñadirMedicoActivo.add(listMedicosActivos);
+			JButton btnBuscarEspecialista = new JButton("Buscar");
+			btnBuscarEspecialista.setContentAreaFilled(false);
+			btnBuscarEspecialista.setBorderPainted(false);
+			btnBuscarEspecialista.setOpaque(true);
+			btnBuscarEspecialista.setForeground(Color.WHITE);
+			btnBuscarEspecialista.setFont(new Font("Verdana", Font.BOLD, 11));
+			btnBuscarEspecialista.setBackground(new Color(0, 102, 204));
+			btnBuscarEspecialista.setBounds(517, 56, 89, 23);
+			panelAñadirMedicoEspecialista.add(btnBuscarEspecialista);
 			
-			Checkbox checkLunes = new Checkbox("");
-			checkLunes.setBackground(new Color(204, 255, 255));
-			checkLunes.setBounds(502, 151, 19, 22);
-			panelAñadirMedicoActivo.add(checkLunes);
+			JList listMedicoEspecialista = new JList();
+			listMedicoEspecialista.setBackground(Color.LIGHT_GRAY);
+			listMedicoEspecialista.setBounds(44, 108, 405, 160);
+			panelAñadirMedicoEspecialista.add(listMedicoEspecialista);
 			
-			Checkbox checkMartes = new Checkbox("");
-			checkMartes.setBackground(new Color(204, 255, 255));
-			checkMartes.setBounds(527, 151, 19, 22);
-			panelAñadirMedicoActivo.add(checkMartes);
+			Checkbox checkLMV = new Checkbox("Lunes Mi\u00E9rcoles Viernes");
+			checkLMV.setFont(new Font("Georgia", Font.BOLD, 12));
+			checkLMV.setForeground(new Color(0, 51, 102));
+			checkLMV.setBackground(new Color(204, 255, 255));
+			checkLMV.setBounds(502, 124, 160, 22);
+			panelAñadirMedicoEspecialista.add(checkLMV);
 			
-			Checkbox checkMiercoles = new Checkbox("");
-			checkMiercoles.setBackground(new Color(204, 255, 255));
-			checkMiercoles.setBounds(552, 151, 19, 22);
-			panelAñadirMedicoActivo.add(checkMiercoles);
-			
-			Checkbox checkJueves = new Checkbox("");
-			checkJueves.setBackground(new Color(204, 255, 255));
-			checkJueves.setBounds(577, 151, 19, 22);
-			panelAñadirMedicoActivo.add(checkJueves);
-			
-			Checkbox checkViernes = new Checkbox("");
-			checkViernes.setBackground(new Color(204, 255, 255));
-			checkViernes.setBounds(602, 151, 19, 22);
-			panelAñadirMedicoActivo.add(checkViernes);
+			Checkbox checkMJ = new Checkbox("Martes Jueves");
+			checkMJ.setForeground(new Color(0, 51, 102));
+			checkMJ.setFont(new Font("Georgia", Font.BOLD, 12));
+			checkMJ.setBackground(new Color(204, 255, 255));
+			checkMJ.setBounds(502, 152, 139, 22);
+			panelAñadirMedicoEspecialista.add(checkMJ);
 			
 			JButton btnAnadir = new JButton("A\u00F1adir");
 			btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -139,57 +134,59 @@ public class VentanaMedico extends JFrame {
 			btnAnadir.setBorderPainted(false);
 			btnAnadir.setOpaque(true);
 			btnAnadir.setBounds(600, 361, 89, 23);
-			panelAñadirMedicoActivo.add(btnAnadir);
+			panelAñadirMedicoEspecialista.add(btnAnadir);
 			
-			Label labelLunes = new Label("L");
-			labelLunes.setForeground(new Color(0, 51, 153));
-			labelLunes.setFont(new Font("Century", Font.BOLD, 12));
-			labelLunes.setBounds(502, 125, 19, 22);
-			panelAñadirMedicoActivo.add(labelLunes);
+			JComboBox comboBoxTurnoEspecialista = new JComboBox();
+			comboBoxTurnoEspecialista.setMaximumRowCount(2);
+			comboBoxTurnoEspecialista.setBackground(Color.LIGHT_GRAY);
+			comboBoxTurnoEspecialista.setForeground(new Color(0, 0, 0));
+			comboBoxTurnoEspecialista.setBounds(575, 200, 114, 20);
+			panelAñadirMedicoEspecialista.add(comboBoxTurnoEspecialista);
 			
-			Label labelMartes = new Label("M");
-			labelMartes.setForeground(new Color(0, 51, 153));
-			labelMartes.setFont(new Font("Century", Font.BOLD, 12));
-			labelMartes.setBounds(527, 125, 19, 22);
-			panelAñadirMedicoActivo.add(labelMartes);
+			JLabel lblTurno = new JLabel("Turno");
+			lblTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
+			lblTurno.setForeground(new Color(0, 51, 153));
+			lblTurno.setBounds(485, 203, 61, 14);
+			panelAñadirMedicoEspecialista.add(lblTurno);
 			
-			Label labelMiercoles = new Label("X");
-			labelMiercoles.setForeground(new Color(0, 51, 153));
-			labelMiercoles.setFont(new Font("Century", Font.BOLD, 12));
-			labelMiercoles.setBounds(552, 125, 19, 22);
-			panelAñadirMedicoActivo.add(labelMiercoles);
+			JPanel panelAñadirMedicoAP = new JPanel();
+			panelAñadirMedicoAP.setBackground(Color.WHITE);
+			tabbedPane.addTab("Alta Médico Atención Primaria", iconagregar, panelAñadirMedicoAP, null);
+			panelAñadirMedicoAP.setLayout(null);
 			
-			Label labelJueves = new Label("J");
-			labelJueves.setForeground(new Color(0, 51, 153));
-			labelJueves.setFont(new Font("Century", Font.BOLD, 12));
-			labelJueves.setBounds(577, 125, 19, 22);
-			panelAñadirMedicoActivo.add(labelJueves);
+			txtNombreMedicoAP = new JTextField();
+			txtNombreMedicoAP.setColumns(10);
+			txtNombreMedicoAP.setBorder(new LineBorder(new Color(102, 153, 255), 2));
+			txtNombreMedicoAP.setBounds(59, 60, 405, 25);
+			panelAñadirMedicoAP.add(txtNombreMedicoAP);
 			
-			Label labelViernes = new Label("V");
-			labelViernes.setForeground(new Color(0, 51, 153));
-			labelViernes.setFont(new Font("Century", Font.BOLD, 12));
-			labelViernes.setBounds(602, 125, 19, 22);
-			panelAñadirMedicoActivo.add(labelViernes);
+			JButton btnBuscarMedicoAP = new JButton("Buscar");
+			btnBuscarMedicoAP.setForeground(Color.WHITE);
+			btnBuscarMedicoAP.setContentAreaFilled(false);
+			btnBuscarMedicoAP.setBorderPainted(false);
+			btnBuscarMedicoAP.setOpaque(true);
+			btnBuscarMedicoAP.setFont(new Font("Verdana", Font.BOLD, 11));
+			btnBuscarMedicoAP.setBackground(new Color(0, 102, 204));
+			btnBuscarMedicoAP.setBounds(547, 61, 89, 23);
+			panelAñadirMedicoAP.add(btnBuscarMedicoAP);
 			
-			JComboBox comboBoxHoraInicio = new JComboBox();
-			comboBoxHoraInicio.setBounds(575, 200, 114, 20);
-			panelAñadirMedicoActivo.add(comboBoxHoraInicio);
+			JLabel labelTurno = new JLabel("Turno");
+			labelTurno.setForeground(new Color(0, 51, 153));
+			labelTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
+			labelTurno.setBounds(513, 191, 61, 14);
+			panelAñadirMedicoAP.add(labelTurno);
 			
-			JComboBox comboBoxHoraFinal = new JComboBox();
-			comboBoxHoraFinal.setBounds(575, 244, 114, 20);
-			panelAñadirMedicoActivo.add(comboBoxHoraFinal);
+			JList listMedicoAP = new JList();
+			listMedicoAP.setBackground(Color.LIGHT_GRAY);
+			listMedicoAP.setBounds(59, 112, 405, 160);
+			panelAñadirMedicoAP.add(listMedicoAP);
 			
-			JLabel lblHoraInicio = new JLabel("Hora Inicio");
-			lblHoraInicio.setFont(new Font("Tahoma", Font.BOLD, 11));
-			lblHoraInicio.setForeground(new Color(0, 51, 153));
-			lblHoraInicio.setBounds(485, 203, 61, 14);
-			panelAñadirMedicoActivo.add(lblHoraInicio);
-			
-			JLabel lblHoraFinal = new JLabel("Hora Final");
-			lblHoraFinal.setFont(new Font("Tahoma", Font.BOLD, 11));
-			lblHoraFinal.setForeground(new Color(0, 51, 153));
-			lblHoraFinal.setBounds(485, 247, 61, 14);
-			panelAñadirMedicoActivo.add(lblHoraFinal);
+			JComboBox comboBoxTurnoMedicoAP = new JComboBox();
+			comboBoxTurnoMedicoAP.setMaximumRowCount(2);
+			comboBoxTurnoMedicoAP.setForeground(Color.BLACK);
+			comboBoxTurnoMedicoAP.setBackground(Color.LIGHT_GRAY);
+			comboBoxTurnoMedicoAP.setBounds(581, 188, 114, 20);
+			panelAñadirMedicoAP.add(comboBoxTurnoMedicoAP);
 			
 			this.setMinimumSize(new Dimension(750, 500));
 			
