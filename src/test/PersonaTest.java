@@ -34,6 +34,26 @@ class PersonaTest {
 	}
 	
 	@Test
+	void testValidaApellidos() {
+		String apellidoBienUno = "Fernandez";
+		String apellidoBienDos = "Javie Encho";
+		String apellidoBienTres = "Francisco Javier";
+		
+		String apellidoMalUno = "juan";
+		String apellidoMalDos = "JaViE rNChO";
+		String apellidoMalTres = "Yo Soy Tu Padre";
+		
+		
+		assertTrue(Persona.validaNombre(apellidoBienUno).isResultado());
+		assertTrue(Persona.validaNombre(apellidoBienDos).isResultado());
+		assertTrue(Persona.validaNombre(apellidoBienTres).isResultado());
+		
+		assertFalse(Persona.validaNombre(apellidoMalUno).isResultado());
+		assertFalse(Persona.validaNombre(apellidoMalDos).isResultado());
+		assertFalse(Persona.validaNombre(apellidoMalTres).isResultado());
+	}
+	
+	@Test
 	void testValidaTelefono() {
 		String telefonoBienUno = "622865620";
 		String telefonoBienDos = "722277147";
@@ -50,13 +70,5 @@ class PersonaTest {
 		assertFalse(Persona.validaTelefono(telefonoMalUno).isResultado());
 		assertFalse(Persona.validaTelefono(telefonoMalDos).isResultado());
 		assertFalse(Persona.validaTelefono(telefonoMalTres).isResultado());
-	}
-	@Test
-	void testValidaDireccion() {
-		String direccionBienUno = "Calle Merida";
-		String direccionBienDos = "Avenida America";
-		String direccionBienTres = "Puertas de tu corazon";
-		
-		String direccionMalUno = "Socialdemocratificación de los derechos según el manifiesto comunista nazi";
 	}
 }

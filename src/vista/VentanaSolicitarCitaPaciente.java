@@ -17,7 +17,7 @@ import javax.swing.border.MatteBorder;
 
 public class VentanaSolicitarCitaPaciente extends JFrame {
 	protected JTextField setTxtIdPaciente;
-	protected JTextField setTxtIdMedico;
+	protected JTextField setTxtIdMedicoAP;
 	protected JTextField getTxtBuscar;
 	private JButton btnVerHorario;
 	private JButton btnSolicitar;
@@ -27,6 +27,15 @@ public class VentanaSolicitarCitaPaciente extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
+		
+		JLabel lblSolicitarCita = new JLabel("SOLICITAR CITA PACIENTE");
+		lblSolicitarCita.setOpaque(true);
+		lblSolicitarCita.setBackground(new Color(0, 102, 204));
+		lblSolicitarCita.setFont(new Font("Verdana", Font.BOLD, 15));
+		lblSolicitarCita.setForeground(Color.WHITE);
+		lblSolicitarCita.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSolicitarCita.setBounds(10, 11, 714, 41);
+		getContentPane().add(lblSolicitarCita);
 		
 		JLabel lblidPaciente = new JLabel("Id Paciente");
 		lblidPaciente.setForeground(new Color(0, 102, 204));
@@ -48,21 +57,13 @@ public class VentanaSolicitarCitaPaciente extends JFrame {
 		setTxtIdPaciente.setColumns(10);
 		setTxtIdPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		setTxtIdMedico = new JTextField();
-		setTxtIdMedico.setBackground(Color.WHITE);
-		setTxtIdMedico.setBounds(283, 117, 169, 20);
-		getContentPane().add(setTxtIdMedico);
-		setTxtIdMedico.setColumns(10);
-		setTxtIdMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		setTxtIdMedicoAP = new JTextField();
+		setTxtIdMedicoAP.setBackground(Color.WHITE);
+		setTxtIdMedicoAP.setBounds(283, 117, 169, 20);
+		getContentPane().add(setTxtIdMedicoAP);
+		setTxtIdMedicoAP.setColumns(10);
+		setTxtIdMedicoAP.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		JLabel lblSolicitarCita = new JLabel("SOLICITAR CITA PACIENTE");
-		lblSolicitarCita.setOpaque(true);
-		lblSolicitarCita.setBackground(new Color(0, 102, 204));
-		lblSolicitarCita.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblSolicitarCita.setForeground(Color.WHITE);
-		lblSolicitarCita.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSolicitarCita.setBounds(10, 11, 714, 41);
-		getContentPane().add(lblSolicitarCita);
 		
 		btnSolicitar = new JButton("Solicitar");
 		btnSolicitar.setFont(new Font("Verdana", Font.BOLD, 12));
@@ -185,11 +186,11 @@ public class VentanaSolicitarCitaPaciente extends JFrame {
 	}
 
 	public JTextField getSetTxtIdMedico() {
-		return setTxtIdMedico;
+		return setTxtIdMedicoAP;
 	}
 
 	public void setSetTxtIdMedico(JTextField setTxtIdMedico) {
-		this.setTxtIdMedico = setTxtIdMedico;
+		this.setTxtIdMedicoAP = setTxtIdMedico;
 	}
 
 	public JTextField getGetTxtBuscar() {

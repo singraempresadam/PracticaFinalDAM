@@ -1,12 +1,13 @@
 package control.paraUis;
 
-import vista.VentanaSolicitarCitaPaciente;
+import vista.VentanaCirujano;
 
-public class paraUiVentanaCita extends VentanaSolicitarCitaPaciente{
+
+public class paraUiVentanaCirujano extends VentanaCirujano{
 	
 private Validator validator;
 	
-	public paraUiVentanaCita ()
+	public paraUiVentanaCirujano ()
 	{
 		super();
 		crearListeners();

@@ -114,7 +114,7 @@ public class VentanaDatosMedico extends JFrame {
 		btnDardebaja.setOpaque(true);
 		btnDardebaja.setRequestFocusEnabled(false);
 		btnDardebaja.setFocusable(false);
-		btnDardebaja.setBounds(254, 361, 126, 23);
+		btnDardebaja.setBounds(292, 361, 126, 23);
 		getContentPane().add(btnDardebaja);
 		
 		JButton btnGestionarCita = new JButton("Gestionar Cita");
@@ -125,7 +125,7 @@ public class VentanaDatosMedico extends JFrame {
 		btnGestionarCita.setOpaque(true);
 		btnGestionarCita.setRequestFocusEnabled(false);
 		btnGestionarCita.setFocusable(false);
-		btnGestionarCita.setBounds(432, 361, 136, 23);
+		btnGestionarCita.setBounds(483, 361, 136, 23);
 		getContentPane().add(btnGestionarCita);
 		
 		JLabel lblMedico = new JLabel("MEDICO");

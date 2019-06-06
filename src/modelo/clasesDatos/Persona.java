@@ -40,7 +40,7 @@ public abstract class Persona implements Serializable{
 		this.nombre = nombre;
 	}
 	public void setApellidos(String apellidos) {
-		assert apellidos!=null&&validaNombre(apellidos).isResultado();
+		assert apellidos!=null&&validaApellidos(apellidos).isResultado();
 		this.apellidos = apellidos;
 	}
 	public void setTelefono(String telefono) {
@@ -61,11 +61,14 @@ public abstract class Persona implements Serializable{
 	public static Respuesta validaNombre(String nombre) {
 		return new Respuesta(Pattern.matches("^([A-Z]{1}[a-z]+[ ]?){1,2}$", nombre), "El nombre no cumple con los requisitos");
 	}
+	public static Respuesta validaApellidos(String apellidos) {
+		return new Respuesta(Pattern.matches("^([A-Z]{1}[a-z]+[ ]?){1,2}$", apellidos), "Los apellidos no cumplen con los requisitos");
+	}
 	public static Respuesta validaTelefono(String telefono) {
 		return new Respuesta(Pattern.matches("[67]\\d{8}", telefono), "El telefono no cumple con los requisitos") ;
 	}
 	public static Respuesta validaDireccion(String direccion) {
-		return new Respuesta(Pattern.matches("{1-30}", direccion), "El direccion no cumple con los requisitos")  ;
+		return new Respuesta(Pattern.matches("{30}", direccion), "El direccion no cumple con los requisitos")  ;
 	}
 	public static Respuesta validaIdUnico(String idUnico) {
 		return new Respuesta(Pattern.matches("\\d{9}", idUnico), "El idUnico no cumple con los requisitos");

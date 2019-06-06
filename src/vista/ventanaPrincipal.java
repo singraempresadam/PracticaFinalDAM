@@ -31,7 +31,7 @@ public class ventanaPrincipal extends JFrame {
 
 	protected JPanel contentPane;
 	protected JButton botonPaciente;
-	protected JButton botonCita;
+	protected JButton botonCirujano;
 	protected JButton botonMedico;
 
 	
@@ -48,6 +48,7 @@ public class ventanaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 730, 580);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 734, 541);
@@ -81,14 +82,14 @@ public class ventanaPrincipal extends JFrame {
 		botonMedico.setBounds(291, 225, 133, 160);
 		panel.add(botonMedico);
 		
-		botonCita = new JButton("");
-		botonCita.setContentAreaFilled(false);
-		botonCita.setBorderPainted(false);
-		botonCita.setOpaque(true);
-		botonCita.setBackground(new Color(204, 255, 255));
-		botonCita.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cirujano.png")));
-		botonCita.setBounds(502, 225, 157, 160);
-		panel.add(botonCita);
+		botonCirujano = new JButton("");
+		botonCirujano.setContentAreaFilled(false);
+		botonCirujano.setBorderPainted(false);
+		botonCirujano.setOpaque(true);
+		botonCirujano.setBackground(new Color(204, 255, 255));
+		botonCirujano.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cirujano.png")));
+		botonCirujano.setBounds(502, 225, 157, 160);
+		panel.add(botonCirujano);
 		
 	
 	}
@@ -109,14 +110,14 @@ public class ventanaPrincipal extends JFrame {
 
 
 
-	public JButton getBotonCita() {
-		return botonCita;
+	public JButton getBotonCirujano() {
+		return botonCirujano;
 	}
 
 
 
-	public void setBotonCita(JButton botonCita) {
-		this.botonCita = botonCita;
+	public void setBotonCirujano(JButton botonCirujano) {
+		this.botonCirujano = botonCirujano;
 	}
 
 
