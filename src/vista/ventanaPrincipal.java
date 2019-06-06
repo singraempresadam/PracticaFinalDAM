@@ -34,8 +34,6 @@ public class ventanaPrincipal extends JFrame {
 	protected JButton botonCirujano;
 	protected JButton botonMedico;
 
-	
-
 	/**
 	 * Create the frame.
 	 */

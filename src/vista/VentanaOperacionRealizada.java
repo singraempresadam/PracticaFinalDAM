@@ -15,6 +15,7 @@ public class VentanaOperacionRealizada extends JFrame{
 	public VentanaOperacionRealizada() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		setForeground(Color.WHITE);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
 		
 		JLabel lblRealizada = new JLabel("Operación realizada correctamente");
@@ -23,5 +24,6 @@ public class VentanaOperacionRealizada extends JFrame{
 		lblRealizada.setFont(new Font("Tahoma", Font.BOLD, 11));
 		getContentPane().add(lblRealizada, BorderLayout.CENTER);
 		this.setMinimumSize(new Dimension(300, 150));
+		
 	}
 }
