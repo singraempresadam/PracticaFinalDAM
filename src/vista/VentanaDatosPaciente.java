@@ -114,7 +114,7 @@ public class VentanaDatosPaciente extends JFrame{
 		btnModificar.setOpaque(true);
 		btnModificar.setRequestFocusEnabled(false);
 		btnModificar.setFocusable(false);
-		btnModificar.setBounds(102, 361, 103, 23);
+		btnModificar.setBounds(71, 361, 109, 23);
 		getContentPane().add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -125,7 +125,7 @@ public class VentanaDatosPaciente extends JFrame{
 		btnEliminar.setOpaque(true);
 		btnEliminar.setRequestFocusEnabled(false);
 		btnEliminar.setFocusable(false);
-		btnEliminar.setBounds(258, 361, 89, 23);
+		btnEliminar.setBounds(226, 361, 97, 23);
 		getContentPane().add(btnEliminar);
 		
 		JButton btnSolicitarCita = new JButton("Solicitar Cita");
@@ -136,7 +136,7 @@ public class VentanaDatosPaciente extends JFrame{
 		btnSolicitarCita.setOpaque(true);
 		btnSolicitarCita.setRequestFocusEnabled(false);
 		btnSolicitarCita.setFocusable(false);
-		btnSolicitarCita.setBounds(527, 361, 136, 23);
+		btnSolicitarCita.setBounds(528, 361, 136, 23);
 		getContentPane().add(btnSolicitarCita);
 		
 		JLabel lblPaciente = new JLabel("PACIENTE");
@@ -156,7 +156,7 @@ public class VentanaDatosPaciente extends JFrame{
 		btnHistorial.setOpaque(true);
 		btnHistorial.setRequestFocusEnabled(false);
 		btnHistorial.setFocusable(false);
-		btnHistorial.setBounds(397, 362, 89, 23);
+		btnHistorial.setBounds(381, 361, 109, 23);
 		getContentPane().add(btnHistorial);
 		
 		

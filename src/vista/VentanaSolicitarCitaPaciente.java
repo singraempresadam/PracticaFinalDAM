@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import java.awt.GridLayout;
 import javax.swing.border.MatteBorder;
 
-public class VentanaCita extends JFrame {
+public class VentanaSolicitarCitaPaciente extends JFrame {
 	protected JTextField setTxtIdPaciente;
 	protected JTextField setTxtIdMedico;
 	protected JTextField getTxtBuscar;
@@ -23,7 +23,7 @@ public class VentanaCita extends JFrame {
 	private JButton btnSolicitar;
 	private JPanel panelHorarioMedico;
 	
-	public VentanaCita() {
+	public VentanaSolicitarCitaPaciente() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
@@ -55,7 +55,7 @@ public class VentanaCita extends JFrame {
 		setTxtIdMedico.setColumns(10);
 		setTxtIdMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		JLabel lblSolicitarCita = new JLabel("SOLICITAR CITA");
+		JLabel lblSolicitarCita = new JLabel("SOLICITAR CITA PACIENTE");
 		lblSolicitarCita.setOpaque(true);
 		lblSolicitarCita.setBackground(new Color(0, 102, 204));
 		lblSolicitarCita.setFont(new Font("Verdana", Font.BOLD, 15));
