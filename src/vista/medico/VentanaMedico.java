@@ -61,7 +61,7 @@ public class VentanaMedico extends JDialog {
 	private JComboBox comboBoxEspecialidad;
 
 		public VentanaMedico() {
-			setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
+
 			getContentPane().setBackground(new Color(255, 255, 255));
 			getContentPane().setLayout(null);
 			setBounds(100, 100, 750, 500);
