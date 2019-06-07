@@ -9,6 +9,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
+import control.Controller;
 import control.paraUis.ExceptionDatos;
 import control.paraUis.ParaUiVentanaError;
 import control.paraUis.TestParaUI;
@@ -17,13 +18,13 @@ import vista.paciente.VentanaPaciente;
 
 public class paraUiVentanaPaciente extends VentanaPaciente {
 	private JScrollPane scrollListaPaciente;
-	TestParaUI test = new TestParaUI();
+	Controller control= new Controller();
 	private JList<String> pacientes;
 
 	public paraUiVentanaPaciente() {
 		super();
 		agregarListener();
-		pacientes = new JList<String>(test.obtenerElementosAMostrarPacienteTest());
+		pacientes = new JList<String>(control.obtenerElementosAMostrarPaciente());
 		pacientes.getSelectionMode();
 		pacientes.setVisible(true);
 		scrollListaPaciente = new JScrollPane(pacientes);
@@ -77,7 +78,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 				getPanelBuscarPaciente().setVisible(false);
 				String filtro = getGetTxtBuscar().getText();
 				getPanelBuscarPaciente().remove(scrollListaPaciente);
-				pacientes = new JList<String>(filtrar(filtro, test.obtenerElementosAMostrarPacienteTest()));
+				pacientes = new JList<String>(filtrar(filtro, control.obtenerElementosAMostrarPaciente()));
 				scrollListaPaciente = new JScrollPane(pacientes);
 				scrollListaPaciente.setBounds(79, 108, 345, 213);
 				scrollListaPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
@@ -99,7 +100,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 				
 				try {
 					if ((validator.validarDatosPaciente(total)).isResultado()) {
-						test.crearPaciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
+						control.darAltaPacienteNuevo(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
 						getTxtNombre.setText("");
 						getTxtApellidos.setText("");
 						getTxtFechaNacimiento.setText("");
