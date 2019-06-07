@@ -129,65 +129,14 @@ public class GestorModelo {
 		return retorno;
 	}
 
-	// Bloque para cargar colecciones
-	private void cargarPaciente(Paciente pacienteLeido) {
-		Paciente paciente = new Paciente(pacienteLeido);
-		pacientes.put(paciente.getIdUnico(), paciente);
-	}
-
-	private void cargarMedico(Medico medicoLeido) {
-		Medico medico = new Medico(medicoLeido);
-		medicos.put(medico.getIdUnico(), medico);
-	}
-
-	private void cargarMedicoActivo(MedicoActivo medicoActivoLeido) {
-		MedicoActivo medicoActivo = new MedicoActivo(medicoActivoLeido);
-		medicosActivo.put(medicoActivo.getIdUnico(), medicoActivo);
-	}
-
-	private void cargarCirujano(Cirujano cirujanoLeido) {
-		Cirujano cirujano = new Cirujano(cirujanoLeido);
-		cirujanos.put(cirujano.getIdUnico(), cirujano);
-	}
-
 	private void cargarColeccionesMap() {
-		cargarColeccionMapPacientes();
-		cargarColeccionMapMedicos();
-		cargarColeccionMapMedicosActivo();
-		cargarColeccionMapCirujanos();
+		this.pacientes=dtoPaciente.leerColeccion();
+		this.medicos=dtoMedico.leerColeccion();
+		this.medicosActivo = dtoMedicoActivo.leerColeccion();
+		this.cirujanos = dtoCirujano.leerColeccion();
 	}
 
-	private void cargarColeccionMapPacientes() {
-		Paciente pacienteLeido;
-		do {
-			pacienteLeido = dtoPaciente.leer();
-			this.cargarPaciente(pacienteLeido);
-		} while (pacienteLeido != null);
-	}
-
-	private void cargarColeccionMapMedicos() {
-		Medico medicoLeido;
-		do {
-			medicoLeido = dtoMedico.leer();
-			this.cargarMedico(medicoLeido);
-		} while (medicoLeido != null);
-	}
-
-	private void cargarColeccionMapMedicosActivo() {
-		MedicoActivo medicoActivoLeido;
-		do {
-			medicoActivoLeido = dtoMedicoActivo.leer();
-			this.cargarMedicoActivo(medicoActivoLeido);
-		} while (medicoActivoLeido != null);
-	}
-
-	private void cargarColeccionMapCirujanos() {
-		Cirujano cirujanoLeido;
-		do {
-			cirujanoLeido = dtoCirujano.leer();
-			this.cargarCirujano(cirujanoLeido);
-		} while (cirujanoLeido != null);
-	}
+	
 
 	public Paciente obtenerUnPaciente(String idUnicoPaciente) {
 		return pacientes.get(idUnicoPaciente);
