@@ -45,9 +45,8 @@ public class VentanaPaciente extends JDialog {
 	 * Create the frame.
 	 */
 	public VentanaPaciente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 750, 500);
+		setBounds(100, 100, 751, 500);
 		setLocationRelativeTo(null);
 		setModal(true);
 		
@@ -169,9 +168,6 @@ public class VentanaPaciente extends JDialog {
 		btnAnadir.setOpaque(true);
 		btnAnadir.setBounds(600, 361, 89, 23);
 		panelAñadirPaciente.add(btnAnadir);
-		
-		this.setMinimumSize(new Dimension(750, 500));
-		
 		
 	}
 	
