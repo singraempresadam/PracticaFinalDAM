@@ -13,12 +13,13 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import vista.ventanaPrincipal;
 
-public class VentanaCirujano extends JFrame{
+public class VentanaCirujano extends JDialog{
 	private JTextField getTxtNombreCirujano;
 	private JTextField getTxtApellidoCirujano;
 	private JTextField getTxtTelefonoCirujano;
@@ -30,6 +31,7 @@ public class VentanaCirujano extends JFrame{
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 750, 500);
 		setLocationRelativeTo(null);
+		setModal(true);
 		
 		ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
 		ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));

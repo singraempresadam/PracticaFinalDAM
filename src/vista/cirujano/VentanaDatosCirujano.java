@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -14,7 +15,7 @@ import javax.swing.border.LineBorder;
 
 import vista.ventanaPrincipal;
 
-public class VentanaDatosCirujano extends JFrame {
+public class VentanaDatosCirujano extends JDialog {
 	protected JTextField getTxtNombre;
 	protected JTextField getTxtApellidos;
 	protected JTextField getTxtTelefono;
@@ -26,6 +27,7 @@ public class VentanaDatosCirujano extends JFrame {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		this.setMinimumSize(new Dimension(750, 500));
+		setModal(true);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(0, 102, 204));

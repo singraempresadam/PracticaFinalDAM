@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 import java.awt.Font;
@@ -27,7 +28,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class VentanaPaciente extends JFrame {
+public class VentanaPaciente extends JDialog {
 	protected JPanel contentPane;
 	protected JTextField getTxtNombre;
 	protected JTextField getTxtApellidos;
@@ -48,6 +49,8 @@ public class VentanaPaciente extends JFrame {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 750, 500);
 		setLocationRelativeTo(null);
+		setModal(true);
+		
 		
 		ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
 		ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));

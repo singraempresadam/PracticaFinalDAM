@@ -35,8 +35,9 @@ import java.awt.Checkbox;
 import java.awt.Label;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 
-public class VentanaMedico extends JFrame {
+public class VentanaMedico extends JDialog {
 	protected JPanel contentPane;
 	protected JTextField getTxtBuscar;
 	private JTextField txtgetNombre;
@@ -65,6 +66,7 @@ public class VentanaMedico extends JFrame {
 			getContentPane().setLayout(null);
 			setBounds(100, 100, 750, 500);
 			setLocationRelativeTo(null);
+			setModal(true);
 			
 			ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
 			ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
