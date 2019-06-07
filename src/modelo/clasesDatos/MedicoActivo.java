@@ -10,6 +10,10 @@ import modelo.enumeraciones.Especialidad;
 
 public class MedicoActivo extends Medico implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8197809292745455714L;
 	private Horario horario;
 	private String consulta;
 	private HashMap<String, Cita> citas = new HashMap<String, Cita>();

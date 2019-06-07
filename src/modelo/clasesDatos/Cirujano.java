@@ -6,6 +6,10 @@ import java.util.HashMap;
 import modelo.enumeraciones.TipoDeIntervencion;
 
 public class Cirujano extends Persona implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4405045914921004136L;
 	private String numeroDeOperaciones;
 	private HashMap<String, Intervencion> intervenciones = new HashMap<String, Intervencion>();
 	

@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.regex.Pattern;
 
 public class Cita implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -592042392272912028L;
 	private String idUnicoCita;
 	private String idUnicoPaciente;
 	private String idUnicoMedico;

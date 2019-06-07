@@ -5,6 +5,10 @@ import java.time.LocalTime;
 
 public class Horario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7457152247949373846L;
 	LocalTime horaInicio;
 	LocalTime horaFin;
 	boolean [] dias;

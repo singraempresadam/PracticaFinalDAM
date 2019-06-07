@@ -9,6 +9,10 @@ import modelo.enumeraciones.TipoDeIntervencion;
 
 public class Paciente extends Persona implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1462460883988507555L;
 	private String fechaDeNacimiento;
 	private HashMap<String, Cita> citas = new HashMap<String, Cita>();
 	private ArrayList<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
