@@ -30,4 +30,8 @@ public boolean grabarColeccionPaciente (HashMap<String, Paciente> pacientes) {
 		
 		return miDao.grabar(this.ruta, pacientes);
 	}
+public boolean grabarColeccionPacienteJose (HashMap<String, String> pacientes) {
+	
+	return miDao.grabar(this.ruta, pacientes);
+}
 }
