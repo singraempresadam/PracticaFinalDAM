@@ -15,11 +15,11 @@ import javax.swing.border.LineBorder;
 import vista.ventanaPrincipal;
 
 public class VentanaDatosMedico extends JFrame {
-	protected JTextField getTxtNombre;
-	protected JTextField getTxtApellidos;
-	protected JTextField getTxtTelefono;
-	protected JTextField getTxtFechaNacimiento;
-	protected JTextField getTxtDireccion;
+	protected JTextField setTxtNombre;
+	protected JTextField setTxtApellidos;
+	protected JTextField setTxtTelefono;
+	protected JTextField setTxtEspecialidad;
+	protected JTextField setTxtDireccion;
 	protected JTextField getTxtBuscar;
 	
 	public VentanaDatosMedico() {
@@ -52,51 +52,51 @@ public class VentanaDatosMedico extends JFrame {
 		lblDireccion.setBounds(83, 189, 86, 26);
 		getContentPane().add(lblDireccion);
 		
-		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
-		lblFechaDeNacimiento.setForeground(new Color(0, 102, 204));
-		lblFechaDeNacimiento.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblFechaDeNacimiento.setBounds(83, 238, 160, 19);
-		getContentPane().add(lblFechaDeNacimiento);
+		JLabel lblEspecialidad = new JLabel("Especialidad");
+		lblEspecialidad.setForeground(new Color(0, 102, 204));
+		lblEspecialidad.setFont(new Font("Verdana", Font.BOLD, 14));
+		lblEspecialidad.setBounds(83, 238, 160, 19);
+		getContentPane().add(lblEspecialidad);
 		
-		getTxtNombre = new JTextField();
-		getTxtNombre.setEditable(false);
-		getTxtNombre.setBackground(new Color(255, 255, 255));
-		getTxtNombre.setBounds(283, 86, 169, 20);
-		getContentPane().add(getTxtNombre);
-		getTxtNombre.setColumns(10);
-		getTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		setTxtNombre = new JTextField();
+		setTxtNombre.setEditable(false);
+		setTxtNombre.setBackground(new Color(255, 255, 255));
+		setTxtNombre.setBounds(283, 86, 169, 20);
+		getContentPane().add(setTxtNombre);
+		setTxtNombre.setColumns(10);
+		setTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		getTxtApellidos = new JTextField();
-		getTxtApellidos.setBackground(Color.WHITE);
-		getTxtApellidos.setEditable(false);
-		getTxtApellidos.setBounds(283, 123, 169, 20);
-		getContentPane().add(getTxtApellidos);
-		getTxtApellidos.setColumns(10);
-		getTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		setTxtApellidos = new JTextField();
+		setTxtApellidos.setBackground(Color.WHITE);
+		setTxtApellidos.setEditable(false);
+		setTxtApellidos.setBounds(283, 123, 169, 20);
+		getContentPane().add(setTxtApellidos);
+		setTxtApellidos.setColumns(10);
+		setTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		getTxtTelefono = new JTextField();
-		getTxtTelefono.setBackground(Color.WHITE);
-		getTxtTelefono.setEditable(false);
-		getTxtTelefono.setBounds(283, 160, 169, 20);
-		getContentPane().add(getTxtTelefono);
-		getTxtTelefono.setColumns(10);
-		getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		setTxtTelefono = new JTextField();
+		setTxtTelefono.setBackground(Color.WHITE);
+		setTxtTelefono.setEditable(false);
+		setTxtTelefono.setBounds(283, 160, 169, 20);
+		getContentPane().add(setTxtTelefono);
+		setTxtTelefono.setColumns(10);
+		setTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		getTxtFechaNacimiento = new JTextField();
-		getTxtFechaNacimiento.setBackground(Color.WHITE);
-		getTxtFechaNacimiento.setEditable(false);
-		getTxtFechaNacimiento.setBounds(283, 239, 169, 20);
-		getContentPane().add(getTxtFechaNacimiento);
-		getTxtFechaNacimiento.setColumns(10);
-		getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		setTxtEspecialidad = new JTextField();
+		setTxtEspecialidad.setBackground(Color.WHITE);
+		setTxtEspecialidad.setEditable(false);
+		setTxtEspecialidad.setBounds(283, 239, 169, 20);
+		getContentPane().add(setTxtEspecialidad);
+		setTxtEspecialidad.setColumns(10);
+		setTxtEspecialidad.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		getTxtDireccion = new JTextField();
-		getTxtDireccion.setBackground(Color.WHITE);
-		getTxtDireccion.setEditable(false);
-		getTxtDireccion.setBounds(283, 194, 169, 20);
-		getContentPane().add(getTxtDireccion);
-		getTxtDireccion.setColumns(10);
-		getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		setTxtDireccion = new JTextField();
+		setTxtDireccion.setBackground(Color.WHITE);
+		setTxtDireccion.setEditable(false);
+		setTxtDireccion.setBounds(283, 194, 169, 20);
+		getContentPane().add(setTxtDireccion);
+		setTxtDireccion.setColumns(10);
+		setTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.setFont(new Font("Verdana", Font.BOLD, 12));

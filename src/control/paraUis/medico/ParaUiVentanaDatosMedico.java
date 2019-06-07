@@ -7,11 +7,11 @@ public class ParaUiVentanaDatosMedico extends VentanaDatosMedico{
 	public ParaUiVentanaDatosMedico(String datos) {
 		String[] ayudante;
 		ayudante=datos.split("-");
-		this.getTxtNombre.setText(ayudante[0]);
-		this.getTxtApellidos.setText(ayudante[1]);
-		this.getTxtTelefono.setText(ayudante[3]);
-		this.getTxtDireccion.setText(ayudante[5]);
-		this.getTxtFechaNacimiento.setText(ayudante[4]);
+		this.setTxtNombre.setText(ayudante[0]);
+		this.setTxtApellidos.setText(ayudante[1]);
+		this.setTxtTelefono.setText(ayudante[3]);
+		this.setTxtDireccion.setText(ayudante[5]);
+		this.setTxtEspecialidad.setText(ayudante[4]);
 	}
 
 }
