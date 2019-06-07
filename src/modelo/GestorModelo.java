@@ -43,10 +43,6 @@ public class GestorModelo {
 		this.cirujanos = dtoCirujano.leerColeccion();
 	}
 	
-	
-	
-	
-
 	public void recetarUnTratamiento(String idUnicoPaciente, String medicamento, String dosis, String fechaDeInicio,
 			String fechaFin) {
 		pacientes.get(idUnicoPaciente).crearTratamiento(medicamento, dosis, fechaDeInicio, fechaFin);
@@ -170,9 +166,9 @@ public class GestorModelo {
 		return dtoMedico;
 	}
 
-	public DTO<MedicoActivo> getDtoMedicoActivo() {
-		return dtoMedicoActivo;
-	}
+	//public DTO<MedicoActivo> getDtoMedicoActivo() {
+		//return dtoMedicoActivo;
+	//}
 
 	public DTO<Cirujano> getDtoCirujano() {
 		return dtoCirujano;

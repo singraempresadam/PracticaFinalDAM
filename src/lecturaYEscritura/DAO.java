@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 import modelo.clasesDatos.Paciente;
+import modelo.clasesDatos.Persona;
 
 public class DAO implements DAOInterface {
 
@@ -78,7 +79,7 @@ public class DAO implements DAOInterface {
 		}
 		return retorno;
 	}
-	public boolean grabarColecciones(String ruta, HashMap<String, Paciente> paciente) {
+	public boolean grabarColecciones(String ruta, HashMap<String, Persona> paciente) {
 		assert ruta != null && paciente != null;
 		File file = new File(ruta);
 		boolean retorno = true;
@@ -99,13 +100,13 @@ public class DAO implements DAOInterface {
 		}
 		return retorno;
 	}
-	public HashMap<String, Paciente> leerColeccion(String ruta) {
+	public HashMap<String, Persona> leerColeccion(String ruta) {
 		Object objeto = null;
 		FileInputStream flujoR = abrir(ruta);
 		if (flujoR != null) {
 			try {
 				ObjectInputStream adaptador = new ObjectInputStream(flujoR);
-				objeto = (HashMap<String, Paciente>) adaptador.readObject();
+				objeto = (HashMap<String, Persona>) adaptador.readObject();
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
@@ -117,6 +118,6 @@ public class DAO implements DAOInterface {
 				e.printStackTrace();
 			}
 		}
-		return (HashMap<String, Paciente>) objeto;
+		return (HashMap<String, Persona>) objeto;
 	}
 }
