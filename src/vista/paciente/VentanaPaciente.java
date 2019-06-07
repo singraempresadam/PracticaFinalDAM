@@ -46,7 +46,7 @@ public class VentanaPaciente extends JDialog {
 	 */
 	public VentanaPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 750, 500);
+		setBounds(100, 100, 751, 500);
 		setLocationRelativeTo(null);
 		setModal(true);
 		
