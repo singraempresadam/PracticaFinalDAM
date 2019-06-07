@@ -27,15 +27,25 @@ public class GestorModelo {
 	private HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
 	private HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
 
-	private DTO<Paciente> dtoPaciente = new DTO<>("pacientes.dat");
-	private DTO<Medico> dtoMedico = new DTO<>("medicos.dat");
-	private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("medicosActivo.dat");
-	private DTO<Cirujano> dtoCirujano = new DTO<>("cirujanos.dat");
+	private DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
+	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medico.dat");
+	//private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
+	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujano.dat");
 
 	public GestorModelo() {
 		super();
 		this.cargarColeccionesMap();
 	}
+	private void cargarColeccionesMap() {
+		this.pacientes=dtoPaciente.leerColeccion();
+		this.medicos=dtoMedico.leerColeccion();
+		//this.medicosActivo = dtoMedicoActivo.leerColeccion();
+		this.cirujanos = dtoCirujano.leerColeccion();
+	}
+	
+	
+	
+	
 
 	public void recetarUnTratamiento(String idUnicoPaciente, String medicamento, String dosis, String fechaDeInicio,
 			String fechaFin) {
@@ -49,7 +59,7 @@ public class GestorModelo {
 		pacientes.get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
 		medicosActivo.get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fecha, hora);
 		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
-		dtoMedicoActivo.grabar(medicosActivo.get(idUnicoMedico));
+		//dtoMedicoActivo.grabar(medicosActivo.get(idUnicoMedico));
 	}
 
 	public void solicitarIntervencion(String idUnicoPaciente, String idUnicoMedico, String idUnicoCirujano,
@@ -59,7 +69,7 @@ public class GestorModelo {
 				tipoDeIntervencion);
 		cirujanos.get(idUnicoCirujano).crearIntervencion(idCita, idUnicoPaciente, idUnicoMedico, fecha, hora,
 				tipoDeIntervencion);
-		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
+		dtoPaciente.grabarColeccionPaciente(pacientes);
 		dtoCirujano.grabar(cirujanos.get(idUnicoCirujano));
 	}
 
@@ -67,9 +77,8 @@ public class GestorModelo {
 			String fechaDeNacimiento) {
 		Paciente paciente = new Paciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
 		pacientes.put(paciente.getIdUnico(), paciente);
-		for (Entry<String, Paciente> pacienteLista : pacientes.entrySet()) {
-			dtoPaciente.grabar(pacienteLista.getValue());
-		}
+		dtoPaciente.grabarColeccionPaciente(pacientes);
+		
 	}
 
 	public void darAltaMedicoNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico,
@@ -129,65 +138,9 @@ public class GestorModelo {
 		return retorno;
 	}
 
-	// Bloque para cargar colecciones
-	private void cargarPaciente(Paciente pacienteLeido) {
-		Paciente paciente = new Paciente(pacienteLeido);
-		pacientes.put(paciente.getIdUnico(), paciente);
-	}
+	
 
-	private void cargarMedico(Medico medicoLeido) {
-		Medico medico = new Medico(medicoLeido);
-		medicos.put(medico.getIdUnico(), medico);
-	}
-
-	private void cargarMedicoActivo(MedicoActivo medicoActivoLeido) {
-		MedicoActivo medicoActivo = new MedicoActivo(medicoActivoLeido);
-		medicosActivo.put(medicoActivo.getIdUnico(), medicoActivo);
-	}
-
-	private void cargarCirujano(Cirujano cirujanoLeido) {
-		Cirujano cirujano = new Cirujano(cirujanoLeido);
-		cirujanos.put(cirujano.getIdUnico(), cirujano);
-	}
-
-	private void cargarColeccionesMap() {
-		cargarColeccionMapPacientes();
-		cargarColeccionMapMedicos();
-		cargarColeccionMapMedicosActivo();
-		cargarColeccionMapCirujanos();
-	}
-
-	private void cargarColeccionMapPacientes() {
-		Paciente pacienteLeido;
-		do {
-			pacienteLeido = dtoPaciente.leer();
-			this.cargarPaciente(pacienteLeido);
-		} while (pacienteLeido != null);
-	}
-
-	private void cargarColeccionMapMedicos() {
-		Medico medicoLeido;
-		do {
-			medicoLeido = dtoMedico.leer();
-			this.cargarMedico(medicoLeido);
-		} while (medicoLeido != null);
-	}
-
-	private void cargarColeccionMapMedicosActivo() {
-		MedicoActivo medicoActivoLeido;
-		do {
-			medicoActivoLeido = dtoMedicoActivo.leer();
-			this.cargarMedicoActivo(medicoActivoLeido);
-		} while (medicoActivoLeido != null);
-	}
-
-	private void cargarColeccionMapCirujanos() {
-		Cirujano cirujanoLeido;
-		do {
-			cirujanoLeido = dtoCirujano.leer();
-			this.cargarCirujano(cirujanoLeido);
-		} while (cirujanoLeido != null);
-	}
+	
 
 	public Paciente obtenerUnPaciente(String idUnicoPaciente) {
 		return pacientes.get(idUnicoPaciente);

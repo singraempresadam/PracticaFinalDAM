@@ -7,11 +7,15 @@ import modelo.enumeraciones.Especialidad;
 import modelo.enumeraciones.TipoDeIntervencion;
 
 public class Controller {
-	GestorModelo miGestor = new GestorModelo();
+	GestorModelo miGestor;
+	
+	public Controller()
+	{
+		miGestor= new GestorModelo();
+	}
 	
 	
-	
-	void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
+	public void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
 	{
 		miGestor.darAltaPacienteNuevo(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
 	}
@@ -42,7 +46,7 @@ public class Controller {
 	{
 		miGestor.solicitarIntervencion(idUnicoPaciente, idUnicoMedico, idUnicoCirujano, tipoDeIntervencion, fecha, hora);
 	}
-	String [] obtenerElementosAMostrarPaciente()
+	public String [] obtenerElementosAMostrarPaciente()
 	{
 		return miGestor.obtenerElementosAMostrarPaciente();
 	}
