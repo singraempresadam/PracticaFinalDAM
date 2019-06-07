@@ -1,26 +1,27 @@
 package lecturaYEscritura;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalTime;
 import java.util.HashMap;
 
 import modelo.clasesDatos.Cirujano;
 import modelo.clasesDatos.Medico;
 import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
+import modelo.enumeraciones.Especialidad;
 
 public class PruebaDao {
 	private static HashMap<String, String> pacientesJose = new HashMap<String, String>();
 	private static HashMap<String, Paciente> pacientes = new HashMap<String, Paciente>();
-	private HashMap<String, Medico> medicos = new HashMap<String, Medico>();
-	private HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
-	private HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
+	private static HashMap<String, Medico> medicos = new HashMap<String, Medico>();
+	private static HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
+	private static HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
 	private static DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
-	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medicos.dat");
-	private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
-	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujanos.dat");
+	private static DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medicos.dat");
+	private static DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
+	private static DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujanos.dat");
 	
 	public static void main(String[] args) {
 		
@@ -33,7 +34,7 @@ public class PruebaDao {
 //		grabarArchivoPaciente();
 //		guardarHashMapJose();
 		guardarHashMap();
-		grabarArchivoPaciente();
+//		grabarArchivoPaciente();
 //		borrarArchivo("125");
 	}
 
@@ -56,6 +57,47 @@ public class PruebaDao {
 		System.out.println(pacienteLeer.getTratamientos());
 	}
 
+	private static void guardarHashMap() {
+		Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456789", "17/05/1997");
+		Paciente dos = new Paciente("Pepe", "Fernandez Cardenal", "622963425", "calle merida", "223456789", "17/05/1997");
+		Paciente tres = new Paciente("Felipe", "Fernandez Cardenal", "622963425", "calle merida", "323456789", "17/05/1997");
+		Paciente cuatro = new Paciente("Carmen", "Fernandez Cardenal", "622963425", "calle merida", "423456789", "17/05/1997");
+		Medico medicoUno = new Medico("Javier", "Gutierrez", "622865686", "Calle Salvamarina", "5648216785", Especialidad.Alergologo);
+		Medico medicoDos = new Medico("Eva", "Salmanca", "658957414", "Calle Benidor", "157468954", Especialidad.Atencion_Primaria);
+		Medico medicoTres = new Medico("Mario", "Rodriguez", "62345698", "Calle AltaGracia", "123658947", Especialidad.Ginecologo);
+		Medico medicoCuatro = new Medico("Ana", "Cabanillas", "677766147", "Calle Altorra", "456284635", Especialidad.Traumatologo);
+		boolean [] diasRicardo = {true,true,true,true,true};
+		MedicoActivo medicoActivoUno= new MedicoActivo("Ricardo Antonio", "Zarco", "622568656", "Calle grupoperros", "321456789", 
+				Especialidad.Atencion_Primaria, LocalTime.of(10, 0), LocalTime.of(14, 0), 
+				diasRicardo, "1");
+		Cirujano cirujanoUno = new Cirujano("Manolo", "Gordillo", "615121512", "Calle Santiago Apostol", "314159692", "2");
+		Cirujano cirujanoDos = new Cirujano("Kiwi", "Pandoso", "621091997", "Calle Enamorado", "321654989", "2");
+		
+		pacientes.put(uno.getIdUnico(), uno);
+		pacientes.put(dos.getIdUnico(), dos);
+		pacientes.put(tres.getIdUnico(), tres);
+		pacientes.put(cuatro.getIdUnico(), cuatro);
+		medicos.put(medicoUno.getIdUnico(), medicoUno);
+		medicos.put(medicoDos.getIdUnico(), medicoDos);
+		medicos.put(medicoTres.getIdUnico(), medicoTres);
+		medicos.put(medicoCuatro.getIdUnico(), medicoCuatro);
+		
+		medicosActivo.put(medicoActivoUno.getIdUnico(), medicoActivoUno);
+		
+		cirujanos.put(cirujanoUno.getIdUnico(), cirujanoUno);
+		cirujanos.put(cirujanoDos.getIdUnico(), cirujanoDos);
+		dtoPaciente.grabarColeccionPaciente(pacientes);
+		dtoMedico.grabarColeccionMedico(medicos);
+		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
+		dtoCirujano.grabarColeccionCirujano(cirujanos);
+	}
+	
+	
+	
+	
+	
+	
+	
 	private static void guardarHashMapJose() {
 		Paciente paciente = new Paciente("Juan", "Garcia", "65", "casa", "2", "1998");
 		Paciente pacienteDos = new Paciente("PEPE", "PEREZ", "80", "piso", "3", "1999");
@@ -67,20 +109,6 @@ public class PruebaDao {
 		System.out.println(coleccion);
 		
 	}
-	private static void guardarHashMap() {
-		Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456789", "17/05/1997");
-		Paciente dos = new Paciente("Pepe", "Fernandez Cardenal", "622963425", "calle merida", "223456789", "17/05/1997");
-		Paciente tres = new Paciente("Felipe", "Fernandez Cardenal", "622963425", "calle merida", "323456789", "17/05/1997");
-		Paciente cuatro = new Paciente("Carmen", "Fernandez Cardenal", "622963425", "calle merida", "423456789", "17/05/1997");
-		DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
-		pacientes.put(uno.getIdUnico(), uno);
-		pacientes.put(dos.getIdUnico(), dos);
-		pacientes.put(tres.getIdUnico(), tres);
-		pacientes.put(cuatro.getIdUnico(), cuatro);
-		dtoPaciente.grabarColeccionPaciente(pacientes);
-		HashMap coleccion = dtoPaciente.leerColeccion();
-		System.out.println(coleccion);
-	}
 	
 	private static void grabarArchivoPaciente() {
 		HashMap pacienteLeido = dtoPaciente.leerColeccion();
@@ -90,6 +118,12 @@ public class PruebaDao {
 		System.out.println(pacientes.get("123456789").getNombre());
 		
 	}
+	
+	
+	
+	
+	
+	
 	private static void grabarYleerCirujano() {
 		/* Graba cirujanos pero en el mismo archivo */
 		Cirujano cirujano = new Cirujano("Raul", "NoSe", "67", "Piso", "4", "20");

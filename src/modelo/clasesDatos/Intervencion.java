@@ -6,6 +6,10 @@ import java.util.regex.Pattern;
 import modelo.enumeraciones.TipoDeIntervencion;
 
 public class Intervencion extends Cita implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1069293026150365457L;
 	String idUnicoCirujano;
 	TipoDeIntervencion tipoDeIntervencion;
 	

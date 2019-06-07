@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.regex.Pattern;
 
 public abstract class Persona implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6999668079478952039L;
 	private String nombre;
 	private String apellidos;
 	private String telefono;

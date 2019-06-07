@@ -1,14 +1,9 @@
 package modelo;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Pattern;
-
-import lecturaYEscritura.DAO;
 import lecturaYEscritura.DTO;
 import modelo.clasesDatos.Cirujano;
 import modelo.clasesDatos.Cita;
@@ -32,9 +27,9 @@ public class GestorModelo {
 	private HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
 
 	private DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
-	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medico.dat");
+	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medicos.dat");
 	private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
-	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujano.dat");
+	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujanos.dat");
 
 	public GestorModelo() {
 		super();

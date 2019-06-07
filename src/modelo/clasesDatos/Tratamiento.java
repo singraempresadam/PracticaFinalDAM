@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Tratamiento implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2700823679366094855L;
 	private String idUnicoPaciente;
 	private String medicamento;
 	private String dosis;

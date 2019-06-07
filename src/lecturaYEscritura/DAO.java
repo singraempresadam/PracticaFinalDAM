@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
-
-import modelo.clasesDatos.Paciente;
 import modelo.clasesDatos.Persona;
 
 public class DAO implements DAOInterface {
@@ -26,26 +24,6 @@ public class DAO implements DAOInterface {
 		return flujoR;
 	}
 
-	public Object leer(String ruta) {
-		Object objeto = null;
-		FileInputStream flujoR = abrir(ruta);
-		if (flujoR != null) {
-			try {
-				ObjectInputStream adaptador = new ObjectInputStream(flujoR);
-				objeto = (Object) adaptador.readObject();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			try {
-				flujoR.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return objeto;
-	}
 
 	private FileOutputStream abrir(String ruta, boolean anadir) {
 		FileOutputStream flujoW = null;
@@ -60,7 +38,6 @@ public class DAO implements DAOInterface {
 
 	public boolean grabar(String ruta, Object object) {
 		assert ruta != null && object != null;
-		File file = new File(ruta);
 		boolean retorno = true;
 		FileOutputStream flujoW = abrir(ruta, false);
 		ObjectOutputStream adaptador = null;
@@ -79,9 +56,8 @@ public class DAO implements DAOInterface {
 		}
 		return retorno;
 	}
-	public boolean grabarColecciones(String ruta, HashMap<String, Persona> paciente) {
+	public boolean grabar(String ruta, HashMap<String, Persona> paciente) {
 		assert ruta != null && paciente != null;
-		File file = new File(ruta);
 		boolean retorno = true;
 		FileOutputStream flujoW = abrir(ruta, true);
 		ObjectOutputStream adaptador = null;
@@ -100,7 +76,7 @@ public class DAO implements DAOInterface {
 		}
 		return retorno;
 	}
-	public HashMap<String, Persona> leerColeccion(String ruta) {
+	public HashMap<String, Persona> leer(String ruta) {
 		Object objeto = null;
 		FileInputStream flujoR = abrir(ruta);
 		if (flujoR != null) {
