@@ -161,9 +161,9 @@ public class GestorModelo {
 		String[] retorno = new String[this.getPacientes().size()];
 		int i = 0;
 		for (Entry<String, Paciente> pacienteLista : this.getPacientes().entrySet()) {
-			retorno[i] = pacienteLista.getValue().getNombre() + " " + pacienteLista.getValue().getApellidos() + " "
-					+ pacienteLista.getKey() + " " + pacienteLista.getValue().getTelefono() + " "
-					+ pacienteLista.getValue().getFechaDeNacimiento();
+			retorno[i] = pacienteLista.getValue().getNombre() + "-" + pacienteLista.getValue().getApellidos() + "-"
+					+ pacienteLista.getKey() + "-" + pacienteLista.getValue().getTelefono() + "-"
+					+ pacienteLista.getValue().getDireccion()+"-"+pacienteLista.getValue().getFechaDeNacimiento();
 			i++;
 		}
 		return retorno;
@@ -172,8 +172,8 @@ public class GestorModelo {
 		String[] retorno = new String[this.getMedicos().size()];
 		int i = 0;
 		for (Entry<String, Medico> medicoLista : medicos.entrySet()) {
-			retorno[i] = medicoLista.getValue().getNombre() + " " + medicoLista.getValue().getApellidos() + " "
-					+ medicoLista.getKey() + " " + medicoLista.getValue().getTelefono() + " "
+			retorno[i] = medicoLista.getValue().getNombre() + "-" + medicoLista.getValue().getApellidos() + "-"
+					+ medicoLista.getKey() + "-" + medicoLista.getValue().getTelefono() + "-"
 					+ medicoLista.getValue().getEspecialidad();
 			i++;
 		}
@@ -183,8 +183,8 @@ public class GestorModelo {
 		String[] retorno = new String[this.getMedicosActivo().size()];
 		int i = 0;
 		for (Entry<String, MedicoActivo> medicoActivoLista : medicosActivo.entrySet()) {
-			retorno[i] = medicoActivoLista.getValue().getNombre() + " " + medicoActivoLista.getValue().getApellidos()
-					+ " " + medicoActivoLista.getKey() + " " + medicoActivoLista.getValue().getTelefono() + " "
+			retorno[i] = medicoActivoLista.getValue().getNombre() + "-" + medicoActivoLista.getValue().getApellidos()
+					+ "-" + medicoActivoLista.getKey() + "-" + medicoActivoLista.getValue().getTelefono() + "-"
 					+ medicoActivoLista.getValue().getEspecialidad();
 			i++;
 		}

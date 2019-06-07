@@ -31,7 +31,7 @@ public class PruebaDao {
 //		grabarYleerMedico();
 //		grabarYleerCirujano();
 //		grabarArchivoPaciente();
-		guardarHashMapJose();
+//		guardarHashMapJose();
 		guardarHashMap();
 		grabarArchivoPaciente();
 //		borrarArchivo("125");
@@ -68,11 +68,15 @@ public class PruebaDao {
 		
 	}
 	private static void guardarHashMap() {
-		Paciente paciente = new Paciente("Juan", "Garcia", "65", "casa", "2", "1998");
-		Paciente pacienteDos = new Paciente("PEPE", "PEREZ", "80", "piso", "3", "1999");
+		Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456789", "17/05/1997");
+		Paciente dos = new Paciente("Pepe", "Fernandez Cardenal", "622963425", "calle merida", "223456789", "17/05/1997");
+		Paciente tres = new Paciente("Felipe", "Fernandez Cardenal", "622963425", "calle merida", "323456789", "17/05/1997");
+		Paciente cuatro = new Paciente("Carmen", "Fernandez Cardenal", "622963425", "calle merida", "423456789", "17/05/1997");
 		DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
-		pacientes.put(paciente.getIdUnico(), paciente);
-		pacientes.put(pacienteDos.getIdUnico(), pacienteDos);
+		pacientes.put(uno.getIdUnico(), uno);
+		pacientes.put(dos.getIdUnico(), dos);
+		pacientes.put(tres.getIdUnico(), tres);
+		pacientes.put(cuatro.getIdUnico(), cuatro);
 		dtoPaciente.grabarColeccionPaciente(pacientes);
 		HashMap coleccion = dtoPaciente.leerColeccion();
 		System.out.println(coleccion);
@@ -83,7 +87,7 @@ public class PruebaDao {
 		HashMap<String, Paciente> pacientes = new HashMap<String, Paciente>();
 		pacientes.putAll(pacienteLeido);
 		System.out.println(pacientes);
-		System.out.println(pacientes.get("2").getNombre());
+		System.out.println(pacientes.get("123456789").getNombre());
 		
 	}
 	private static void grabarYleerCirujano() {
