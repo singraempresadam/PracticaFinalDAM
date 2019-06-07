@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 import java.awt.Font;
@@ -26,7 +27,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
-public class VentanaDatosPaciente extends JFrame{
+public class VentanaDatosPaciente extends JDialog{
 	protected JTextField getTxtNombre;
 	protected JTextField getTxtApellidos;
 	protected JTextField getTxtTelefono;
@@ -40,6 +41,7 @@ public class VentanaDatosPaciente extends JFrame{
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 750, 500);
 		setLocationRelativeTo(null);
+		setModal(true);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(0, 102, 204));
