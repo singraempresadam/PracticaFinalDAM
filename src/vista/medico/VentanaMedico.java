@@ -57,6 +57,7 @@ public class VentanaMedico extends JFrame {
 	private JButton btnBuscarMedicoAP;
 	private JComboBox comboBoxTurnoMedicoAP;
 	private JButton btnAnadirAtencionPrimaria;
+	private JComboBox comboBoxEspecialidad;
 
 		public VentanaMedico() {
 			setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
@@ -176,7 +177,7 @@ public class VentanaMedico extends JFrame {
 			btnAnadirMedico.setBounds(600, 361, 89, 23);
 			panelAnadirMedico.add(btnAnadirMedico);
 			
-			JComboBox comboBoxEspecialidad = new JComboBox();
+			comboBoxEspecialidad = new JComboBox();
 			comboBoxEspecialidad.setBounds(233, 270, 169, 19);
 			panelAnadirMedico.add(comboBoxEspecialidad);
 			
@@ -360,6 +361,11 @@ public class VentanaMedico extends JFrame {
 		public JButton getBtnAnadirAtencionPrimaria() {
 			return btnAnadirAtencionPrimaria;
 		}
+
+		public JComboBox getComboBoxEspecialidad() {
+			return comboBoxEspecialidad;
+		}
+
 		
 		
 }

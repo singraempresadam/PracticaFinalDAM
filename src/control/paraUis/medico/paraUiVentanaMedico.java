@@ -11,6 +11,7 @@ import javax.swing.border.LineBorder;
 
 import control.paraUis.TestParaUI;
 import control.paraUis.paciente.paraUiVentanaDatosPaciente;
+import modelo.enumeraciones.Especialidad;
 import vista.medico.VentanaMedico;
 
 public class paraUiVentanaMedico extends VentanaMedico{
@@ -28,6 +29,10 @@ public class paraUiVentanaMedico extends VentanaMedico{
 		scrollListaMedico.setBounds(79, 108, 345, 213);
 		scrollListaMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		getPanelBuscarMedico().add(scrollListaMedico);
+		Especialidad[] values = Especialidad.values();
+		for (int i = 0; i < values.length; i++) {
+			this.getComboBoxEspecialidad().addItem(values[i]);
+		}
 	}
 	private String obtenerIdSeleccionado() {
 		List<String> lista = medicos.getSelectedValuesList();
