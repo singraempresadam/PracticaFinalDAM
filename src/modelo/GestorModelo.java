@@ -29,7 +29,7 @@ public class GestorModelo {
 
 	private DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
 	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medico.dat");
-	//private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
+	private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
 	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujano.dat");
 
 	public GestorModelo() {
@@ -39,9 +39,11 @@ public class GestorModelo {
 	private void cargarColeccionesMap() {
 		this.pacientes=dtoPaciente.leerColeccion();
 		this.medicos=dtoMedico.leerColeccion();
-		//this.medicosActivo = dtoMedicoActivo.leerColeccion();
+		this.medicosActivo = dtoMedicoActivo.leerColeccion();
 		this.cirujanos = dtoCirujano.leerColeccion();
 	}
+	
+	
 	
 	public void recetarUnTratamiento(String idUnicoPaciente, String medicamento, String dosis, String fechaDeInicio,
 			String fechaFin) {
@@ -50,14 +52,22 @@ public class GestorModelo {
 		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
 	}
 
-	public void solicitarCita(String idUnicoPaciente, String idUnicoMedico, String fecha, String hora) {
+	public void solicitarCitaPaciente(String idUnicoPaciente, String idUnicoMedico, String fecha, String hora) {
 		String idCita = this.generarId();
 		pacientes.get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
 		medicosActivo.get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fecha, hora);
-		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
-		//dtoMedicoActivo.grabar(medicosActivo.get(idUnicoMedico));
+		dtoPaciente.grabarColeccionPaciente(pacientes);
+		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
 	}
-
+	
+	public void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fecha, String hora) {
+		String idCita = this.generarId();
+		pacientes.get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
+		medicosActivo.get(idUnicoMedicoEspecialista).crearCita(idCita, idUnicoPaciente, fecha, hora);
+		dtoPaciente.grabarColeccionPaciente(pacientes);
+		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
+	}
+	
 	public void solicitarIntervencion(String idUnicoPaciente, String idUnicoMedico, String idUnicoCirujano,
 			TipoDeIntervencion tipoDeIntervencion, String fecha, String hora) {
 		String idCita = this.generarId();
@@ -66,9 +76,10 @@ public class GestorModelo {
 		cirujanos.get(idUnicoCirujano).crearIntervencion(idCita, idUnicoPaciente, idUnicoMedico, fecha, hora,
 				tipoDeIntervencion);
 		dtoPaciente.grabarColeccionPaciente(pacientes);
-		dtoCirujano.grabar(cirujanos.get(idUnicoCirujano));
+		dtoCirujano.grabarColeccionCirujano(cirujanos);
 	}
 
+	
 	public void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico,
 			String fechaDeNacimiento) {
 		Paciente paciente = new Paciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
@@ -81,9 +92,7 @@ public class GestorModelo {
 			Especialidad especialidad) {
 		Medico medico = new Medico(nombre, apellidos, telefono, direccion, idUnico, especialidad);
 		medicos.put(medico.getIdUnico(), medico);
-		for (Entry<String, Medico> medicoLista : medicos.entrySet()) {
-			dtoMedico.grabar(medicoLista.getValue());
-		}
+		getDtoMedico().grabarColeccionMedico(medicos);
 	}
 
 	public void darAltaMedicoActivoNuevo(String nombre, String apellidos, String telefono, String direccion,
@@ -96,6 +105,15 @@ public class GestorModelo {
 			dtoMedico.grabar(medicoActivoLista.getValue());
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// BLoque para vistas
 
 	public String[] obtenerElementosAMostrarPaciente() {
@@ -166,9 +184,9 @@ public class GestorModelo {
 		return dtoMedico;
 	}
 
-	//public DTO<MedicoActivo> getDtoMedicoActivo() {
-		//return dtoMedicoActivo;
-	//}
+	public DTO<MedicoActivo> getDtoMedicoActivo() {
+		return dtoMedicoActivo;
+	}
 
 	public DTO<Cirujano> getDtoCirujano() {
 		return dtoCirujano;

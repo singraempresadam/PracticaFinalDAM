@@ -38,7 +38,7 @@ public class Controller {
 	
 	void solicitarCita(String idUnicoPaciente,String idUnicoMedico, String fecha, String hora)
 	{
-		miGestor.solicitarCita(idUnicoPaciente, idUnicoMedico, fecha, hora);
+		miGestor.solicitarCitaPaciente(idUnicoPaciente, idUnicoMedico, fecha, hora);
 	}
 	void solicitarIntervencion(String idUnicoPaciente,String idUnicoMedico, 
 								String fecha, String hora, String idUnicoCirujano, 
