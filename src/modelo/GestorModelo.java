@@ -2,6 +2,7 @@ package modelo;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -10,9 +11,12 @@ import java.util.regex.Pattern;
 import lecturaYEscritura.DAO;
 import lecturaYEscritura.DTO;
 import modelo.clasesDatos.Cirujano;
+import modelo.clasesDatos.Cita;
 import modelo.clasesDatos.Medico;
 import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
+import modelo.clasesDatos.Persona;
+import modelo.clasesDatos.Respuesta;
 import modelo.enumeraciones.Especialidad;
 import modelo.enumeraciones.TipoDeIntervencion;
 
@@ -47,79 +51,116 @@ public class GestorModelo {
 	
 	public void recetarUnTratamiento(String idUnicoPaciente, String medicamento, String dosis, String fechaDeInicio,
 			String fechaFin) {
-		pacientes.get(idUnicoPaciente).crearTratamiento(medicamento, dosis, fechaDeInicio, fechaFin);
-		// sobrescribimos el paciente aprovechando hashMap
-		dtoPaciente.grabar(pacientes.get(idUnicoPaciente));
+		this.getPacientes().get(idUnicoPaciente).crearTratamiento(medicamento, dosis, fechaDeInicio, fechaFin);
+		this.getDtoPaciente().grabarColeccionPaciente(pacientes);
 	}
-
 	public void solicitarCitaPaciente(String idUnicoPaciente, String idUnicoMedico, String fecha, String hora) {
 		String idCita = this.generarId();
-		pacientes.get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
-		medicosActivo.get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fecha, hora);
-		dtoPaciente.grabarColeccionPaciente(pacientes);
-		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
+		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
+		this.getMedicosActivo().get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fecha, hora);
+		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
 	}
-	
 	public void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fecha, String hora) {
 		String idCita = this.generarId();
-		pacientes.get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
-		medicosActivo.get(idUnicoMedicoEspecialista).crearCita(idCita, idUnicoPaciente, fecha, hora);
-		dtoPaciente.grabarColeccionPaciente(pacientes);
-		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
+		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
+		this.getMedicosActivo().get(idUnicoMedicoEspecialista).crearCita(idCita, idUnicoPaciente, fecha, hora);
+		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
 	}
-	
 	public void solicitarIntervencion(String idUnicoPaciente, String idUnicoMedico, String idUnicoCirujano,
 			TipoDeIntervencion tipoDeIntervencion, String fecha, String hora) {
 		String idCita = this.generarId();
-		pacientes.get(idUnicoPaciente).crearIntervencion(idCita, idUnicoMedico, fecha, hora, idUnicoCirujano,
+		this.getPacientes().get(idUnicoPaciente).crearIntervencion(idCita, idUnicoMedico, fecha, hora, idUnicoCirujano,
 				tipoDeIntervencion);
-		cirujanos.get(idUnicoCirujano).crearIntervencion(idCita, idUnicoPaciente, idUnicoMedico, fecha, hora,
+		this.getCirujanos().get(idUnicoCirujano).crearIntervencion(idCita, idUnicoPaciente, idUnicoMedico, fecha, hora,
 				tipoDeIntervencion);
-		dtoPaciente.grabarColeccionPaciente(pacientes);
-		dtoCirujano.grabarColeccionCirujano(cirujanos);
+		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+		this.getDtoCirujano().grabarColeccionCirujano(this.getCirujanos());
 	}
-
 	
 	public void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico,
 			String fechaDeNacimiento) {
 		Paciente paciente = new Paciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
-		pacientes.put(paciente.getIdUnico(), paciente);
-		dtoPaciente.grabarColeccionPaciente(pacientes);
+		this.getPacientes().put(paciente.getIdUnico(), paciente);
+		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
 		
 	}
-
 	public void darAltaMedicoNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico,
 			Especialidad especialidad) {
 		Medico medico = new Medico(nombre, apellidos, telefono, direccion, idUnico, especialidad);
-		medicos.put(medico.getIdUnico(), medico);
+		this.getMedicos().put(medico.getIdUnico(), medico);
 		getDtoMedico().grabarColeccionMedico(medicos);
 	}
-
 	public void darAltaMedicoActivoNuevo(String nombre, String apellidos, String telefono, String direccion,
 			String idUnico, Especialidad especialidad, LocalTime horaInicio, LocalTime horaFin, boolean[] dias,
 			String consulta) {
 		MedicoActivo medicoActivo = new MedicoActivo(nombre, apellidos, telefono, direccion, idUnico, especialidad,
 				horaInicio, horaFin, dias, consulta);
-		medicosActivo.put(medicoActivo.getIdUnico(), medicoActivo);
-		for (Entry<String, MedicoActivo> medicoActivoLista : medicosActivo.entrySet()) {
-			dtoMedico.grabar(medicoActivoLista.getValue());
-		}
+		this.getMedicosActivo().put(medicoActivo.getIdUnico(), medicoActivo);
+		getDtoMedicoActivo().grabarColeccionMedicoActivo(medicosActivo);
 	}
 	
+	public void eliminarPaciente(String idUnico)
+	{
+		this.getPacientes().remove(idUnico);
+		getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+	}
+	public void eliminarMedico(String idUnico)
+	{
+		this.getMedicos().remove(idUnico);
+		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
+	}
+	public void eliminarMedicoActivo(String idUnico)
+	{
+		this.getMedicosActivo().remove(idUnico);
+		getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
+	}
+	public void eliminarCirujano(String idUnico)
+	{
+		this.getCirujanos().remove(idUnico);
+		getDtoCirujano().grabarColeccionCirujano(this.getCirujanos());
+	}
 	
-	
-	
-	
-	
-	
-	
+	public Respuesta getValidatorNombre(String nombre)
+	{
+		return Persona.validaNombre(nombre);
+	}
+	public Respuesta getValidatorApellidos(String apellidos)
+	{
+		return Persona.validaApellidos(apellidos);
+	}
+	public Respuesta getValidatorTelefono(String telefono)
+	{
+		return Persona.validaTelefono(telefono);
+	}
+	public Respuesta getValidatorDireccion(String direccion)
+	{
+		return Persona.validaDireccion(direccion);
+	}
+	public Respuesta getValidatorFecha(String fecha)
+	{
+		return Cita.validaFecha(fecha);
+	}
+	public Respuesta getValidatorObservaciones(String observaciones)
+	{
+		return Cita.validaObservaciones(observaciones);
+	}
+	public Respuesta getValidatorConsulta(String consulta)
+	{
+		return MedicoActivo.validaConsulta(consulta);
+	}
+	public Respuesta getValidatorFechaDeNacimiento(String fechaNacimiento)
+	{
+		return Paciente.validaFechaNacimiento(fechaNacimiento);
+	}
 	
 	// BLoque para vistas
 
 	public String[] obtenerElementosAMostrarPaciente() {
-		String[] retorno = new String[pacientes.size()];
+		String[] retorno = new String[this.getPacientes().size()];
 		int i = 0;
-		for (Entry<String, Paciente> pacienteLista : pacientes.entrySet()) {
+		for (Entry<String, Paciente> pacienteLista : this.getPacientes().entrySet()) {
 			retorno[i] = pacienteLista.getValue().getNombre() + " " + pacienteLista.getValue().getApellidos() + " "
 					+ pacienteLista.getKey() + " " + pacienteLista.getValue().getTelefono() + " "
 					+ pacienteLista.getValue().getFechaDeNacimiento();
@@ -127,9 +168,8 @@ public class GestorModelo {
 		}
 		return retorno;
 	}
-
 	public String[] obtenerElementosAMostrarMedico() {
-		String[] retorno = new String[medicos.size()];
+		String[] retorno = new String[this.getMedicos().size()];
 		int i = 0;
 		for (Entry<String, Medico> medicoLista : medicos.entrySet()) {
 			retorno[i] = medicoLista.getValue().getNombre() + " " + medicoLista.getValue().getApellidos() + " "
@@ -139,9 +179,8 @@ public class GestorModelo {
 		}
 		return retorno;
 	}
-
 	public String[] obtenerElementosAMostrarMedicoActivo() {
-		String[] retorno = new String[medicosActivo.size()];
+		String[] retorno = new String[this.getMedicosActivo().size()];
 		int i = 0;
 		for (Entry<String, MedicoActivo> medicoActivoLista : medicosActivo.entrySet()) {
 			retorno[i] = medicoActivoLista.getValue().getNombre() + " " + medicoActivoLista.getValue().getApellidos()
@@ -151,11 +190,40 @@ public class GestorModelo {
 		}
 		return retorno;
 	}
-
+	public String[] obtenerTodosLosMedicos() {
+		String medicos[]=obtenerElementosAMostrarMedico();
+		String medicosActivos[]=obtenerElementosAMostrarMedicoActivo();
+		String conjuntoMedicos[]=Arrays.copyOf(medicos,medicos.length+medicosActivos.length);
+		int j=medicos.length;
+		for (int i = 0; i < medicosActivos.length; i++) {
+			conjuntoMedicos[j]=medicosActivos[i];
+			j++;
+		}
+		return conjuntoMedicos;
+	}
+	public String[] filtrar(String filtro, String[] contenidoAFiltrar) {
+		String [] retorno= new String[tamanioFiltracion(filtro, contenidoAFiltrar)];
+		int j=0;
+		for (int i = 0; i < contenidoAFiltrar.length; i++) {
+			if(contenidoAFiltrar[i].contains(filtro))
+			{
+				retorno[j]=contenidoAFiltrar[i];
+				j++;
+			}
+		}
+		return retorno;
+	}
+	private int tamanioFiltracion(String filtro, String[] contenidoAFiltrar) {
+		int j=0;
+		for (int i = 0; i < contenidoAFiltrar.length; i++) {
+			if(contenidoAFiltrar[i].contains(filtro))
+			{
+				j++;
+			}
+		}
+		return j;
+	}
 	
-
-	
-
 	public Paciente obtenerUnPaciente(String idUnicoPaciente) {
 		return pacientes.get(idUnicoPaciente);
 	}
