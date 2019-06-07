@@ -25,7 +25,28 @@ class DaoTest {
 	String rutaDos = "coleccionPaciente.dat";
 	HashMap<String, Paciente> mapaPaciente = new HashMap<String,Paciente>();
 	DTO<Paciente> dtoPaciente = new DTO<>(rutaDos);
+	Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456789", "17/05/1997");
 
+	public boolean equals(Object obj) {
+		
+		if(this==obj) return true;
+		
+		if(obj==null) return false;
+		
+		if(!(obj instanceof Paciente))return false;
+		
+		Paciente instancia=(Paciente)obj;
+		
+		return uno.getApellidos()==instancia.getApellidos();
+}
+
+@Override
+public int hashCode() {
+
+int hash=13;
+
+return hash*uno.getApellidos().hashCode();
+}
 	@BeforeEach
 	void antesDeLaPrueba() throws Exception{
 		archivo = new File(ruta);
@@ -47,10 +68,10 @@ class DaoTest {
 	}
 	@Test
 	void subirMapa() {
-		Paciente uno = new Paciente("Adrian", "Fernandez Cardenal", "622963425", "calle merida", "123456789", "17/05/1997");
 		mapaPaciente.put(uno.getIdUnico(), uno);
 		assertFalse(mapaPaciente.isEmpty());
 		assertEquals(uno.getNombre(), mapaPaciente.get(uno.getIdUnico()).getNombre());
+		assertEquals(uno, mapaPaciente.get(uno.getIdUnico()));
 		
 	}
 	
@@ -60,5 +81,6 @@ class DaoTest {
 		assertEquals(cosaAgrabar, dao.leer(ruta));
 		
 	}
+
 
 }
