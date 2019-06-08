@@ -93,7 +93,7 @@ public class VentanaPaciente extends JDialog {
 				dispose(); 
 			}
 		});
-		btnCerrar.setBounds(704, 0, 36, 31);
+		btnCerrar.setBounds(704, 0, 35, 31);
 		panelPaciente.add(btnCerrar);
 	
 		JLabel lblClinicaBuenaSalud = new JLabel("PACIENTE");
