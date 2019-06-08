@@ -13,9 +13,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 
 public class VentanaError extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 585967369870072525L;
 	private JLabel lblInfo;
 	public VentanaError() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		setLocationRelativeTo(null);
 		setForeground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);

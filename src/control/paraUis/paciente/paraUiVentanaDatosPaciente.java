@@ -2,7 +2,7 @@ package control.paraUis.paciente;
 
 import vista.paciente.VentanaDatosPaciente;
 
-public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente{
+public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	String[] ayudante;
 	public paraUiVentanaDatosPaciente(String datos) {
 		ayudante=datos.split("-");

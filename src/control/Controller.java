@@ -97,24 +97,24 @@ public class Controller {
 	}
 	public Respuesta getValidatorConsulta(String consulta)
 	{
-		return this.getValidatorConsulta(consulta);
+		return this.getMiGestor().getValidatorConsulta(consulta);
 	}
 	public Respuesta getValidatorFechaDeNacimiento(String fechaNacimiento)
 	{
-		return this.getValidatorFechaDeNacimiento(fechaNacimiento);
+		return this.getMiGestor().getValidatorFechaDeNacimiento(fechaNacimiento);
 	}
 	
 	public String [] obtenerElementosAMostrarPaciente()
 	{
-		return miGestor.obtenerElementosAMostrarPaciente();
+		return this.getMiGestor().obtenerElementosAMostrarPaciente();
 	}
 	public String [] obtenerElementosAMostrarMedico()
 	{
-		return miGestor.obtenerElementosAMostrarMedico();
+		return this.getMiGestor().obtenerElementosAMostrarMedico();
 	}
 	public String [] obtenerElementosAMostrarMedicoActivo()
 	{
-		return miGestor.obtenerElementosAMostrarMedicoActivo();
+		return this.getMiGestor().obtenerElementosAMostrarMedicoActivo();
 	}
 
 	public String [] obtenerTodosLosMedicos() {
@@ -128,4 +128,8 @@ public class Controller {
 		return miGestor;
 	}
 	
+	public String generarId()
+	{
+		return this.getMiGestor().generarId();
+	}
 }
