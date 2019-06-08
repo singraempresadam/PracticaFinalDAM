@@ -32,7 +32,7 @@ public class VentanaCirujano extends JDialog{
 	
 	public VentanaCirujano() {
 		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 740, 500);
+		setBounds(100, 100, 741, 500);
 		setLocationRelativeTo(null);
 		setModal(true);
 		setUndecorated(true);
