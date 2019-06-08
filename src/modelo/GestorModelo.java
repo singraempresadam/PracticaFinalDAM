@@ -35,6 +35,7 @@ public class GestorModelo {
 		super();
 		this.cargarColeccionesMap();
 	}
+	@SuppressWarnings("unchecked")
 	private void cargarColeccionesMap() {
 		this.pacientes=dtoPaciente.leerColeccion();
 		this.medicos=dtoMedico.leerColeccion();
