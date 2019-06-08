@@ -52,61 +52,59 @@ public class VentanaPaciente extends JDialog {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPaciente() {
-		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 740, 500);
-		setLocationRelativeTo(null);
-		setModal(true);
-		setUndecorated(true);
+		public VentanaPaciente() {
+			getContentPane().setBackground(new Color(255, 255, 255));
+			setBounds(100, 100, 740, 500);
+			setLocationRelativeTo(null);
+			setModal(true);
+			setUndecorated(true);
 		
+			ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
+			ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
 		
-		ImageIcon iconagregar = new ImageIcon(this.getClass().getResource("/images/agregar.png"));
-		ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
+			JPanel panelPaciente = new JPanel();
+			panelPaciente.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mousePressed(MouseEvent e) {
+					pX=e.getX();
+					pY=e.getY(); 
+				}
+			});
+			panelPaciente.addMouseMotionListener(new MouseMotionAdapter() {
+				@Override
+				public void mouseDragged(MouseEvent e) {
+					setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
+				}
+			});
+			panelPaciente.setBackground(Color.WHITE);
+			panelPaciente.setLayout(null);
+			panelPaciente.setBounds(0, 0, 750, 500);
+			getContentPane().add(panelPaciente);
 		
-		JPanel panelPaciente = new JPanel();
-		panelPaciente.setBackground(Color.WHITE);
-		panelPaciente.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				pX=e.getX();
-				pY=e.getY(); 
-			}
-		});
-		panelPaciente.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseDragged(MouseEvent e) {
-				setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
-			}
-		});
-		getContentPane().add(panelPaciente, BorderLayout.CENTER);
-		panelPaciente.setLayout(null);
-		
-		JButton btnCerrar = new JButton("");
-		btnCerrar.setBackground(new Color(0, 153, 255));
-		btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
-		btnCerrar.setContentAreaFilled(false);
-		btnCerrar.setBorderPainted(false);
-		btnCerrar.setOpaque(true);
-		btnCerrar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose(); 
-			}
-		});
-		btnCerrar.setBounds(704, 0, 35, 31);
-		panelPaciente.add(btnCerrar);
-	
-		JLabel lblClinicaBuenaSalud = new JLabel("PACIENTE");
-		lblClinicaBuenaSalud.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
-		lblClinicaBuenaSalud.setHorizontalAlignment(SwingConstants.LEFT);
-		lblClinicaBuenaSalud.setBounds(0, 0, 750, 31);
-		lblClinicaBuenaSalud.setBackground(new Color(51, 153, 255));
-		lblClinicaBuenaSalud.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
-		lblClinicaBuenaSalud.setOpaque(true);
-		lblClinicaBuenaSalud.setForeground(Color.WHITE);
-		panelPaciente.add(lblClinicaBuenaSalud);
-		
-		
+				JButton btnCerrar = new JButton("");
+				btnCerrar.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						dispose(); 
+					}
+				});
+				btnCerrar.setBackground(new Color(0, 153, 255));
+				btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
+				btnCerrar.setContentAreaFilled(false);
+				btnCerrar.setBorderPainted(false);
+				btnCerrar.setOpaque(true);
+				btnCerrar.setBounds(705, 0, 35, 31);
+				panelPaciente.add(btnCerrar);
+			
+				JLabel lblClinicaBuenaSalud = new JLabel("PACIENTE");
+				lblClinicaBuenaSalud.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
+				lblClinicaBuenaSalud.setHorizontalAlignment(SwingConstants.LEFT);
+				lblClinicaBuenaSalud.setBounds(-10, 0, 750, 31);
+				lblClinicaBuenaSalud.setBackground(new Color(51, 153, 255));
+				lblClinicaBuenaSalud.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
+				lblClinicaBuenaSalud.setOpaque(true);
+				lblClinicaBuenaSalud.setForeground(Color.WHITE);
+				panelPaciente.add(lblClinicaBuenaSalud);
 		
 				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 				panelPaciente.add(tabbedPane);
@@ -184,37 +182,36 @@ public class VentanaPaciente extends JDialog {
 				
 				getTxtNombre = new JTextField();
 				getTxtNombre.setBackground(new Color(255, 255, 255));
-				getTxtNombre.setBounds(223, 52, 169, 20);
-				panelAñadirPaciente.add(getTxtNombre);
+				getTxtNombre.setBounds(223, 52, 169, 20);			
 				getTxtNombre.setColumns(10);
 				getTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				panelAñadirPaciente.add(getTxtNombre);
 				
 				getTxtApellidos = new JTextField();
-				getTxtApellidos.setBounds(223, 97, 169, 20);
-				panelAñadirPaciente.add(getTxtApellidos);
+				getTxtApellidos.setBounds(223, 97, 169, 20);		
 				getTxtApellidos.setColumns(10);
 				getTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				panelAñadirPaciente.add(getTxtApellidos);
 				
 				getTxtTelefono = new JTextField();
-				getTxtTelefono.setBounds(223, 152, 169, 20);
-				panelAñadirPaciente.add(getTxtTelefono);
+				getTxtTelefono.setBounds(223, 152, 169, 20);			
 				getTxtTelefono.setColumns(10);
 				getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				panelAñadirPaciente.add(getTxtTelefono);
 				
 				getTxtFechaNacimiento = new JTextField();
-				getTxtFechaNacimiento.setBounds(223, 239, 169, 20);
-				panelAñadirPaciente.add(getTxtFechaNacimiento);
+				getTxtFechaNacimiento.setBounds(223, 239, 169, 20);				
 				getTxtFechaNacimiento.setColumns(10);
 				getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				panelAñadirPaciente.add(getTxtFechaNacimiento);
 				
 				getTxtDireccion = new JTextField();
-				getTxtDireccion.setBounds(223, 194, 169, 20);
-				panelAñadirPaciente.add(getTxtDireccion);
+				getTxtDireccion.setBounds(223, 194, 169, 20);				
 				getTxtDireccion.setColumns(10);
 				getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				panelAñadirPaciente.add(getTxtDireccion);
 				
-				btnAnadir = new JButton("A\u00F1adir");
-				
+				btnAnadir = new JButton("A\u00F1adir");	
 				btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 12));
 				btnAnadir.setBackground(new Color(204, 255, 204));
 				btnAnadir.setContentAreaFilled(false);
