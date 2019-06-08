@@ -8,21 +8,27 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.JTextPane;
 import javax.swing.border.MatteBorder;
 
 import vista.ventanaPrincipal;
 
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class VentanaGestionarIntervención extends JFrame {
+	private JTextField getTxtObservaciones;
+	private JTextField txtIntervencion;
+	private JTextField txtEspecialista;
+	private JTextField txtCirujano;
+	private JTextField txtPaciente;
+	private JTextField txtFecha;
 	public VentanaGestionarIntervención() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		this.setMinimumSize(new Dimension(850, 500));
+		
 		JLabel lblGestionarIntervencion = new JLabel("GESTIONAR INTERVENCION");
 		lblGestionarIntervencion.setOpaque(true);
 		lblGestionarIntervencion.setBackground(new Color(0, 102, 204));
@@ -32,27 +38,30 @@ public class VentanaGestionarIntervención extends JFrame {
 		lblGestionarIntervencion.setBounds(10, 11, 814, 41);
 		getContentPane().add(lblGestionarIntervencion);
 		
-		JLabel lblIntervencion = new JLabel("");
-		lblIntervencion.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblIntervencion.setBounds(198, 78, 195, 19);
-		getContentPane().add(lblIntervencion);
-		
 		JLabel lblNombreIntervencion = new JLabel("Intervencion");
+		lblNombreIntervencion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombreIntervencion.setForeground(new Color(0, 102, 204));
 		lblNombreIntervencion.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblNombreIntervencion.setBounds(48, 78, 100, 19);
+		lblNombreIntervencion.setBounds(48, 78, 270, 19);
 		getContentPane().add(lblNombreIntervencion);
 		
-		JTextPane textObservacion = new JTextPane();
-		textObservacion.setBorder(new MatteBorder(1, 2, 1, 2, (Color) new Color(0, 153, 255)));
-		textObservacion.setBounds(48, 167, 341, 159);
-		getContentPane().add(textObservacion);
+		txtIntervencion = new JTextField();
+		txtIntervencion.setEditable(false);
+		txtIntervencion.setBounds(48, 108, 270, 19);
+		getContentPane().add(txtIntervencion);
+		txtIntervencion.setColumns(10);
 		
 		JLabel lblObservacion = new JLabel("Observaciones");
 		lblObservacion.setForeground(new Color(0, 102, 204));
 		lblObservacion.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblObservacion.setBounds(48, 138, 145, 19);
+		lblObservacion.setBounds(48, 171, 145, 19);
 		getContentPane().add(lblObservacion);
+		
+		getTxtObservaciones = new JTextField();
+		getTxtObservaciones.setBorder(new MatteBorder(1, 2, 1, 2, (Color) new Color(51, 153, 255)));
+		getTxtObservaciones.setBounds(48, 209, 270, 163);
+		getContentPane().add(getTxtObservaciones);
+		getTxtObservaciones.setColumns(10);
 		
 		JLabel lblEspecialista = new JLabel("Especialista");
 		lblEspecialista.setForeground(new Color(0, 102, 204));
@@ -60,10 +69,11 @@ public class VentanaGestionarIntervención extends JFrame {
 		lblEspecialista.setBounds(473, 138, 100, 19);
 		getContentPane().add(lblEspecialista);
 		
-		JLabel lblNombreEspecialista = new JLabel("");
-		lblNombreEspecialista.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblNombreEspecialista.setBounds(583, 138, 230, 19);
-		getContentPane().add(lblNombreEspecialista);
+		txtEspecialista = new JTextField();
+		txtEspecialista.setEditable(false);
+		txtEspecialista.setBounds(583, 139, 230, 18);
+		getContentPane().add(txtEspecialista);
+		txtEspecialista.setColumns(10);
 		
 		JLabel lblCirujano = new JLabel("Cirujano");
 		lblCirujano.setForeground(new Color(0, 102, 204));
@@ -71,10 +81,11 @@ public class VentanaGestionarIntervención extends JFrame {
 		lblCirujano.setBounds(473, 182, 100, 19);
 		getContentPane().add(lblCirujano);
 		
-		JLabel lblNombreCirujano = new JLabel("");
-		lblNombreCirujano.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblNombreCirujano.setBounds(583, 182, 230, 19);
-		getContentPane().add(lblNombreCirujano);
+		txtCirujano = new JTextField();
+		txtCirujano.setEditable(false);
+		txtCirujano.setBounds(583, 183, 230, 19);
+		getContentPane().add(txtCirujano);
+		txtCirujano.setColumns(10);
 		
 		JLabel lblPaciente = new JLabel("Paciente");
 		lblPaciente.setForeground(new Color(0, 102, 204));
@@ -82,10 +93,11 @@ public class VentanaGestionarIntervención extends JFrame {
 		lblPaciente.setBounds(473, 225, 100, 19);
 		getContentPane().add(lblPaciente);
 		
-		JLabel lblNombrePaciente = new JLabel("");
-		lblNombrePaciente.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblNombrePaciente.setBounds(583, 225, 230, 19);
-		getContentPane().add(lblNombrePaciente);
+		txtPaciente = new JTextField();
+		txtPaciente.setEditable(false);
+		txtPaciente.setBounds(583, 226, 230, 19);
+		getContentPane().add(txtPaciente);
+		txtPaciente.setColumns(10);
 		
 		JLabel lblFecha = new JLabel("Fecha");
 		lblFecha.setForeground(new Color(0, 102, 204));
@@ -93,16 +105,17 @@ public class VentanaGestionarIntervención extends JFrame {
 		lblFecha.setBounds(473, 279, 100, 19);
 		getContentPane().add(lblFecha);
 		
-		JLabel lblDarFecha = new JLabel("");
-		lblDarFecha.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblDarFecha.setBounds(583, 279, 230, 19);
-		getContentPane().add(lblDarFecha);
+		txtFecha = new JTextField();
+		txtFecha.setEditable(false);
+		txtFecha.setBounds(583, 280, 230, 19);
+		getContentPane().add(txtFecha);
+		txtFecha.setColumns(10);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Confirmar asistencia");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.BOLD, 11));
-		chckbxNewCheckBox.setBackground(new Color(204, 255, 255));
-		chckbxNewCheckBox.setBounds(473, 326, 154, 23);
-		getContentPane().add(chckbxNewCheckBox);
+		JCheckBox chckbxConfirmarAsistencia = new JCheckBox("Confirmar asistencia");
+		chckbxConfirmarAsistencia.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
+		chckbxConfirmarAsistencia.setBounds(583, 326, 230, 23);
+		getContentPane().add(chckbxConfirmarAsistencia);
 		
 		JButton btnGestionarIntervencion = new JButton("Gestionar");
 		btnGestionarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
@@ -110,7 +123,7 @@ public class VentanaGestionarIntervención extends JFrame {
 		btnGestionarIntervencion.setContentAreaFilled(false);
 		btnGestionarIntervencion.setBorderPainted(false);
 		btnGestionarIntervencion.setOpaque(true);
-		btnGestionarIntervencion.setBounds(650, 414, 145, 23);
+		btnGestionarIntervencion.setBounds(652, 404, 145, 23);
 		getContentPane().add(btnGestionarIntervencion);
 	}
 }

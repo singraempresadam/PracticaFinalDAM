@@ -58,7 +58,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		this.setScrollListaMedicoEspecialista(new JScrollPane(this.getMedicosEspecialistas()));
 		this.getScrollListaMedicoEspecialista().setBounds(79, 108, 345, 213);
 		this.getScrollListaMedicoEspecialista().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelAñadirMedicoEspecialista().add(this.getScrollListaMedicoEspecialista());
+		getPanelAnadirMedicoEspecialista().add(this.getScrollListaMedicoEspecialista());
 	}
 	private void crearListaTodosLosMedicosAtencionPrimaria() {
 		String[] filtrar = this.getControl().filtrar("Atencion_Primaria", this.getControl().obtenerTodosLosMedicos());
@@ -68,7 +68,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		this.setScrollListaMedicoAtencionPrimaria(new JScrollPane(this.getMedicosAtencionPrimaria()));
 		this.getScrollListaMedicoAtencionPrimaria().setBounds(79, 108, 345, 213);
 		this.getScrollListaMedicoAtencionPrimaria().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelAñadirMedicoAP().add(this.getScrollListaMedicoAtencionPrimaria());
+		getPanelAnadirMedicoAP().add(this.getScrollListaMedicoAtencionPrimaria());
 	}
 
 	private String obtenerIdSeleccionado() {
@@ -131,28 +131,28 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		getPanelBuscarMedico().setVisible(true);
 	}
 	private void buscarMedicoEspecialista() {
-		getPanelAñadirMedicoEspecialista().setVisible(false);
-		getPanelAñadirMedicoEspecialista().remove(getScrollListaMedicoEspecialista());
+		getPanelAnadirMedicoEspecialista().setVisible(false);
+		getPanelAnadirMedicoEspecialista().remove(getScrollListaMedicoEspecialista());
 		String[] filtrar = this.getControl().filtrarSin("Atencion_Primaria", this.getControl().obtenerTodosLosMedicos());
 		String[] filtrarSin = this.getControl().filtrarSin("Activo",filtrar);
 		setMedicosEspecialistas(new JList<String>(getControl().filtrar(getTxtNombreEspecialista().getText(), filtrarSin)));
 		setScrollListaMedicoEspecialista(new JScrollPane(getMedicosEspecialistas()));
 		getScrollListaMedicoEspecialista().setBounds(79, 108, 345, 213);
 		getScrollListaMedicoEspecialista().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelAñadirMedicoEspecialista().add(getScrollListaMedicoEspecialista());
-		getPanelAñadirMedicoEspecialista().setVisible(true);
+		getPanelAnadirMedicoEspecialista().add(getScrollListaMedicoEspecialista());
+		getPanelAnadirMedicoEspecialista().setVisible(true);
 	}
 	private void buscarMedicoAtencionPrimaria() {
-		getPanelAñadirMedicoAP().setVisible(false);
-		getPanelAñadirMedicoAP().remove(getScrollListaMedicoAtencionPrimaria());
+		getPanelAnadirMedicoAP().setVisible(false);
+		getPanelAnadirMedicoAP().remove(getScrollListaMedicoAtencionPrimaria());
 		String[] filtrar = this.getControl().filtrar("Atencion_Primaria", this.getControl().obtenerTodosLosMedicos());
 		String[] filtrarSin = this.getControl().filtrarSin("Activo",filtrar);
 		setMedicosAtencionPrimaria(new JList<String>(getControl().filtrar(getTxtNombreMedicoAP().getText(), filtrarSin)));
 		setScrollListaMedicoAtencionPrimaria(new JScrollPane(getMedicosAtencionPrimaria()));
 		getScrollListaMedicoAtencionPrimaria().setBounds(79, 108, 345, 213);
 		getScrollListaMedicoAtencionPrimaria().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelAñadirMedicoAP().add(getScrollListaMedicoAtencionPrimaria());
-		getPanelAñadirMedicoAP().setVisible(true);
+		getPanelAnadirMedicoAP().add(getScrollListaMedicoAtencionPrimaria());
+		getPanelAnadirMedicoAP().setVisible(true);
 	}
 	private void aniadirMedico() {
 		Validator validator = new Validator();
