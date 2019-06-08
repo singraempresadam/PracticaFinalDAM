@@ -2,29 +2,14 @@ package vista.paciente;
 
 import javax.swing.JPanel;
 import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-
 import java.awt.Font;
-import java.awt.Toolkit;
-import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
-
 import vista.ventanaPrincipal;
-
-import javax.swing.border.CompoundBorder;
-import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
@@ -32,17 +17,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 public class VentanaDatosPaciente extends JDialog{
-	protected JTextField txtNombre;
-	protected JTextField txtApellidos;
-	protected JTextField txtTelefono;
-	protected JTextField txtFechaNacimiento;
-	protected JTextField txtDireccion;
-	protected JTextField getTxtBuscar;
-	int pX,pY;
+	private JTextField txtNombre;
+	private JTextField txtApellidos;
+	private JTextField txtTelefono;
+	private JTextField txtFechaNacimiento;
+	private JTextField txtDireccion;
+	private JTextField getTxtBuscar;
 	private JButton btnModificar;
 	private JButton btnEliminar;
 	private JButton btnHistorial;
 	private JButton btnSolicitarCita;
+	int pX,pY;
 	
 	public VentanaDatosPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));

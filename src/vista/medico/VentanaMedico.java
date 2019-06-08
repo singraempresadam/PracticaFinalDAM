@@ -2,41 +2,20 @@ package vista.medico;
 
 import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-
-import net.miginfocom.swing.MigLayout;
 import vista.ventanaPrincipal;
-
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.JList;
+import javax.swing.ImageIcon;
 import java.awt.Checkbox;
-import java.awt.Label;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import java.awt.event.MouseMotionAdapter;
@@ -63,12 +42,12 @@ public class VentanaMedico extends JDialog {
 	private JComboBox comboBoxTurnoMedicoAP;
 	private JButton btnAnadirAtencionPrimaria;
 	private JComboBox comboBoxEspecialidad;
-	int pX,pY;
 	private JButton btnAnadirMedico;
 	private JPanel panelAnadirMedico;
 	private JPanel panelAnadirMedicoEspecialista;
 	private JPanel panelAnadirMedicoAP;
-
+	int pX,pY;
+	
 		public VentanaMedico() {
 			getContentPane().setBackground(new Color(255, 255, 255));
 			setBounds(100, 100, 740, 500);
@@ -99,29 +78,29 @@ public class VentanaMedico extends JDialog {
 			getContentPane().add(panelMedico);
 						
 						JButton btnCerrar = new JButton("");
-						btnCerrar.setBackground(new Color(0, 153, 255));
-						btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
-						btnCerrar.setContentAreaFilled(false);
-						btnCerrar.setBorderPainted(false);
-						btnCerrar.setOpaque(true);
 						btnCerrar.addMouseListener(new MouseAdapter() {
 							@Override
 							public void mouseClicked(MouseEvent e) {
 								dispose(); 
 							}
 						});
+						btnCerrar.setBackground(new Color(0, 153, 255));
+						btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
+						btnCerrar.setContentAreaFilled(false);
+						btnCerrar.setBorderPainted(false);
+						btnCerrar.setOpaque(true);
 						btnCerrar.setBounds(715, 0, 35, 31);
 						panelMedico.add(btnCerrar);
 						
-						JLabel lblClinicaBuenaSalud = new JLabel("MEDICO");
-						lblClinicaBuenaSalud.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
-						lblClinicaBuenaSalud.setHorizontalAlignment(SwingConstants.LEFT);
-						lblClinicaBuenaSalud.setBounds(0, 0, 750, 31);
-						lblClinicaBuenaSalud.setBackground(new Color(51, 153, 255));
-						lblClinicaBuenaSalud.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
-						lblClinicaBuenaSalud.setOpaque(true);
-						lblClinicaBuenaSalud.setForeground(Color.WHITE);
-						panelMedico.add(lblClinicaBuenaSalud);
+						JLabel lblMedico = new JLabel("MEDICO");
+						lblMedico.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
+						lblMedico.setHorizontalAlignment(SwingConstants.LEFT);
+						lblMedico.setBounds(0, 0, 750, 31);
+						lblMedico.setBackground(new Color(51, 153, 255));
+						lblMedico.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
+						lblMedico.setOpaque(true);
+						lblMedico.setForeground(Color.WHITE);
+						panelMedico.add(lblMedico);
 			
 						JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 						tabbedPane.setBounds(0, 31, 750, 469);

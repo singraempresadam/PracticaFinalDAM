@@ -36,7 +36,7 @@ public class VentanaHistorialPaciente extends JDialog {
 	
 	public VentanaHistorialPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
-		setBounds(100, 100, 700, 500);
+		setBounds(100, 100, 701, 500);
 		setLocationRelativeTo(null);
 		setModal(true);
 		setUndecorated(true);
@@ -61,6 +61,12 @@ public class VentanaHistorialPaciente extends JDialog {
 		panelHistorialPaciente.setLayout(null);
 				
 				JButton btnCerrar = new JButton("");
+				btnCerrar.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						dispose();
+					}
+				});
 				btnCerrar.setBackground(new Color(0, 153, 255));
 				btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
 				btnCerrar.setContentAreaFilled(false);
