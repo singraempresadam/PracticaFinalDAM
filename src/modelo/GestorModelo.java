@@ -256,7 +256,7 @@ public class GestorModelo {
 		return dtoCirujano;
 	}
 
-	private String generarId() {
+	public String generarId() {
 		int numero = (int) (Math.random() * 999999999) + 100000000;
 		return String.valueOf(numero);
 	}
