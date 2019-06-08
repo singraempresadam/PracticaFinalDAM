@@ -24,19 +24,19 @@ public class Controller {
 	{
 		this.getMiGestor().recetarUnTratamiento(idUnicoPaciente, medicamento,  dosis, fechaDeInicio, fechaFin);
 	}
-	void solicitarCitaPaciente(String idUnicoPaciente,String idUnicoMedico, String fecha, String hora)
+	void solicitarCitaPaciente(String idUnicoPaciente,String idUnicoMedico, String fechaYHora)
 	{
-		this.getMiGestor().solicitarCitaPaciente(idUnicoPaciente, idUnicoMedico, fecha, hora);
+		this.getMiGestor().solicitarCitaPaciente(idUnicoPaciente, idUnicoMedico, fechaYHora);
 	}
-	void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fecha, String hora)
+	void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fechaYHora)
 	{
-		this.getMiGestor().solicitarCitaMedico(idUnicoPaciente, idUnicoMedico, idUnicoMedicoEspecialista, fecha, hora);
+		this.getMiGestor().solicitarCitaMedico(idUnicoPaciente, idUnicoMedico, idUnicoMedicoEspecialista, fechaYHora);
 	}
 	void solicitarIntervencion(String idUnicoPaciente,String idUnicoMedico, 
-								String fecha, String hora, String idUnicoCirujano, 
+								String fechaYHora, String idUnicoCirujano, 
 								TipoDeIntervencion tipoDeIntervencion)
 	{
-		this.getMiGestor().solicitarIntervencion(idUnicoPaciente, idUnicoMedico, idUnicoCirujano, tipoDeIntervencion, fecha, hora);
+		this.getMiGestor().solicitarIntervencion(idUnicoPaciente, idUnicoMedico, idUnicoCirujano, tipoDeIntervencion, fechaYHora);
 	}
 	
 	public void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico, String fechaDeNacimiento)
@@ -104,6 +104,12 @@ public class Controller {
 		return this.getMiGestor().getValidatorFechaDeNacimiento(fechaNacimiento);
 	}
 	
+	
+	public String fechaYHora()
+	{
+		return this.getMiGestor().fechaYHora();
+	}
+	
 	public String [] obtenerElementosAMostrarPaciente()
 	{
 		return this.getMiGestor().obtenerElementosAMostrarPaciente();
@@ -135,5 +141,15 @@ public class Controller {
 	public String generarId()
 	{
 		return this.getMiGestor().generarId();
+	}
+
+	public void aumentarHora(long i) {
+		this.getMiGestor().aumentarHora(i);
+		
+	}
+
+	public void aumentarDia(long i) {
+		this.getMiGestor().aumentarDia(i);
+		
 	}
 }

@@ -13,9 +13,8 @@ public class Intervencion extends Cita implements Serializable{
 	String idUnicoCirujano;
 	TipoDeIntervencion tipoDeIntervencion;
 	
-	public Intervencion(String idUnicoCita, String idUnicoPaciente, String idUnicoMedico, 
-						String fecha, String idUnicoCirujano, TipoDeIntervencion tipoDeIntervencion, String hora) {
-		super(idUnicoCita, idUnicoPaciente, idUnicoMedico, fecha, hora);
+	public Intervencion(String idUnicoCita, String idUnicoPaciente, String idUnicoMedico, String idUnicoCirujano, TipoDeIntervencion tipoDeIntervencion, String fechaYHora) {
+		super(idUnicoCita, idUnicoPaciente, idUnicoMedico, fechaYHora);
 		this.setIdUnicoCirujano(idUnicoCirujano);
 		this.setTipoDeIntervencion(tipoDeIntervencion);
 	}

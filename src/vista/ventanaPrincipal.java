@@ -27,6 +27,12 @@ public class ventanaPrincipal extends JFrame {
 	protected JButton botonCirujano;
 	protected JButton botonMedico;
 	int pX,pY;
+	private JLabel lblFechaYHora;
+	private JButton btnUnaHora;
+	private JButton btnTresHoras;
+	private JButton btnDoceHoras;
+	private JButton btnVeinticuatroHoras;
+	private JButton btnUnDia;
 
 	/**
 	 * Create the frame.
@@ -136,7 +142,7 @@ public class ventanaPrincipal extends JFrame {
 			gbl_panelAvanzar.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 			panelAvanzar.setLayout(gbl_panelAvanzar);
 			
-			JButton btnUnaHora = new JButton("+1 hora");
+			btnUnaHora = new JButton("+1 hora");
 			btnUnaHora.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnUnaHora.setForeground(Color.WHITE);
 			btnUnaHora.setContentAreaFilled(false);
@@ -150,7 +156,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnUnaHora.gridy = 0;
 			panelAvanzar.add(btnUnaHora, gbc_btnUnaHora);
 			
-			JButton btnTresHoras = new JButton("+3 horas");
+			btnTresHoras = new JButton("+3 horas");
 			btnTresHoras.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnTresHoras.setForeground(Color.WHITE);
 			btnTresHoras.setContentAreaFilled(false);
@@ -163,7 +169,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnTresHoras.gridy = 0;
 			panelAvanzar.add(btnTresHoras, gbc_btnTresHoras);
 			
-			JButton btnDoceHoras = new JButton("+12 horas");
+			btnDoceHoras = new JButton("+12 horas");
 			btnDoceHoras.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnDoceHoras.setForeground(Color.WHITE);
 			btnDoceHoras.setContentAreaFilled(false);
@@ -176,7 +182,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnDoceHoras.gridy = 0;
 			panelAvanzar.add(btnDoceHoras, gbc_btnDoceHoras);
 			
-			JButton btnVeinticuatroHoras = new JButton("+24 horas");
+			btnVeinticuatroHoras = new JButton("+24 horas");
 			btnVeinticuatroHoras.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnVeinticuatroHoras.setForeground(Color.WHITE);
 			btnVeinticuatroHoras.setContentAreaFilled(false);
@@ -189,7 +195,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnVeinticuatroHoras.gridy = 0;
 			panelAvanzar.add(btnVeinticuatroHoras, gbc_btnVeinticuatroHoras);
 			
-			JButton btnUnDia = new JButton("+1 D\u00EDa");
+			btnUnDia = new JButton("+1 D\u00EDa");
 			btnUnDia.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnUnDia.setForeground(Color.WHITE);
 			btnUnDia.setContentAreaFilled(false);
@@ -204,16 +210,27 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnUnDia.gridy = 1;
 			panelAvanzar.add(btnUnDia, gbc_btnUnDia);
 			
-			JLabel lblFecha = new JLabel("");
-			lblFecha.setBorder(new MatteBorder(1, 1, 0, 1, (Color) new Color(204, 255, 255)));
-			lblFecha.setBounds(310, 278, 283, 31);
-			panelPrincipal.add(lblFecha);
-			
-			JLabel lblHora = new JLabel("");
-			lblHora.setBorder(new MatteBorder(1, 0, 0, 1, (Color) new Color(204, 255, 255)));
-			lblHora.setBounds(593, 278, 110, 31);
-			panelPrincipal.add(lblHora);
+			lblFechaYHora = new JLabel("");
+			lblFechaYHora.setBorder(new MatteBorder(1, 1, 0, 1, (Color) new Color(204, 255, 255)));
+			lblFechaYHora.setBounds(310, 278, 393, 31);
+			panelPrincipal.add(lblFechaYHora);
 		
+	}
+
+
+
+
+
+	public JLabel getLblFechaYHora() {
+		return lblFechaYHora;
+	}
+
+
+
+
+
+	public void setLblFechaYHora(JLabel lblFechaYHora) {
+		this.lblFechaYHora = lblFechaYHora;
 	}
 
 
@@ -223,6 +240,86 @@ public class ventanaPrincipal extends JFrame {
 	public JButton getBotonPaciente() {
 		return botonPaciente;
 	}
+
+
+
+	public JButton getBtnUnaHora() {
+		return btnUnaHora;
+	}
+
+
+
+
+
+	public void setBtnUnaHora(JButton btnUnaHora) {
+		this.btnUnaHora = btnUnaHora;
+	}
+
+
+
+
+
+	public JButton getBtnTresHoras() {
+		return btnTresHoras;
+	}
+
+
+
+
+
+	public void setBtnTresHoras(JButton btnTresHoras) {
+		this.btnTresHoras = btnTresHoras;
+	}
+
+
+
+
+
+	public JButton getBtnDoceHoras() {
+		return btnDoceHoras;
+	}
+
+
+
+
+
+	public void setBtnDoceHoras(JButton btnDoceHoras) {
+		this.btnDoceHoras = btnDoceHoras;
+	}
+
+
+
+
+
+	public JButton getBtnVeinticuatroHoras() {
+		return btnVeinticuatroHoras;
+	}
+
+
+
+
+
+	public void setBtnVeinticuatroHoras(JButton btnVeinticuatroHoras) {
+		this.btnVeinticuatroHoras = btnVeinticuatroHoras;
+	}
+
+
+
+
+
+	public JButton getBtnUnDia() {
+		return btnUnDia;
+	}
+
+
+
+
+
+	public void setBtnUnDia(JButton btnUnDia) {
+		this.btnUnDia = btnUnDia;
+	}
+
+
 
 
 

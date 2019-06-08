@@ -11,23 +11,18 @@ public class Cita implements Serializable{
 	private String idUnicoCita;
 	private String idUnicoPaciente;
 	private String idUnicoMedico;
-	private String fecha;
 	private boolean confirmacion;
 	private String observaciones;
-	private String hora;
+	private String fechaYHora;
 	
-	public Cita(String idUnicoCita, String idUnicoPaciente, String idUnicoMedico, String fecha, String hora) {
+	public Cita(String idUnicoCita, String idUnicoPaciente, String idUnicoMedico, String fechaYHora) {
 		super();
 		this.setIdUnicoCita(idUnicoCita);
 		this.setIdUnicoPaciente(idUnicoPaciente);
 		this.setIdUnicoMedico(idUnicoMedico);
-		this.setFecha(fecha);
 		this.setObservaciones(" ");
 		this.setConfirmacion(false);
-		this.setHora(hora);
-	}
-	public String getHora() {
-		return hora;
+		
 	}
 	public String getIdUnicoCita() {
 		return idUnicoCita;
@@ -38,8 +33,8 @@ public class Cita implements Serializable{
 	public String getIdUnicoMedico() {
 		return idUnicoMedico;
 	}
-	public String getFecha() {
-		return fecha;
+	public String getFechaYHora() {
+		return fechaYHora;
 	}
 	public boolean isConfirmacion() {
 		return confirmacion;
@@ -48,9 +43,7 @@ public class Cita implements Serializable{
 		return observaciones;
 	}
 	
-	public void setHora(String hora) {
-		this.hora=hora;
-	}
+	
 	public void setIdUnicoCita(String idUnicoCita) {
 		assert idUnicoCita!=null&&validaIdUnico(idUnicoCita).isResultado();
 		this.idUnicoCita = idUnicoCita;
@@ -63,10 +56,11 @@ public class Cita implements Serializable{
 		assert idUnicoMedico!=null&&validaIdUnico(idUnicoMedico).isResultado();
 		this.idUnicoMedico = idUnicoMedico;
 	}
-	public void setFecha(String fecha) {
-		assert fecha!=null&&validaFecha(fecha).isResultado();
-		this.fecha = fecha;
+	public void setFechaYHora(String fechaYHora) {
+		assert fechaYHora!=null&&validaFecha(fechaYHora).isResultado();
+		this.fechaYHora = fechaYHora;
 	}
+	
 	public void setConfirmacion(boolean confirmacion) {
 		this.confirmacion = confirmacion;
 	}

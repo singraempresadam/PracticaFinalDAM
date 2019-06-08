@@ -25,10 +25,10 @@ public class Cirujano extends Persona implements Serializable{
 		this.setIntervenciones(leido.getIntervenciones());
 	}
 	
-	public void crearIntervencion(String idCita, String idUnicoPaciente,String idUnicoMedico, String fecha, String hora, 
+	public void crearIntervencion(String idCita, String idUnicoPaciente,String idUnicoMedico, String fechaYHora, 
 			 TipoDeIntervencion tipoDeIntervencion ) {
-			Intervencion intervencion = new Intervencion(idCita,idUnicoPaciente,idUnicoMedico,fecha, 
-					this.getIdUnico(), tipoDeIntervencion,hora);
+			Intervencion intervencion = new Intervencion(idCita,idUnicoPaciente,idUnicoMedico,
+					this.getIdUnico(), tipoDeIntervencion,fechaYHora);
 				this.intervenciones.put(intervencion.getIdUnicoCita(),intervencion);
 	}
 

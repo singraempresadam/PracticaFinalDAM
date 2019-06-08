@@ -41,14 +41,14 @@ public class Paciente extends Persona implements Serializable{
 		this.tratamientos.add(new Tratamiento(this.getIdUnico(),medicamento,dosis,fechaInicio,fechaFin));
 		
 	}
-	public void crearCita(String idCita, String idUnicoMedico, String fecha, String hora) {
-		Cita cita = new Cita(idCita,this.getIdUnico(),idUnicoMedico,fecha,hora);
+	public void crearCita(String idCita, String idUnicoMedico, String fechaYHora) {
+		Cita cita = new Cita(idCita,this.getIdUnico(),idUnicoMedico,fechaYHora);
 		this.citas.put(cita.getIdUnicoCita(),cita);
 	}
-	public void crearIntervencion(String idCita, String idUnicoMedico, String fecha, String hora, 
+	public void crearIntervencion(String idCita, String idUnicoMedico, String fechaYHora, 
 								String idUnicoCirujano, TipoDeIntervencion tipoDeIntervencion ) {
-		Intervencion intervencion = new Intervencion(idCita,this.getIdUnico(),idUnicoMedico,fecha, 
-														idUnicoCirujano, tipoDeIntervencion,hora);
+		Intervencion intervencion = new Intervencion(idCita,this.getIdUnico(),idUnicoMedico, 
+														idUnicoCirujano, tipoDeIntervencion,fechaYHora);
 		this.intervenciones.put(intervencion.getIdUnicoCita(),intervencion);
 	}
 	// GETTERS AND SETTERS

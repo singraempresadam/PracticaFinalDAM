@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -30,6 +31,8 @@ public class GestorModelo {
 	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medicos.dat");
 	private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
 	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujanos.dat");
+	private LocalDate diaSistema =LocalDate.of(2019, 6, 3);
+	private LocalTime horaSistema = LocalTime.of(10, 0);
 
 	public GestorModelo() {
 		super();
@@ -50,26 +53,26 @@ public class GestorModelo {
 		this.getPacientes().get(idUnicoPaciente).crearTratamiento(medicamento, dosis, fechaDeInicio, fechaFin);
 		this.getDtoPaciente().grabarColeccionPaciente(pacientes);
 	}
-	public void solicitarCitaPaciente(String idUnicoPaciente, String idUnicoMedico, String fecha, String hora) {
+	public void solicitarCitaPaciente(String idUnicoPaciente, String idUnicoMedico, String fechaYHora) {
 		String idCita = this.generarId();
-		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
-		this.getMedicosActivo().get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fecha, hora);
+		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fechaYHora);
+		this.getMedicosActivo().get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fechaYHora);
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
 		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
 	}
-	public void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fecha, String hora) {
+	public void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fechaYHora) {
 		String idCita = this.generarId();
-		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fecha, hora);
-		this.getMedicosActivo().get(idUnicoMedicoEspecialista).crearCita(idCita, idUnicoPaciente, fecha, hora);
+		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fechaYHora);
+		this.getMedicosActivo().get(idUnicoMedicoEspecialista).crearCita(idCita, idUnicoPaciente, fechaYHora);
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
 		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
 	}
 	public void solicitarIntervencion(String idUnicoPaciente, String idUnicoMedico, String idUnicoCirujano,
-			TipoDeIntervencion tipoDeIntervencion, String fecha, String hora) {
+			TipoDeIntervencion tipoDeIntervencion, String fechaYHora) {
 		String idCita = this.generarId();
-		this.getPacientes().get(idUnicoPaciente).crearIntervencion(idCita, idUnicoMedico, fecha, hora, idUnicoCirujano,
+		this.getPacientes().get(idUnicoPaciente).crearIntervencion(idCita, idUnicoMedico, fechaYHora, idUnicoCirujano,
 				tipoDeIntervencion);
-		this.getCirujanos().get(idUnicoCirujano).crearIntervencion(idCita, idUnicoPaciente, idUnicoMedico, fecha, hora,
+		this.getCirujanos().get(idUnicoCirujano).crearIntervencion(idCita, idUnicoPaciente, idUnicoMedico, fechaYHora,
 				tipoDeIntervencion);
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
 		this.getDtoCirujano().grabarColeccionCirujano(this.getCirujanos());
@@ -242,6 +245,22 @@ public class GestorModelo {
 		return j;
 	}
 	
+	
+	public String fechaYHora() {
+		return this.getDiaSistema().toString()+" "+this.getHoraSistema().toString();
+	}
+	public LocalDate getDiaSistema() {
+		return diaSistema;
+	}
+	public void setDiaSistema(LocalDate diaSistema) {
+		this.diaSistema = diaSistema;
+	}
+	public LocalTime getHoraSistema() {
+		return horaSistema;
+	}
+	public void setHoraSistema(LocalTime horaSistema) {
+		this.horaSistema = horaSistema;
+	}
 	public Paciente obtenerUnPaciente(String idUnicoPaciente) {
 		return pacientes.get(idUnicoPaciente);
 	}
@@ -281,6 +300,20 @@ public class GestorModelo {
 	public String generarId() {
 		int numero = (int) (Math.random() * 999999999) + 100000000;
 		return String.valueOf(numero);
+	}
+	public void aumentarHora(long i) {
+		LocalTime horaAnterior = this.getHoraSistema();
+		this.setHoraSistema(horaSistema.plusHours(i));
+		int comparacion=horaAnterior.compareTo(this.getHoraSistema());
+		
+		if( comparacion == 1 || comparacion == 0)
+		{
+			this.aumentarDia(1);
+		}
+	}
+	public void aumentarDia(long i) {
+		this.setDiaSistema(diaSistema.plusDays(i));
+		
 	}
 
 }
