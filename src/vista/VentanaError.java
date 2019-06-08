@@ -10,14 +10,16 @@ import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 
-public class VentanaError extends JFrame {
+public class VentanaError extends JDialog {
 	private JLabel lblInfo;
 	public VentanaError() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		setLocationRelativeTo(null);
 		setForeground(Color.WHITE);
 		getContentPane().setBackground(Color.WHITE);
+		setModal(true);
 		
 		JLabel lblError = new JLabel("Error: la operaci\u00F3n no pudo realizarse");
 		lblError.setIcon(new ImageIcon(VentanaError.class.getResource("/images/error.png")));
