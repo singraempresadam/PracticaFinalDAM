@@ -21,8 +21,8 @@ public class VentanaError extends JDialog {
 	public VentanaError() {
 		setLocationRelativeTo(null);
 		setForeground(Color.WHITE);
-		getContentPane().setBackground(Color.WHITE);
 		setModal(true);
+		getContentPane().setBackground(Color.WHITE);
 		
 		JLabel lblError = new JLabel("Error: la operaci\u00F3n no pudo realizarse");
 		lblError.setIcon(new ImageIcon(VentanaError.class.getResource("/images/error.png")));

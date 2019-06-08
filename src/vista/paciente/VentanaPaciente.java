@@ -82,36 +82,34 @@ public class VentanaPaciente extends JDialog {
 		panelPaciente.setLayout(null);
 		
 		JButton btnCerrar = new JButton("");
-		btnCerrar.setBackground(new Color(0, 153, 255));
-		btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
-		btnCerrar.setContentAreaFilled(false);
-		btnCerrar.setBorderPainted(false);
-		btnCerrar.setOpaque(true);
 		btnCerrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose(); 
 			}
 		});
+		btnCerrar.setBackground(new Color(0, 153, 255));
+		btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
+		btnCerrar.setContentAreaFilled(false);
+		btnCerrar.setBorderPainted(false);
+		btnCerrar.setOpaque(true);
 		btnCerrar.setBounds(704, 0, 35, 31);
 		panelPaciente.add(btnCerrar);
 	
 		JLabel lblClinicaBuenaSalud = new JLabel("PACIENTE");
 		lblClinicaBuenaSalud.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
 		lblClinicaBuenaSalud.setHorizontalAlignment(SwingConstants.LEFT);
-		lblClinicaBuenaSalud.setBounds(0, 0, 750, 31);
+		lblClinicaBuenaSalud.setBounds(0, 0, 740, 31);
 		lblClinicaBuenaSalud.setBackground(new Color(51, 153, 255));
 		lblClinicaBuenaSalud.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
 		lblClinicaBuenaSalud.setOpaque(true);
 		lblClinicaBuenaSalud.setForeground(Color.WHITE);
 		panelPaciente.add(lblClinicaBuenaSalud);
 		
-		
-		
 				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 				panelPaciente.add(tabbedPane);
 				tabbedPane.setBackground(Color.WHITE);
-				tabbedPane.setBounds(0, 31, 740, 466);
+				tabbedPane.setBounds(0, 31, 740, 469);
 				
 				panelBuscarPaciente = new JPanel();
 				panelBuscarPaciente.setBackground(Color.WHITE);
@@ -119,6 +117,7 @@ public class VentanaPaciente extends JDialog {
 				panelBuscarPaciente.setLayout(null);
 				
 				getTxtBuscar = new JTextField();
+				getTxtBuscar.setFont(new Font("Tahoma", Font.BOLD, 12));
 				getTxtBuscar.setBounds(80, 50, 345, 27);
 				panelBuscarPaciente.add(getTxtBuscar);
 				getTxtBuscar.setColumns(10);
