@@ -64,17 +64,14 @@ public class ventanaPrincipal extends JFrame {
 			}
 		});
 		panelPrincipal.addMouseMotionListener(new MouseMotionAdapter() {
-			int xx=0;
-			int yy=0;
 			public void mouseDragged(MouseEvent e) {
 				setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
 			}
 		});
 		panelPrincipal.setBounds(0, 0, 750, 561);
 		panelPrincipal.setBackground(Color.WHITE);
-		getContentPane().add(panelPrincipal);
 		panelPrincipal.setLayout(null);
-		
+		getContentPane().add(panelPrincipal);
 		
 		JButton btnCerrar = new JButton("");
 		btnCerrar.setBackground(new Color(0, 153, 255));
