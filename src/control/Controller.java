@@ -43,7 +43,7 @@ public class Controller {
 	{
 		this.getMiGestor().darAltaPacienteNuevo(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
 	}
-	void darAltaMedicoNuevo(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad)
+	public void darAltaMedicoNuevo(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad)
 	{
 		this.getMiGestor().darAltaMedicoNuevo(nombre, apellidos,telefono, direccion, idUnico, especialidad);
 	}
@@ -120,9 +120,13 @@ public class Controller {
 	public String [] obtenerTodosLosMedicos() {
 		return this.getMiGestor().obtenerTodosLosMedicos();
 	}
-	public String [] filtrat(String filtro, String[] contenidoAFiltrar)
+	public String [] filtrar(String filtro, String[] contenidoAFiltrar)
 	{
 		return this.getMiGestor().filtrar(filtro, contenidoAFiltrar);
+	}
+	public String [] filtrarSin(String filtro, String[] contenidoAFiltrar)
+	{
+		return this.getMiGestor().filtrarSin(filtro, contenidoAFiltrar);
 	}
 	public GestorModelo getMiGestor() {
 		return miGestor;

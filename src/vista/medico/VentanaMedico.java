@@ -59,6 +59,9 @@ public class VentanaMedico extends JDialog {
 	private JComboBox comboBoxTurnoMedicoAP;
 	private JButton btnAnadirAtencionPrimaria;
 	private JComboBox comboBoxEspecialidad;
+	private JButton btnAnadirMedico;
+	private JPanel panelAñadirMedicoEspecialista;
+	private JPanel panelAñadirMedicoAP;
 
 		public VentanaMedico() {
 
@@ -170,7 +173,7 @@ public class VentanaMedico extends JDialog {
 			getTxtDireccionMedico.setBounds(233, 206, 169, 20);
 			panelAnadirMedico.add(getTxtDireccionMedico);
 			
-			JButton btnAnadirMedico = new JButton("A\u00F1adir");
+			btnAnadirMedico = new JButton("A\u00F1adir");
 			btnAnadirMedico.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnAnadirMedico.setBackground(new Color(204, 255, 204));
 			btnAnadirMedico.setContentAreaFilled(false);
@@ -184,7 +187,7 @@ public class VentanaMedico extends JDialog {
 			panelAnadirMedico.add(comboBoxEspecialidad);
 			
 			
-			JPanel panelAñadirMedicoEspecialista = new JPanel();
+			panelAñadirMedicoEspecialista = new JPanel();
 			panelAñadirMedicoEspecialista.setBorder(null);
 			panelAñadirMedicoEspecialista.setBackground(Color.WHITE);
 			tabbedPane.addTab("Alta Medico Especialista", iconagregar, panelAñadirMedicoEspecialista, null);
@@ -242,7 +245,7 @@ public class VentanaMedico extends JDialog {
 			lblTurno.setBounds(485, 203, 61, 14);
 			panelAñadirMedicoEspecialista.add(lblTurno);
 			
-			JPanel panelAñadirMedicoAP = new JPanel();
+			panelAñadirMedicoAP = new JPanel();
 			panelAñadirMedicoAP.setBackground(Color.WHITE);
 			tabbedPane.addTab("Alta Médico Atención Primaria", iconagregar, panelAñadirMedicoAP, null);
 			panelAñadirMedicoAP.setLayout(null);
@@ -287,6 +290,15 @@ public class VentanaMedico extends JDialog {
 			
 			this.setMinimumSize(new Dimension(750, 500));
 		}
+		
+		public JPanel getPanelAñadirMedicoEspecialista() {
+			return panelAñadirMedicoEspecialista;
+		}
+
+		public JPanel getPanelAñadirMedicoAP() {
+			return panelAñadirMedicoAP;
+		}
+
 
 		public JTextField getGetTxtBuscar() {
 			return getTxtBuscar;
@@ -366,6 +378,14 @@ public class VentanaMedico extends JDialog {
 
 		public JComboBox getComboBoxEspecialidad() {
 			return comboBoxEspecialidad;
+		}
+
+		public JButton getBtnAnadirMedico() {
+			return btnAnadirMedico;
+		}
+
+		public void setBtnAnadirMedico(JButton btnAnadirMedico) {
+			this.btnAnadirMedico = btnAnadirMedico;
 		}
 
 		

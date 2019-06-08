@@ -24,7 +24,7 @@ public class VentanaDatosMedico extends JDialog {
 	protected JTextField getTxtBuscar;
 	
 	public VentanaDatosMedico() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
+
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		this.setMinimumSize(new Dimension(750, 500));

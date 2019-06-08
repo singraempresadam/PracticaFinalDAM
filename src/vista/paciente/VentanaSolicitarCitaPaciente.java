@@ -26,7 +26,7 @@ public class VentanaSolicitarCitaPaciente extends JFrame {
 	private JPanel panelHorarioMedico;
 	
 	public VentanaSolicitarCitaPaciente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
+
 		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		

@@ -48,7 +48,6 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 	}
 
 	private void agregarListener() {
-		// TODO Auto-generated method stub
 		this.getBtnConsultarPaciente().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -57,6 +56,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 					paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(
 							obtenerIdSeleccionado());
 					paraUiVentanaDatosPaciente.setVisible(true);
+					dispose();
 				}
 
 			}
@@ -65,9 +65,8 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				getPanelBuscarPaciente().setVisible(false);
-				getPanelBuscarPaciente().remove(scrollListaPaciente);
-				setPacientes(new JList<String>(
-						getControl().filtrat(getGetTxtBuscar().getText(), control.obtenerElementosAMostrarPaciente())));
+				getPanelBuscarPaciente().remove(getScrollListaPaciente());
+				setPacientes(new JList<String>(getControl().filtrar(getGetTxtBuscar().getText(), control.obtenerElementosAMostrarPaciente())));
 				setScrollListaPaciente(new JScrollPane(getPacientes()));
 				getScrollListaPaciente().setBounds(79, 108, 345, 213);
 				getScrollListaPaciente().setBorder(new LineBorder(new Color(0, 102, 204), 2));

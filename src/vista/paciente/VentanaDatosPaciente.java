@@ -26,6 +26,8 @@ import vista.ventanaPrincipal;
 import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaDatosPaciente extends JDialog{
 	protected JTextField getTxtNombre;
@@ -34,6 +36,10 @@ public class VentanaDatosPaciente extends JDialog{
 	protected JTextField getTxtFechaNacimiento;
 	protected JTextField getTxtDireccion;
 	protected JTextField getTxtBuscar;
+	private JButton btnModificar;
+	private JButton btnEliminar;
+	private JButton btnHistorial;
+	private JButton btnSolicitarCita;
 	
 	public VentanaDatosPaciente() {
 
@@ -113,7 +119,8 @@ public class VentanaDatosPaciente extends JDialog{
 		getTxtDireccion.setColumns(10);
 		getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
+		
 		btnModificar.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnModificar.setBackground(new Color(204, 255, 204));
 		btnModificar.setContentAreaFilled(false);
@@ -122,7 +129,7 @@ public class VentanaDatosPaciente extends JDialog{
 		btnModificar.setBounds(71, 361, 109, 23);
 		getContentPane().add(btnModificar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar = new JButton("Eliminar");
 		btnEliminar.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnEliminar.setBackground(new Color(204, 255, 204));
 		btnEliminar.setContentAreaFilled(false);
@@ -131,7 +138,7 @@ public class VentanaDatosPaciente extends JDialog{
 		btnEliminar.setBounds(226, 361, 97, 23);
 		getContentPane().add(btnEliminar);
 		
-		JButton btnSolicitarCita = new JButton("Solicitar Cita");
+		btnSolicitarCita = new JButton("Solicitar Cita");
 		btnSolicitarCita.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnSolicitarCita.setBackground(new Color(204, 255, 204));
 		btnSolicitarCita.setContentAreaFilled(false);
@@ -149,7 +156,7 @@ public class VentanaDatosPaciente extends JDialog{
 		lblPaciente.setBounds(10, 11, 714, 41);
 		getContentPane().add(lblPaciente);
 		
-		JButton btnHistorial = new JButton("Historial");
+		btnHistorial = new JButton("Historial");
 		btnHistorial.setFont(new Font("Verdana", Font.BOLD, 12));
 		btnHistorial.setBackground(new Color(204, 255, 204));
 		btnHistorial.setContentAreaFilled(false);
@@ -184,6 +191,62 @@ public class VentanaDatosPaciente extends JDialog{
 
 	public JTextField getGetTxtBuscar() {
 		return getTxtBuscar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public void setBtnModificar(JButton btnModificar) {
+		this.btnModificar = btnModificar;
+	}
+
+	public JButton getBtnEliminar() {
+		return btnEliminar;
+	}
+
+	public void setBtnEliminar(JButton btnEliminar) {
+		this.btnEliminar = btnEliminar;
+	}
+
+	public JButton getBtnHistorial() {
+		return btnHistorial;
+	}
+
+	public void setBtnHistorial(JButton btnHistorial) {
+		this.btnHistorial = btnHistorial;
+	}
+
+	public JButton getBtnSolicitarCita() {
+		return btnSolicitarCita;
+	}
+
+	public void setBtnSolicitarCita(JButton btnSolicitarCita) {
+		this.btnSolicitarCita = btnSolicitarCita;
+	}
+
+	public void setGetTxtNombre(JTextField getTxtNombre) {
+		this.getTxtNombre = getTxtNombre;
+	}
+
+	public void setGetTxtApellidos(JTextField getTxtApellidos) {
+		this.getTxtApellidos = getTxtApellidos;
+	}
+
+	public void setGetTxtTelefono(JTextField getTxtTelefono) {
+		this.getTxtTelefono = getTxtTelefono;
+	}
+
+	public void setGetTxtFechaNacimiento(JTextField getTxtFechaNacimiento) {
+		this.getTxtFechaNacimiento = getTxtFechaNacimiento;
+	}
+
+	public void setGetTxtDireccion(JTextField getTxtDireccion) {
+		this.getTxtDireccion = getTxtDireccion;
+	}
+
+	public void setGetTxtBuscar(JTextField getTxtBuscar) {
+		this.getTxtBuscar = getTxtBuscar;
 	}
 	
 }

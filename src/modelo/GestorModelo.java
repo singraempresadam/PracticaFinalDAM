@@ -170,7 +170,7 @@ public class GestorModelo {
 		for (Entry<String, Medico> medicoLista : medicos.entrySet()) {
 			retorno[i] = medicoLista.getValue().getNombre() + "-" + medicoLista.getValue().getApellidos() + "-"
 					+ medicoLista.getKey() + "-" + medicoLista.getValue().getTelefono() + "-"
-					+ medicoLista.getValue().getEspecialidad();
+					+ medicoLista.getValue().getDireccion()+"-"+ medicoLista.getValue().getEspecialidad()+ "-Inactivo";
 			i++;
 		}
 		return retorno;
@@ -181,7 +181,7 @@ public class GestorModelo {
 		for (Entry<String, MedicoActivo> medicoActivoLista : medicosActivo.entrySet()) {
 			retorno[i] = medicoActivoLista.getValue().getNombre() + "-" + medicoActivoLista.getValue().getApellidos()
 					+ "-" + medicoActivoLista.getKey() + "-" + medicoActivoLista.getValue().getTelefono() + "-"
-					+ medicoActivoLista.getValue().getEspecialidad();
+					+ medicoActivoLista.getValue().getDireccion()+"-"+ medicoActivoLista.getValue().getEspecialidad() + "-Activo";
 			i++;
 		}
 		return retorno;
@@ -196,6 +196,18 @@ public class GestorModelo {
 			j++;
 		}
 		return conjuntoMedicos;
+	}
+	public String[] filtrarSin(String filtro, String[] contenidoAFiltrar) {
+		String [] retorno= new String[tamanioFiltracionSin(filtro, contenidoAFiltrar)];
+		int j=0;
+		for (int i = 0; i < contenidoAFiltrar.length; i++) {
+			if(!contenidoAFiltrar[i].contains(filtro))
+			{
+				retorno[j]=contenidoAFiltrar[i];
+				j++;
+			}
+		}
+		return retorno;
 	}
 	public String[] filtrar(String filtro, String[] contenidoAFiltrar) {
 		String [] retorno= new String[tamanioFiltracion(filtro, contenidoAFiltrar)];
@@ -213,6 +225,16 @@ public class GestorModelo {
 		int j=0;
 		for (int i = 0; i < contenidoAFiltrar.length; i++) {
 			if(contenidoAFiltrar[i].contains(filtro))
+			{
+				j++;
+			}
+		}
+		return j;
+	}
+	private int tamanioFiltracionSin(String filtro, String[] contenidoAFiltrar) {
+		int j=0;
+		for (int i = 0; i < contenidoAFiltrar.length; i++) {
+			if(!contenidoAFiltrar[i].contains(filtro))
 			{
 				j++;
 			}
