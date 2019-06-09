@@ -3,6 +3,7 @@ package control.paraUis.medico;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalTime;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -42,6 +43,13 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		for (int i = 0; i < values.length; i++) {
 			this.getComboBoxEspecialidad().addItem(values[i]);
 		}
+		this.getComboBoxTurnoMedicoAP().addItem("Mañana");
+		this.getComboBoxTurnoMedicoAP().addItem("Tarde");
+		
+		this.getComboBoxTurnoEspecialista().addItem("10");
+		this.getComboBoxTurnoEspecialista().addItem("12");
+		this.getComboBoxTurnoEspecialista().addItem("16");
+		this.getComboBoxTurnoEspecialista().addItem("18");
 	}
 
 	private void crearListaTodosLosMedicos() {
@@ -113,8 +121,20 @@ public class paraUiVentanaMedico extends VentanaMedico {
 				aniadirMedico();
 			}	
 		});
-		
+		this.getBtnAnadirEspecialista().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				aniadirMedicoEspecialista();
+			}
 
+		});
+		this.getBtnAnadirAtencionPrimaria().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				aniadirMedicoAtencionPrimaria();
+			}
+
+		});
 	}
 	private void consultarMedico() {
 		ParaUiVentanaDatosMedico paraUiVentanaDatosMedico = new ParaUiVentanaDatosMedico(obtenerIdSeleccionado());
@@ -178,6 +198,43 @@ public class paraUiVentanaMedico extends VentanaMedico {
 			ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e.getMsg());
 			paraUiVentanaError.setVisible(true);
 		}
+	}
+	private void aniadirMedicoAtencionPrimaria()
+	{
+		String medico=this.getMedicosAtencionPrimaria().getSelectedValuesList().get(0);
+		boolean[] dias= {true,true,true,true,true};
+		
+		int hora;
+		if(this.getComboBoxTurnoMedicoAP().getSelectedItem().toString() == "mañana")
+			hora=10;
+		else hora=16;
+		LocalTime horaInicio= LocalTime.of(hora, 0);
+		LocalTime horaFin = horaInicio.plusHours(4);
+		String[] fragmentarDatos = medico.split("-");
+		control.darAltaMedicoActivoNuevo(fragmentarDatos[0], fragmentarDatos[1], fragmentarDatos[3], fragmentarDatos[4]
+				, fragmentarDatos[2],Especialidad.valueOf(fragmentarDatos[5]), horaInicio, horaFin, dias,"1");
+	
+	}
+	private void aniadirMedicoEspecialista() {
+		String medico=this.getMedicosEspecialistas().getSelectedValuesList().get(0);
+		boolean[] dias= {true,false,true,false,true};
+		if(this.getCheckLMV().getState()) {
+			for (int i = 0; i < dias.length; i++) {
+				if(i%2==0) dias[i]=true;
+				else dias[i]=false;
+			}
+		}
+		if(this.getCheckMJ().getState()) {
+			for (int i = 0; i < dias.length; i++) {
+				if(i%2!=0) dias[i]=true;
+				else dias[i]=false;
+			}
+		}
+		LocalTime horaInicio= LocalTime.of(Integer.valueOf(this.getComboBoxTurnoEspecialista().getSelectedItem().toString()), 0);
+		LocalTime horaFin = horaInicio.plusHours(2);
+		String[] fragmentarDatos = medico.split("-");
+		control.darAltaMedicoActivoNuevo(fragmentarDatos[0], fragmentarDatos[1], fragmentarDatos[3], fragmentarDatos[4]
+				, fragmentarDatos[2],Especialidad.valueOf(fragmentarDatos[5]), horaInicio, horaFin, dias,"1");
 	}
 	private void crearVentanaOperacionRealizada(String mensaje) {
 		ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);

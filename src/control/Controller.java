@@ -47,7 +47,7 @@ public class Controller {
 	{
 		this.getMiGestor().darAltaMedicoNuevo(nombre, apellidos,telefono, direccion, idUnico, especialidad);
 	}
-	void darAltaMedicoActivoNuevo(String nombre, String apellidos,String telefono, String direccion, 
+	public void darAltaMedicoActivoNuevo(String nombre, String apellidos,String telefono, String direccion, 
 			String idUnico, Especialidad especialidad, LocalTime horaInicio, 
 			LocalTime horaFin, boolean [] dias, String consulta)
 	{
@@ -156,4 +156,6 @@ public class Controller {
 	public boolean[][] solicitarHorario(String obtenerIdSeleccionado) {
 		return this.miGestor.solicitarHorario(obtenerIdSeleccionado);
 	}
+
+	
 }

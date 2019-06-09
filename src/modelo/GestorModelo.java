@@ -98,6 +98,8 @@ public class GestorModelo {
 				horaInicio, horaFin, dias, consulta);
 		this.getMedicosActivo().put(medicoActivo.getIdUnico(), medicoActivo);
 		getDtoMedicoActivo().grabarColeccionMedicoActivo(medicosActivo);
+		getMedicos().remove(idUnico);
+		getDtoMedico().grabarColeccionMedico(getMedicos());
 	}
 	
 	public void eliminarPaciente(String idUnico)
