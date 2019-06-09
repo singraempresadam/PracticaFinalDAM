@@ -96,6 +96,9 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblMedico.setForeground(new Color(0, 102, 204));
 				
 				txtPaciente = new JTextField();
+				txtPaciente.setHorizontalAlignment(SwingConstants.CENTER);
+				txtPaciente.setForeground(new Color(0, 0, 102));
+				txtPaciente.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtPaciente.setBounds(286, 47, 169, 20);
 				panelSolicitarCitaPaciente.add(txtPaciente);
 				txtPaciente.setBackground(Color.WHITE);

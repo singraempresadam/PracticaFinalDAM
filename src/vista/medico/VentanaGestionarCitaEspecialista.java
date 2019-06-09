@@ -20,6 +20,13 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.MatteBorder;
 import javax.swing.JCheckBox;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.SystemColor;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class VentanaGestionarCitaEspecialista extends JDialog{
 	private JTextField getTxtDosis;
@@ -28,112 +35,174 @@ public class VentanaGestionarCitaEspecialista extends JDialog{
 	private JTextField getTxtObservaciones;
 	private JTextField txtNombrePaciente;
 	private JTextField txtNombreMedico;
+	int pX,pY;
+	
 	public VentanaGestionarCitaEspecialista() {
-		getContentPane().setBackground(new Color(255, 255, 255));
-		getContentPane().setLayout(null);
+		getContentPane().setBackground(Color.WHITE);
+		setBackground(Color.WHITE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 750, 500);
+		setLocationRelativeTo(null);
+		setUndecorated(true);
 		
-		this.setMinimumSize(new Dimension(750, 500));
-		JLabel lblGestionarCitaEspecialista = new JLabel("GESTIONAR CITA ESPECIALISTA");
-		lblGestionarCitaEspecialista.setOpaque(true);
-		lblGestionarCitaEspecialista.setBackground(new Color(0, 102, 204));
-		lblGestionarCitaEspecialista.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblGestionarCitaEspecialista.setForeground(Color.WHITE);
-		lblGestionarCitaEspecialista.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGestionarCitaEspecialista.setBounds(10, 0, 714, 41);
-		getContentPane().add(lblGestionarCitaEspecialista);
-		
-		JLabel lblTratamiento = new JLabel("Tratamiento");
-		lblTratamiento.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTratamiento.setForeground(new Color(0, 102, 204));
-		lblTratamiento.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblTratamiento.setBounds(81, 62, 188, 23);
-		getContentPane().add(lblTratamiento);
-		
-		JComboBox comboBoxTratamiento = new JComboBox();
-		comboBoxTratamiento.setBounds(81, 97, 188, 20);
-		getContentPane().add(comboBoxTratamiento);
-		
-		getTxtDosis = new JTextField();
-		getTxtDosis.setBounds(183, 142, 86, 20);
-		getContentPane().add(getTxtDosis);
-		getTxtDosis.setColumns(10);
-		
-		getTxtFechaInicio = new JTextField();
-		getTxtFechaInicio.setBounds(183, 176, 86, 20);
-		getContentPane().add(getTxtFechaInicio);
-		getTxtFechaInicio.setColumns(10);
-		
-		getTxtFechaFin = new JTextField();
-		getTxtFechaFin.setBounds(183, 210, 86, 20);
-		getContentPane().add(getTxtFechaFin);
-		getTxtFechaFin.setColumns(10);
-		
-		JLabel lblDosis = new JLabel("Dosis");
-		lblDosis.setBounds(81, 146, 78, 14);
-		getContentPane().add(lblDosis);
-		
-		JLabel lblFechaInicio = new JLabel("Fecha Inicio");
-		lblFechaInicio.setBounds(81, 179, 78, 14);
-		getContentPane().add(lblFechaInicio);
-		
-		JLabel lblFechaFin = new JLabel("Fecha Fin");
-		lblFechaFin.setBounds(81, 213, 78, 14);
-		getContentPane().add(lblFechaFin);
-		
-		JLabel lblObservaciones = new JLabel("Observaciones");
-		lblObservaciones.setBounds(81, 256, 78, 14);
-		getContentPane().add(lblObservaciones);
-		
-		getTxtObservaciones = new JTextField();
-		getTxtObservaciones.setBorder(new MatteBorder(1, 2, 1, 2, (Color) new Color(51, 153, 255)));
-		getTxtObservaciones.setBounds(81, 281, 188, 110);
-		getContentPane().add(getTxtObservaciones);
-		getTxtObservaciones.setColumns(10);
-		
-		JLabel lblPaciente = new JLabel("Paciente");
-		lblPaciente.setBounds(378, 100, 61, 14);
-		getContentPane().add(lblPaciente);
-		
-		txtNombrePaciente = new JTextField();
-		txtNombrePaciente.setEditable(false);
-		txtNombrePaciente.setBounds(484, 97, 222, 20);
-		getContentPane().add(txtNombrePaciente);
-		txtNombrePaciente.setColumns(10);
-		
-		JLabel lblMedico = new JLabel("Medico");
-		lblMedico.setBounds(378, 146, 46, 14);
-		getContentPane().add(lblMedico);
-		
-		txtNombreMedico = new JTextField();
-		txtNombreMedico.setEditable(false);
-		txtNombreMedico.setBounds(484, 143, 222, 20);
-		getContentPane().add(txtNombreMedico);
-		txtNombreMedico.setColumns(10);
-		
-		JCheckBox chckbxConfirmarAsistencia = new JCheckBox("Confirmar Asistencia");
-		chckbxConfirmarAsistencia.setFont(new Font("Tahoma", Font.BOLD, 11));
-		chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
-		chckbxConfirmarAsistencia.setBounds(484, 232, 222, 23);
-		getContentPane().add(chckbxConfirmarAsistencia);
-		
-		JButton btnGestionarEspecialista = new JButton("Gestionar");
-		btnGestionarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnGestionarEspecialista.setBackground(new Color(204, 255, 204));
-		btnGestionarEspecialista.setContentAreaFilled(false);
-		btnGestionarEspecialista.setBorderPainted(false);
-		btnGestionarEspecialista.setOpaque(true);
-		btnGestionarEspecialista.setBounds(394, 411, 108, 23);
-		getContentPane().add(btnGestionarEspecialista);
-		
-		JButton btnSolicitarIntervencion = new JButton("Solicitar Intervenci\u00F3n");
-		btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
-		btnSolicitarIntervencion.setContentAreaFilled(false);
-		btnSolicitarIntervencion.setBorderPainted(false);
-		btnSolicitarIntervencion.setOpaque(true);
-		btnSolicitarIntervencion.setBounds(522, 411, 184, 23);
-		getContentPane().add(btnSolicitarIntervencion);
-		
+			JPanel panelGestionarCitaEspecialista = new JPanel();
+			panelGestionarCitaEspecialista.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mousePressed(MouseEvent e) {
+					pX=e.getX();
+					pY=e.getY();
+				}
+			});
+			panelGestionarCitaEspecialista.addMouseMotionListener(new MouseMotionAdapter() {
+				@Override
+				public void mouseDragged(MouseEvent e) {
+					setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
+				}
+			});
+			panelGestionarCitaEspecialista.setBackground(Color.WHITE);
+			getContentPane().add(panelGestionarCitaEspecialista);
+			panelGestionarCitaEspecialista.setLayout(null);
+				
+				JButton btnCerrar = new JButton("");
+				btnCerrar.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						dispose();
+					}
+				});
+				btnCerrar.setBackground(new Color(0, 153, 255));
+				btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
+				btnCerrar.setContentAreaFilled(false);
+				btnCerrar.setBorderPainted(false);
+				btnCerrar.setOpaque(true);
+				btnCerrar.setBounds(713, 0, 37, 31);
+				panelGestionarCitaEspecialista.add(btnCerrar);
+				
+				JLabel lblGestionarCitaEspecialista = new JLabel("GESTIONAR CITA ESPECIALISTA");
+				lblGestionarCitaEspecialista.setIcon(new ImageIcon(VentanaGestionarCitaEspecialista.class.getResource("/images/iconventana.png")));
+				lblGestionarCitaEspecialista.setOpaque(true);
+				lblGestionarCitaEspecialista.setHorizontalAlignment(SwingConstants.LEFT);
+				lblGestionarCitaEspecialista.setForeground(Color.WHITE);
+				lblGestionarCitaEspecialista.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
+				lblGestionarCitaEspecialista.setBackground(SystemColor.textHighlight);
+				lblGestionarCitaEspecialista.setBounds(0, 0, 750, 31);
+				panelGestionarCitaEspecialista.add(lblGestionarCitaEspecialista);
+				
+				JLabel lblTratamiento = new JLabel("Tratamiento");
+				lblTratamiento.setBounds(71, 68, 222, 23);
+				lblTratamiento.setHorizontalAlignment(SwingConstants.CENTER);
+				lblTratamiento.setForeground(new Color(0, 102, 204));
+				lblTratamiento.setFont(new Font("Verdana", Font.BOLD, 14));
+				panelGestionarCitaEspecialista.add(lblTratamiento);
+				
+				JLabel lblDosis = new JLabel("Dosis");
+				lblDosis.setForeground(new Color(0, 102, 204));
+				lblDosis.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblDosis.setBounds(71, 142, 78, 14);
+				panelGestionarCitaEspecialista.add(lblDosis);
+				
+				JLabel lblFechaInicio = new JLabel("Fecha Inicio");
+				lblFechaInicio.setForeground(new Color(0, 102, 204));
+				lblFechaInicio.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblFechaInicio.setBounds(71, 181, 92, 14);
+				panelGestionarCitaEspecialista.add(lblFechaInicio);
+				
+				JLabel lblFechaFin = new JLabel("Fecha Fin");
+				lblFechaFin.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblFechaFin.setForeground(new Color(0, 102, 204));
+				lblFechaFin.setBounds(71, 219, 78, 14);
+				panelGestionarCitaEspecialista.add(lblFechaFin);
+				
+				JLabel lblMedico = new JLabel("Medico");
+				lblMedico.setForeground(new Color(0, 102, 204));
+				lblMedico.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblMedico.setBounds(382, 142, 46, 14);
+				panelGestionarCitaEspecialista.add(lblMedico);
+				
+				JLabel lblPaciente = new JLabel("Paciente");
+				lblPaciente.setForeground(new Color(0, 102, 204));
+				lblPaciente.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblPaciente.setBounds(382, 104, 61, 14);
+				panelGestionarCitaEspecialista.add(lblPaciente);
+				
+				JLabel lblObservaciones = new JLabel("Observaciones");
+				lblObservaciones.setForeground(new Color(0, 102, 204));
+				lblObservaciones.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblObservaciones.setBounds(71, 258, 132, 14);
+				panelGestionarCitaEspecialista.add(lblObservaciones);
+				
+				JComboBox comboBoxTratamiento = new JComboBox();
+				comboBoxTratamiento.setForeground(new Color(0, 0, 102));
+				comboBoxTratamiento.setFont(new Font("Tahoma", Font.BOLD, 12));
+				comboBoxTratamiento.setBounds(71, 104, 222, 20);
+				panelGestionarCitaEspecialista.add(comboBoxTratamiento);
+				
+				getTxtDosis = new JTextField();
+				getTxtDosis.setHorizontalAlignment(SwingConstants.CENTER);
+				getTxtDosis.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				getTxtDosis.setBounds(180, 140, 113, 20);				
+				getTxtDosis.setColumns(10);
+				panelGestionarCitaEspecialista.add(getTxtDosis);
+				
+				getTxtFechaInicio = new JTextField();
+				getTxtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
+				getTxtFechaInicio.setBounds(180, 179, 113, 20);				
+				getTxtFechaInicio.setColumns(10);
+				panelGestionarCitaEspecialista.add(getTxtFechaInicio);
+				
+				getTxtFechaFin = new JTextField();
+				getTxtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
+				getTxtFechaFin.setBounds(180, 217, 113, 20);	
+				getTxtFechaFin.setColumns(10);
+				panelGestionarCitaEspecialista.add(getTxtFechaFin);
+				
+				getTxtObservaciones = new JTextField();
+				getTxtObservaciones.setBounds(71, 288, 222, 110);
+				getTxtObservaciones.setBorder(new MatteBorder(1, 2, 1, 2, (Color) new Color(51, 153, 255)));
+				getTxtObservaciones.setColumns(10);
+				panelGestionarCitaEspecialista.add(getTxtObservaciones);
+				
+				txtNombrePaciente = new JTextField();
+				txtNombrePaciente.setHorizontalAlignment(SwingConstants.CENTER);
+				txtNombrePaciente.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtNombrePaciente.setForeground(new Color(0, 0, 102));
+				txtNombrePaciente.setBounds(487, 101, 222, 20);			
+				txtNombrePaciente.setEditable(false);
+				txtNombrePaciente.setColumns(10);
+				panelGestionarCitaEspecialista.add(txtNombrePaciente);
+				
+				txtNombreMedico = new JTextField();
+				txtNombreMedico.setHorizontalAlignment(SwingConstants.CENTER);
+				txtNombreMedico.setForeground(new Color(0, 0, 102));
+				txtNombreMedico.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtNombreMedico.setBounds(487, 140, 222, 20);			
+				txtNombreMedico.setEditable(false);
+				txtNombreMedico.setColumns(10);
+				panelGestionarCitaEspecialista.add(txtNombreMedico);
+				
+				JCheckBox chckbxConfirmarAsistencia = new JCheckBox("Confirmar Asistencia");
+				chckbxConfirmarAsistencia.setBounds(487, 288, 222, 23);	
+				chckbxConfirmarAsistencia.setFont(new Font("Tahoma", Font.BOLD, 11));
+				chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
+				panelGestionarCitaEspecialista.add(chckbxConfirmarAsistencia);
+				
+				JButton btnGestionarEspecialista = new JButton("Gestionar");
+				btnGestionarEspecialista.setBounds(416, 430, 108, 23);			
+				btnGestionarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
+				btnGestionarEspecialista.setBackground(new Color(204, 255, 204));
+				btnGestionarEspecialista.setContentAreaFilled(false);
+				btnGestionarEspecialista.setBorderPainted(false);
+				btnGestionarEspecialista.setOpaque(true);
+				panelGestionarCitaEspecialista.add(btnGestionarEspecialista);
+				
+				JButton btnSolicitarIntervencion = new JButton("Solicitar Intervenci\u00F3n");
+				btnSolicitarIntervencion.setBounds(534, 430, 184, 23);			
+				btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
+				btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
+				btnSolicitarIntervencion.setContentAreaFilled(false);
+				btnSolicitarIntervencion.setBorderPainted(false);
+				btnSolicitarIntervencion.setOpaque(true);
+				panelGestionarCitaEspecialista.add(btnSolicitarIntervencion);
 		
 	}
 }

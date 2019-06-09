@@ -105,6 +105,9 @@ public class VentanaDatosCirujano extends JDialog {
 				panelDatosCirujano.add(lblDireccion);
 				
 				txtNombre = new JTextField();
+				txtNombre.setHorizontalAlignment(SwingConstants.CENTER);
+				txtNombre.setForeground(new Color(0, 0, 102));
+				txtNombre.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtNombre.setBounds(280, 80, 169, 20);			
 				txtNombre.setEditable(false);
 				txtNombre.setBackground(new Color(255, 255, 255));
@@ -113,6 +116,9 @@ public class VentanaDatosCirujano extends JDialog {
 				panelDatosCirujano.add(txtNombre);
 				
 				txtApellidos = new JTextField();
+				txtApellidos.setHorizontalAlignment(SwingConstants.CENTER);
+				txtApellidos.setForeground(new Color(0, 0, 102));
+				txtApellidos.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtApellidos.setBounds(280, 120, 169, 20);
 				txtApellidos.setBackground(Color.WHITE);
 				txtApellidos.setEditable(false);
@@ -121,6 +127,9 @@ public class VentanaDatosCirujano extends JDialog {
 				panelDatosCirujano.add(txtApellidos);
 				
 				txtTelefono = new JTextField();
+				txtTelefono.setHorizontalAlignment(SwingConstants.CENTER);
+				txtTelefono.setForeground(new Color(0, 0, 102));
+				txtTelefono.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtTelefono.setBounds(280, 160, 169, 20);
 				txtTelefono.setBackground(Color.WHITE);
 				txtTelefono.setEditable(false);
@@ -129,6 +138,9 @@ public class VentanaDatosCirujano extends JDialog {
 				panelDatosCirujano.add(txtTelefono);
 				
 				txtDireccion = new JTextField();
+				txtDireccion.setHorizontalAlignment(SwingConstants.CENTER);
+				txtDireccion.setForeground(new Color(0, 0, 102));
+				txtDireccion.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtDireccion.setBounds(280, 200, 169, 20);
 				txtDireccion.setBackground(Color.WHITE);
 				txtDireccion.setEditable(false);
