@@ -152,4 +152,8 @@ public class Controller {
 		this.getMiGestor().aumentarDia(i);
 		
 	}
+
+	public boolean[][] solicitarHorario(String obtenerIdSeleccionado) {
+		return this.miGestor.solicitarHorario(obtenerIdSeleccionado);
+	}
 }

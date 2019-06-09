@@ -62,4 +62,7 @@ public class MedicoActivo extends Medico implements Serializable{
 		Cita cita = new Cita(idCita,idUnicoPaciente,this.getIdUnico(),fechaYHora);
 		this.citas.put(cita.getIdUnicoCita(),cita);
 	}
+	public boolean obtenerDias(int j) {
+		return this.getHorario().getDias()[j];
+	}
 }

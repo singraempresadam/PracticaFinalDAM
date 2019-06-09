@@ -1,16 +1,14 @@
 package vista.paciente;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
@@ -32,6 +30,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 	int pX,pY;
 	private JButton btnBuscar;
 	private JPanel panelSolicitarCitaPaciente;
+	private JPanel panelHorario;
 	
 	public VentanaSolicitarCitaPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -223,6 +222,11 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				btnSolicitar.setOpaque(true);
 				btnSolicitar.setRequestFocusEnabled(false);
 				btnSolicitar.setFocusable(false);
+				
+				panelHorario = new JPanel();
+				panelHorario.setBounds(120, 300, 500, 200);
+				panelSolicitarCitaPaciente.add(panelHorario);
+				panelHorario.setLayout(new GridLayout(4, 5, 0, 0));
 		
 		
 	}
@@ -294,7 +298,13 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 	public JPanel getPanelSolicitarCitaPaciente() {
 		return panelSolicitarCitaPaciente;
 	}
+	public void actualizarPantalla() {
+        JPanel temp = (JPanel) this.getContentPane();
+        SwingUtilities.updateComponentTreeUI(temp);
+    }
+	public JPanel getPanelHorario() {
+		return panelHorario;
+	}
 
-	
 	
 }

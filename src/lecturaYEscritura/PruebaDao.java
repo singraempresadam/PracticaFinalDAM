@@ -67,10 +67,14 @@ public class PruebaDao {
 		Medico medicoTres = new Medico("Mario", "Rodriguez", "62345698", "Calle AltaGracia", "123658947", Especialidad.Ginecologo);
 		Medico medicoCuatro = new Medico("Ana", "Cabanillas", "677766147", "Calle Altorra", "456284635", Especialidad.Traumatologo);
 		boolean [] diasRicardo = {true,true,true,true,true};
+		boolean [] diasTestero = {true, false, true, false , true};
 		MedicoActivo medicoActivoUno= new MedicoActivo("Ricardo Antonio", "Zarco", "622568656", "Calle grupoperros", "321456789", 
 				Especialidad.Atencion_Primaria, LocalTime.of(10, 0), LocalTime.of(14, 0), 
 				diasRicardo, "1");
-		Cirujano cirujanoUno = new Cirujano("Manolo", "Gordillo", "615121512", "Calle Santiago Apostol", "314159692", "2");
+		MedicoActivo medicoActivoDos= new MedicoActivo("Testero", "Zardasco", "622568656", "Calle grupoperros", "123654251", 
+				Especialidad.Atencion_Primaria, LocalTime.of(16, 0), LocalTime.of(20, 0), 
+				diasTestero, "1");
+		Cirujano cirujanoUno = new Cirujano("Manolo", "Gordillo", "615121512", "Calle Santiago Apostol", "314149692", "2");
 		Cirujano cirujanoDos = new Cirujano("Kiwi", "Pandoso", "621091997", "Calle Enamorado", "321654989", "2");
 		
 		pacientes.put(uno.getIdUnico(), uno);
@@ -83,6 +87,7 @@ public class PruebaDao {
 		medicos.put(medicoCuatro.getIdUnico(), medicoCuatro);
 		
 		medicosActivo.put(medicoActivoUno.getIdUnico(), medicoActivoUno);
+		medicosActivo.put(medicoActivoDos.getIdUnico(), medicoActivoDos);
 		
 		cirujanos.put(cirujanoUno.getIdUnico(), cirujanoUno);
 		cirujanos.put(cirujanoDos.getIdUnico(), cirujanoDos);

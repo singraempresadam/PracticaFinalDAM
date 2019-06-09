@@ -4,11 +4,13 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
 import control.Controller;
+import control.paraUis.ParaUiVentanaError;
 import vista.paciente.VentanaSolicitarCitaPaciente;
 
 public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaciente{
@@ -18,7 +20,7 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 	private static final long serialVersionUID = -1285684464416843466L;
 	String idPaciente;
 	Controller control = new Controller();
-
+	public JButton botones[][]=new JButton[4][5];
 	private JList<String> medicosAtencionPrimaria;
 
 	private JScrollPane scrollListaMedicoAtencionPrimaria;
@@ -35,9 +37,44 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 			public void mouseClicked(MouseEvent arg0) {
 				buscarMedico();
 			}
-
-			
 		});
+		this.getBtnVerHorario().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				solicitarHorario();
+			}
+		});
+	}
+	private void solicitarHorario() {
+		boolean horario[][]=control.solicitarHorario(obtenerIdSeleccionado());
+		this.getPanelHorario().removeAll();
+		int anchuraBoton=100,alturaBoton= 50;
+		int x=0,y=0;
+		for (int i = 0; i < horario.length; i++) {
+			for (int j = 0; j < horario[i].length; j++) {
+				this.botones[i][j] = new JButton();
+				this.botones[i][j].setName(String.valueOf(i)+String.valueOf(j));
+				this.botones[i][j].setBounds(x, y, anchuraBoton, alturaBoton);
+				if(horario[i][j]) this.botones[i][j].setBackground(Color.green);
+				else this.botones[i][j].setBackground(Color.red);
+				this.getPanelHorario().add(this.botones[i][j]);
+				x+=anchuraBoton;
+			}
+			x=0;
+			y+=alturaBoton;
+		}
+		this.getPanelHorario().setVisible(true);
+		this.actualizarPantalla();
+		this.botones[1][1].setText("");
+	}
+	private String obtenerIdSeleccionado() {
+		try {
+			return this.getMedicosAtencionPrimaria().getSelectedValuesList().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError("Selecciona un medico");
+			paraUiVentanaError.setVisible(true);
+		}
+		return "";
 	}
 	private void buscarMedico() {
 		getPanelSolicitarCitaPaciente().setVisible(false);

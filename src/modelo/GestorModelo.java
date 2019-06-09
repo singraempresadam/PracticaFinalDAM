@@ -315,5 +315,16 @@ public class GestorModelo {
 		this.setDiaSistema(diaSistema.plusDays(i));
 		
 	}
+	public boolean[][] solicitarHorario(String obtenerIdSeleccionado) {
+		String [] fragmentarDatos = obtenerIdSeleccionado.split("-");
+		String idMedicoSeleccionado=fragmentarDatos[2];
+		boolean [][] retorno = new boolean [4][5];
+		for (int i = 0; i < retorno.length; i++) {
+			for (int j = 0; j < retorno[i].length; j++) {
+				retorno[i][j]=this.getMedicosActivo().get(idMedicoSeleccionado).obtenerDias(j);				
+			}
+		}
+ 		return retorno;
+	}
 
 }
