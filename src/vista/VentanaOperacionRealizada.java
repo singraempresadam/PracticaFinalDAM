@@ -24,7 +24,7 @@ public class VentanaOperacionRealizada extends JDialog{
 		getContentPane().setBackground(Color.WHITE);
 		setModal(true);
 		
-		JLabel lblRealizada = new JLabel("Operaci\\u00F3n realizada correctamente");
+		JLabel lblRealizada = new JLabel("Operacion realizada correctamente");
 		lblRealizada.setIcon(new ImageIcon(VentanaOperacionRealizada.class.getResource("/com/sun/javafx/scene/control/skin/modena/dialog-information.png")));
 		lblRealizada.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRealizada.setFont(new Font("Tahoma", Font.BOLD, 11));

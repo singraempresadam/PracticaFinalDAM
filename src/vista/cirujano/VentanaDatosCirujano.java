@@ -107,45 +107,45 @@ public class VentanaDatosCirujano extends JDialog {
 				txtNombre = new JTextField();
 				txtNombre.setHorizontalAlignment(SwingConstants.CENTER);
 				txtNombre.setForeground(new Color(0, 0, 102));
-				txtNombre.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
 				txtNombre.setBounds(280, 80, 169, 20);			
 				txtNombre.setEditable(false);
 				txtNombre.setBackground(new Color(255, 255, 255));
 				txtNombre.setColumns(10);
-				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosCirujano.add(txtNombre);
 				
 				txtApellidos = new JTextField();
 				txtApellidos.setHorizontalAlignment(SwingConstants.CENTER);
 				txtApellidos.setForeground(new Color(0, 0, 102));
-				txtApellidos.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
 				txtApellidos.setBounds(280, 120, 169, 20);
 				txtApellidos.setBackground(Color.WHITE);
 				txtApellidos.setEditable(false);
 				txtApellidos.setColumns(10);
-				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosCirujano.add(txtApellidos);
 				
 				txtTelefono = new JTextField();
 				txtTelefono.setHorizontalAlignment(SwingConstants.CENTER);
 				txtTelefono.setForeground(new Color(0, 0, 102));
-				txtTelefono.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtTelefono.setFont(new Font("Tahoma", Font.BOLD, 13));
 				txtTelefono.setBounds(280, 160, 169, 20);
 				txtTelefono.setBackground(Color.WHITE);
 				txtTelefono.setEditable(false);
 				txtTelefono.setColumns(10);
-				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosCirujano.add(txtTelefono);
 				
 				txtDireccion = new JTextField();
 				txtDireccion.setHorizontalAlignment(SwingConstants.CENTER);
 				txtDireccion.setForeground(new Color(0, 0, 102));
-				txtDireccion.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtDireccion.setFont(new Font("Tahoma", Font.BOLD, 13));
 				txtDireccion.setBounds(280, 200, 169, 20);
 				txtDireccion.setBackground(Color.WHITE);
 				txtDireccion.setEditable(false);
 				txtDireccion.setColumns(10);
-				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosCirujano.add(txtDireccion);
 				
 				JButton btnGestionarIntervencion = new JButton("Gestionar Intervenci\u00F3n");

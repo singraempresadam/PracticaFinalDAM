@@ -26,6 +26,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
+import javax.swing.border.LineBorder;
 
 public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 	
@@ -140,41 +141,48 @@ private JTextField txtNombreMedico;
 				getTxtDosis = new JTextField();
 				getTxtDosis.setHorizontalAlignment(SwingConstants.CENTER);
 				getTxtDosis.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				getTxtDosis.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtDosis.setBounds(180, 140, 113, 20);				
 				getTxtDosis.setColumns(10);
 				panelGestionarCitaEspecialista.add(getTxtDosis);
 				
 				getTxtFechaInicio = new JTextField();
 				getTxtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
+				getTxtFechaInicio.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtFechaInicio.setBounds(180, 179, 113, 20);				
 				getTxtFechaInicio.setColumns(10);
 				panelGestionarCitaEspecialista.add(getTxtFechaInicio);
 				
 				getTxtFechaFin = new JTextField();
 				getTxtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
+				getTxtFechaFin.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtFechaFin.setBounds(180, 217, 113, 20);	
 				getTxtFechaFin.setColumns(10);
 				panelGestionarCitaEspecialista.add(getTxtFechaFin);
 				
 				getTxtObservaciones = new JTextField();
 				getTxtObservaciones.setBounds(71, 288, 222, 110);
-				getTxtObservaciones.setBorder(new MatteBorder(1, 2, 1, 2, (Color) new Color(51, 153, 255)));
+				getTxtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 				getTxtObservaciones.setColumns(10);
 				panelGestionarCitaEspecialista.add(getTxtObservaciones);
 				
 				txtNombrePaciente = new JTextField();
+				txtNombrePaciente.setBackground(Color.WHITE);
 				txtNombrePaciente.setHorizontalAlignment(SwingConstants.CENTER);
 				txtNombrePaciente.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtNombrePaciente.setForeground(new Color(0, 0, 102));
-				txtNombrePaciente.setBounds(487, 101, 222, 20);			
+				txtNombrePaciente.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtNombrePaciente.setBounds(487, 101, 222, 20);		
 				txtNombrePaciente.setEditable(false);
 				txtNombrePaciente.setColumns(10);
 				panelGestionarCitaEspecialista.add(txtNombrePaciente);
 				
 				txtNombreMedico = new JTextField();
+				txtNombreMedico.setBackground(Color.WHITE);
 				txtNombreMedico.setHorizontalAlignment(SwingConstants.CENTER);
 				txtNombreMedico.setForeground(new Color(0, 0, 102));
 				txtNombreMedico.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtNombreMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				txtNombreMedico.setBounds(487, 140, 222, 20);			
 				txtNombreMedico.setEditable(false);
 				txtNombreMedico.setColumns(10);

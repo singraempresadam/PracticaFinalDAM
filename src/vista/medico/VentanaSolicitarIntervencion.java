@@ -111,14 +111,14 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				txtPaciente.setBackground(Color.WHITE);
 				txtPaciente.setEditable(false);
 				txtPaciente.setColumns(10);
-				txtPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				
 				txtCirujano = new JTextField();
 				txtCirujano.setBounds(286, 80, 169, 20);
 				panelSolicitarCitaPaciente.add(txtCirujano);
 				txtCirujano.setBackground(Color.WHITE);
 				txtCirujano.setColumns(10);
-				txtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				
 				btnBuscar = new JButton("Buscar");
 				btnBuscar.setBounds(491, 78, 122, 23);
@@ -144,7 +144,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblLunes.setBounds(120, 250, 100, 50);
 				panelSolicitarCitaPaciente.add(lblLunes);
 				lblLunes.setBorder(new MatteBorder(2, 2, 0, 1, (Color) new Color(0, 102, 204)));
-				lblLunes.setBackground(new Color(204, 255, 255));
+				lblLunes.setBackground(new Color(153, 204, 255));
 				lblLunes.setOpaque(true);
 				lblLunes.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblLunes.setHorizontalAlignment(SwingConstants.CENTER);
@@ -156,7 +156,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblMartes.setOpaque(true);
 				lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
 				lblMartes.setFont(new Font("Tahoma", Font.BOLD, 13));
-				lblMartes.setBackground(new Color(204, 255, 255));
+				lblMartes.setBackground(new Color(153, 204, 255));
 				
 				JLabel lblMiercoles = new JLabel("Mi\u00E9rcoles");
 				lblMiercoles.setBounds(320, 250, 100, 50);
@@ -165,7 +165,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
 				lblMiercoles.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblMiercoles.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
-				lblMiercoles.setBackground(new Color(204, 255, 255));
+				lblMiercoles.setBackground(new Color(153, 204, 255));
 				
 				JLabel lblJueves = new JLabel("Jueves");
 				lblJueves.setBounds(420, 250, 100, 50);
@@ -174,7 +174,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
 				lblJueves.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblJueves.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
-				lblJueves.setBackground(new Color(204, 255, 255));
+				lblJueves.setBackground(new Color(153, 204, 255));
 				
 				JLabel lblViernes = new JLabel("Viernes");
 				lblViernes.setBounds(520, 250, 100, 50);
@@ -183,7 +183,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
 				lblViernes.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
-				lblViernes.setBackground(new Color(204, 255, 255));
+				lblViernes.setBackground(new Color(153, 204, 255));
 				
 				JLabel lblHoraInicio = new JLabel("");
 				lblHoraInicio.setBounds(20, 300, 100, 50);
@@ -192,7 +192,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblHoraInicio.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHoraInicio.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
-				lblHoraInicio.setBackground(new Color(204, 255, 255));
+				lblHoraInicio.setBackground(new Color(153, 204, 255));
 				
 				JLabel lblHoraDos = new JLabel("");
 				lblHoraDos.setBounds(20, 350, 100, 50);
@@ -201,7 +201,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblHoraDos.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHoraDos.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
-				lblHoraDos.setBackground(new Color(204, 255, 255));
+				lblHoraDos.setBackground(new Color(153, 204, 255));
 				
 				JLabel lblHoraTres = new JLabel("");
 				lblHoraTres.setBounds(20, 400, 100, 50);
@@ -210,7 +210,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
-				lblHoraTres.setBackground(new Color(204, 255, 255));
+				lblHoraTres.setBackground(new Color(153, 204, 255));
 				
 				
 				btnSolicitarIntervencion = new JButton("Solicitar");

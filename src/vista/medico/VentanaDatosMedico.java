@@ -130,7 +130,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtNombre.setEditable(false);
 				txtNombre.setBackground(new Color(255, 255, 255));
 				txtNombre.setColumns(10);
-				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosMedico.add(txtNombre);
 				
 				txtApellidos = new JTextField();
@@ -141,7 +141,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtApellidos.setBackground(Color.WHITE);
 				txtApellidos.setEditable(false);
 				txtApellidos.setColumns(10);
-				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosMedico.add(txtApellidos);
 				
 				txtTelefono = new JTextField();
@@ -152,7 +152,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtTelefono.setBackground(Color.WHITE);
 				txtTelefono.setEditable(false);
 				txtTelefono.setColumns(10);
-				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosMedico.add(txtTelefono);
 				
 				txtDireccion = new JTextField();
@@ -163,7 +163,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtDireccion.setBackground(Color.WHITE);
 				txtDireccion.setEditable(false);
 				txtDireccion.setColumns(10);
-				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosMedico.add(txtDireccion);
 				
 				txtEspecialidad = new JTextField();
@@ -172,7 +172,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtEspecialidad.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtEspecialidad.setEditable(false);
 				txtEspecialidad.setColumns(10);
-				txtEspecialidad.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtEspecialidad.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				txtEspecialidad.setBackground(Color.WHITE);
 				txtEspecialidad.setBounds(280, 240, 169, 20);
 				panelDatosMedico.add(txtEspecialidad);
@@ -183,7 +183,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtEstado.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtEstado.setEditable(false);
 				txtEstado.setColumns(10);
-				txtEstado.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtEstado.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				txtEstado.setBackground(Color.WHITE);
 				txtEstado.setBounds(280, 280, 169, 20);
 				panelDatosMedico.add(txtEstado);
