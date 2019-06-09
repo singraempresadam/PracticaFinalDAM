@@ -30,6 +30,8 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 	private JButton btnVerHorario;
 	private JButton btnSolicitar;
 	int pX,pY;
+	private JButton btnBuscar;
+	private JPanel panelSolicitarCitaPaciente;
 	
 	public VentanaSolicitarCitaPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -38,7 +40,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 		setModal(true);
 		setUndecorated(true);
 		
-			JPanel panelSolicitarCitaPaciente = new JPanel();
+			panelSolicitarCitaPaciente = new JPanel();
 			panelSolicitarCitaPaciente.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
@@ -109,7 +111,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				txtMedicoAP.setColumns(10);
 				txtMedicoAP.setBorder(new LineBorder(new Color(0, 102, 204), 2));
 				
-				JButton btnBuscar = new JButton("Buscar");
+				btnBuscar = new JButton("Buscar");
 				btnBuscar.setBounds(491, 78, 122, 23);
 				panelSolicitarCitaPaciente.add(btnBuscar);
 				btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
@@ -120,7 +122,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				btnBuscar.setBackground(new Color(0, 102, 204));
 				
 				btnVerHorario = new JButton("Ver horario");
-				btnVerHorario.setBounds(491, 125, 122, 23);
+				btnVerHorario.setBounds(491, 214, 122, 23);
 				panelSolicitarCitaPaciente.add(btnVerHorario);
 				btnVerHorario.setFont(new Font("Verdana", Font.BOLD, 11));
 				btnVerHorario.setForeground(Color.WHITE);
@@ -130,7 +132,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				btnVerHorario.setBackground(new Color(0, 102, 204));
 				
 				JLabel lblLunes = new JLabel("Lunes");
-				lblLunes.setBounds(120, 159, 100, 50);
+				lblLunes.setBounds(120, 250, 100, 50);
 				panelSolicitarCitaPaciente.add(lblLunes);
 				lblLunes.setBorder(new MatteBorder(2, 2, 0, 1, (Color) new Color(0, 102, 204)));
 				lblLunes.setBackground(new Color(204, 255, 255));
@@ -139,7 +141,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblLunes.setHorizontalAlignment(SwingConstants.CENTER);
 				
 				JLabel lblMartes = new JLabel("Martes");
-				lblMartes.setBounds(220, 159, 100, 50);
+				lblMartes.setBounds(220, 250, 100, 50);
 				panelSolicitarCitaPaciente.add(lblMartes);
 				lblMartes.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
 				lblMartes.setOpaque(true);
@@ -148,7 +150,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblMartes.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblMiercoles = new JLabel("Mi\u00E9rcoles");
-				lblMiercoles.setBounds(320, 159, 100, 50);
+				lblMiercoles.setBounds(320, 250, 100, 50);
 				panelSolicitarCitaPaciente.add(lblMiercoles);
 				lblMiercoles.setOpaque(true);
 				lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
@@ -157,7 +159,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblMiercoles.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblJueves = new JLabel("Jueves");
-				lblJueves.setBounds(420, 159, 100, 50);
+				lblJueves.setBounds(420, 250, 100, 50);
 				panelSolicitarCitaPaciente.add(lblJueves);
 				lblJueves.setOpaque(true);
 				lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
@@ -166,7 +168,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblJueves.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblViernes = new JLabel("Viernes");
-				lblViernes.setBounds(520, 159, 100, 50);
+				lblViernes.setBounds(520, 250, 100, 50);
 				panelSolicitarCitaPaciente.add(lblViernes);
 				lblViernes.setOpaque(true);
 				lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
@@ -175,7 +177,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblViernes.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblHoraInicio = new JLabel("");
-				lblHoraInicio.setBounds(20, 207, 100, 50);
+				lblHoraInicio.setBounds(20, 300, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraInicio);
 				lblHoraInicio.setOpaque(true);
 				lblHoraInicio.setHorizontalAlignment(SwingConstants.CENTER);
@@ -184,7 +186,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraInicio.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblHoraDos = new JLabel("");
-				lblHoraDos.setBounds(20, 257, 100, 50);
+				lblHoraDos.setBounds(20, 350, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraDos);
 				lblHoraDos.setOpaque(true);
 				lblHoraDos.setHorizontalAlignment(SwingConstants.CENTER);
@@ -193,7 +195,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraDos.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblHoraTres = new JLabel("");
-				lblHoraTres.setBounds(20, 307, 100, 50);
+				lblHoraTres.setBounds(20, 400, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraTres);
 				lblHoraTres.setOpaque(true);
 				lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
@@ -202,7 +204,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraTres.setBackground(new Color(204, 255, 255));
 				
 				JLabel lblHoraFinal = new JLabel("");
-				lblHoraFinal.setBounds(20, 357, 100, 50);
+				lblHoraFinal.setBounds(20, 450, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraFinal);
 				lblHoraFinal.setOpaque(true);
 				lblHoraFinal.setHorizontalAlignment(SwingConstants.CENTER);
@@ -212,7 +214,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				
 				
 				btnSolicitar = new JButton("Solicitar");
-				btnSolicitar.setBounds(614, 427, 89, 23);
+				btnSolicitar.setBounds(626, 435, 89, 23);
 				panelSolicitarCitaPaciente.add(btnSolicitar);
 				btnSolicitar.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnSolicitar.setBackground(new Color(204, 255, 204));
@@ -264,5 +266,35 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 	public void setBtnSolicitar(JButton btnSolicitar) {
 		this.btnSolicitar = btnSolicitar;
 	}
+
+	public JTextField getTxtPaciente() {
+		return txtPaciente;
+	}
+
+	public void setTxtPaciente(JTextField txtPaciente) {
+		this.txtPaciente = txtPaciente;
+	}
+
+	public JTextField getTxtMedicoAP() {
+		return txtMedicoAP;
+	}
+
+	public void setTxtMedicoAP(JTextField txtMedicoAP) {
+		this.txtMedicoAP = txtMedicoAP;
+	}
+
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
+	}
+
+	public JPanel getPanelSolicitarCitaPaciente() {
+		return panelSolicitarCitaPaciente;
+	}
+
+	
 	
 }
