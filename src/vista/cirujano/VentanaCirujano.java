@@ -23,12 +23,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 public class VentanaCirujano extends JDialog{
-	private JTextField getTxtNombreCirujano;
-	private JTextField getTxtApellidoCirujano;
-	private JTextField getTxtTelefonoCirujano;
-	private JTextField getTxtDireccionCirujano;
-	private JTextField getTxtCirujano;
+	private JTextField txtNombreCirujano;
+	private JTextField txtApellidoCirujano;
+	private JTextField txtTelefonoCirujano;
+	private JTextField txtDireccionCirujano;
 	int pX,pY;
+	private JButton btnBuscarCirujano;
+	private JButton btnConsultarCirujano;
+	private JTextField txtCirujano;
+	private JPanel panelBuscar;
+	private JButton btnAnadirCirujano;
 	
 	public VentanaCirujano() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -88,20 +92,20 @@ public class VentanaCirujano extends JDialog{
 						panelCirujano.add(tabbedPane);
 						tabbedPane.setBackground(Color.WHITE);
 						
-						JPanel panelBuscar = new JPanel();
+						panelBuscar = new JPanel();
 						panelBuscar.setBackground(Color.WHITE);
 						tabbedPane.addTab("Buscar Cirujano", iconbuscar, panelBuscar, null);
 						panelBuscar.setLayout(null);
 						
-						getTxtCirujano = new JTextField();
-						getTxtCirujano.setForeground(new Color(0, 0, 102));
-						getTxtCirujano.setFont(new Font("Tahoma", Font.PLAIN, 13));
-						getTxtCirujano.setColumns(10);
-						getTxtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
-						getTxtCirujano.setBounds(80, 50, 345, 27);
-						panelBuscar.add(getTxtCirujano);
+						txtCirujano = new JTextField();
+						txtCirujano.setForeground(new Color(0, 0, 102));
+						txtCirujano.setFont(new Font("Tahoma", Font.PLAIN, 13));
+						txtCirujano.setColumns(10);
+						txtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+						txtCirujano.setBounds(80, 50, 345, 27);
+						panelBuscar.add(txtCirujano);
 						
-						JButton btnBuscarCirujano = new JButton("Buscar");
+						btnBuscarCirujano = new JButton("Buscar");
 						btnBuscarCirujano.setFont(new Font("Verdana", Font.BOLD, 11));
 						btnBuscarCirujano.setForeground(Color.WHITE);
 						btnBuscarCirujano.setContentAreaFilled(false);
@@ -111,7 +115,7 @@ public class VentanaCirujano extends JDialog{
 						btnBuscarCirujano.setBounds(520, 50, 89, 23);
 						panelBuscar.add(btnBuscarCirujano);
 						
-						JButton btnConsultarCirujano = new JButton("Consultar");
+						btnConsultarCirujano = new JButton("Consultar");
 						btnConsultarCirujano.setFont(new Font("Verdana", Font.BOLD, 11));
 						btnConsultarCirujano.setForeground(Color.WHITE);
 						btnConsultarCirujano.setContentAreaFilled(false);
@@ -150,39 +154,39 @@ public class VentanaCirujano extends JDialog{
 						lblDireccion.setForeground(new Color(0, 102, 204));
 						lblDireccion.setFont(new Font("Verdana", Font.BOLD, 14));
 						
-						getTxtNombreCirujano = new JTextField();
-						getTxtNombreCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
-						getTxtNombreCirujano.setBounds(310, 50, 169, 20);
-						panelAnadirCirujano.add(getTxtNombreCirujano);
-						getTxtNombreCirujano.setColumns(10);
-						getTxtNombreCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtNombreCirujano.setBackground(Color.WHITE);
+						txtNombreCirujano = new JTextField();
+						txtNombreCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						txtNombreCirujano.setBounds(310, 50, 169, 20);
+						panelAnadirCirujano.add(txtNombreCirujano);
+						txtNombreCirujano.setColumns(10);
+						txtNombreCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtNombreCirujano.setBackground(Color.WHITE);
 						
-						getTxtApellidoCirujano = new JTextField();
-						getTxtApellidoCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
-						getTxtApellidoCirujano.setBounds(310, 96, 169, 20);
-						panelAnadirCirujano.add(getTxtApellidoCirujano);
-						getTxtApellidoCirujano.setColumns(10);
-						getTxtApellidoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtApellidoCirujano.setBackground(Color.WHITE);
+						txtApellidoCirujano = new JTextField();
+						txtApellidoCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						txtApellidoCirujano.setBounds(310, 96, 169, 20);
+						panelAnadirCirujano.add(txtApellidoCirujano);
+						txtApellidoCirujano.setColumns(10);
+						txtApellidoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtApellidoCirujano.setBackground(Color.WHITE);
 						
-						getTxtTelefonoCirujano = new JTextField();
-						getTxtTelefonoCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
-						getTxtTelefonoCirujano.setBounds(310, 148, 169, 20);
-						panelAnadirCirujano.add(getTxtTelefonoCirujano);
-						getTxtTelefonoCirujano.setColumns(10);
-						getTxtTelefonoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtTelefonoCirujano.setBackground(Color.WHITE);
+						txtTelefonoCirujano = new JTextField();
+						txtTelefonoCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						txtTelefonoCirujano.setBounds(310, 148, 169, 20);
+						panelAnadirCirujano.add(txtTelefonoCirujano);
+						txtTelefonoCirujano.setColumns(10);
+						txtTelefonoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtTelefonoCirujano.setBackground(Color.WHITE);
 						
-						getTxtDireccionCirujano = new JTextField();
-						getTxtDireccionCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
-						getTxtDireccionCirujano.setBounds(310, 194, 169, 20);
-						panelAnadirCirujano.add(getTxtDireccionCirujano);
-						getTxtDireccionCirujano.setColumns(10);
-						getTxtDireccionCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtDireccionCirujano.setBackground(Color.WHITE);
+						txtDireccionCirujano = new JTextField();
+						txtDireccionCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						txtDireccionCirujano.setBounds(310, 194, 169, 20);
+						panelAnadirCirujano.add(txtDireccionCirujano);
+						txtDireccionCirujano.setColumns(10);
+						txtDireccionCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtDireccionCirujano.setBackground(Color.WHITE);
 						
-						JButton btnAnadirCirujano = new JButton("Añadir");
+						btnAnadirCirujano = new JButton("Añadir");
 						btnAnadirCirujano.setBounds(580, 367, 97, 23);
 						panelAnadirCirujano.add(btnAnadirCirujano);
 						btnAnadirCirujano.setFont(new Font("Verdana", Font.BOLD, 12));
@@ -190,5 +194,77 @@ public class VentanaCirujano extends JDialog{
 						btnAnadirCirujano.setContentAreaFilled(false);
 						btnAnadirCirujano.setBorderPainted(false);
 						btnAnadirCirujano.setOpaque(true);
+	}
+
+	public JTextField getTxtNombreCirujano() {
+		return txtNombreCirujano;
+	}
+
+	public void setTxtNombreCirujano(JTextField txtNombreCirujano) {
+		this.txtNombreCirujano = txtNombreCirujano;
+	}
+
+	public JTextField getTxtApellidoCirujano() {
+		return txtApellidoCirujano;
+	}
+
+	public void setTxtApellidoCirujano(JTextField txtApellidoCirujano) {
+		this.txtApellidoCirujano = txtApellidoCirujano;
+	}
+
+	public JTextField getTxtTelefonoCirujano() {
+		return txtTelefonoCirujano;
+	}
+
+	public void setTxtTelefonoCirujano(JTextField txtTelefonoCirujano) {
+		this.txtTelefonoCirujano = txtTelefonoCirujano;
+	}
+
+	public JTextField getTxtDireccionCirujano() {
+		return txtDireccionCirujano;
+	}
+
+	public void setTxtDireccionCirujano(JTextField txtDireccionCirujano) {
+		this.txtDireccionCirujano = txtDireccionCirujano;
+	}
+
+	public JButton getBtnAnadirCirujano() {
+		return btnAnadirCirujano;
+	}
+
+	public void setBtnAnadirCirujano(JButton btnAnadirCirujano) {
+		this.btnAnadirCirujano = btnAnadirCirujano;
+	}
+
+	public JPanel getPanelBuscar() {
+		return panelBuscar;
+	}
+
+	public void setPanelBuscar(JPanel panelBuscar) {
+		this.panelBuscar = panelBuscar;
+	}
+
+	public JButton getBtnBuscarCirujano() {
+		return btnBuscarCirujano;
+	}
+
+	public void setBtnBuscarCirujano(JButton btnBuscarCirujano) {
+		this.btnBuscarCirujano = btnBuscarCirujano;
+	}
+
+	public JButton getBtnConsultarCirujano() {
+		return btnConsultarCirujano;
+	}
+
+	public void setBtnConsultarCirujano(JButton btnConsultarCirujano) {
+		this.btnConsultarCirujano = btnConsultarCirujano;
+	}
+
+	public JTextField getTxtCirujano() {
+		return txtCirujano;
+	}
+
+	public void setTxtCirujano(JTextField txtCirujano) {
+		this.txtCirujano = txtCirujano;
 	}
 }
