@@ -34,6 +34,10 @@ public class VentanaDatosMedico extends JDialog {
 	protected JTextField txtEspecialidad;
 	protected JTextField txtEstado;
 	int pX,pY;
+	private JButton btnModificar;
+	private JButton btnDarDeBaja;
+	private JButton btnHistorialMedico;
+	private JButton btnGestionarCita;
 	
 	public VentanaDatosMedico() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -188,8 +192,8 @@ public class VentanaDatosMedico extends JDialog {
 				txtEstado.setBounds(280, 280, 169, 20);
 				panelDatosMedico.add(txtEstado);
 				
-				JButton btnModificar = new JButton("Modificar");
-				btnModificar.setBounds(60, 380, 110, 25);
+				btnModificar = new JButton("Modificar");
+				btnModificar.setBounds(52, 380, 110, 25);
 				btnModificar.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnModificar.setBackground(new Color(204, 255, 204));
 				btnModificar.setContentAreaFilled(false);
@@ -197,17 +201,17 @@ public class VentanaDatosMedico extends JDialog {
 				btnModificar.setOpaque(true);
 				panelDatosMedico.add(btnModificar);
 				
-				JButton btnEliminar = new JButton("Eliminar");
-				btnEliminar.setBounds(200, 380, 95, 25);
-				btnEliminar.setFont(new Font("Verdana", Font.BOLD, 12));
-				btnEliminar.setBackground(new Color(204, 255, 204));
-				btnEliminar.setContentAreaFilled(false);
-				btnEliminar.setBorderPainted(false);
-				btnEliminar.setOpaque(true);
-				panelDatosMedico.add(btnEliminar);
+				btnDarDeBaja = new JButton("Dar de baja");
+				btnDarDeBaja.setBounds(172, 380, 145, 25);
+				btnDarDeBaja.setFont(new Font("Verdana", Font.BOLD, 12));
+				btnDarDeBaja.setBackground(new Color(204, 255, 204));
+				btnDarDeBaja.setContentAreaFilled(false);
+				btnDarDeBaja.setBorderPainted(false);
+				btnDarDeBaja.setOpaque(true);
+				panelDatosMedico.add(btnDarDeBaja);
 			
-				JButton btnHistorialMedico = new JButton("Historial");
-				btnHistorialMedico.setBounds(325, 380, 90, 25);
+				btnHistorialMedico = new JButton("Historial");
+				btnHistorialMedico.setBounds(333, 380, 90, 25);
 				btnHistorialMedico.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnHistorialMedico.setBackground(new Color(204, 255, 204));
 				btnHistorialMedico.setContentAreaFilled(false);
@@ -215,8 +219,8 @@ public class VentanaDatosMedico extends JDialog {
 				btnHistorialMedico.setOpaque(true);
 				panelDatosMedico.add(btnHistorialMedico);
 				
-				JButton btnGestionarCita = new JButton("Gestionar Cita");
-				btnGestionarCita.setBounds(443, 380, 152, 25);
+				btnGestionarCita = new JButton("Gestionar Cita");
+				btnGestionarCita.setBounds(456, 380, 152, 25);
 				btnGestionarCita.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnGestionarCita.setBackground(new Color(204, 255, 204));
 				btnGestionarCita.setContentAreaFilled(false);
@@ -282,20 +286,38 @@ public class VentanaDatosMedico extends JDialog {
 		this.txtEstado = txtEstado;
 	}
 
-	public int getpX() {
-		return pX;
+	public JButton getBtnModificar() {
+		return btnModificar;
 	}
 
-	public void setpX(int pX) {
-		this.pX = pX;
+	public void setBtnModificar(JButton btnModificar) {
+		this.btnModificar = btnModificar;
 	}
 
-	public int getpY() {
-		return pY;
+	public JButton getBtnDarDeBaja() {
+		return btnDarDeBaja;
 	}
 
-	public void setpY(int pY) {
-		this.pY = pY;
+	public void setBtnDarDeBaja(JButton btnDarDeBaja) {
+		this.btnDarDeBaja = btnDarDeBaja;
 	}
+
+	public JButton getBtnHistorialMedico() {
+		return btnHistorialMedico;
+	}
+
+	public void setBtnHistorialMedico(JButton btnHistorialMedico) {
+		this.btnHistorialMedico = btnHistorialMedico;
+	}
+
+	public JButton getBtnGestionarCita() {
+		return btnGestionarCita;
+	}
+
+	public void setBtnGestionarCita(JButton btnGestionarCita) {
+		this.btnGestionarCita = btnGestionarCita;
+	}
+
+		
 	
 }
