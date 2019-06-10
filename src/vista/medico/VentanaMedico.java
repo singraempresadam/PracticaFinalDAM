@@ -47,6 +47,7 @@ public class VentanaMedico extends JDialog {
 	private JPanel panelAnadirMedicoEspecialista;
 	private JPanel panelAnadirMedicoAP;
 	int pX,pY;
+	private JLabel lblConsultaEspecialista;
 	
 		public VentanaMedico() {
 			getContentPane().setBackground(new Color(255, 255, 255));
@@ -109,14 +110,14 @@ public class VentanaMedico extends JDialog {
 						
 						panelBuscarMedico = new JPanel();
 						panelBuscarMedico.setBackground(Color.WHITE);
-						tabbedPane.addTab("Buscar Medico", iconbuscar, panelBuscarMedico, null);
+						tabbedPane.addTab("Buscar Médico", iconbuscar, panelBuscarMedico, null);
 						panelBuscarMedico.setLayout(null);
 						
 						txtgetNombre = new JTextField();
 						txtgetNombre.setBounds(80, 50, 345, 27);
 						panelBuscarMedico.add(txtgetNombre);
 						txtgetNombre.setColumns(10);
-						txtgetNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						txtgetNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 						
 						btnBuscar = new JButton("Buscar");
 						btnBuscar.setBackground(new Color(0, 102, 204));
@@ -146,59 +147,59 @@ public class VentanaMedico extends JDialog {
 						JLabel lblNombre = new JLabel("Nombre");
 						lblNombre.setForeground(new Color(0, 102, 204));
 						lblNombre.setFont(new Font("Verdana", Font.BOLD, 14));
-						lblNombre.setBounds(44, 64, 86, 26);
+						lblNombre.setBounds(178, 64, 86, 26);
 						panelAnadirMedico.add(lblNombre);
 						
 						JLabel lblApellidos = new JLabel("Apellidos");
 						lblApellidos.setForeground(new Color(0, 102, 204));
 						lblApellidos.setFont(new Font("Verdana", Font.BOLD, 14));
-						lblApellidos.setBounds(44, 112, 86, 26);
+						lblApellidos.setBounds(178, 112, 86, 26);
 						panelAnadirMedico.add(lblApellidos);
 						
 						JLabel lblTelefono = new JLabel("Tel\u00E9fono");
 						lblTelefono.setForeground(new Color(0, 102, 204));
 						lblTelefono.setFont(new Font("Verdana", Font.BOLD, 14));
-						lblTelefono.setBounds(44, 163, 86, 19);
+						lblTelefono.setBounds(178, 163, 86, 19);
 						panelAnadirMedico.add(lblTelefono);
 						
 						JLabel lblDireccion = new JLabel("Direcci\u00F3n");
 						lblDireccion.setForeground(new Color(0, 102, 204));
 						lblDireccion.setFont(new Font("Verdana", Font.BOLD, 14));
-						lblDireccion.setBounds(44, 206, 86, 26);
+						lblDireccion.setBounds(178, 206, 86, 26);
 						panelAnadirMedico.add(lblDireccion);
 						
 						JLabel lblEspecialidad = new JLabel("Especialidad");
 						lblEspecialidad.setForeground(new Color(0, 102, 204));
 						lblEspecialidad.setFont(new Font("Verdana", Font.BOLD, 14));
-						lblEspecialidad.setBounds(44, 265, 115, 26);
+						lblEspecialidad.setBounds(178, 265, 115, 26);
 						panelAnadirMedico.add(lblEspecialidad);
 						
 						getTxtNombreMedico = new JTextField();
 						getTxtNombreMedico.setColumns(10);
-						getTxtNombreMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtNombreMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtNombreMedico.setBackground(Color.WHITE);
-						getTxtNombreMedico.setBounds(233, 69, 169, 20);
+						getTxtNombreMedico.setBounds(320, 69, 169, 20);
 						panelAnadirMedico.add(getTxtNombreMedico);
 						
 						getTxtApellidosMedico = new JTextField();
 						getTxtApellidosMedico.setColumns(10);
-						getTxtApellidosMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtApellidosMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtApellidosMedico.setBackground(Color.WHITE);
-						getTxtApellidosMedico.setBounds(233, 117, 169, 20);
+						getTxtApellidosMedico.setBounds(320, 117, 169, 20);
 						panelAnadirMedico.add(getTxtApellidosMedico);
 						
 						getTxtTelefonoMedico = new JTextField();
 						getTxtTelefonoMedico.setColumns(10);
-						getTxtTelefonoMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtTelefonoMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtTelefonoMedico.setBackground(Color.WHITE);
-						getTxtTelefonoMedico.setBounds(233, 163, 169, 20);
+						getTxtTelefonoMedico.setBounds(320, 164, 169, 20);
 						panelAnadirMedico.add(getTxtTelefonoMedico);
 						
 						getTxtDireccionMedico = new JTextField();
 						getTxtDireccionMedico.setColumns(10);
-						getTxtDireccionMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtDireccionMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtDireccionMedico.setBackground(Color.WHITE);
-						getTxtDireccionMedico.setBounds(233, 206, 169, 20);
+						getTxtDireccionMedico.setBounds(320, 211, 169, 20);
 						panelAnadirMedico.add(getTxtDireccionMedico);
 						
 						btnAnadirMedico = new JButton("A\u00F1adir");
@@ -211,19 +212,19 @@ public class VentanaMedico extends JDialog {
 						panelAnadirMedico.add(btnAnadirMedico);
 						
 						comboBoxEspecialidad = new JComboBox();
-						comboBoxEspecialidad.setBounds(233, 270, 169, 19);
+						comboBoxEspecialidad.setBounds(320, 271, 169, 19);
 						panelAnadirMedico.add(comboBoxEspecialidad);
 						
 						
 						panelAnadirMedicoEspecialista = new JPanel();
 						panelAnadirMedicoEspecialista.setBorder(null);
 						panelAnadirMedicoEspecialista.setBackground(Color.WHITE);
-						tabbedPane.addTab("Alta Medico Especialista", iconagregar, panelAnadirMedicoEspecialista, null);
+						tabbedPane.addTab("Alta Médico Especialista", iconagregar, panelAnadirMedicoEspecialista, null);
 						panelAnadirMedicoEspecialista.setLayout(null);
 						
 						txtNombreEspecialista = new JTextField();
 						txtNombreEspecialista.setColumns(10);
-						txtNombreEspecialista.setBorder(new LineBorder(new Color(102, 153, 255), 2));
+						txtNombreEspecialista.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 						txtNombreEspecialista.setBounds(44, 56, 405, 25);
 						panelAnadirMedicoEspecialista.add(txtNombreEspecialista);
 						
@@ -268,10 +269,20 @@ public class VentanaMedico extends JDialog {
 						panelAnadirMedicoEspecialista.add(comboBoxTurnoEspecialista);
 						
 						JLabel lblTurno = new JLabel("Turno");
-						lblTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
+						lblTurno.setFont(new Font("Tahoma", Font.BOLD, 15));
 						lblTurno.setForeground(new Color(0, 51, 153));
 						lblTurno.setBounds(485, 203, 61, 14);
 						panelAnadirMedicoEspecialista.add(lblTurno);
+						
+						lblConsultaEspecialista = new JLabel("Consulta");
+						lblConsultaEspecialista.setForeground(new Color(0, 51, 153));
+						lblConsultaEspecialista.setFont(new Font("Tahoma", Font.BOLD, 15));
+						lblConsultaEspecialista.setBounds(485, 253, 80, 14);
+						panelAnadirMedicoEspecialista.add(lblConsultaEspecialista);
+						
+						JComboBox comboBoxConsultaEspecialista = new JComboBox();
+						comboBoxConsultaEspecialista.setBounds(575, 251, 114, 20);
+						panelAnadirMedicoEspecialista.add(comboBoxConsultaEspecialista);
 						
 						panelAnadirMedicoAP = new JPanel();
 						panelAnadirMedicoAP.setBackground(Color.WHITE);
@@ -280,7 +291,7 @@ public class VentanaMedico extends JDialog {
 						
 						txtNombreMedicoAP = new JTextField();
 						txtNombreMedicoAP.setColumns(10);
-						txtNombreMedicoAP.setBorder(new LineBorder(new Color(102, 153, 255), 2));
+						txtNombreMedicoAP.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 						txtNombreMedicoAP.setBounds(44, 56, 405, 25);
 						panelAnadirMedicoAP.add(txtNombreMedicoAP);
 						
@@ -296,15 +307,15 @@ public class VentanaMedico extends JDialog {
 						
 						JLabel labelTurno = new JLabel("Turno");
 						labelTurno.setForeground(new Color(0, 51, 153));
-						labelTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
-						labelTurno.setBounds(513, 191, 61, 14);
+						labelTurno.setFont(new Font("Tahoma", Font.BOLD, 15));
+						labelTurno.setBounds(496, 194, 75, 14);
 						panelAnadirMedicoAP.add(labelTurno);
 						
 						comboBoxTurnoMedicoAP = new JComboBox();
 						comboBoxTurnoMedicoAP.setMaximumRowCount(2);
 						comboBoxTurnoMedicoAP.setForeground(Color.BLACK);
 						comboBoxTurnoMedicoAP.setBackground(Color.LIGHT_GRAY);
-						comboBoxTurnoMedicoAP.setBounds(581, 188, 114, 20);
+						comboBoxTurnoMedicoAP.setBounds(581, 193, 114, 20);
 						panelAnadirMedicoAP.add(comboBoxTurnoMedicoAP);
 						
 						btnAnadirAtencionPrimaria = new JButton("A\u00F1adir");
@@ -315,6 +326,16 @@ public class VentanaMedico extends JDialog {
 						btnAnadirAtencionPrimaria.setOpaque(true);
 						btnAnadirAtencionPrimaria.setBounds(606, 354, 89, 23);
 						panelAnadirMedicoAP.add(btnAnadirAtencionPrimaria);
+						
+						JLabel lblConsulta = new JLabel("Consulta");
+						lblConsulta.setForeground(new Color(0, 51, 153));
+						lblConsulta.setFont(new Font("Tahoma", Font.BOLD, 15));
+						lblConsulta.setBounds(496, 246, 75, 14);
+						panelAnadirMedicoAP.add(lblConsulta);
+						
+						JComboBox comboBoxConsulta = new JComboBox();
+						comboBoxConsulta.setBounds(581, 244, 114, 20);
+						panelAnadirMedicoAP.add(comboBoxConsulta);
 			
 			this.setMinimumSize(new Dimension(750, 500));
 		}

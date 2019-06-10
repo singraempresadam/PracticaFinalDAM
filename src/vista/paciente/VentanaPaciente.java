@@ -99,7 +99,7 @@ public class VentanaPaciente extends JDialog {
 				JLabel lblClinicaBuenaSalud = new JLabel("PACIENTE");
 				lblClinicaBuenaSalud.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
 				lblClinicaBuenaSalud.setHorizontalAlignment(SwingConstants.LEFT);
-				lblClinicaBuenaSalud.setBounds(-10, 0, 750, 31);
+				lblClinicaBuenaSalud.setBounds(0, 0, 740, 31);
 				lblClinicaBuenaSalud.setBackground(new Color(51, 153, 255));
 				lblClinicaBuenaSalud.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
 				lblClinicaBuenaSalud.setOpaque(true);
@@ -120,7 +120,7 @@ public class VentanaPaciente extends JDialog {
 				getTxtBuscar.setBounds(80, 50, 345, 27);
 				panelBuscarPaciente.add(getTxtBuscar);
 				getTxtBuscar.setColumns(10);
-				getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 				
 				btnBuscar = new JButton("Buscar");
 				btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
@@ -152,63 +152,68 @@ public class VentanaPaciente extends JDialog {
 				JLabel lblNombre = new JLabel("Nombre");
 				lblNombre.setForeground(new Color(0, 102, 204));
 				lblNombre.setFont(new Font("Verdana", Font.BOLD, 14));
-				lblNombre.setBounds(24, 47, 86, 26);
+				lblNombre.setBounds(165, 47, 86, 26);
 				panelAñadirPaciente.add(lblNombre);
 				
 				JLabel lblApellidos = new JLabel("Apellidos");
 				lblApellidos.setForeground(new Color(0, 102, 204));
 				lblApellidos.setFont(new Font("Verdana", Font.BOLD, 14));
-				lblApellidos.setBounds(24, 99, 86, 26);
+				lblApellidos.setBounds(165, 95, 86, 26);
 				panelAñadirPaciente.add(lblApellidos);
 				
 				JLabel lblTelefono = new JLabel("Tel\u00E9fono");
 				lblTelefono.setFont(new Font("Verdana", Font.BOLD, 14));
 				lblTelefono.setForeground(new Color(0, 102, 204));
-				lblTelefono.setBounds(24, 151, 86, 19);
+				lblTelefono.setBounds(165, 151, 86, 19);
 				panelAñadirPaciente.add(lblTelefono);
 				
 				JLabel lblDireccion = new JLabel("Direcci\u00F3n");
 				lblDireccion.setForeground(new Color(0, 102, 204));
 				lblDireccion.setFont(new Font("Verdana", Font.BOLD, 14));
-				lblDireccion.setBounds(24, 189, 86, 26);
+				lblDireccion.setBounds(165, 189, 86, 26);
 				panelAñadirPaciente.add(lblDireccion);
 				
 				JLabel lblFechaNacimiento = new JLabel("Fecha de nacimiento");
 				lblFechaNacimiento.setForeground(new Color(0, 102, 204));
 				lblFechaNacimiento.setFont(new Font("Verdana", Font.BOLD, 14));
-				lblFechaNacimiento.setBounds(24, 238, 160, 19);
+				lblFechaNacimiento.setBounds(165, 238, 160, 19);
 				panelAñadirPaciente.add(lblFechaNacimiento);
 				
 				
 				getTxtNombre = new JTextField();
+				getTxtNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
 				getTxtNombre.setBackground(new Color(255, 255, 255));
-				getTxtNombre.setBounds(223, 52, 169, 20);			
+				getTxtNombre.setBounds(347, 51, 169, 20);			
 				getTxtNombre.setColumns(10);
-				getTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				getTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelAñadirPaciente.add(getTxtNombre);
 				
 				getTxtApellidos = new JTextField();
-				getTxtApellidos.setBounds(223, 97, 169, 20);		
+				getTxtApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
+				getTxtApellidos.setBounds(347, 99, 169, 20);		
 				getTxtApellidos.setColumns(10);
-				getTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				getTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelAñadirPaciente.add(getTxtApellidos);
 				
 				getTxtTelefono = new JTextField();
-				getTxtTelefono.setBounds(223, 152, 169, 20);			
+				getTxtTelefono.setFont(new Font("Tahoma", Font.BOLD, 13));
+				getTxtTelefono.setBounds(347, 151, 169, 20);			
 				getTxtTelefono.setColumns(10);
-				getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelAñadirPaciente.add(getTxtTelefono);
 				
 				getTxtFechaNacimiento = new JTextField();
-				getTxtFechaNacimiento.setBounds(223, 239, 169, 20);				
+				getTxtFechaNacimiento.setFont(new Font("Tahoma", Font.BOLD, 13));
+				getTxtFechaNacimiento.setBounds(347, 238, 169, 20);				
 				getTxtFechaNacimiento.setColumns(10);
-				getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelAñadirPaciente.add(getTxtFechaNacimiento);
 				
 				getTxtDireccion = new JTextField();
-				getTxtDireccion.setBounds(223, 194, 169, 20);				
+				getTxtDireccion.setFont(new Font("Tahoma", Font.BOLD, 13));
+				getTxtDireccion.setBounds(347, 193, 169, 20);				
 				getTxtDireccion.setColumns(10);
-				getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelAñadirPaciente.add(getTxtDireccion);
 				
 				btnAnadir = new JButton("A\u00F1adir");	

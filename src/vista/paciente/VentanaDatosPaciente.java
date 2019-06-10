@@ -117,7 +117,7 @@ public class VentanaDatosPaciente extends JDialog{
 				txtNombre.setEditable(false);
 				txtNombre.setBackground(new Color(255, 255, 255));
 				txtNombre.setColumns(10);
-				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosPaciente.add(txtNombre);
 				
 				txtApellidos = new JTextField();
@@ -128,7 +128,7 @@ public class VentanaDatosPaciente extends JDialog{
 				txtApellidos.setBackground(Color.WHITE);
 				txtApellidos.setEditable(false);
 				txtApellidos.setColumns(10);
-				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosPaciente.add(txtApellidos);
 				
 				txtTelefono = new JTextField();
@@ -139,7 +139,7 @@ public class VentanaDatosPaciente extends JDialog{
 				txtTelefono.setBackground(Color.WHITE);
 				txtTelefono.setEditable(false);
 				txtTelefono.setColumns(10);
-				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosPaciente.add(txtTelefono);
 				
 				txtDireccion = new JTextField();
@@ -150,7 +150,7 @@ public class VentanaDatosPaciente extends JDialog{
 				txtDireccion.setBackground(Color.WHITE);
 				txtDireccion.setEditable(false);
 				txtDireccion.setColumns(10);
-				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosPaciente.add(txtDireccion);
 				
 				txtFechaNacimiento = new JTextField();
@@ -161,7 +161,7 @@ public class VentanaDatosPaciente extends JDialog{
 				txtFechaNacimiento.setBackground(Color.WHITE);
 				txtFechaNacimiento.setEditable(false);
 				txtFechaNacimiento.setColumns(10);
-				txtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosPaciente.add(txtFechaNacimiento);
 				
 				btnModificar = new JButton("Modificar");

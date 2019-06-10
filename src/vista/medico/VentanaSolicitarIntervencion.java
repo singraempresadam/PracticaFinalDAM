@@ -3,8 +3,14 @@ package vista.medico;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,185 +19,231 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import vista.ventanaPrincipal;
+import vista.paciente.VentanaSolicitarCitaPaciente;
 
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JList;
 
-public class VentanaSolicitarIntervencion extends JFrame {
+public class VentanaSolicitarIntervencion extends JDialog {
+	protected JTextField txtPaciente;
+	protected JTextField txtCirujano;
+	protected JTextField getTxtBuscar;
 	private JButton btnVerHorario;
-	private JPanel panelHorarioMedico;
-	private JTextField getTxtCirujano;
+	private JButton btnSolicitarIntervencion;
+	int pX,pY;
+	private JButton btnBuscar;
+	private JPanel panelSolicitarCitaPaciente;
+	private JPanel panelHorario;
 	private JComboBox comboBoxIntervencion;
-
+	
 	public VentanaSolicitarIntervencion() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconsalud.png")));
 		getContentPane().setBackground(new Color(255, 255, 255));
-		getContentPane().setLayout(null);
-		this.setMinimumSize(new Dimension(950, 500));
-		JLabel lblSolicitarIntervencion = new JLabel("SOLICITAR INTERVENCION");
-		lblSolicitarIntervencion.setOpaque(true);
-		lblSolicitarIntervencion.setBackground(new Color(0, 102, 204));
-		lblSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblSolicitarIntervencion.setForeground(Color.WHITE);
-		lblSolicitarIntervencion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSolicitarIntervencion.setBounds(10, 11, 914, 41);
-		getContentPane().add(lblSolicitarIntervencion);
+		setBounds(100, 100, 840, 500);
+		setLocationRelativeTo(null);
+		setModal(true);
+		setUndecorated(true);
 		
-		btnVerHorario = new JButton("Ver horario");
-		btnVerHorario.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnVerHorario.setBackground(new Color(204, 255, 204));
-		btnVerHorario.setContentAreaFilled(false);
-		btnVerHorario.setBorderPainted(false);
-		btnVerHorario.setOpaque(true);
-		btnVerHorario.setBounds(498, 124, 122, 23);
-		getContentPane().add(btnVerHorario);
+			panelSolicitarCitaPaciente = new JPanel();
+			panelSolicitarCitaPaciente.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mousePressed(MouseEvent e) {
+					pX=e.getX();
+					pY=e.getY();
+				}
+			});
+			panelSolicitarCitaPaciente.addMouseMotionListener(new MouseMotionAdapter() {
+				@Override
+				public void mouseDragged(MouseEvent e) {
+					setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
+				}
+			});
+			panelSolicitarCitaPaciente.setBackground(Color.WHITE);
+			panelSolicitarCitaPaciente.setBounds(0, 0, 734, 461);
+			getContentPane().add(panelSolicitarCitaPaciente);
+			panelSolicitarCitaPaciente.setLayout(null);
+				
+				JButton btnCerrar = new JButton("");
+				btnCerrar.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						dispose(); 
+					}
+				});
+				btnCerrar.setBackground(new Color(0, 153, 255));
+				btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
+				btnCerrar.setContentAreaFilled(false);
+				btnCerrar.setBorderPainted(false);
+				btnCerrar.setOpaque(true);
+				btnCerrar.setBounds(803, 0, 37, 31);
+				panelSolicitarCitaPaciente.add(btnCerrar);
+				
+				JLabel lblSolicitarCitaPaciente = new JLabel("SOLICITAR INTERVENCION");
+				lblSolicitarCitaPaciente.setIcon(new ImageIcon(VentanaSolicitarCitaPaciente.class.getResource("/images/iconventana.png")));
+				lblSolicitarCitaPaciente.setOpaque(true);
+				lblSolicitarCitaPaciente.setHorizontalAlignment(SwingConstants.LEFT);
+				lblSolicitarCitaPaciente.setForeground(Color.WHITE);
+				lblSolicitarCitaPaciente.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
+				lblSolicitarCitaPaciente.setBackground(SystemColor.textHighlight);
+				lblSolicitarCitaPaciente.setBounds(0, 0, 840, 31);
+				panelSolicitarCitaPaciente.add(lblSolicitarCitaPaciente);
 		
-		panelHorarioMedico = new JPanel();
-		panelHorarioMedico.setBounds(120, 257, 500, 100);
-		getContentPane().add(panelHorarioMedico);
-		panelHorarioMedico.setLayout(null);
+				JLabel lblPaciente = new JLabel("Paciente");
+				lblPaciente.setBounds(120, 42, 137, 26);
+				panelSolicitarCitaPaciente.add(lblPaciente);
+				lblPaciente.setForeground(new Color(0, 102, 204));
+				lblPaciente.setFont(new Font("Verdana", Font.BOLD, 14));
+				
+				JLabel lblCirujano = new JLabel("Cirujano");
+				lblCirujano.setBounds(120, 79, 86, 19);
+				panelSolicitarCitaPaciente.add(lblCirujano);
+				lblCirujano.setFont(new Font("Verdana", Font.BOLD, 14));
+				lblCirujano.setForeground(new Color(0, 102, 204));
+				
+				txtPaciente = new JTextField();
+				txtPaciente.setHorizontalAlignment(SwingConstants.CENTER);
+				txtPaciente.setForeground(new Color(0, 0, 102));
+				txtPaciente.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtPaciente.setBounds(286, 47, 169, 20);
+				panelSolicitarCitaPaciente.add(txtPaciente);
+				txtPaciente.setBackground(Color.WHITE);
+				txtPaciente.setEditable(false);
+				txtPaciente.setColumns(10);
+				txtPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				
+				txtCirujano = new JTextField();
+				txtCirujano.setBounds(286, 80, 169, 20);
+				panelSolicitarCitaPaciente.add(txtCirujano);
+				txtCirujano.setBackground(Color.WHITE);
+				txtCirujano.setColumns(10);
+				txtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				
+				btnBuscar = new JButton("Buscar");
+				btnBuscar.setBounds(491, 78, 122, 23);
+				panelSolicitarCitaPaciente.add(btnBuscar);
+				btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
+				btnBuscar.setForeground(Color.WHITE);
+				btnBuscar.setContentAreaFilled(false);
+				btnBuscar.setBorderPainted(false);
+				btnBuscar.setOpaque(true);
+				btnBuscar.setBackground(new Color(0, 102, 204));
+				
+				btnVerHorario = new JButton("Ver horario");
+				btnVerHorario.setBounds(491, 214, 122, 23);
+				panelSolicitarCitaPaciente.add(btnVerHorario);
+				btnVerHorario.setFont(new Font("Verdana", Font.BOLD, 11));
+				btnVerHorario.setForeground(Color.WHITE);
+				btnVerHorario.setContentAreaFilled(false);
+				btnVerHorario.setBorderPainted(false);
+				btnVerHorario.setOpaque(true);
+				btnVerHorario.setBackground(new Color(0, 102, 204));
+				
+				JLabel lblLunes = new JLabel("Lunes");
+				lblLunes.setBounds(120, 250, 100, 50);
+				panelSolicitarCitaPaciente.add(lblLunes);
+				lblLunes.setBorder(new MatteBorder(2, 2, 0, 1, (Color) new Color(0, 102, 204)));
+				lblLunes.setBackground(new Color(153, 204, 255));
+				lblLunes.setOpaque(true);
+				lblLunes.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblLunes.setHorizontalAlignment(SwingConstants.CENTER);
+				
+				JLabel lblMartes = new JLabel("Martes");
+				lblMartes.setBounds(220, 250, 100, 50);
+				panelSolicitarCitaPaciente.add(lblMartes);
+				lblMartes.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
+				lblMartes.setOpaque(true);
+				lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
+				lblMartes.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblMartes.setBackground(new Color(153, 204, 255));
+				
+				JLabel lblMiercoles = new JLabel("Mi\u00E9rcoles");
+				lblMiercoles.setBounds(320, 250, 100, 50);
+				panelSolicitarCitaPaciente.add(lblMiercoles);
+				lblMiercoles.setOpaque(true);
+				lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
+				lblMiercoles.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblMiercoles.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
+				lblMiercoles.setBackground(new Color(153, 204, 255));
+				
+				JLabel lblJueves = new JLabel("Jueves");
+				lblJueves.setBounds(420, 250, 100, 50);
+				panelSolicitarCitaPaciente.add(lblJueves);
+				lblJueves.setOpaque(true);
+				lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
+				lblJueves.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblJueves.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
+				lblJueves.setBackground(new Color(153, 204, 255));
+				
+				JLabel lblViernes = new JLabel("Viernes");
+				lblViernes.setBounds(520, 250, 100, 50);
+				panelSolicitarCitaPaciente.add(lblViernes);
+				lblViernes.setOpaque(true);
+				lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
+				lblViernes.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
+				lblViernes.setBackground(new Color(153, 204, 255));
+				
+				JLabel lblHoraInicio = new JLabel("");
+				lblHoraInicio.setBounds(20, 300, 100, 50);
+				panelSolicitarCitaPaciente.add(lblHoraInicio);
+				lblHoraInicio.setOpaque(true);
+				lblHoraInicio.setHorizontalAlignment(SwingConstants.CENTER);
+				lblHoraInicio.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
+				lblHoraInicio.setBackground(new Color(153, 204, 255));
+				
+				JLabel lblHoraDos = new JLabel("");
+				lblHoraDos.setBounds(20, 350, 100, 50);
+				panelSolicitarCitaPaciente.add(lblHoraDos);
+				lblHoraDos.setOpaque(true);
+				lblHoraDos.setHorizontalAlignment(SwingConstants.CENTER);
+				lblHoraDos.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
+				lblHoraDos.setBackground(new Color(153, 204, 255));
+				
+				JLabel lblHoraTres = new JLabel("");
+				lblHoraTres.setBounds(20, 400, 100, 50);
+				panelSolicitarCitaPaciente.add(lblHoraTres);
+				lblHoraTres.setOpaque(true);
+				lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
+				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
+				lblHoraTres.setBackground(new Color(153, 204, 255));
+				
+				
+				btnSolicitarIntervencion = new JButton("Solicitar");
+				btnSolicitarIntervencion.setBounds(741, 466, 89, 23);
+				panelSolicitarCitaPaciente.add(btnSolicitarIntervencion);
+				btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
+				btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
+				btnSolicitarIntervencion.setContentAreaFilled(false);
+				btnSolicitarIntervencion.setBorderPainted(false);
+				btnSolicitarIntervencion.setOpaque(true);
+				btnSolicitarIntervencion.setRequestFocusEnabled(false);
+				btnSolicitarIntervencion.setFocusable(false);
+				
+				panelHorario = new JPanel();
+				panelHorario.setBounds(120, 300, 500, 150);
+				panelSolicitarCitaPaciente.add(panelHorario);
+				panelHorario.setLayout(new GridLayout(4, 5, 0, 0));
+				
+				JLabel lblIntervencion = new JLabel("Intervencion");
+				lblIntervencion.setHorizontalAlignment(SwingConstants.CENTER);
+				lblIntervencion.setForeground(new Color(0, 102, 204));
+				lblIntervencion.setFont(new Font("Verdana", Font.BOLD, 14));
+				lblIntervencion.setBounds(665, 250, 152, 19);
+				panelSolicitarCitaPaciente.add(lblIntervencion);
+				
+				comboBoxIntervencion = new JComboBox();
+				comboBoxIntervencion.setBounds(665, 281, 152, 19);
+				panelSolicitarCitaPaciente.add(comboBoxIntervencion);
 		
-		JLabel lblCirujano = new JLabel("Cirujano");
-		lblCirujano.setForeground(new Color(0, 102, 204));
-		lblCirujano.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblCirujano.setBounds(50, 78, 89, 19);
-		getContentPane().add(lblCirujano);
 		
-		getTxtCirujano = new JTextField();
-		getTxtCirujano.setColumns(10);
-		getTxtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getTxtCirujano.setBackground(Color.WHITE);
-		getTxtCirujano.setBounds(149, 79, 303, 20);
-		getContentPane().add(getTxtCirujano);
-		
-		JLabel lblLunes = new JLabel("Lunes");
-		lblLunes.setBorder(new MatteBorder(2, 2, 0, 1, (Color) new Color(0, 102, 204)));
-		lblLunes.setBackground(new Color(204, 255, 255));
-		lblLunes.setOpaque(true);
-		lblLunes.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblLunes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLunes.setBounds(120, 209, 100, 50);
-		getContentPane().add(lblLunes);
-		
-		JLabel lblMartes = new JLabel("Martes");
-		lblMartes.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
-		lblMartes.setOpaque(true);
-		lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMartes.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblMartes.setBackground(new Color(204, 255, 255));
-		lblMartes.setBounds(220, 209, 100, 50);
-		getContentPane().add(lblMartes);
-		
-		JLabel lblMiercoles = new JLabel("Mi\u00E9rcoles");
-		lblMiercoles.setOpaque(true);
-		lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMiercoles.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblMiercoles.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
-		lblMiercoles.setBackground(new Color(204, 255, 255));
-		lblMiercoles.setBounds(320, 209, 100, 50);
-		getContentPane().add(lblMiercoles);
-		
-		JLabel lblJueves = new JLabel("Jueves");
-		lblJueves.setOpaque(true);
-		lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
-		lblJueves.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblJueves.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
-		lblJueves.setBackground(new Color(204, 255, 255));
-		lblJueves.setBounds(420, 209, 100, 50);
-		getContentPane().add(lblJueves);
-		
-		JLabel lblViernes = new JLabel("Viernes");
-		lblViernes.setOpaque(true);
-		lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblViernes.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
-		lblViernes.setBackground(new Color(204, 255, 255));
-		lblViernes.setBounds(520, 209, 100, 50);
-		getContentPane().add(lblViernes);
-		
-		JLabel lblHoraInicio = new JLabel("10:00");
-		lblHoraInicio.setOpaque(true);
-		lblHoraInicio.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHoraInicio.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
-		lblHoraInicio.setBackground(new Color(204, 255, 255));
-		lblHoraInicio.setBounds(20, 257, 100, 50);
-		getContentPane().add(lblHoraInicio);
-		
-		JLabel lblHoraDos = new JLabel("17:00");
-		lblHoraDos.setOpaque(true);
-		lblHoraDos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHoraDos.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
-		lblHoraDos.setBackground(new Color(204, 255, 255));
-		lblHoraDos.setBounds(20, 307, 100, 50);
-		getContentPane().add(lblHoraDos);
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnBuscar.setBackground(new Color(204, 255, 204));
-		btnBuscar.setContentAreaFilled(false);
-		btnBuscar.setBorderPainted(false);
-		btnBuscar.setOpaque(true);
-		btnBuscar.setBounds(498, 78, 122, 23);
-		getContentPane().add(btnBuscar);
-		
-		JList list = new JList();
-		list.setBackground(Color.LIGHT_GRAY);
-		list.setBounds(149, 110, 303, 75);
-		getContentPane().add(list);
-		
-		JLabel lblEspecialista = new JLabel("Especialista ");
-		lblEspecialista.setForeground(new Color(0, 102, 204));
-		lblEspecialista.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblEspecialista.setBounds(642, 229, 100, 19);
-		getContentPane().add(lblEspecialista);
-		
-		JLabel lblNombreEspecialista = new JLabel("");
-		lblNombreEspecialista.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblNombreEspecialista.setBounds(765, 229, 159, 19);
-		getContentPane().add(lblNombreEspecialista);
-		
-		JLabel lblPaciente = new JLabel("Paciente");
-		lblPaciente.setForeground(new Color(0, 102, 204));
-		lblPaciente.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblPaciente.setBounds(642, 277, 100, 19);
-		getContentPane().add(lblPaciente);
-		
-		JLabel lblIntervencion = new JLabel("Intervencion");
-		lblIntervencion.setForeground(new Color(0, 102, 204));
-		lblIntervencion.setFont(new Font("Verdana", Font.BOLD, 14));
-		lblIntervencion.setBounds(642, 327, 113, 19);
-		getContentPane().add(lblIntervencion);
-		
-		comboBoxIntervencion = new JComboBox();
-		comboBoxIntervencion.setBounds(765, 329, 159, 18);
-		getContentPane().add(comboBoxIntervencion);
-		
-		JButton btnSolicitarIntervencion = new JButton("Solicitar");
-		btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
-		btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
-		btnSolicitarIntervencion.setContentAreaFilled(false);
-		btnSolicitarIntervencion.setBorderPainted(false);
-		btnSolicitarIntervencion.setOpaque(true);
-		btnSolicitarIntervencion.setBounds(820, 415, 89, 23);
-		getContentPane().add(btnSolicitarIntervencion);
-		
-		JLabel lblNombrePaciente = new JLabel("");
-		lblNombrePaciente.setBorder(new LineBorder(new Color(204, 255, 255), 2));
-		lblNombrePaciente.setBounds(765, 277, 159, 19);
-		getContentPane().add(lblNombrePaciente);
-		
-		
-		this.setMinimumSize(new Dimension(750, 500));
 	}
 
 	public JComboBox getComboBoxIntervencion() {
 		return comboBoxIntervencion;
 	}
-
-	
-
 }

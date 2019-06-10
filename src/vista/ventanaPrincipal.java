@@ -19,6 +19,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.border.LineBorder;
 
 public class ventanaPrincipal extends JFrame {
 
@@ -108,7 +109,7 @@ public class ventanaPrincipal extends JFrame {
 			botonPaciente.setContentAreaFilled(false);
 			botonPaciente.setBorderPainted(false);
 			botonPaciente.setOpaque(true);
-			botonPaciente.setBackground(new Color(204, 255, 255));
+			botonPaciente.setBackground(new Color(51, 153, 255));
 			botonPaciente.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/paciente.png")));
 			botonPaciente.setBounds(85, 110, 133, 140);
 			panelPrincipal.add(botonPaciente);
@@ -117,7 +118,7 @@ public class ventanaPrincipal extends JFrame {
 			botonMedico.setContentAreaFilled(false);
 			botonMedico.setBorderPainted(false);
 			botonMedico.setOpaque(true);
-			botonMedico.setBackground(new Color(204, 255, 255));
+			botonMedico.setBackground(new Color(51, 153, 255));
 			botonMedico.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/medico.png")));
 			botonMedico.setBounds(85, 260, 133, 140);
 			panelPrincipal.add(botonMedico);
@@ -126,7 +127,7 @@ public class ventanaPrincipal extends JFrame {
 			botonCirujano.setContentAreaFilled(false);
 			botonCirujano.setBorderPainted(false);
 			botonCirujano.setOpaque(true);
-			botonCirujano.setBackground(new Color(204, 255, 255));
+			botonCirujano.setBackground(new Color(51, 153, 255));
 			botonCirujano.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cirujano.png")));
 			botonCirujano.setBounds(85, 410, 133, 140);
 			panelPrincipal.add(botonCirujano);
@@ -211,7 +212,9 @@ public class ventanaPrincipal extends JFrame {
 			panelAvanzar.add(btnUnDia, gbc_btnUnDia);
 			
 			lblFechaYHora = new JLabel("");
-			lblFechaYHora.setBorder(new MatteBorder(1, 1, 0, 1, (Color) new Color(204, 255, 255)));
+			lblFechaYHora.setHorizontalAlignment(SwingConstants.CENTER);
+			lblFechaYHora.setFont(new Font("Tahoma", Font.BOLD, 14));
+			lblFechaYHora.setBorder(new LineBorder(new Color(204, 255, 255), 1, true));
 			lblFechaYHora.setBounds(310, 278, 393, 31);
 			panelPrincipal.add(lblFechaYHora);
 		

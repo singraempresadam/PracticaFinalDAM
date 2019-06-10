@@ -94,8 +94,10 @@ public class VentanaCirujano extends JDialog{
 						panelBuscar.setLayout(null);
 						
 						getTxtCirujano = new JTextField();
+						getTxtCirujano.setForeground(new Color(0, 0, 102));
+						getTxtCirujano.setFont(new Font("Tahoma", Font.PLAIN, 13));
 						getTxtCirujano.setColumns(10);
-						getTxtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 						getTxtCirujano.setBounds(80, 50, 345, 27);
 						panelBuscar.add(getTxtCirujano);
 						
@@ -125,59 +127,63 @@ public class VentanaCirujano extends JDialog{
 						panelAnadirCirujano.setLayout(null);
 						
 						JLabel lblNombre = new JLabel("Nombre");
-						lblNombre.setBounds(53, 45, 86, 26);
+						lblNombre.setBounds(173, 45, 86, 26);
 						panelAnadirCirujano.add(lblNombre);
 						lblNombre.setForeground(new Color(0, 102, 204));
 						lblNombre.setFont(new Font("Verdana", Font.BOLD, 14));
 						
 						JLabel lblApellidos = new JLabel("Apellidos");
-						lblApellidos.setBounds(53, 91, 86, 26);
+						lblApellidos.setBounds(173, 91, 86, 26);
 						panelAnadirCirujano.add(lblApellidos);
 						lblApellidos.setForeground(new Color(0, 102, 204));
 						lblApellidos.setFont(new Font("Verdana", Font.BOLD, 14));
 						
 						JLabel lblTelefono = new JLabel("Tel\u00E9fono");
-						lblTelefono.setBounds(53, 147, 86, 19);
+						lblTelefono.setBounds(173, 147, 86, 19);
 						panelAnadirCirujano.add(lblTelefono);
 						lblTelefono.setForeground(new Color(0, 102, 204));
 						lblTelefono.setFont(new Font("Verdana", Font.BOLD, 14));
 						
 						JLabel lblDireccion = new JLabel("Direcci\u00F3n");
-						lblDireccion.setBounds(53, 189, 86, 26);
+						lblDireccion.setBounds(173, 189, 86, 26);
 						panelAnadirCirujano.add(lblDireccion);
 						lblDireccion.setForeground(new Color(0, 102, 204));
 						lblDireccion.setFont(new Font("Verdana", Font.BOLD, 14));
 						
 						getTxtNombreCirujano = new JTextField();
-						getTxtNombreCirujano.setBounds(185, 50, 169, 20);
+						getTxtNombreCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						getTxtNombreCirujano.setBounds(310, 50, 169, 20);
 						panelAnadirCirujano.add(getTxtNombreCirujano);
 						getTxtNombreCirujano.setColumns(10);
-						getTxtNombreCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtNombreCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtNombreCirujano.setBackground(Color.WHITE);
 						
 						getTxtApellidoCirujano = new JTextField();
-						getTxtApellidoCirujano.setBounds(185, 96, 169, 20);
+						getTxtApellidoCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						getTxtApellidoCirujano.setBounds(310, 96, 169, 20);
 						panelAnadirCirujano.add(getTxtApellidoCirujano);
 						getTxtApellidoCirujano.setColumns(10);
-						getTxtApellidoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtApellidoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtApellidoCirujano.setBackground(Color.WHITE);
 						
 						getTxtTelefonoCirujano = new JTextField();
-						getTxtTelefonoCirujano.setBounds(185, 148, 169, 20);
+						getTxtTelefonoCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						getTxtTelefonoCirujano.setBounds(310, 148, 169, 20);
 						panelAnadirCirujano.add(getTxtTelefonoCirujano);
 						getTxtTelefonoCirujano.setColumns(10);
-						getTxtTelefonoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtTelefonoCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtTelefonoCirujano.setBackground(Color.WHITE);
 						
 						getTxtDireccionCirujano = new JTextField();
-						getTxtDireccionCirujano.setBounds(185, 194, 169, 20);
+						getTxtDireccionCirujano.setFont(new Font("Tahoma", Font.BOLD, 13));
+						getTxtDireccionCirujano.setBounds(310, 194, 169, 20);
 						panelAnadirCirujano.add(getTxtDireccionCirujano);
 						getTxtDireccionCirujano.setColumns(10);
-						getTxtDireccionCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+						getTxtDireccionCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 						getTxtDireccionCirujano.setBackground(Color.WHITE);
 						
 						JButton btnAnadirCirujano = new JButton("Añadir");
-						btnAnadirCirujano.setBounds(584, 365, 97, 23);
+						btnAnadirCirujano.setBounds(580, 367, 97, 23);
 						panelAnadirCirujano.add(btnAnadirCirujano);
 						btnAnadirCirujano.setFont(new Font("Verdana", Font.BOLD, 12));
 						btnAnadirCirujano.setBackground(new Color(204, 255, 204));

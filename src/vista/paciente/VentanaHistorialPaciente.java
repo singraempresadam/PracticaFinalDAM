@@ -100,7 +100,7 @@ public class VentanaHistorialPaciente extends JDialog {
 				txtPaciente.setBackground(Color.WHITE);
 				txtPaciente.setEditable(false);
 				txtPaciente.setColumns(10);
-				txtPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2));
+				txtPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				
 				JLabel lblTratamiento = new JLabel("Tratamiento");
 				lblTratamiento.setBounds(31, 141, 129, 26);
@@ -109,6 +109,7 @@ public class VentanaHistorialPaciente extends JDialog {
 				lblTratamiento.setFont(new Font("Verdana", Font.BOLD, 13));
 				
 				getTxtBuscar = new JTextField();
+				getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtBuscar.setBounds(31, 178, 193, 20);
 				panelHistorialPaciente.add(getTxtBuscar);
 				getTxtBuscar.setForeground(new Color(0, 0, 102));
