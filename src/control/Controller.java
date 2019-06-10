@@ -54,6 +54,11 @@ public class Controller {
 		this.getMiGestor().darAltaMedicoActivoNuevo(nombre,apellidos, telefono, direccion, idUnico, especialidad, horaInicio, horaFin, dias, consulta);
 	}
 	
+	public void darAltaCirujanoNuevo(String nombre, String apellidos,String telefono, String direccion, String idUnico)
+	{
+		this.getMiGestor().darAltaCirujanoNuevo(nombre, apellidos,telefono, direccion, idUnico);
+	}
+	
 	public void eliminarPaciente(String idUnico)
 	{
 		this.getMiGestor().eliminarPaciente(idUnico);
@@ -122,6 +127,13 @@ public class Controller {
 	{
 		return this.getMiGestor().obtenerElementosAMostrarMedicoActivo();
 	}
+	
+	
+	public String [] obtenerElementosAMostrarCirujano()
+	{
+		return this.getMiGestor().obtenerElementosAMostrarCirujano();
+	}
+	
 
 	public String [] obtenerTodosLosMedicos() {
 		return this.getMiGestor().obtenerTodosLosMedicos();

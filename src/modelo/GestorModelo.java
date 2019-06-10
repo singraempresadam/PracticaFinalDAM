@@ -89,7 +89,14 @@ public class GestorModelo {
 			Especialidad especialidad) {
 		Medico medico = new Medico(nombre, apellidos, telefono, direccion, idUnico, especialidad);
 		this.getMedicos().put(medico.getIdUnico(), medico);
-		getDtoMedico().grabarColeccionMedico(medicos);
+		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
+	}
+	public void darAltaCirujanoNuevo(String nombre, String apellidos, String telefono, String direccion,
+			String idUnico) {
+		Cirujano cirujano = new Cirujano(nombre, apellidos, telefono, direccion, idUnico, "2");
+		this.getCirujanos().put(cirujano.getIdUnico(), cirujano);
+		this.getDtoCirujano().grabarColeccionCirujano(this.getCirujanos());
+		
 	}
 	public void darAltaMedicoActivoNuevo(String nombre, String apellidos, String telefono, String direccion,
 			String idUnico, Especialidad especialidad, LocalTime horaInicio, LocalTime horaFin, boolean[] dias,
@@ -97,9 +104,9 @@ public class GestorModelo {
 		MedicoActivo medicoActivo = new MedicoActivo(nombre, apellidos, telefono, direccion, idUnico, especialidad,
 				horaInicio, horaFin, dias, consulta);
 		this.getMedicosActivo().put(medicoActivo.getIdUnico(), medicoActivo);
-		getDtoMedicoActivo().grabarColeccionMedicoActivo(medicosActivo);
-		getMedicos().remove(idUnico);
-		getDtoMedico().grabarColeccionMedico(getMedicos());
+		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
+		this.getMedicos().remove(idUnico);
+		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
 	}
 	
 	public void eliminarPaciente(String idUnico)
@@ -187,6 +194,17 @@ public class GestorModelo {
 			retorno[i] = medicoActivoLista.getValue().getNombre() + "-" + medicoActivoLista.getValue().getApellidos()
 					+ "-" + medicoActivoLista.getKey() + "-" + medicoActivoLista.getValue().getTelefono() + "-"
 					+ medicoActivoLista.getValue().getDireccion()+"-"+ medicoActivoLista.getValue().getEspecialidad() + "-Activo";
+			i++;
+		}
+		return retorno;
+	}
+	public String[] obtenerElementosAMostrarCirujano() {
+		String[] retorno = new String[this.getCirujanos().size()];
+		int i = 0;
+		for (Entry<String, Cirujano> cirujanoLista : this.getCirujanos().entrySet()) {
+			retorno[i] = cirujanoLista.getValue().getNombre() + "-" + cirujanoLista.getValue().getApellidos()
+					+ "-" + cirujanoLista.getKey() + "-" + cirujanoLista.getValue().getTelefono() + "-"
+					+ cirujanoLista.getValue().getDireccion();
 			i++;
 		}
 		return retorno;
@@ -328,5 +346,6 @@ public class GestorModelo {
 		}
  		return retorno;
 	}
+	
 
 }

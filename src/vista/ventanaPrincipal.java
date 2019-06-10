@@ -39,6 +39,7 @@ public class ventanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public ventanaPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ventanaPrincipal.class.getResource("/images/iconprograma.png")));
 		getContentPane().setBackground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

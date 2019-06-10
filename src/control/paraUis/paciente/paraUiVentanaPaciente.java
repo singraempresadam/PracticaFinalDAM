@@ -16,9 +16,6 @@ import control.paraUis.Validator;
 import vista.paciente.VentanaPaciente;
 
 public class paraUiVentanaPaciente extends VentanaPaciente {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6068763124340799917L;
 	private JScrollPane scrollListaPaciente;
 	Controller control = new Controller();

@@ -22,12 +22,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 public class VentanaDatosCirujano extends JDialog {
-	protected JTextField txtNombre;
-	protected JTextField txtApellidos;
-	protected JTextField txtTelefono;
-	protected JTextField txtDireccion;
 	protected JTextField getTxtBuscar;
 	int pX,pY;
+	private JTextField txtNombre;
+	private JTextField txtApellidos;
+	private JTextField txtTelefono;
+	private JTextField txtDireccion;
+	private JButton btnHistorialCirujano;
+	private JButton btnGestionarIntervencion;
 	
 	public VentanaDatosCirujano() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -148,7 +150,7 @@ public class VentanaDatosCirujano extends JDialog {
 				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosCirujano.add(txtDireccion);
 				
-				JButton btnGestionarIntervencion = new JButton("Gestionar Intervenci\u00F3n");
+				btnGestionarIntervencion = new JButton("Gestionar Intervenci\u00F3n");
 				btnGestionarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnGestionarIntervencion.setBackground(new Color(204, 255, 204));
 				btnGestionarIntervencion.setContentAreaFilled(false);
@@ -157,7 +159,7 @@ public class VentanaDatosCirujano extends JDialog {
 				btnGestionarIntervencion.setBounds(369, 371, 200, 23);
 				panelDatosCirujano.add(btnGestionarIntervencion);
 				
-				JButton btnHistorialCirujano = new JButton("Historial");
+				btnHistorialCirujano = new JButton("Historial");
 				btnHistorialCirujano.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnHistorialCirujano.setBackground(new Color(204, 255, 204));
 				btnHistorialCirujano.setContentAreaFilled(false);
@@ -165,6 +167,54 @@ public class VentanaDatosCirujano extends JDialog {
 				btnHistorialCirujano.setOpaque(true);
 				btnHistorialCirujano.setBounds(203, 372, 120, 23);
 				panelDatosCirujano.add(btnHistorialCirujano);
+	}
+
+	public JButton getBtnHistorialCirujano() {
+		return btnHistorialCirujano;
+	}
+
+	public void setBtnHistorialCirujano(JButton btnHistorialCirujano) {
+		this.btnHistorialCirujano = btnHistorialCirujano;
+	}
+
+	public JButton getBtnGestionarIntervencion() {
+		return btnGestionarIntervencion;
+	}
+
+	public void setBtnGestionarIntervencion(JButton btnGestionarIntervencion) {
+		this.btnGestionarIntervencion = btnGestionarIntervencion;
+	}
+
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public JTextField getTxtApellidos() {
+		return txtApellidos;
+	}
+
+	public void setTxtApellidos(JTextField txtApellidos) {
+		this.txtApellidos = txtApellidos;
+	}
+
+	public JTextField getTxtTelefono() {
+		return txtTelefono;
+	}
+
+	public void setTxtTelefono(JTextField txtTelefono) {
+		this.txtTelefono = txtTelefono;
+	}
+
+	public JTextField getTxtDireccion() {
+		return txtDireccion;
+	}
+
+	public void setTxtDireccion(JTextField txtDireccion) {
+		this.txtDireccion = txtDireccion;
 	}
 
 }
