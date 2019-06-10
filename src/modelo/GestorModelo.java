@@ -55,6 +55,8 @@ public class GestorModelo {
 	}
 	public void solicitarCitaPaciente(String idUnicoPaciente, String idUnicoMedico, String fechaYHora) {
 		String idCita = this.generarId();
+		idUnicoMedico=this.obtenerIdPersona(idUnicoMedico);
+		System.out.println(idUnicoPaciente + " " + idUnicoMedico + " " +fechaYHora);
 		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fechaYHora);
 		this.getMedicosActivo().get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fechaYHora);
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
@@ -336,8 +338,7 @@ public class GestorModelo {
 		
 	}
 	public boolean[][] solicitarHorario(String obtenerIdSeleccionado) {
-		String [] fragmentarDatos = obtenerIdSeleccionado.split("-");
-		String idMedicoSeleccionado=fragmentarDatos[2];
+		String idMedicoSeleccionado = obtenerIdPersona(obtenerIdSeleccionado);
 		boolean [][] retorno = new boolean [4][5];
 		for (int i = 0; i < retorno.length; i++) {
 			for (int j = 0; j < retorno[i].length; j++) {
@@ -345,6 +346,20 @@ public class GestorModelo {
 			}
 		}
  		return retorno;
+	}
+	private String obtenerIdPersona(String obtenerIdSeleccionado) {
+		String [] fragmentarDatos = obtenerIdSeleccionado.split("-");
+		String idMedicoSeleccionado=fragmentarDatos[2];
+		return idMedicoSeleccionado;
+	}
+	public LocalTime[] obtenerInicioYFin(String medico) {
+		String id=obtenerIdPersona(medico);
+		LocalTime [] retorno = {this.getMedicosActivo().get(id).getHoraIncio(), 
+					this.getMedicosActivo().get(id).getHoraFin()};
+		return retorno;
+	}
+	public String getDia() {
+		return this.getDiaSistema().getDayOfWeek().toString();
 	}
 	
 

@@ -169,5 +169,15 @@ public class Controller {
 		return this.miGestor.solicitarHorario(obtenerIdSeleccionado);
 	}
 
+	public LocalTime[] obtenerInicioYFin(String medico) {
+		
+		return this.getMiGestor().obtenerInicioYFin(medico);
+	}
+
+	public String getDia() {
+		return this.getMiGestor().getDia();
+		
+	}
+
 	
 }
