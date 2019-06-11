@@ -62,4 +62,14 @@ public class MedicoActivo extends Medico implements Serializable{
 		// TODO Auto-generated method stub
 		return getHorario().getHoraFin();
 	}
+
+	public String obtenerPacienteDeCita(String idCita) {
+		// TODO Auto-generated method stub
+		return this.getCitas().get(idCita).getIdUnicoPaciente();
+	}
+
+	public String getNombreYApellidos() {
+		// TODO Auto-generated method stub
+		return this.getNombre() + " " + this.getApellidos();
+	}
 }

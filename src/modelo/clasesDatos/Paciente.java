@@ -66,6 +66,11 @@ public class Paciente extends Persona implements Serializable{
 	public static Respuesta validaFechaNacimiento(String fechaNacimiento) {
 		return new Respuesta(Pattern.matches("\\d{1,2}/\\d{1,2}/\\d{4}", fechaNacimiento), "El fecha nacimiento no cumple con los requisitos");
 	}
+	public String getNombreYApellidos() {
+		
+		return this.getNombre()+ " " + this.getApellidos();
+	}
+	
 	
 	
 

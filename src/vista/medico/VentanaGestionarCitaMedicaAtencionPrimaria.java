@@ -37,11 +37,14 @@ private JTextField getTxtFechaFin;
 private JTextField getTxtObservaciones;
 private JTextField txtNombrePaciente;
 private JTextField txtNombreMedico;
+private JComboBox comboBoxTratamiento;
+private JCheckBox chckbxConfirmarAsistencia;
+private JButton btnGestionarEspecialista;
+private JButton btnSolicitarEspecialista;
 	
 	public VentanaGestionarCitaMedicaAtencionPrimaria() {
 		getContentPane().setBackground(Color.WHITE);
 		setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 500);
 		setLocationRelativeTo(null);
 		setUndecorated(true);
@@ -132,7 +135,7 @@ private JTextField txtNombreMedico;
 				lblObservaciones.setBounds(71, 258, 132, 14);
 				panelGestionarCitaEspecialista.add(lblObservaciones);
 				
-				JComboBox comboBoxTratamiento = new JComboBox();
+				comboBoxTratamiento = new JComboBox();
 				comboBoxTratamiento.setForeground(new Color(0, 0, 102));
 				comboBoxTratamiento.setFont(new Font("Tahoma", Font.BOLD, 12));
 				comboBoxTratamiento.setBounds(71, 104, 222, 20);
@@ -188,13 +191,13 @@ private JTextField txtNombreMedico;
 				txtNombreMedico.setColumns(10);
 				panelGestionarCitaEspecialista.add(txtNombreMedico);
 				
-				JCheckBox chckbxConfirmarAsistencia = new JCheckBox("Confirmar Asistencia");
+				chckbxConfirmarAsistencia = new JCheckBox("Confirmar Asistencia");
 				chckbxConfirmarAsistencia.setBounds(487, 288, 222, 23);	
 				chckbxConfirmarAsistencia.setFont(new Font("Tahoma", Font.BOLD, 11));
 				chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
 				panelGestionarCitaEspecialista.add(chckbxConfirmarAsistencia);
 				
-				JButton btnGestionarEspecialista = new JButton("Gestionar");
+				btnGestionarEspecialista = new JButton("Gestionar");
 				btnGestionarEspecialista.setBounds(416, 430, 108, 23);			
 				btnGestionarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnGestionarEspecialista.setBackground(new Color(204, 255, 204));
@@ -203,7 +206,7 @@ private JTextField txtNombreMedico;
 				btnGestionarEspecialista.setOpaque(true);
 				panelGestionarCitaEspecialista.add(btnGestionarEspecialista);
 				
-				JButton btnSolicitarEspecialista = new JButton("Solicitar Especialista");
+				btnSolicitarEspecialista = new JButton("Solicitar Especialista");
 				btnSolicitarEspecialista.setBounds(534, 430, 184, 23);			
 				btnSolicitarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnSolicitarEspecialista.setBackground(new Color(204, 255, 204));
@@ -213,4 +216,85 @@ private JTextField txtNombreMedico;
 				panelGestionarCitaEspecialista.add(btnSolicitarEspecialista);
 		
 	}
+
+	public JTextField getGetTxtDosis() {
+		return getTxtDosis;
+	}
+
+	public void setGetTxtDosis(JTextField getTxtDosis) {
+		this.getTxtDosis = getTxtDosis;
+	}
+
+	public JTextField getGetTxtFechaInicio() {
+		return getTxtFechaInicio;
+	}
+
+	public void setGetTxtFechaInicio(JTextField getTxtFechaInicio) {
+		this.getTxtFechaInicio = getTxtFechaInicio;
+	}
+
+	public JTextField getGetTxtFechaFin() {
+		return getTxtFechaFin;
+	}
+
+	public void setGetTxtFechaFin(JTextField getTxtFechaFin) {
+		this.getTxtFechaFin = getTxtFechaFin;
+	}
+
+	public JTextField getGetTxtObservaciones() {
+		return getTxtObservaciones;
+	}
+
+	public void setGetTxtObservaciones(JTextField getTxtObservaciones) {
+		this.getTxtObservaciones = getTxtObservaciones;
+	}
+
+	public JTextField getTxtNombrePaciente() {
+		return txtNombrePaciente;
+	}
+
+	public void setTxtNombrePaciente(JTextField txtNombrePaciente) {
+		this.txtNombrePaciente = txtNombrePaciente;
+	}
+
+	public JTextField getTxtNombreMedico() {
+		return txtNombreMedico;
+	}
+
+	public void setTxtNombreMedico(JTextField txtNombreMedico) {
+		this.txtNombreMedico = txtNombreMedico;
+	}
+
+	public JComboBox getComboBoxTratamiento() {
+		return comboBoxTratamiento;
+	}
+
+	public void setComboBoxTratamiento(JComboBox comboBoxTratamiento) {
+		this.comboBoxTratamiento = comboBoxTratamiento;
+	}
+
+	public JCheckBox getChckbxConfirmarAsistencia() {
+		return chckbxConfirmarAsistencia;
+	}
+
+	public void setChckbxConfirmarAsistencia(JCheckBox chckbxConfirmarAsistencia) {
+		this.chckbxConfirmarAsistencia = chckbxConfirmarAsistencia;
+	}
+
+	public JButton getBtnGestionarEspecialista() {
+		return btnGestionarEspecialista;
+	}
+
+	public void setBtnGestionarEspecialista(JButton btnGestionarEspecialista) {
+		this.btnGestionarEspecialista = btnGestionarEspecialista;
+	}
+
+	public JButton getBtnSolicitarEspecialista() {
+		return btnSolicitarEspecialista;
+	}
+
+	public void setBtnSolicitarEspecialista(JButton btnSolicitarEspecialista) {
+		this.btnSolicitarEspecialista = btnSolicitarEspecialista;
+	}
+	
 }
