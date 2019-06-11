@@ -132,7 +132,7 @@ public class VentanaDatosMedico extends JDialog {
 				txtNombre.setForeground(new Color(0, 0, 102));
 				txtNombre.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtNombre.setEditable(false);
-				txtNombre.setBackground(new Color(255, 255, 255));
+				txtNombre.setBackground(Color.WHITE);
 				txtNombre.setColumns(10);
 				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				panelDatosMedico.add(txtNombre);

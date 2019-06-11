@@ -19,9 +19,7 @@ import modelo.enumeraciones.Especialidad;
 import vista.medico.VentanaMedico;
 
 public class paraUiVentanaMedico extends VentanaMedico {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -3465405400822331219L;
 	private JScrollPane scrollListaMedico;
 	private JScrollPane scrollListaMedicoEspecialista;
