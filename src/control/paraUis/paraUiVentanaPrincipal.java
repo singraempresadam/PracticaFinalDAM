@@ -34,7 +34,7 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 		this.getBotonMedico().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				paraUiVentanaMedico paraUiVentanaMedico = new paraUiVentanaMedico();
+				paraUiVentanaMedico paraUiVentanaMedico = new paraUiVentanaMedico(getControl());
 				paraUiVentanaMedico.setVisible(true);
 			}
 		});

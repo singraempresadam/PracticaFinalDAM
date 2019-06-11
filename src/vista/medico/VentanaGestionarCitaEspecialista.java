@@ -41,10 +41,9 @@ public class VentanaGestionarCitaEspecialista extends JDialog{
 	public VentanaGestionarCitaEspecialista() {
 		getContentPane().setBackground(Color.WHITE);
 		setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 500);
-		setLocationRelativeTo(null);
 		setUndecorated(true);
+		setModal(true);
 		
 			JPanel panelGestionarCitaEspecialista = new JPanel();
 			panelGestionarCitaEspecialista.setBorder(new LineBorder(new Color(153, 204, 255)));

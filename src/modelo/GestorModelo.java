@@ -365,6 +365,17 @@ public class GestorModelo {
 		// TODO Auto-generated method stub
 		return getDiaSistema().plusDays(-plus);
 	}
+	public String obtenerPacienteDeCita(String idCita,String idMedico) {
+		
+		return this.getMedicosActivo().get(idMedico).obtenerPacienteDeCita(idCita);
+	}
+	public String obtenerNombrePaciente(String idPaciente) {
+		
+		return this.getPacientes().get(idPaciente).getNombreYApellidos();
+	}
+	public String obtenerNombreMedico(String idMedico) {
+		return this.getMedicosActivo().get(idMedico).getNombreYApellidos();
+	}
 	
 
 }

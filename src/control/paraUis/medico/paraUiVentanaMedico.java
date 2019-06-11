@@ -24,15 +24,16 @@ public class paraUiVentanaMedico extends VentanaMedico {
 	private JScrollPane scrollListaMedico;
 	private JScrollPane scrollListaMedicoEspecialista;
 	private JScrollPane scrollListaMedicoAtencionPrimaria;
-	TestParaUI test = new TestParaUI();
-	Controller control = new Controller();
+	Controller control;
 	private JList<String> medicos;
 	private JList<String> medicosEspecialistas;
 	private JList<String> medicosAtencionPrimaria;
 
 	@SuppressWarnings("unchecked")
-	public paraUiVentanaMedico() {
+	public paraUiVentanaMedico(Controller control) {
 		super();
+		this.setControl(control);
+		
 		this.agregarListener();
 		this.crearListaTodosLosMedicos();
 		this.crearListaTodosLosMedicosAtencionPrimaria();
@@ -135,7 +136,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		});
 	}
 	private void consultarMedico() {
-		ParaUiVentanaDatosMedico paraUiVentanaDatosMedico = new ParaUiVentanaDatosMedico(obtenerIdSeleccionado());
+		ParaUiVentanaDatosMedico paraUiVentanaDatosMedico = new ParaUiVentanaDatosMedico(obtenerIdSeleccionado(), this.getControl());
 		paraUiVentanaDatosMedico.setVisible(true);
 	}
 	private void buscarMedico() {

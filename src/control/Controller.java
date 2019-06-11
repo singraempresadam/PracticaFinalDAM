@@ -184,5 +184,20 @@ public class Controller {
 		return getMiGestor().obtenerPrimerLunesSemanal(-plus);
 	}
 
+	public String obtenerPacienteDeCita(String idCita,String idMedico) {
+		
+		return this.getMiGestor().obtenerPacienteDeCita(idCita, idMedico);
+	}
+
+	public String obtenerNombrePaciente(String idPaciente) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerNombrePaciente(idPaciente);
+	}
+
+	public String obtenerNombreMedico(String idMedico) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerNombreMedico(idMedico);
+	}
+
 	
 }
