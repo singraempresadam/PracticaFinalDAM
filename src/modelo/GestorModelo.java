@@ -361,6 +361,10 @@ public class GestorModelo {
 	public String getDia() {
 		return this.getDiaSistema().getDayOfWeek().toString();
 	}
+	public LocalDate obtenerPrimerLunesSemanal(int plus) {
+		// TODO Auto-generated method stub
+		return getDiaSistema().plusDays(-plus);
+	}
 	
 
 }
