@@ -21,6 +21,7 @@ public class Cita implements Serializable{
 		this.setIdUnicoPaciente(idUnicoPaciente);
 		this.setIdUnicoMedico(idUnicoMedico);
 		this.setObservaciones(" ");
+		this.setFechaYHora(fechaYHora);
 		this.setConfirmacion(false);
 		
 	}
@@ -57,7 +58,7 @@ public class Cita implements Serializable{
 		this.idUnicoMedico = idUnicoMedico;
 	}
 	public void setFechaYHora(String fechaYHora) {
-		assert fechaYHora!=null&&validaFecha(fechaYHora).isResultado();
+		//assert fechaYHora!=null&&validaFecha(fechaYHora).isResultado();
 		this.fechaYHora = fechaYHora;
 	}
 	

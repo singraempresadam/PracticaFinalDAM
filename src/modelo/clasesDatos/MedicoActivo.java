@@ -10,28 +10,16 @@ import modelo.enumeraciones.Especialidad;
 
 public class MedicoActivo extends Medico implements Serializable{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8197809292745455714L;
 	private Horario horario;
 	private String consulta;
 	private HashMap<String, Cita> citas = new HashMap<String, Cita>();
 	
-	public MedicoActivo(MedicoActivo leido)
-	{
-		super(leido.getNombre(),leido.getApellidos(),leido.getTelefono(), leido.getDireccion(), leido.getIdUnico(), leido.getEspecialidad());
-		this.setConsulta(leido.getConsulta());
-		this.setHorario(leido.getHorario());
-		this.setCitas(leido.getCitas());
-	}
 	public MedicoActivo(String nombre, String apellidos,String telefono, String direccion, String idUnico, Especialidad especialidad, 
 			LocalTime horaInicio, LocalTime horaFin, boolean [] dias, String consulta) {
 		super(nombre, apellidos, telefono, direccion, idUnico, especialidad);
 		this.setConsulta(consulta);
 		Horario horario=new Horario(horaInicio,horaFin,dias);
 		this.setHorario(horario);
-		this.setCitas(null);
 	}
 	
 	public Horario getHorario() {
@@ -60,9 +48,18 @@ public class MedicoActivo extends Medico implements Serializable{
 	}
 	public void crearCita(String idCita, String idUnicoPaciente, String fechaYHora) {
 		Cita cita = new Cita(idCita,idUnicoPaciente,this.getIdUnico(),fechaYHora);
-		this.citas.put(cita.getIdUnicoCita(),cita);
+		System.out.println(this.getCitas());
+		this.getCitas().put(cita.getIdUnicoCita(),cita);
 	}
 	public boolean obtenerDias(int j) {
 		return this.getHorario().getDias()[j];
+	}
+	public LocalTime getHoraIncio() {
+		// TODO Auto-generated method stub
+		return getHorario().getHoraInicio();
+	}
+	public LocalTime getHoraFin() {
+		// TODO Auto-generated method stub
+		return getHorario().getHoraFin();
 	}
 }

@@ -27,7 +27,7 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 		this.getBotonPaciente().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente();
+				paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente(getControl());
 				paraUiVentanaPaciente.setVisible(true);
 			}
 		});
@@ -84,5 +84,10 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 	private Validator getValidator(){
 		return this.validator;
 	}
+
+	public Controller getControl() {
+		return control;
+	}
+
 	
 }

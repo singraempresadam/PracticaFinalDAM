@@ -8,42 +8,25 @@ import java.util.regex.Pattern;
 import modelo.enumeraciones.TipoDeIntervencion;
 
 public class Paciente extends Persona implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1462460883988507555L;
+
 	private String fechaDeNacimiento;
 	private HashMap<String, Cita> citas = new HashMap<String, Cita>();
 	private ArrayList<Tratamiento> tratamientos = new ArrayList<Tratamiento>();
 	private HashMap<String, Intervencion> intervenciones = new HashMap<String, Intervencion>();
 	
-	public Paciente(Paciente leido)
-	{
-		super(leido.getNombre(), leido.getApellidos(),leido.getTelefono(), leido.getDireccion(), leido.getIdUnico());
-		this.setFechaDeNacimiento(leido.getFechaDeNacimiento());
-		this.setCitas(leido.getCitas());
-		this.setTratamientos(leido.getTratamientos());
-		this.setIntervenciones(leido.getIntervenciones());
-	}
+
 	public Paciente(String nombre, String apellidos, String telefono, String direccion, 
 					String idUnico, String fechaDeNacimiento) {
 		super(nombre,apellidos, telefono, direccion, idUnico);
 		this.setFechaDeNacimiento(fechaDeNacimiento);
-		this.setCitas(null);
-		this.setTratamientos(null);
-		this.setIntervenciones(null);
 	}
-	
-	
-	
 	public void crearTratamiento(String medicamento, String dosis, String fechaInicio, String fechaFin) {
 		this.tratamientos.add(new Tratamiento(this.getIdUnico(),medicamento,dosis,fechaInicio,fechaFin));
 		
 	}
 	public void crearCita(String idCita, String idUnicoMedico, String fechaYHora) {
 		Cita cita = new Cita(idCita,this.getIdUnico(),idUnicoMedico,fechaYHora);
-		this.citas.put(cita.getIdUnicoCita(),cita);
+		this.getCitas().put(cita.getIdUnicoCita(), cita);
 	}
 	public void crearIntervencion(String idCita, String idUnicoMedico, String fechaYHora, 
 								String idUnicoCirujano, TipoDeIntervencion tipoDeIntervencion ) {

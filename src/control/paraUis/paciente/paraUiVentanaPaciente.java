@@ -18,11 +18,12 @@ import vista.paciente.VentanaPaciente;
 public class paraUiVentanaPaciente extends VentanaPaciente {
 	private static final long serialVersionUID = -6068763124340799917L;
 	private JScrollPane scrollListaPaciente;
-	Controller control = new Controller();
+	Controller control;
 	private JList<String> pacientes;
 
-	public paraUiVentanaPaciente() {
+	public paraUiVentanaPaciente(Controller control) {
 		super();
+		this.setControl(control);
 		this.agregarListener();
 		this.setPacientes(new JList<String>(control.obtenerElementosAMostrarPaciente()));
 		this.getPacientes().getSelectionMode();
@@ -50,8 +51,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 			public void mouseClicked(MouseEvent arg0) {
 
 				if (obtenerIdSeleccionado() != "") {
-					paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(
-							obtenerIdSeleccionado());
+					paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(getControl(),obtenerIdSeleccionado());
 					paraUiVentanaDatosPaciente.setVisible(true);
 					dispose();
 				}
@@ -126,6 +126,10 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 
 	public void setScrollListaPaciente(JScrollPane scrollListaPaciente) {
 		this.scrollListaPaciente = scrollListaPaciente;
+	}
+
+	public void setControl(Controller control) {
+		this.control = control;
 	}
 
 }

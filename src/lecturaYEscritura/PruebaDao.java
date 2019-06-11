@@ -76,7 +76,7 @@ public class PruebaDao {
 				diasTestero, "1");
 		Cirujano cirujanoUno = new Cirujano("Manolo", "Gordillo", "615121512", "Calle Santiago Apostol", "314149692", "2");
 		Cirujano cirujanoDos = new Cirujano("Kiwi", "Pandoso", "621091997", "Calle Enamorado", "321654989", "2");
-		
+		System.out.println(pacientes);
 		pacientes.put(uno.getIdUnico(), uno);
 		pacientes.put(dos.getIdUnico(), dos);
 		pacientes.put(tres.getIdUnico(), tres);

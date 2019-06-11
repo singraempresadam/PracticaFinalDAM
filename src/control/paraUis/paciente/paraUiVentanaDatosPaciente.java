@@ -10,9 +10,10 @@ import vista.paciente.VentanaDatosPaciente;
 public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	String[] ayudante;
 
-	Controller control = new Controller();
-	public paraUiVentanaDatosPaciente(String datos) {
+	Controller control;
+	public paraUiVentanaDatosPaciente(Controller control, String datos) {
 		super();
+		this.setControl(control);
 		this.agregarListener();
 		ayudante=datos.split("-");
 		this.getGetTxtNombre().setText(ayudante[0]);
@@ -34,7 +35,7 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 				getControl().eliminarPaciente(ayudante[2]);
 				ParaUiOperacionRealizada paraUiOperacionRealizada = new ParaUiOperacionRealizada("Paciente eliminado");
 				paraUiOperacionRealizada.setVisible(true);
-				paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente();
+				paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente(getControl());
 				paraUiVentanaPaciente.setVisible(true);
 				dispose();
 			}
@@ -49,7 +50,7 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.getBtnSolicitarCita().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ParaUiVentanaSolicitarCitaPaciente paraUiVentanaSolicitarCitaPaciente = new ParaUiVentanaSolicitarCitaPaciente(ayudante[2]);
+				ParaUiVentanaSolicitarCitaPaciente paraUiVentanaSolicitarCitaPaciente = new ParaUiVentanaSolicitarCitaPaciente(getControl(),ayudante[2]);
 				paraUiVentanaSolicitarCitaPaciente.setVisible(true);
 			}
 		});

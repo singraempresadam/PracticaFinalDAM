@@ -31,6 +31,10 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 	private JButton btnBuscar;
 	private JPanel panelSolicitarCitaPaciente;
 	private JPanel panelHorario;
+	private JLabel lblHoraInicio;
+	private JLabel lblHoraDos;
+	private JLabel lblHoraTres;
+	private JLabel lblHoraFinal;
 	
 	public VentanaSolicitarCitaPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -178,7 +182,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
 				lblViernes.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraInicio = new JLabel("");
+				lblHoraInicio = new JLabel("");
 				lblHoraInicio.setBounds(20, 300, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraInicio);
 				lblHoraInicio.setOpaque(true);
@@ -187,7 +191,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraInicio.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraDos = new JLabel("");
+				lblHoraDos = new JLabel("");
 				lblHoraDos.setBounds(20, 350, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraDos);
 				lblHoraDos.setOpaque(true);
@@ -196,7 +200,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraDos.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraTres = new JLabel("");
+				lblHoraTres = new JLabel("");
 				lblHoraTres.setBounds(20, 400, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraTres);
 				lblHoraTres.setOpaque(true);
@@ -205,7 +209,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraTres.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraFinal = new JLabel("");
+				lblHoraFinal = new JLabel("");
 				lblHoraFinal.setBounds(20, 450, 100, 50);
 				panelSolicitarCitaPaciente.add(lblHoraFinal);
 				lblHoraFinal.setOpaque(true);
@@ -309,5 +313,37 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 		return panelHorario;
 	}
 
+	public JLabel getLblHoraInicio() {
+		return lblHoraInicio;
+	}
+
+	public void setLblHoraInicio(JLabel lblHoraInicio) {
+		this.lblHoraInicio = lblHoraInicio;
+	}
+
+	public JLabel getLblHoraDos() {
+		return lblHoraDos;
+	}
+
+	public void setLblHoraDos(JLabel lblHoraDos) {
+		this.lblHoraDos = lblHoraDos;
+	}
+
+	public JLabel getLblHoraTres() {
+		return lblHoraTres;
+	}
+
+	public void setLblHoraTres(JLabel lblHoraTres) {
+		this.lblHoraTres = lblHoraTres;
+	}
+
+	public JLabel getLblHoraFinal() {
+		return lblHoraFinal;
+	}
+
+	public void setLblHoraFinal(JLabel lblHoraFinal) {
+		this.lblHoraFinal = lblHoraFinal;
+	}
+	
 	
 }
