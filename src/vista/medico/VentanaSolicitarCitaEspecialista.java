@@ -36,7 +36,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 	private JButton btnSolicitarIntervencion;
 	int pX,pY;
 	private JButton btnBuscar;
-	private JPanel panelSolicitarCitaPaciente;
+	private JPanel panelSolicitarCitaEspecialista;
 	private JPanel panelHorario;
 
 	public VentanaSolicitarCitaEspecialista() {
@@ -46,24 +46,25 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 		setModal(true);
 		setUndecorated(true);
 		
-			panelSolicitarCitaPaciente = new JPanel();
-			panelSolicitarCitaPaciente.addMouseListener(new MouseAdapter() {
+			panelSolicitarCitaEspecialista = new JPanel();
+			panelSolicitarCitaEspecialista.setBorder(new LineBorder(new Color(153, 204, 255)));
+			panelSolicitarCitaEspecialista.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
 					pX=e.getX();
 					pY=e.getY();
 				}
 			});
-			panelSolicitarCitaPaciente.addMouseMotionListener(new MouseMotionAdapter() {
+			panelSolicitarCitaEspecialista.addMouseMotionListener(new MouseMotionAdapter() {
 				@Override
 				public void mouseDragged(MouseEvent e) {
 					setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
 				}
 			});
-			panelSolicitarCitaPaciente.setBackground(Color.WHITE);
-			panelSolicitarCitaPaciente.setBounds(0, 0, 734, 461);
-			getContentPane().add(panelSolicitarCitaPaciente);
-			panelSolicitarCitaPaciente.setLayout(null);
+			panelSolicitarCitaEspecialista.setBackground(Color.WHITE);
+			panelSolicitarCitaEspecialista.setBounds(0, 0, 734, 461);
+			getContentPane().add(panelSolicitarCitaEspecialista);
+			panelSolicitarCitaEspecialista.setLayout(null);
 				
 				JButton btnCerrar = new JButton("");
 				btnCerrar.addMouseListener(new MouseAdapter() {
@@ -78,7 +79,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				btnCerrar.setBorderPainted(false);
 				btnCerrar.setOpaque(true);
 				btnCerrar.setBounds(703, 0, 37, 31);
-				panelSolicitarCitaPaciente.add(btnCerrar);
+				panelSolicitarCitaEspecialista.add(btnCerrar);
 				
 				JLabel lblSolicitarCitaEspecialista = new JLabel("SOLICITAR CITA ESPECIALISTA");
 				lblSolicitarCitaEspecialista.setIcon(new ImageIcon(VentanaSolicitarCitaPaciente.class.getResource("/images/iconventana.png")));
@@ -88,17 +89,17 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				lblSolicitarCitaEspecialista.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
 				lblSolicitarCitaEspecialista.setBackground(SystemColor.textHighlight);
 				lblSolicitarCitaEspecialista.setBounds(0, 0, 740, 31);
-				panelSolicitarCitaPaciente.add(lblSolicitarCitaEspecialista);
+				panelSolicitarCitaEspecialista.add(lblSolicitarCitaEspecialista);
 		
 				JLabel lblPaciente = new JLabel("Paciente");
 				lblPaciente.setBounds(120, 42, 137, 26);
-				panelSolicitarCitaPaciente.add(lblPaciente);
+				panelSolicitarCitaEspecialista.add(lblPaciente);
 				lblPaciente.setForeground(new Color(0, 102, 204));
 				lblPaciente.setFont(new Font("Verdana", Font.BOLD, 14));
 				
 				JLabel lblMedico = new JLabel("M\u00E9dico");
 				lblMedico.setBounds(120, 79, 86, 19);
-				panelSolicitarCitaPaciente.add(lblMedico);
+				panelSolicitarCitaEspecialista.add(lblMedico);
 				lblMedico.setFont(new Font("Verdana", Font.BOLD, 14));
 				lblMedico.setForeground(new Color(0, 102, 204));
 				
@@ -107,7 +108,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				txtPaciente.setForeground(new Color(0, 0, 102));
 				txtPaciente.setFont(new Font("Tahoma", Font.BOLD, 12));
 				txtPaciente.setBounds(286, 47, 169, 20);
-				panelSolicitarCitaPaciente.add(txtPaciente);
+				panelSolicitarCitaEspecialista.add(txtPaciente);
 				txtPaciente.setBackground(Color.WHITE);
 				txtPaciente.setEditable(false);
 				txtPaciente.setColumns(10);
@@ -115,14 +116,14 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				txtMedicoEspecialista = new JTextField();
 				txtMedicoEspecialista.setBounds(286, 80, 169, 20);
-				panelSolicitarCitaPaciente.add(txtMedicoEspecialista);
+				panelSolicitarCitaEspecialista.add(txtMedicoEspecialista);
 				txtMedicoEspecialista.setBackground(Color.WHITE);
 				txtMedicoEspecialista.setColumns(10);
 				txtMedicoEspecialista.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				
 				btnBuscar = new JButton("Buscar");
 				btnBuscar.setBounds(491, 78, 122, 23);
-				panelSolicitarCitaPaciente.add(btnBuscar);
+				panelSolicitarCitaEspecialista.add(btnBuscar);
 				btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
 				btnBuscar.setForeground(Color.WHITE);
 				btnBuscar.setContentAreaFilled(false);
@@ -132,7 +133,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				btnVerHorario = new JButton("Ver horario");
 				btnVerHorario.setBounds(491, 214, 122, 23);
-				panelSolicitarCitaPaciente.add(btnVerHorario);
+				panelSolicitarCitaEspecialista.add(btnVerHorario);
 				btnVerHorario.setFont(new Font("Verdana", Font.BOLD, 11));
 				btnVerHorario.setForeground(Color.WHITE);
 				btnVerHorario.setContentAreaFilled(false);
@@ -142,7 +143,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblLunes = new JLabel("Lunes");
 				lblLunes.setBounds(120, 250, 100, 50);
-				panelSolicitarCitaPaciente.add(lblLunes);
+				panelSolicitarCitaEspecialista.add(lblLunes);
 				lblLunes.setBorder(new MatteBorder(2, 2, 0, 1, (Color) new Color(0, 102, 204)));
 				lblLunes.setBackground(new Color(153, 204, 255));
 				lblLunes.setOpaque(true);
@@ -151,7 +152,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblMartes = new JLabel("Martes");
 				lblMartes.setBounds(220, 250, 100, 50);
-				panelSolicitarCitaPaciente.add(lblMartes);
+				panelSolicitarCitaEspecialista.add(lblMartes);
 				lblMartes.setBorder(new MatteBorder(2, 0, 0, 1, (Color) new Color(0, 102, 204)));
 				lblMartes.setOpaque(true);
 				lblMartes.setHorizontalAlignment(SwingConstants.CENTER);
@@ -160,7 +161,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblMiercoles = new JLabel("Mi\u00E9rcoles");
 				lblMiercoles.setBounds(320, 250, 100, 50);
-				panelSolicitarCitaPaciente.add(lblMiercoles);
+				panelSolicitarCitaEspecialista.add(lblMiercoles);
 				lblMiercoles.setOpaque(true);
 				lblMiercoles.setHorizontalAlignment(SwingConstants.CENTER);
 				lblMiercoles.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -169,7 +170,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblJueves = new JLabel("Jueves");
 				lblJueves.setBounds(420, 250, 100, 50);
-				panelSolicitarCitaPaciente.add(lblJueves);
+				panelSolicitarCitaEspecialista.add(lblJueves);
 				lblJueves.setOpaque(true);
 				lblJueves.setHorizontalAlignment(SwingConstants.CENTER);
 				lblJueves.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -178,7 +179,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblViernes = new JLabel("Viernes");
 				lblViernes.setBounds(520, 250, 100, 50);
-				panelSolicitarCitaPaciente.add(lblViernes);
+				panelSolicitarCitaEspecialista.add(lblViernes);
 				lblViernes.setOpaque(true);
 				lblViernes.setHorizontalAlignment(SwingConstants.CENTER);
 				lblViernes.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -187,7 +188,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblHoraInicio = new JLabel("");
 				lblHoraInicio.setBounds(20, 300, 100, 50);
-				panelSolicitarCitaPaciente.add(lblHoraInicio);
+				panelSolicitarCitaEspecialista.add(lblHoraInicio);
 				lblHoraInicio.setOpaque(true);
 				lblHoraInicio.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHoraInicio.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -196,7 +197,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblHoraDos = new JLabel("");
 				lblHoraDos.setBounds(20, 350, 100, 50);
-				panelSolicitarCitaPaciente.add(lblHoraDos);
+				panelSolicitarCitaEspecialista.add(lblHoraDos);
 				lblHoraDos.setOpaque(true);
 				lblHoraDos.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHoraDos.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -205,7 +206,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				JLabel lblHoraTres = new JLabel("");
 				lblHoraTres.setBounds(20, 400, 100, 50);
-				panelSolicitarCitaPaciente.add(lblHoraTres);
+				panelSolicitarCitaEspecialista.add(lblHoraTres);
 				lblHoraTres.setOpaque(true);
 				lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
 				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -215,7 +216,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				btnSolicitarIntervencion = new JButton("Solicitar");
 				btnSolicitarIntervencion.setBounds(641, 455, 89, 23);
-				panelSolicitarCitaPaciente.add(btnSolicitarIntervencion);
+				panelSolicitarCitaEspecialista.add(btnSolicitarIntervencion);
 				btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
 				btnSolicitarIntervencion.setContentAreaFilled(false);
@@ -226,7 +227,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				
 				panelHorario = new JPanel();
 				panelHorario.setBounds(120, 300, 500, 150);
-				panelSolicitarCitaPaciente.add(panelHorario);
+				panelSolicitarCitaEspecialista.add(panelHorario);
 				panelHorario.setLayout(new GridLayout(4, 5, 0, 0));
 		
 		

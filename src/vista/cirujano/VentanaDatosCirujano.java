@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.border.MatteBorder;
 
 public class VentanaDatosCirujano extends JDialog {
 	protected JTextField getTxtBuscar;
@@ -39,6 +40,7 @@ public class VentanaDatosCirujano extends JDialog {
 		setUndecorated(true);
 		
 			JPanel panelDatosCirujano = new JPanel();
+			panelDatosCirujano.setBorder(new LineBorder(new Color(153, 204, 255)));
 			panelDatosCirujano.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {

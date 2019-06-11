@@ -17,6 +17,7 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.border.LineBorder;
 
 public class VentanaHistorialCirujano extends JDialog{
 	int pX,pY;
@@ -28,6 +29,7 @@ public class VentanaHistorialCirujano extends JDialog{
 		setUndecorated(true);
 		
 		JPanel panelHistorialCirujano = new JPanel();	
+		panelHistorialCirujano.setBorder(new LineBorder(new Color(153, 204, 255)));
 		panelHistorialCirujano.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {

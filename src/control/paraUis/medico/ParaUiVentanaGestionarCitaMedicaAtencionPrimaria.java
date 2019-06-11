@@ -26,7 +26,7 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 		
 	}
 	private void agregarListener() {
-		this.getBtnGestionarEspecialista().addMouseListener(new MouseAdapter() {
+		this.getBtnGestionar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 			}

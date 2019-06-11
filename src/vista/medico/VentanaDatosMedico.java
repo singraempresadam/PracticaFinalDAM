@@ -33,11 +33,11 @@ public class VentanaDatosMedico extends JDialog {
 	protected JTextField getTxtBuscar;
 	protected JTextField txtEspecialidad;
 	protected JTextField txtEstado;
-	int pX,pY;
 	private JButton btnModificar;
 	private JButton btnDarDeBaja;
 	private JButton btnHistorialMedico;
 	private JButton btnGestionarCita;
+	int pX,pY;
 	
 	public VentanaDatosMedico() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -47,6 +47,7 @@ public class VentanaDatosMedico extends JDialog {
 		setUndecorated(true);
 		
 			JPanel panelDatosMedico = new JPanel();
+			panelDatosMedico.setBorder(new LineBorder(new Color(153, 204, 255)));
 			panelDatosMedico.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {

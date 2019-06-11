@@ -39,7 +39,7 @@ private JTextField txtNombrePaciente;
 private JTextField txtNombreMedico;
 private JComboBox comboBoxTratamiento;
 private JCheckBox chckbxConfirmarAsistencia;
-private JButton btnGestionarEspecialista;
+private JButton btnGestionar;
 private JButton btnSolicitarEspecialista;
 	
 	public VentanaGestionarCitaMedicaAtencionPrimaria() {
@@ -47,24 +47,26 @@ private JButton btnSolicitarEspecialista;
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 750, 500);
 		setUndecorated(true);
+		setModal(true);
 		
-			JPanel panelGestionarCitaEspecialista = new JPanel();
-			panelGestionarCitaEspecialista.addMouseListener(new MouseAdapter() {
+			JPanel panelGestionarCitaAtencionPrimaria = new JPanel();
+			panelGestionarCitaAtencionPrimaria.setBorder(new LineBorder(new Color(153, 204, 255)));
+			panelGestionarCitaAtencionPrimaria.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
 					pX=e.getX();
 					pY=e.getY();
 				}
 			});
-			panelGestionarCitaEspecialista.addMouseMotionListener(new MouseMotionAdapter() {
+			panelGestionarCitaAtencionPrimaria.addMouseMotionListener(new MouseMotionAdapter() {
 				@Override
 				public void mouseDragged(MouseEvent e) {
 					setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
 				}
 			});
-			panelGestionarCitaEspecialista.setBackground(Color.WHITE);
-			getContentPane().add(panelGestionarCitaEspecialista);
-			panelGestionarCitaEspecialista.setLayout(null);
+			panelGestionarCitaAtencionPrimaria.setBackground(Color.WHITE);
+			getContentPane().add(panelGestionarCitaAtencionPrimaria);
+			panelGestionarCitaAtencionPrimaria.setLayout(null);
 				
 				JButton btnCerrar = new JButton("");
 				btnCerrar.addMouseListener(new MouseAdapter() {
@@ -79,7 +81,7 @@ private JButton btnSolicitarEspecialista;
 				btnCerrar.setBorderPainted(false);
 				btnCerrar.setOpaque(true);
 				btnCerrar.setBounds(713, 0, 37, 31);
-				panelGestionarCitaEspecialista.add(btnCerrar);
+				panelGestionarCitaAtencionPrimaria.add(btnCerrar);
 				
 				JLabel lblGestionarCitaMedicaAP = new JLabel("GESTIONAR CITA ATENCION PRIMARIA");
 				lblGestionarCitaMedicaAP.setIcon(new ImageIcon(VentanaGestionarCitaEspecialista.class.getResource("/images/iconventana.png")));
@@ -89,56 +91,56 @@ private JButton btnSolicitarEspecialista;
 				lblGestionarCitaMedicaAP.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
 				lblGestionarCitaMedicaAP.setBackground(SystemColor.textHighlight);
 				lblGestionarCitaMedicaAP.setBounds(0, 0, 750, 31);
-				panelGestionarCitaEspecialista.add(lblGestionarCitaMedicaAP);
+				panelGestionarCitaAtencionPrimaria.add(lblGestionarCitaMedicaAP);
 				
 				JLabel lblTratamiento = new JLabel("Tratamiento");
 				lblTratamiento.setBounds(71, 68, 222, 23);
 				lblTratamiento.setHorizontalAlignment(SwingConstants.CENTER);
 				lblTratamiento.setForeground(new Color(0, 102, 204));
 				lblTratamiento.setFont(new Font("Verdana", Font.BOLD, 14));
-				panelGestionarCitaEspecialista.add(lblTratamiento);
+				panelGestionarCitaAtencionPrimaria.add(lblTratamiento);
 				
 				JLabel lblDosis = new JLabel("Dosis");
 				lblDosis.setForeground(new Color(0, 102, 204));
 				lblDosis.setFont(new Font("Verdana", Font.BOLD, 12));
 				lblDosis.setBounds(71, 142, 78, 14);
-				panelGestionarCitaEspecialista.add(lblDosis);
+				panelGestionarCitaAtencionPrimaria.add(lblDosis);
 				
 				JLabel lblFechaInicio = new JLabel("Fecha Inicio");
 				lblFechaInicio.setForeground(new Color(0, 102, 204));
 				lblFechaInicio.setFont(new Font("Verdana", Font.BOLD, 12));
 				lblFechaInicio.setBounds(71, 181, 92, 14);
-				panelGestionarCitaEspecialista.add(lblFechaInicio);
+				panelGestionarCitaAtencionPrimaria.add(lblFechaInicio);
 				
 				JLabel lblFechaFin = new JLabel("Fecha Fin");
 				lblFechaFin.setFont(new Font("Verdana", Font.BOLD, 12));
 				lblFechaFin.setForeground(new Color(0, 102, 204));
 				lblFechaFin.setBounds(71, 219, 78, 14);
-				panelGestionarCitaEspecialista.add(lblFechaFin);
+				panelGestionarCitaAtencionPrimaria.add(lblFechaFin);
 				
 				JLabel lblMedico = new JLabel("Medico");
 				lblMedico.setForeground(new Color(0, 102, 204));
 				lblMedico.setFont(new Font("Verdana", Font.BOLD, 12));
 				lblMedico.setBounds(382, 142, 46, 14);
-				panelGestionarCitaEspecialista.add(lblMedico);
+				panelGestionarCitaAtencionPrimaria.add(lblMedico);
 				
 				JLabel lblPaciente = new JLabel("Paciente");
 				lblPaciente.setForeground(new Color(0, 102, 204));
 				lblPaciente.setFont(new Font("Verdana", Font.BOLD, 12));
 				lblPaciente.setBounds(382, 104, 61, 14);
-				panelGestionarCitaEspecialista.add(lblPaciente);
+				panelGestionarCitaAtencionPrimaria.add(lblPaciente);
 				
 				JLabel lblObservaciones = new JLabel("Observaciones");
 				lblObservaciones.setForeground(new Color(0, 102, 204));
 				lblObservaciones.setFont(new Font("Verdana", Font.BOLD, 12));
 				lblObservaciones.setBounds(71, 258, 132, 14);
-				panelGestionarCitaEspecialista.add(lblObservaciones);
+				panelGestionarCitaAtencionPrimaria.add(lblObservaciones);
 				
 				comboBoxTratamiento = new JComboBox();
 				comboBoxTratamiento.setForeground(new Color(0, 0, 102));
 				comboBoxTratamiento.setFont(new Font("Tahoma", Font.BOLD, 12));
 				comboBoxTratamiento.setBounds(71, 104, 222, 20);
-				panelGestionarCitaEspecialista.add(comboBoxTratamiento);
+				panelGestionarCitaAtencionPrimaria.add(comboBoxTratamiento);
 				
 				getTxtDosis = new JTextField();
 				getTxtDosis.setHorizontalAlignment(SwingConstants.CENTER);
@@ -146,27 +148,27 @@ private JButton btnSolicitarEspecialista;
 				getTxtDosis.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtDosis.setBounds(180, 140, 113, 20);				
 				getTxtDosis.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtDosis);
+				panelGestionarCitaAtencionPrimaria.add(getTxtDosis);
 				
 				getTxtFechaInicio = new JTextField();
 				getTxtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
 				getTxtFechaInicio.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtFechaInicio.setBounds(180, 179, 113, 20);				
 				getTxtFechaInicio.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtFechaInicio);
+				panelGestionarCitaAtencionPrimaria.add(getTxtFechaInicio);
 				
 				getTxtFechaFin = new JTextField();
 				getTxtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
 				getTxtFechaFin.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				getTxtFechaFin.setBounds(180, 217, 113, 20);	
 				getTxtFechaFin.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtFechaFin);
+				panelGestionarCitaAtencionPrimaria.add(getTxtFechaFin);
 				
 				getTxtObservaciones = new JTextField();
 				getTxtObservaciones.setBounds(71, 288, 222, 110);
 				getTxtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 				getTxtObservaciones.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtObservaciones);
+				panelGestionarCitaAtencionPrimaria.add(getTxtObservaciones);
 				
 				txtNombrePaciente = new JTextField();
 				txtNombrePaciente.setBackground(Color.WHITE);
@@ -177,7 +179,7 @@ private JButton btnSolicitarEspecialista;
 				txtNombrePaciente.setBounds(487, 101, 222, 20);		
 				txtNombrePaciente.setEditable(false);
 				txtNombrePaciente.setColumns(10);
-				panelGestionarCitaEspecialista.add(txtNombrePaciente);
+				panelGestionarCitaAtencionPrimaria.add(txtNombrePaciente);
 				
 				txtNombreMedico = new JTextField();
 				txtNombreMedico.setBackground(Color.WHITE);
@@ -188,22 +190,22 @@ private JButton btnSolicitarEspecialista;
 				txtNombreMedico.setBounds(487, 140, 222, 20);			
 				txtNombreMedico.setEditable(false);
 				txtNombreMedico.setColumns(10);
-				panelGestionarCitaEspecialista.add(txtNombreMedico);
+				panelGestionarCitaAtencionPrimaria.add(txtNombreMedico);
 				
 				chckbxConfirmarAsistencia = new JCheckBox("Confirmar Asistencia");
 				chckbxConfirmarAsistencia.setBounds(487, 288, 222, 23);	
 				chckbxConfirmarAsistencia.setFont(new Font("Tahoma", Font.BOLD, 11));
 				chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
-				panelGestionarCitaEspecialista.add(chckbxConfirmarAsistencia);
+				panelGestionarCitaAtencionPrimaria.add(chckbxConfirmarAsistencia);
 				
-				btnGestionarEspecialista = new JButton("Gestionar");
-				btnGestionarEspecialista.setBounds(416, 430, 108, 23);			
-				btnGestionarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
-				btnGestionarEspecialista.setBackground(new Color(204, 255, 204));
-				btnGestionarEspecialista.setContentAreaFilled(false);
-				btnGestionarEspecialista.setBorderPainted(false);
-				btnGestionarEspecialista.setOpaque(true);
-				panelGestionarCitaEspecialista.add(btnGestionarEspecialista);
+				btnGestionar = new JButton("Gestionar");
+				btnGestionar.setBounds(416, 430, 108, 23);			
+				btnGestionar.setFont(new Font("Verdana", Font.BOLD, 12));
+				btnGestionar.setBackground(new Color(204, 255, 204));
+				btnGestionar.setContentAreaFilled(false);
+				btnGestionar.setBorderPainted(false);
+				btnGestionar.setOpaque(true);
+				panelGestionarCitaAtencionPrimaria.add(btnGestionar);
 				
 				btnSolicitarEspecialista = new JButton("Solicitar Especialista");
 				btnSolicitarEspecialista.setBounds(534, 430, 184, 23);			
@@ -212,7 +214,7 @@ private JButton btnSolicitarEspecialista;
 				btnSolicitarEspecialista.setContentAreaFilled(false);
 				btnSolicitarEspecialista.setBorderPainted(false);
 				btnSolicitarEspecialista.setOpaque(true);
-				panelGestionarCitaEspecialista.add(btnSolicitarEspecialista);
+				panelGestionarCitaAtencionPrimaria.add(btnSolicitarEspecialista);
 		
 	}
 
@@ -280,12 +282,12 @@ private JButton btnSolicitarEspecialista;
 		this.chckbxConfirmarAsistencia = chckbxConfirmarAsistencia;
 	}
 
-	public JButton getBtnGestionarEspecialista() {
-		return btnGestionarEspecialista;
+	public JButton getBtnGestionar() {
+		return btnGestionar;
 	}
 
-	public void setBtnGestionarEspecialista(JButton btnGestionarEspecialista) {
-		this.btnGestionarEspecialista = btnGestionarEspecialista;
+	public void setBtnGestionar(JButton btnGestionar) {
+		this.btnGestionar = btnGestionar;
 	}
 
 	public JButton getBtnSolicitarEspecialista() {
