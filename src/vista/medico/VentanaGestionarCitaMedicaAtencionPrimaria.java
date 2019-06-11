@@ -47,6 +47,7 @@ private JTextField txtNombreMedico;
 		setUndecorated(true);
 		
 			JPanel panelGestionarCitaEspecialista = new JPanel();
+			panelGestionarCitaEspecialista.setBorder(new LineBorder(new Color(153, 204, 255)));
 			panelGestionarCitaEspecialista.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {

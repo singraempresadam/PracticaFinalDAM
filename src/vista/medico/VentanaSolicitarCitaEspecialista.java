@@ -47,6 +47,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 		setUndecorated(true);
 		
 			panelSolicitarCitaPaciente = new JPanel();
+			panelSolicitarCitaPaciente.setBorder(new LineBorder(new Color(153, 204, 255)));
 			panelSolicitarCitaPaciente.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {

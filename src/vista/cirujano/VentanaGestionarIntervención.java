@@ -42,6 +42,7 @@ public class VentanaGestionarIntervención extends JDialog {
 		setUndecorated(true);
 		
 			JPanel panelGestionarIntervencion = new JPanel();
+			panelGestionarIntervencion.setBorder(new LineBorder(new Color(153, 204, 255)));
 			panelGestionarIntervencion.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {

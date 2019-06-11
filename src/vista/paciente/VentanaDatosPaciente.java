@@ -37,6 +37,7 @@ public class VentanaDatosPaciente extends JDialog{
 		setUndecorated(true);
 		
 			JPanel panelDatosPaciente = new JPanel();
+			panelDatosPaciente.setBorder(new LineBorder(new Color(153, 204, 255)));
 			panelDatosPaciente.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
