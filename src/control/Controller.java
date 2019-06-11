@@ -1,5 +1,6 @@
 package control;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import modelo.GestorModelo;
@@ -177,6 +178,10 @@ public class Controller {
 	public String getDia() {
 		return this.getMiGestor().getDia();
 		
+	}
+
+	public LocalDate obtenerPrimerLunesSemanal(int plus) {
+		return getMiGestor().obtenerPrimerLunesSemanal(-plus);
 	}
 
 	
