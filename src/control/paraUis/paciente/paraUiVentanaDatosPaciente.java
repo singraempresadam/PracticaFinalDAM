@@ -43,7 +43,7 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.getBtnHistorial().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ParaUiVentanaHistorialPaciente paraUiVentanaHistorialPaciente = new ParaUiVentanaHistorialPaciente(ayudante[2]);
+				ParaUiVentanaHistorialPaciente paraUiVentanaHistorialPaciente = new ParaUiVentanaHistorialPaciente(ayudante[2], getControl());
 				paraUiVentanaHistorialPaciente.setVisible(true);
 			}
 		});

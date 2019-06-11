@@ -4,6 +4,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import control.Controller;
+import modelo.enumeraciones.Especialidad;
+import modelo.enumeraciones.Medicamento;
 import vista.medico.VentanaGestionarCitaMedicaAtencionPrimaria;
 
 public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGestionarCitaMedicaAtencionPrimaria{
@@ -18,23 +20,28 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 		this.setControl(control);
 		this.setIdCita(idCita);
 		this.setIdMedico(idMedico);
-		
+		Medicamento[] values = Medicamento.values();
+		for (int i = 0; i < values.length; i++) {
+			this.getComboBoxTratamiento().addItem(values[i]);
+		}
 		this.agregarListener();
-		//this.setIdPaciente(this.getControl().obtenerPacienteDeCita(this.getIdCita(), this.getIdMedico()));
-		//this.setNombrePaciente(this.getControl().obtenerNombrePaciente(this.getIdPaciente()));
-		//this.setNombreMedico(this.getControl().obtenerNombreMedico(this.getIdMedico()));
+		this.setIdPaciente(this.getControl().obtenerPacienteDeCita(this.getIdCita(), this.getIdMedico()));
+		this.setNombrePaciente(this.getControl().obtenerNombrePaciente(this.getIdPaciente()));
+		this.setNombreMedico(this.getControl().obtenerNombreMedico(this.getIdMedico()));
+		this.getTxtNombrePaciente().setText(this.getNombrePaciente());
+		this.getTxtNombreMedico().setText(this.getNombreMedico());
 		
 	}
 	private void agregarListener() {
 		this.getBtnGestionar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				getControl().crearTratamiento(getIdPaciente(),getComboBoxTratamiento().getSelectedItem().toString(),getGetTxtDosis().getText(),getGetTxtFechaInicio().getText(),getGetTxtFechaFin().getText());
 			}
 		});
 		this.getBtnSolicitarEspecialista().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
 				ParaUiVentanaSolicitarCitaEspecialista paraUiVentanaSolicitarCitaEspecialista = new ParaUiVentanaSolicitarCitaEspecialista(control, idPaciente, idMedico);
 				dispose();
 			}

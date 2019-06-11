@@ -376,6 +376,11 @@ public class GestorModelo {
 	public String obtenerNombreMedico(String idMedico) {
 		return this.getMedicosActivo().get(idMedico).getNombreYApellidos();
 	}
+	public void crearTratamiento(String idPaciente, String medicamento, String dosis, String fechaInicio,
+			String fechaFin) {
+		this.getPacientes().get(idPaciente).crearTratamiento(medicamento, dosis, fechaInicio, fechaFin);
+		
+	}
 	
 
 }

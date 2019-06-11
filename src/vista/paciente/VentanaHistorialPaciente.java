@@ -31,8 +31,10 @@ public class VentanaHistorialPaciente extends JDialog {
 	protected JTextField txtPaciente;
 	private JTable tablaTratamiento;
 	private JTable tablaIntervencion;
-	private JTextField getTxtBuscar;
 	int pX,pY;
+	private JPanel panelTratamientos;
+	private JPanel panelCitasRealizadas;
+	private JPanel panelCitasPendientes;
 	
 	public VentanaHistorialPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -109,34 +111,6 @@ public class VentanaHistorialPaciente extends JDialog {
 				lblTratamiento.setForeground(new Color(0, 102, 204));
 				lblTratamiento.setFont(new Font("Verdana", Font.BOLD, 13));
 				
-				getTxtBuscar = new JTextField();
-				getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtBuscar.setBounds(31, 178, 193, 20);
-				panelHistorialPaciente.add(getTxtBuscar);
-				getTxtBuscar.setForeground(new Color(0, 0, 102));
-				getTxtBuscar.setFont(new Font("Tahoma", Font.BOLD, 12));
-				getTxtBuscar.setColumns(10);
-				
-				JButton btnBuscar = new JButton("Buscar");
-				btnBuscar.setBounds(249, 177, 89, 23);
-				panelHistorialPaciente.add(btnBuscar);
-				btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
-				btnBuscar.setForeground(Color.WHITE);
-				btnBuscar.setContentAreaFilled(false);
-				btnBuscar.setBorderPainted(false);
-				btnBuscar.setOpaque(true);
-				btnBuscar.setBackground(new Color(0, 102, 204));
-				
-				JButton btnVer = new JButton("Ver");
-				btnVer.setBounds(249, 224, 89, 23);
-				panelHistorialPaciente.add(btnVer);
-				btnVer.setFont(new Font("Verdana", Font.BOLD, 11));
-				btnVer.setForeground(Color.WHITE);
-				btnVer.setContentAreaFilled(false);
-				btnVer.setBorderPainted(false);
-				btnVer.setOpaque(true);
-				btnVer.setBackground(new Color(0, 102, 204));
-				
 				JLabel lblCitasPendientes = new JLabel("Citas Pendientes");
 				lblCitasPendientes.setBounds(400, 40, 270, 15);
 				panelHistorialPaciente.add(lblCitasPendientes);
@@ -148,6 +122,39 @@ public class VentanaHistorialPaciente extends JDialog {
 				panelHistorialPaciente.add(lblCitasRealizadas);
 				lblCitasRealizadas.setForeground(new Color(0, 102, 204));
 				lblCitasRealizadas.setFont(new Font("Verdana", Font.BOLD, 13));
+				
+				panelTratamientos = new JPanel();
+				panelTratamientos.setBounds(31, 180, 307, 202);
+				panelHistorialPaciente.add(panelTratamientos);
+				
+				panelCitasRealizadas = new JPanel();
+				panelCitasRealizadas.setBounds(400, 288, 253, 164);
+				panelHistorialPaciente.add(panelCitasRealizadas);
+				
+				panelCitasPendientes = new JPanel();
+				panelCitasPendientes.setBounds(400, 68, 253, 158);
+				panelHistorialPaciente.add(panelCitasPendientes);
 		
 	}
+
+	public JTextField getTxtPaciente() {
+		return txtPaciente;
+	}
+
+
+	public JPanel getPanelTratamientos() {
+		return panelTratamientos;
+	}
+
+
+	public JPanel getPanelCitasRealizadas() {
+		return panelCitasRealizadas;
+	}
+
+
+	public JPanel getPanelCitasPendientes() {
+		return panelCitasPendientes;
+	}
+
+	
 	}

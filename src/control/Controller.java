@@ -199,5 +199,10 @@ public class Controller {
 		return this.getMiGestor().obtenerNombreMedico(idMedico);
 	}
 
+	public void crearTratamiento(String idPaciente, String tratamiento, String dosis, String fechaInicio, String fechaFin) {
+		this.getMiGestor().crearTratamiento(idPaciente, tratamiento, dosis, fechaInicio, fechaFin);
+		
+	}
+
 	
 }
