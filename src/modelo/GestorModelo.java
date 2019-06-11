@@ -396,6 +396,15 @@ public class GestorModelo {
 		return this.filtrar("false", this.getPacientes().get(idPaciente).obtenerCitas());
 	}
 	
+	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico,boolean asistencia) {
+		this.getPacientes().put(idPaciente, this.getPacientes().get(idPaciente));
+		this.getMedicosActivo().put(idMedico,this.getMedicosActivo().get(idMedico));
+		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
+		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+		this.getPacientes().get(idPaciente).modificarCita(idCita,observaciones,asistencia);
+		this.getMedicosActivo().get(idMedico).modificarCita(idCita,observaciones,asistencia);
+	}
+	
 	
 
 }

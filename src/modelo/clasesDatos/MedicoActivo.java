@@ -72,4 +72,10 @@ public class MedicoActivo extends Medico implements Serializable{
 		// TODO Auto-generated method stub
 		return this.getNombre() + " " + this.getApellidos();
 	}
+
+	public void modificarCita(String idCita, String observaciones, boolean asistencia) {
+		this.getCitas().get(idCita).setConfirmacion(asistencia);
+		this.getCitas().get(idCita).setObservaciones(observaciones);
+		
+	}
 }

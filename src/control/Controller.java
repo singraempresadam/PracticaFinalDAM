@@ -3,6 +3,7 @@ package control;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.swing.JTextField;
 import javax.swing.ListModel;
 
 import modelo.GestorModelo;
@@ -219,6 +220,11 @@ public class Controller {
 	public  String[] obtenerCitasRealizadas(String idPaciente) {
 		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerCitasRealizadas(idPaciente);
+	}
+
+	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico, boolean asistencia) {
+		this.getMiGestor().modificarCita(idCita, observaciones, idPaciente,idMedico, asistencia);
+		
 	}
 
 	
