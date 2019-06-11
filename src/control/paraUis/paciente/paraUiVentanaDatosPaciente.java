@@ -1,7 +1,10 @@
 package control.paraUis.paciente;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.border.LineBorder;
 
 import control.Controller;
 import control.paraUis.ParaUiOperacionRealizada;
@@ -26,7 +29,10 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.getBtnModificar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Modificar");
+				getGetTxtTelefono().setEditable(true);
+				getGetTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
+				getGetTxtDireccion().setEditable(true);
+				getGetTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
 			}
 		});
 		this.getBtnEliminar().addMouseListener(new MouseAdapter() {
