@@ -32,20 +32,30 @@ public class ParaUiVentanaHistorialPaciente extends VentanaHistorialPaciente{
 	}
 	private void crearListaTratamientos() {
 		
-		this.setTratamientos(new JList<String>(this.getControl().obtenerTodosLosMedicos()));
+		this.setTratamientos(new JList<String>(this.getControl().obtenerTratamiento(this.getIdPaciente())));
 		this.getTratamientos().setVisible(true);
 		this.setScrollListaTratamientos(new JScrollPane(this.getTratamientos()));
-		this.getScrollListaTratamientos().setBounds(79, 108, 345, 213);
+		this.getScrollListaTratamientos().setBounds(31, 180, 307, 202);
 		this.getScrollListaTratamientos().setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		getPanelTratamientos().add(this.getScrollListaTratamientos());
 		
 	}
 	private void crearListaCitasRealizadas() {
-		// TODO Auto-generated method stub
+		this.setCitasPendientes((new JList<String>(this.getControl().obtenerCitasPendientes(this.getIdPaciente()))));
+		this.getCitasPendientes().setVisible(true);
+		this.setScrollListaCitasPendientes(new JScrollPane(this.getCitasPendientes()));
+		this.getScrollListaCitasPendientes().setBounds(31, 180, 307, 202);
+		this.getScrollListaCitasPendientes().setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		getPanelCitasPendientes().add(this.getScrollListaCitasPendientes());
 		
 	}
 	private void crearListaCitasPendientes() {
-		// TODO Auto-generated method stub
+		this.setCitasRealizadas((new JList<String>(this.getControl().obtenerCitasRealizadas(this.getIdPaciente()))));
+		this.getCitasRealizadas().setVisible(true);
+		this.setScrollListaCitasRealizadas(new JScrollPane(this.getCitasRealizadas()));
+		this.getScrollListaCitasRealizadas().setBounds(31, 180, 307, 202);
+		this.getScrollListaCitasRealizadas().setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		getPanelCitasRealizadas().add(this.getScrollListaCitasRealizadas());
 		
 	}
 	public String getIdPaciente() {

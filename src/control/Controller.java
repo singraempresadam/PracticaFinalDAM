@@ -3,6 +3,9 @@ package control;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.swing.JTextField;
+import javax.swing.ListModel;
+
 import modelo.GestorModelo;
 import modelo.clasesDatos.Cita;
 import modelo.clasesDatos.MedicoActivo;
@@ -201,6 +204,26 @@ public class Controller {
 
 	public void crearTratamiento(String idPaciente, String tratamiento, String dosis, String fechaInicio, String fechaFin) {
 		this.getMiGestor().crearTratamiento(idPaciente, tratamiento, dosis, fechaInicio, fechaFin);
+		
+	}
+
+	public String[] obtenerTratamiento(String idPaciente) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerTratamiento(idPaciente);
+	}
+
+	public String[] obtenerCitasPendientes(String idPaciente) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerCitasPendientes(idPaciente);
+	}
+
+	public  String[] obtenerCitasRealizadas(String idPaciente) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerCitasRealizadas(idPaciente);
+	}
+
+	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico, boolean asistencia) {
+		this.getMiGestor().modificarCita(idCita, observaciones, idPaciente,idMedico, asistencia);
 		
 	}
 

@@ -3,7 +3,10 @@ package modelo.clasesDatos;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.regex.Pattern;
+
+import javax.swing.ListModel;
 
 import modelo.enumeraciones.TipoDeIntervencion;
 
@@ -69,6 +72,29 @@ public class Paciente extends Persona implements Serializable{
 	public String getNombreYApellidos() {
 		
 		return this.getNombre()+ " " + this.getApellidos();
+	}
+	public String[] obtenerTratamiento() {
+		int i = 0;
+		String[] retorno=new String [this.getTratamientos().size()];
+		for (Tratamiento tratamiento: this.getTratamientos()) {
+			retorno[i] = tratamiento.getFechaInicio() + "-" + tratamiento.getFechaFin() + "-"
+					+tratamiento.getMedicamento() + "-" + tratamiento.getDosis();
+		}
+		return retorno;
+	}
+	public String[] obtenerCitas() {
+		String[] retorno = new String[this.getCitas().size()];
+		int i = 0;
+		for (Entry<String, Cita> cita : this.getCitas().entrySet()) {
+			retorno[i] = cita.getValue().getFechaYHora() + "-" + cita.getValue().isConfirmacion()+"-"+cita.getValue().getIdUnicoCita();
+			i++;
+		}
+		return retorno;
+	}
+	public void modificarCita(String idCita, String observaciones, boolean asistencia) {
+		this.getCitas().get(idCita).setConfirmacion(asistencia);
+		this.getCitas().get(idCita).setObservaciones(observaciones);
+		
 	}
 	
 	

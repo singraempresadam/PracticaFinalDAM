@@ -5,6 +5,9 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map.Entry;
+
+import javax.swing.ListModel;
+
 import lecturaYEscritura.DTO;
 import modelo.clasesDatos.Cirujano;
 import modelo.clasesDatos.Cita;
@@ -211,6 +214,9 @@ public class GestorModelo {
 		}
 		return retorno;
 	}
+	public String[] obtenerTratamiento(String idPaciente) {
+		return this.getPacientes().get(idPaciente).obtenerTratamiento();
+	}
 	public String[] obtenerTodosLosMedicos() {
 		String medicos[]=obtenerElementosAMostrarMedico();
 		String medicosActivos[]=obtenerElementosAMostrarMedicoActivo();
@@ -381,6 +387,24 @@ public class GestorModelo {
 		this.getPacientes().get(idPaciente).crearTratamiento(medicamento, dosis, fechaInicio, fechaFin);
 		
 	}
+	public String[] obtenerCitasRealizadas(String idPaciente) {
+		// TODO Auto-generated method stub
+		return this.filtrar("true", this.getPacientes().get(idPaciente).obtenerCitas());
+	}
+	public String[] obtenerCitasPendientes(String idPaciente) {
+		// TODO Auto-generated method stub
+		return this.filtrar("false", this.getPacientes().get(idPaciente).obtenerCitas());
+	}
+	
+	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico,boolean asistencia) {
+		this.getPacientes().put(idPaciente, this.getPacientes().get(idPaciente));
+		this.getMedicosActivo().put(idMedico,this.getMedicosActivo().get(idMedico));
+		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
+		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+		this.getPacientes().get(idPaciente).modificarCita(idCita,observaciones,asistencia);
+		this.getMedicosActivo().get(idMedico).modificarCita(idCita,observaciones,asistencia);
+	}
+	
 	
 
 }
