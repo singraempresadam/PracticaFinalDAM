@@ -19,7 +19,7 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 		this.setIdCita(idCita);
 		this.setIdMedico(idMedico);
 		
-		//this.agregarListener();
+		this.agregarListener();
 		//this.setIdPaciente(this.getControl().obtenerPacienteDeCita(this.getIdCita(), this.getIdMedico()));
 		//this.setNombrePaciente(this.getControl().obtenerNombrePaciente(this.getIdPaciente()));
 		//this.setNombreMedico(this.getControl().obtenerNombreMedico(this.getIdMedico()));

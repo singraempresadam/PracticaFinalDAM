@@ -46,7 +46,6 @@ private JButton btnSolicitarEspecialista;
 		getContentPane().setBackground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 750, 500);
-		setLocationRelativeTo(null);
 		setUndecorated(true);
 		
 			JPanel panelGestionarCitaEspecialista = new JPanel();
