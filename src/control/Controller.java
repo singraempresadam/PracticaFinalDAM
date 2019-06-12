@@ -227,5 +227,9 @@ public class Controller {
 		
 	}
 
+	public void modificarPaciente(String idPaciente, String telefono, String direccion) {
+		this.getMiGestor().modificarPaciente(idPaciente,telefono,direccion);
+	}
+
 	
 }

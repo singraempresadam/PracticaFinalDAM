@@ -12,13 +12,16 @@ import vista.paciente.VentanaDatosPaciente;
 
 public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	String[] ayudante;
-
+	boolean modificar;
+	String idPaciente;
 	Controller control;
 	public paraUiVentanaDatosPaciente(Controller control, String datos) {
 		super();
 		this.setControl(control);
+		this.setModificar(true);
 		this.agregarListener();
 		ayudante=datos.split("-");
+		this.setIdPaciente(ayudante[2]);
 		this.getTxtNombre().setText(ayudante[0]);
 		this.getTxtApellidos().setText(ayudante[1]);
 		this.getTxtTelefono().setText(ayudante[3]);
@@ -29,10 +32,24 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.getBtnModificar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				getTxtTelefono().setEditable(true);
-				getTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
-				getTxtDireccion().setEditable(true);
-				getTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
+				if(isModificar())
+				{
+					getTxtTelefono().setEditable(true);
+					getTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
+					getTxtDireccion().setEditable(true);
+					getTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
+					setModificar(false);
+				}
+				else
+				{
+					getTxtTelefono().setEditable(false);
+					getTxtTelefono().setBorder(new LineBorder(Color.BLUE, 1, true));
+					getTxtDireccion().setEditable(false);
+					getTxtDireccion().setBorder(new LineBorder(Color.BLUE, 1, true));
+					getControl().modificarPaciente(getIdPaciente(),getTxtTelefono().getText(),getTxtDireccion().getText());
+					setModificar(true);
+				}
+				
 			}
 		});
 		this.getBtnEliminar().addMouseListener(new MouseAdapter() {
@@ -73,6 +90,18 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	}
 	public void setControl(Controller control) {
 		this.control = control;
+	}
+	public boolean isModificar() {
+		return modificar;
+	}
+	public void setModificar(boolean modificar) {
+		this.modificar = modificar;
+	}
+	public String getIdPaciente() {
+		return idPaciente;
+	}
+	public void setIdPaciente(String idPaciente) {
+		this.idPaciente = idPaciente;
 	}
 	
 
