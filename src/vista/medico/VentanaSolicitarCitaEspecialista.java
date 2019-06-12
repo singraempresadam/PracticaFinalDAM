@@ -36,6 +36,9 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 	private JPanel panelSolicitarCitaEspecialista;
 	private JPanel panelHorario;
 	int pX,pY;
+	private JLabel lblHoraInicio;
+	private JLabel lblHoraDos;
+	private JLabel lblHoraTres;
 	
 	public VentanaSolicitarCitaEspecialista() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -184,7 +187,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
 				lblViernes.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraInicio = new JLabel("");
+				lblHoraInicio = new JLabel("");
 				lblHoraInicio.setBounds(20, 300, 100, 50);
 				panelSolicitarCitaEspecialista.add(lblHoraInicio);
 				lblHoraInicio.setOpaque(true);
@@ -193,7 +196,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraInicio.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraDos = new JLabel("");
+				lblHoraDos = new JLabel("");
 				lblHoraDos.setBounds(20, 350, 100, 50);
 				panelSolicitarCitaEspecialista.add(lblHoraDos);
 				lblHoraDos.setOpaque(true);
@@ -202,7 +205,7 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraDos.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraTres = new JLabel("");
+				lblHoraTres = new JLabel("");
 				lblHoraTres.setBounds(20, 400, 100, 50);
 				panelSolicitarCitaEspecialista.add(lblHoraTres);
 				lblHoraTres.setOpaque(true);
@@ -214,8 +217,81 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				panelHorario = new JPanel();
 				panelHorario.setBounds(120, 300, 500, 150);
 				panelSolicitarCitaEspecialista.add(panelHorario);
-				panelHorario.setLayout(new GridLayout(4, 5, 0, 0));
+				panelHorario.setLayout(null);
 		
 		
 	}
+
+	public JTextField getTxtPaciente() {
+		return txtPaciente;
+	}
+
+	public void setTxtPaciente(JTextField txtPaciente) {
+		this.txtPaciente = txtPaciente;
+	}
+
+	public JTextField getTxtMedicoEspecialista() {
+		return txtMedicoEspecialista;
+	}
+
+	public void setTxtMedicoEspecialista(JTextField txtMedicoEspecialista) {
+		this.txtMedicoEspecialista = txtMedicoEspecialista;
+	}
+
+	public JButton getBtnVerHorario() {
+		return btnVerHorario;
+	}
+
+	public void setBtnVerHorario(JButton btnVerHorario) {
+		this.btnVerHorario = btnVerHorario;
+	}
+
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
+	}
+
+	public JPanel getPanelSolicitarCitaEspecialista() {
+		return panelSolicitarCitaEspecialista;
+	}
+
+	public void setPanelSolicitarCitaEspecialista(JPanel panelSolicitarCitaEspecialista) {
+		this.panelSolicitarCitaEspecialista = panelSolicitarCitaEspecialista;
+	}
+
+	public JPanel getPanelHorario() {
+		return panelHorario;
+	}
+
+	public void setPanelHorario(JPanel panelHorario) {
+		this.panelHorario = panelHorario;
+	}
+
+	public JLabel getLblHoraInicio() {
+		return lblHoraInicio;
+	}
+
+	public void setLblHoraInicio(JLabel lblHoraInicio) {
+		this.lblHoraInicio = lblHoraInicio;
+	}
+
+	public JLabel getLblHoraDos() {
+		return lblHoraDos;
+	}
+
+	public void setLblHoraDos(JLabel lblHoraDos) {
+		this.lblHoraDos = lblHoraDos;
+	}
+
+	public JLabel getLblHoraTres() {
+		return lblHoraTres;
+	}
+
+	public void setLblHoraTres(JLabel lblHoraTres) {
+		this.lblHoraTres = lblHoraTres;
+	}
+	
 }

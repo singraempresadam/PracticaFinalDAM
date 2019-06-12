@@ -169,8 +169,8 @@ public class Controller {
 		
 	}
 
-	public boolean[][] solicitarHorario(String obtenerIdSeleccionado) {
-		return this.miGestor.solicitarHorario(obtenerIdSeleccionado);
+	public boolean[][] solicitarHorario(String obtenerIdSeleccionado, int tamanio) {
+		return this.miGestor.solicitarHorario(obtenerIdSeleccionado, tamanio);
 	}
 
 	public LocalTime[] obtenerInicioYFin(String medico) {

@@ -51,10 +51,11 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 				solicitarHorario();
 			}
 		});
+		
 	}
 	private void solicitarHorario() {
 		String medico=this.obtenerIdSeleccionado();
-		boolean horario[][]=this.getControl().solicitarHorario(medico);
+		boolean horario[][]=this.getControl().solicitarHorario(medico, 4);
 		String idMedico=obtenerId(medico);
 		LocalTime[] inicioYFin = this.getControl().obtenerInicioYFin(medico);
 		String[] horas = new String [4];
