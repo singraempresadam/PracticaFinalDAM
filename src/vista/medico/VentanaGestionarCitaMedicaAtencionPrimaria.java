@@ -40,6 +40,8 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 	private JButton btnGestionar;
 	private JButton btnSolicitarEspecialista;
 	int pX,pY;
+	private JLabel lblConsulta;
+	private JTextField txtConsulta;
 	
 	public VentanaGestionarCitaMedicaAtencionPrimaria() {
 		getContentPane().setBackground(Color.WHITE);
@@ -214,6 +216,23 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 				btnSolicitarEspecialista.setBorderPainted(false);
 				btnSolicitarEspecialista.setOpaque(true);
 				panelGestionarCitaAtencionPrimaria.add(btnSolicitarEspecialista);
+				
+				lblConsulta = new JLabel("Consulta");
+				lblConsulta.setForeground(new Color(0, 102, 204));
+				lblConsulta.setFont(new Font("Verdana", Font.BOLD, 12));
+				lblConsulta.setBounds(382, 182, 78, 14);
+				panelGestionarCitaAtencionPrimaria.add(lblConsulta);
+				
+				txtConsulta = new JTextField();
+				txtConsulta.setHorizontalAlignment(SwingConstants.CENTER);
+				txtConsulta.setForeground(new Color(0, 0, 102));
+				txtConsulta.setFont(new Font("Tahoma", Font.BOLD, 12));
+				txtConsulta.setEditable(false);
+				txtConsulta.setColumns(10);
+				txtConsulta.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtConsulta.setBackground(Color.WHITE);
+				txtConsulta.setBounds(487, 179, 222, 20);
+				panelGestionarCitaAtencionPrimaria.add(txtConsulta);
 		
 	}
 
