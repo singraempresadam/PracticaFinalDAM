@@ -216,6 +216,14 @@ public class Controller {
 		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerCitasPendientes(idPaciente);
 	}
+	public String[] obtenerCitasPendientesMedico(String idMedico) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerCitasPendientesMedico(idMedico);
+	}
+	public String[] obtenerCitasRealizadasMedico(String idMedico) {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerCitasRealizadasMedico(idMedico);
+	}
 
 	public  String[] obtenerCitasRealizadas(String idPaciente) {
 		// TODO Auto-generated method stub
@@ -230,6 +238,10 @@ public class Controller {
 	public void modificarPaciente(String idPaciente, String telefono, String direccion) {
 		this.getMiGestor().modificarPaciente(idPaciente,telefono,direccion);
 	}
+
+	
+
+	
 
 	
 	

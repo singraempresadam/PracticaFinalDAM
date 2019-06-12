@@ -396,9 +396,14 @@ public class GestorModelo {
 		// TODO Auto-generated method stub
 		return this.filtrar("false", this.getPacientes().get(idPaciente).obtenerCitas());
 	}
-	
+	public String[] obtenerCitasRealizadasMedico(String idMedico) {
+		return this.filtrar("true", this.getMedicosActivo().get(idMedico).obtenerCitas());
+	}
+	public String[] obtenerCitasPendientesMedico(String idMedico) {
+		return this.filtrar("false", this.getMedicosActivo().get(idMedico).obtenerCitas());
+	}
 	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico,boolean asistencia) {
-		
+		System.out.println(idCita + " " + observaciones + " " + asistencia);
 		this.getPacientes().get(idPaciente).modificarCita(idCita,observaciones,asistencia);
 		this.getMedicosActivo().get(idMedico).modificarCita(idCita,observaciones,asistencia);
 		guardarPaciente(idPaciente);
@@ -422,6 +427,7 @@ public class GestorModelo {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	
 	
 

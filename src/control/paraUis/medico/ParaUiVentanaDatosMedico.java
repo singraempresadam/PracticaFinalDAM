@@ -59,7 +59,7 @@ public class ParaUiVentanaDatosMedico extends VentanaDatosMedico{
 		this.getBtnHistorialMedico().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ParaUiVentanaHistorialMedico paraUiVentanaHistorialMedico = new ParaUiVentanaHistorialMedico();
+				ParaUiVentanaHistorialMedico paraUiVentanaHistorialMedico = new ParaUiVentanaHistorialMedico(getIdMedico(),getControl());
 				paraUiVentanaHistorialMedico.setVisible(true);
 			}
 		});

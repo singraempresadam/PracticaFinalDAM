@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import modelo.enumeraciones.Especialidad;
@@ -77,5 +78,15 @@ public class MedicoActivo extends Medico implements Serializable{
 		this.getCitas().get(idCita).setConfirmacion(asistencia);
 		this.getCitas().get(idCita).setObservaciones(observaciones);
 		
+	}
+
+	public String[] obtenerCitas() {
+		String[] retorno = new String[this.getCitas().size()];
+		int i = 0;
+		for (Entry<String, Cita> cita : this.getCitas().entrySet()) {
+			retorno[i] = cita.getValue().getFechaYHora() + "-" + cita.getValue().isConfirmacion()+"-"+cita.getValue().getIdUnicoCita();
+			i++;
+		}
+		return retorno;
 	}
 }
