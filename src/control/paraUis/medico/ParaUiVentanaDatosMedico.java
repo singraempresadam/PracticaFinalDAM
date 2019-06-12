@@ -49,7 +49,12 @@ public class ParaUiVentanaDatosMedico extends VentanaDatosMedico{
 				String telefono = getTxtTelefono().getText();
 				String direccion = getTxtDireccion().getText();
 			}});
-
+		this.getBtnDarDeBaja().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				getControl().darBajaMedicoActivo(getIdMedico());
+			}	
+		});
 		this.getBtnGestionarCita().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

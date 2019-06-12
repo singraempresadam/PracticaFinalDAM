@@ -33,6 +33,8 @@ public class VentanaGestionarIntervención extends JDialog {
 	private JTextField txtPaciente;
 	private JTextField txtFecha;
 	int pX,pY;
+	private JCheckBox chckbxConfirmarAsistencia;
+	private JButton btnGestionarIntervencion;
 
 	public VentanaGestionarIntervención() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -185,13 +187,13 @@ public class VentanaGestionarIntervención extends JDialog {
 				txtFecha.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
 				txtFecha.setColumns(10);
 				
-				JCheckBox chckbxConfirmarAsistencia = new JCheckBox("Confirmar asistencia");
+				chckbxConfirmarAsistencia = new JCheckBox("Confirmar asistencia");
 				chckbxConfirmarAsistencia.setBounds(509, 350, 230, 23);
 				panelGestionarIntervencion.add(chckbxConfirmarAsistencia);
 				chckbxConfirmarAsistencia.setFont(new Font("Tahoma", Font.BOLD, 11));
 				chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
 				
-				JButton btnGestionarIntervencion = new JButton("Gestionar");
+				btnGestionarIntervencion = new JButton("Gestionar");
 				btnGestionarIntervencion.setBounds(554, 437, 145, 23);
 				btnGestionarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnGestionarIntervencion.setBackground(new Color(204, 255, 204));
@@ -199,4 +201,36 @@ public class VentanaGestionarIntervención extends JDialog {
 				btnGestionarIntervencion.setOpaque(true);
 				panelGestionarIntervencion.add(btnGestionarIntervencion);
 	}
+
+	public JTextField getTxtObservaciones() {
+		return txtObservaciones;
+	}
+
+	public JTextField getTxtIntervencion() {
+		return txtIntervencion;
+	}
+
+	public JTextField getTxtEspecialista() {
+		return txtEspecialista;
+	}
+
+	public JTextField getTxtCirujano() {
+		return txtCirujano;
+	}
+
+	public JTextField getTxtPaciente() {
+		return txtPaciente;
+	}
+
+	public JTextField getTxtFecha() {
+		return txtFecha;
+	}
+
+	public JCheckBox getChckbxConfirmarAsistencia() {
+		return chckbxConfirmarAsistencia;
+	}
+	public JButton getBtnGestionarIntervencion() {
+		return btnGestionarIntervencion;
+	}
+	
 }

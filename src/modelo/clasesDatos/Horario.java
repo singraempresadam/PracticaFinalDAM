@@ -9,14 +9,7 @@ public class Horario implements Serializable {
 	LocalTime horaInicio;
 	LocalTime horaFin;
 	boolean [] dias;
-	
-	
-	public Horario(Horario horario)
-	{
-		this.horaInicio=horario.horaInicio;
-		this.horaFin=horario.horaFin;
-		this.dias=horario.dias;
-	}
+
 	
 	public Horario(LocalTime horaInicio, LocalTime horaFin, boolean [] dias) {
 		super();

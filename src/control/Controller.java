@@ -2,6 +2,8 @@ package control;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JTextField;
 import javax.swing.ListModel;
@@ -177,6 +179,9 @@ public class Controller {
 		
 		return this.getMiGestor().obtenerInicioYFin(medico);
 	}
+	public LocalTime[] obtenerInicioYFinCirujano(String cirujano) {
+		return this.getMiGestor().obtenerInicioYFinCirujano(cirujano);
+	}
 
 	public String getDia() {
 		return this.getMiGestor().getDia();
@@ -191,42 +196,42 @@ public class Controller {
 		
 		return this.getMiGestor().obtenerPacienteDeCita(idCita, idMedico);
 	}
-
+	public String obtenerPacienteDeIntervencion(String idIntervencion, String idCirujano) {
+		return this.getMiGestor().obtenerPacienteDeIntervencion(idIntervencion, idCirujano);
+	}
+	public String obtenerMedicoDeIntervencion(String idIntervencion, String idCirujano) {
+		return this.getMiGestor().obtenerMedicoDeIntervencion(idIntervencion, idCirujano);
+	}
 	public String obtenerNombrePaciente(String idPaciente) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerNombrePaciente(idPaciente);
 	}
 
 	public String obtenerNombreMedico(String idMedico) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerNombreMedico(idMedico);
 	}
-
+	public String obtenerNombreCirujano(String idCirujano) {
+		return this.getMiGestor().obtenerNombreCirujano(idCirujano);
+	}
 	public void crearTratamiento(String idPaciente, String tratamiento, String dosis, String fechaInicio, String fechaFin) {
 		this.getMiGestor().crearTratamiento(idPaciente, tratamiento, dosis, fechaInicio, fechaFin);
 		
 	}
 
 	public String[] obtenerTratamiento(String idPaciente) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerTratamiento(idPaciente);
 	}
 
 	public String[] obtenerCitasPendientes(String idPaciente) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerCitasPendientes(idPaciente);
 	}
 	public String[] obtenerCitasPendientesMedico(String idMedico) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerCitasPendientesMedico(idMedico);
 	}
 	public String[] obtenerCitasRealizadasMedico(String idMedico) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerCitasRealizadasMedico(idMedico);
 	}
 
 	public  String[] obtenerCitasRealizadas(String idPaciente) {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerCitasRealizadas(idPaciente);
 	}
 
@@ -234,10 +239,44 @@ public class Controller {
 		this.getMiGestor().modificarCita(idCita, observaciones, idPaciente,idMedico, asistencia);
 		
 	}
+	public void modificarIntervencion(String idIntervencion, String observacion, String idPaciente, String idCirujano,
+			boolean valid) {
+		this.getMiGestor().modificarIntervencion(idIntervencion,observacion,idPaciente,idCirujano,valid);
+	}
 
 	public void modificarPaciente(String idPaciente, String telefono, String direccion) {
 		this.getMiGestor().modificarPaciente(idPaciente,telefono,direccion);
 	}
+
+	public void darBajaMedicoActivo(String idMedico) {
+		this.getMiGestor().darBajaMedicoActivo(idMedico);
+		
+	}
+
+	public boolean comprobarAtencionPrimaria(String idMedico) {
+		return this.getMiGestor().comprobarAtencionPrimaria(idMedico);
+	}
+
+	public String[] obtenerListaCirujanos() {
+		return this.getMiGestor().obtenerElementosAMostrarCirujano();
+	}
+
+	public boolean[][] solicitarHorarioCirujano(String cirujano, int i) {
+		return this.getMiGestor().solicitarHorarioCirujano(cirujano, i);
+	}
+
+	public void solicitarIntervencion(String idPaciente, String idMedico, String obtenerIdSeleccionado,
+			TipoDeIntervencion selectedItem, String fecha) {
+		this.getMiGestor().solicitarIntervencion(idPaciente, idMedico, obtenerIdSeleccionado, selectedItem, fecha);
+		
+	}
+
+	
+	
+
+	
+
+	
 
 	
 

@@ -184,7 +184,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblViernes.setBorder(new MatteBorder(2, 0, 0, 2, (Color) new Color(0, 102, 204)));
 				lblViernes.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraInicio = new JLabel("");
+				JLabel lblHoraInicio = new JLabel("Ma\u00F1ana");
 				lblHoraInicio.setBounds(20, 300, 100, 50);
 				panelSolicitarIntervencion.add(lblHoraInicio);
 				lblHoraInicio.setOpaque(true);
@@ -193,7 +193,7 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblHoraInicio.setBorder(new MatteBorder(2, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraInicio.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraDos = new JLabel("");
+				JLabel lblHoraDos = new JLabel("Tarde");
 				lblHoraDos.setBounds(20, 350, 100, 50);
 				panelSolicitarIntervencion.add(lblHoraDos);
 				lblHoraDos.setOpaque(true);
@@ -202,19 +202,10 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraDos.setBackground(new Color(153, 204, 255));
 				
-				JLabel lblHoraTres = new JLabel("");
-				lblHoraTres.setBounds(20, 400, 100, 50);
-				panelSolicitarIntervencion.add(lblHoraTres);
-				lblHoraTres.setOpaque(true);
-				lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
-				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
-				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
-				lblHoraTres.setBackground(new Color(153, 204, 255));
-				
 				panelHorario = new JPanel();
-				panelHorario.setBounds(120, 300, 500, 150);
+				panelHorario.setBounds(120, 300, 500, 100);
 				panelSolicitarIntervencion.add(panelHorario);
-				panelHorario.setLayout(new GridLayout(4, 5, 0, 0));
+				panelHorario.setLayout(null);
 				
 				JLabel lblIntervencion = new JLabel("Intervencion");
 				lblIntervencion.setHorizontalAlignment(SwingConstants.CENTER);
@@ -228,6 +219,30 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				panelSolicitarIntervencion.add(comboBoxIntervencion);
 		
 		
+	}
+	
+	public JTextField getTxtPaciente() {
+		return txtPaciente;
+	}
+
+	public JTextField getTxtCirujano() {
+		return txtCirujano;
+	}
+	
+	public JButton getBtnVerHorario() {
+		return btnVerHorario;
+	}
+
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public JPanel getPanelSolicitarIntervencion() {
+		return panelSolicitarIntervencion;
+	}
+
+	public JPanel getPanelHorario() {
+		return panelHorario;
 	}
 
 	public JComboBox getComboBoxIntervencion() {

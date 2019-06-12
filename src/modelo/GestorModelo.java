@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.ListModel;
@@ -119,6 +120,23 @@ public class GestorModelo {
 	{
 		this.getPacientes().remove(idUnico);
 		getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
+	}
+	public void darBajaMedicoActivo(String idMedico) {
+		Medico medico = crearMedicoDeMedicoActivo(idMedico);
+		this.getMedicos().put(idMedico, medico);
+		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
+		this.getMedicosActivo().remove(idMedico);
+		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
+	}
+	private Medico crearMedicoDeMedicoActivo(String idMedico) {
+		String nombre=this.getMedicosActivo().get(idMedico).getNombre();
+		String apellidos=this.getMedicosActivo().get(idMedico).getApellidos();
+		String telefono=this.getMedicosActivo().get(idMedico).getTelefono();
+		String direccion=this.getMedicosActivo().get(idMedico).getDireccion();
+		String idUnico=this.getMedicosActivo().get(idMedico).getIdUnico();
+		Especialidad especialidad=this.getMedicosActivo().get(idMedico).getEspecialidad();
+		Medico medico = new Medico(nombre, apellidos, telefono, direccion, idUnico, especialidad);
+		return medico;
 	}
 	public void eliminarMedico(String idUnico)
 	{
@@ -354,6 +372,16 @@ public class GestorModelo {
 		}
  		return retorno;
 	}
+	public boolean[][] solicitarHorarioCirujano(String obtenerIdSeleccionado, int tamanio) {
+		String idCirujanoSeleccionado = obtenerIdPersona(obtenerIdSeleccionado);
+		boolean [][] retorno = new boolean [tamanio][5];
+		for (int i = 0; i < retorno.length; i++) {
+			for (int j = 0; j < retorno[i].length; j++) {
+				retorno[i][j]=this.getCirujanos().get(idCirujanoSeleccionado).obtenerDias(j);				
+			}
+		}
+ 		return retorno;
+	}
 	private String obtenerIdPersona(String obtenerIdSeleccionado) {
 		String [] fragmentarDatos = obtenerIdSeleccionado.split("-");
 		String idMedicoSeleccionado=fragmentarDatos[2];
@@ -363,6 +391,12 @@ public class GestorModelo {
 		String id=obtenerIdPersona(medico);
 		LocalTime [] retorno = {this.getMedicosActivo().get(id).getHoraIncio(), 
 					this.getMedicosActivo().get(id).getHoraFin()};
+		return retorno;
+	}
+	public LocalTime[] obtenerInicioYFinCirujano(String cirujano) {
+		String id=obtenerIdPersona(cirujano);
+		LocalTime [] retorno = {this.getCirujanos().get(id).getHoraIncio(), 
+					this.getCirujanos().get(id).getHoraFin()};
 		return retorno;
 	}
 	public String getDia() {
@@ -376,9 +410,20 @@ public class GestorModelo {
 		
 		return this.getMedicosActivo().get(idMedico).obtenerPacienteDeCita(idCita);
 	}
+	public String obtenerPacienteDeIntervencion(String idIntervencion,String idCirujano) {
+		
+		return this.getCirujanos().get(idCirujano).obtenerPacienteDeIntervencion(idIntervencion);
+	}
+	public String obtenerMedicoDeIntervencion(String idIntervencion,String idCirujano) {
+		
+		return this.getCirujanos().get(idCirujano).obtenerMedicoDeIntervencion(idIntervencion);
+	}
 	public String obtenerNombrePaciente(String idPaciente) {
 		
 		return this.getPacientes().get(idPaciente).getNombreYApellidos();
+	}
+	public String obtenerNombreCirujano(String idCirujano) {
+		return this.getCirujanos().get(idCirujano).getNombreYApellidos();
 	}
 	public String obtenerNombreMedico(String idMedico) {
 		return this.getMedicosActivo().get(idMedico).getNombreYApellidos();
@@ -409,6 +454,17 @@ public class GestorModelo {
 		guardarPaciente(idPaciente);
 		guardarMedicoActivo(idMedico);
 	}
+	public void modificarIntervencion(String idIntervencion, String observacion, String idPaciente, String idCirujano,
+			boolean valid) {
+		this.getPacientes().get(idPaciente).modificarIntervencion(idIntervencion,observacion,valid);
+		this.getCirujanos().get(idCirujano).modificarIntervencion(idIntervencion,observacion,valid);
+		guardarPaciente(idPaciente);
+		guardarCirujano(idCirujano);
+	}
+	private void guardarMedico(String idMedico) {
+		this.getMedicos().put(idMedico,this.getMedicos().get(idMedico));
+		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
+	}
 	private void guardarMedicoActivo(String idMedico) {
 		this.getMedicosActivo().put(idMedico,this.getMedicosActivo().get(idMedico));
 		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
@@ -417,16 +473,31 @@ public class GestorModelo {
 		this.getPacientes().put(idPaciente, this.getPacientes().get(idPaciente));
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
 	}
+	private void guardarCirujano(String idCirujano) {
+		this.getCirujanos().put(idCirujano, this.getCirujanos().get(idCirujano));
+		this.getDtoCirujano().grabarColeccionCirujano(this.getCirujanos());
+	}
 	public void modificarPaciente(String idPaciente, String telefono, String direccion) {
 		this.getPacientes().get(idPaciente).setTelefono(telefono);
 		this.getPacientes().get(idPaciente).setDireccion(direccion);
 		guardarPaciente(idPaciente);
 		
 	}
-	public void solicitarCitaEspecialista(String idPaciente, String obtenerIdSeleccionado, String fecha) {
-		// TODO Auto-generated method stub
-		
+	public boolean comprobarAtencionPrimaria(String idMedico) {
+		boolean retorno;
+		if(this.getMedicosActivo().get(idMedico).getEspecialidad().toString().contains("Atencion_Primaria"))
+			retorno=true;
+		else retorno=false;
+		return retorno;
 	}
+	public HashMap obtenerIntervencionesCirujano(String idCirujano) {
+		return getCirujanos().get(idCirujano).getIntervenciones();
+	}
+	
+	
+	
+	
+	
 	
 	
 	

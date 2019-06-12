@@ -15,21 +15,30 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 	String idPaciente;
 	String nombreMedico;
 	String nombrePaciente;
+	boolean AtencionPrimaria;
 	public ParaUiVentanaGestionarCitaMedicaAtencionPrimaria(Controller control, String idCita, String idMedico) {
 		super();
 		this.setControl(control);
 		this.setIdCita(idCita);
 		this.setIdMedico(idMedico);
+		this.setAtencionPrimaria(this.getControl().comprobarAtencionPrimaria(idMedico));
 		Medicamento[] values = Medicamento.values();
 		for (int i = 0; i < values.length; i++) {
 			this.getComboBoxTratamiento().addItem(values[i]);
 		}
-		this.agregarListener();
+		if(!this.isAtencionPrimaria())
+		{
+			this.getLblGestionarCitaMedicaAP().setText("GESTIONAR CITA ESPECIALIDAD");
+			this.getBtnSolicitar().setText("Solicitar cirujano");
+		}
+		
 		this.setIdPaciente(this.getControl().obtenerPacienteDeCita(this.getIdCita(), this.getIdMedico()));
 		this.setNombrePaciente(this.getControl().obtenerNombrePaciente(this.getIdPaciente()));
 		this.setNombreMedico(this.getControl().obtenerNombreMedico(this.getIdMedico()));
 		this.getTxtNombrePaciente().setText(this.getNombrePaciente());
 		this.getTxtNombreMedico().setText(this.getNombreMedico());
+		this.agregarListener();
+		
 		
 	}
 	private void agregarListener() {
@@ -41,11 +50,19 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 				dispose();
 			}
 		});
-		this.getBtnSolicitarEspecialista().addMouseListener(new MouseAdapter() {
+		this.getBtnSolicitar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				ParaUiVentanaSolicitarCitaEspecialista paraUiVentanaSolicitarCitaEspecialista = new ParaUiVentanaSolicitarCitaEspecialista(control, idPaciente);
-				paraUiVentanaSolicitarCitaEspecialista.setVisible(true);
+				if(isAtencionPrimaria())
+				{
+					ParaUiVentanaSolicitarCitaEspecialista paraUiVentanaSolicitarCitaEspecialista = new ParaUiVentanaSolicitarCitaEspecialista(control, idPaciente);
+					paraUiVentanaSolicitarCitaEspecialista.setVisible(true);
+				}
+				else
+				{
+					ParaUiVentanaSolicitarIntervencion paraUiVentanaSolicitarIntervencion = new ParaUiVentanaSolicitarIntervencion(control,idPaciente, idMedico);
+					paraUiVentanaSolicitarIntervencion.setVisible(true);
+				}
 				dispose();
 			}
 		});
@@ -86,6 +103,12 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 	}
 	public void setNombrePaciente(String nombrePaciente) {
 		this.nombrePaciente = nombrePaciente;
+	}
+	public boolean isAtencionPrimaria() {
+		return AtencionPrimaria;
+	}
+	public void setAtencionPrimaria(boolean atencionPrimaria) {
+		AtencionPrimaria = atencionPrimaria;
 	}
 	
 	

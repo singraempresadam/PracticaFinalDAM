@@ -38,10 +38,11 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 	private JComboBox comboBoxTratamiento;
 	private JCheckBox chckbxConfirmarAsistencia;
 	private JButton btnGestionar;
-	private JButton btnSolicitarEspecialista;
+	private JButton btnSolicitar;
 	int pX,pY;
 	private JLabel lblConsulta;
 	private JTextField txtConsulta;
+	private JLabel lblGestionarCitaMedicaAP;
 	
 	public VentanaGestionarCitaMedicaAtencionPrimaria() {
 		getContentPane().setBackground(Color.WHITE);
@@ -84,7 +85,7 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 				btnCerrar.setBounds(713, 0, 37, 31);
 				panelGestionarCitaAtencionPrimaria.add(btnCerrar);
 				
-				JLabel lblGestionarCitaMedicaAP = new JLabel("GESTIONAR CITA ATENCION PRIMARIA");
+				lblGestionarCitaMedicaAP = new JLabel("GESTIONAR CITA ATENCION PRIMARIA");
 				lblGestionarCitaMedicaAP.setIcon(new ImageIcon(VentanaGestionarCitaEspecialista.class.getResource("/images/iconventana.png")));
 				lblGestionarCitaMedicaAP.setOpaque(true);
 				lblGestionarCitaMedicaAP.setHorizontalAlignment(SwingConstants.LEFT);
@@ -208,14 +209,14 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 				btnGestionar.setOpaque(true);
 				panelGestionarCitaAtencionPrimaria.add(btnGestionar);
 				
-				btnSolicitarEspecialista = new JButton("Solicitar Especialista");
-				btnSolicitarEspecialista.setBounds(534, 430, 184, 23);			
-				btnSolicitarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
-				btnSolicitarEspecialista.setBackground(new Color(204, 255, 204));
-				btnSolicitarEspecialista.setContentAreaFilled(false);
-				btnSolicitarEspecialista.setBorderPainted(false);
-				btnSolicitarEspecialista.setOpaque(true);
-				panelGestionarCitaAtencionPrimaria.add(btnSolicitarEspecialista);
+				btnSolicitar = new JButton("Solicitar Especialista");
+				btnSolicitar.setBounds(534, 430, 184, 23);			
+				btnSolicitar.setFont(new Font("Verdana", Font.BOLD, 12));
+				btnSolicitar.setBackground(new Color(204, 255, 204));
+				btnSolicitar.setContentAreaFilled(false);
+				btnSolicitar.setBorderPainted(false);
+				btnSolicitar.setOpaque(true);
+				panelGestionarCitaAtencionPrimaria.add(btnSolicitar);
 				
 				lblConsulta = new JLabel("Consulta");
 				lblConsulta.setForeground(new Color(0, 102, 204));
@@ -308,12 +309,38 @@ public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
 		this.btnGestionar = btnGestionar;
 	}
 
-	public JButton getBtnSolicitarEspecialista() {
-		return btnSolicitarEspecialista;
+
+	public JButton getBtnSolicitar() {
+		return btnSolicitar;
 	}
 
-	public void setBtnSolicitarEspecialista(JButton btnSolicitarEspecialista) {
-		this.btnSolicitarEspecialista = btnSolicitarEspecialista;
+	public void setBtnSolicitar(JButton btnSolicitar) {
+		this.btnSolicitar = btnSolicitar;
 	}
+
+	public JLabel getLblConsulta() {
+		return lblConsulta;
+	}
+
+	public void setLblConsulta(JLabel lblConsulta) {
+		this.lblConsulta = lblConsulta;
+	}
+
+	public JTextField getTxtConsulta() {
+		return txtConsulta;
+	}
+
+	public void setTxtConsulta(JTextField txtConsulta) {
+		this.txtConsulta = txtConsulta;
+	}
+
+	public JLabel getLblGestionarCitaMedicaAP() {
+		return lblGestionarCitaMedicaAP;
+	}
+
+	public void setLblGestionarCitaMedicaAP(JLabel lblGestionarCitaMedicaAP) {
+		this.lblGestionarCitaMedicaAP = lblGestionarCitaMedicaAP;
+	}
+	
 	
 }

@@ -96,6 +96,11 @@ public class Paciente extends Persona implements Serializable{
 		this.getCitas().get(idCita).setObservaciones(observaciones);
 		
 	}
+	public void modificarIntervencion(String idIntervencion, String observacion, boolean valid) {
+		this.getIntervenciones().get(idIntervencion).setConfirmacion(valid);
+		this.getIntervenciones().get(idIntervencion).setObservaciones(observacion);
+		
+	}
 	
 	
 	
