@@ -109,7 +109,7 @@ public class ParaUiVentanaSolicitarCitaEspecialista extends VentanaSolicitarCita
 					public void mouseClicked(MouseEvent arg0) {
 						String fecha = ((JButton) arg0.getSource()).getName();
 						if(((JButton) arg0.getSource()).isEnabled())
-						//getControl().getMiGestor().solicitarCitaEspecialista(idPaciente, obtenerIdSeleccionado(), fecha);
+						getControl().solicitarCitaPaciente(idPaciente, obtenerIdSeleccionado(), fecha);
 						dispose();
 					}
 				});

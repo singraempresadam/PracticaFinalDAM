@@ -28,7 +28,7 @@ public class Controller {
 	{
 		this.getMiGestor().recetarUnTratamiento(idUnicoPaciente, medicamento,  dosis, fechaDeInicio, fechaFin);
 	}
-	void solicitarCitaPaciente(String idUnicoPaciente,String idUnicoMedico, String fechaYHora)
+	public void solicitarCitaPaciente(String idUnicoPaciente,String idUnicoMedico, String fechaYHora)
 	{
 		this.getMiGestor().solicitarCitaPaciente(idUnicoPaciente, idUnicoMedico, fechaYHora);
 	}
@@ -231,5 +231,6 @@ public class Controller {
 		this.getMiGestor().modificarPaciente(idPaciente,telefono,direccion);
 	}
 
+	
 	
 }

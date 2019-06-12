@@ -38,7 +38,6 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 	int pX,pY;
 	private JLabel lblHoraInicio;
 	private JLabel lblHoraDos;
-	private JLabel lblHoraTres;
 	
 	public VentanaSolicitarCitaEspecialista() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -205,17 +204,8 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				lblHoraDos.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraDos.setBackground(new Color(153, 204, 255));
 				
-				lblHoraTres = new JLabel("");
-				lblHoraTres.setBounds(20, 400, 100, 50);
-				panelSolicitarCitaEspecialista.add(lblHoraTres);
-				lblHoraTres.setOpaque(true);
-				lblHoraTres.setHorizontalAlignment(SwingConstants.CENTER);
-				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
-				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
-				lblHoraTres.setBackground(new Color(153, 204, 255));
-				
 				panelHorario = new JPanel();
-				panelHorario.setBounds(120, 300, 500, 150);
+				panelHorario.setBounds(120, 300, 500, 100);
 				panelSolicitarCitaEspecialista.add(panelHorario);
 				panelHorario.setLayout(null);
 		
@@ -286,12 +276,5 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 		this.lblHoraDos = lblHoraDos;
 	}
 
-	public JLabel getLblHoraTres() {
-		return lblHoraTres;
-	}
-
-	public void setLblHoraTres(JLabel lblHoraTres) {
-		this.lblHoraTres = lblHoraTres;
-	}
 	
 }

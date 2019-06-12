@@ -110,7 +110,7 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 					public void mouseClicked(MouseEvent arg0) {
 						String fecha = ((JButton) arg0.getSource()).getName();
 						if(((JButton) arg0.getSource()).isEnabled())
-						getControl().getMiGestor().solicitarCitaPaciente(idPaciente, obtenerIdSeleccionado(), fecha);
+						getControl().solicitarCitaPaciente(idPaciente, obtenerIdSeleccionado(), fecha);
 						dispose();
 					}
 				});

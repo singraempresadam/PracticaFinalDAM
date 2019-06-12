@@ -60,10 +60,11 @@ public class GestorModelo {
 		String idCita = this.generarId();
 		idUnicoMedico=this.obtenerIdPersona(idUnicoMedico);
 		System.out.println(idUnicoPaciente + " " + idUnicoMedico + " " +fechaYHora);
+		
 		this.getPacientes().get(idUnicoPaciente).crearCita(idCita, idUnicoMedico, fechaYHora);
 		this.getMedicosActivo().get(idUnicoMedico).crearCita(idCita, idUnicoPaciente, fechaYHora);
-		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
-		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
+		this.guardarPaciente(idUnicoPaciente);
+		this.guardarMedicoActivo(idUnicoMedico);
 	}
 	public void solicitarCitaMedico(String idUnicoPaciente, String idUnicoMedico, String idUnicoMedicoEspecialista, String fechaYHora) {
 		String idCita = this.generarId();
@@ -415,6 +416,10 @@ public class GestorModelo {
 		this.getPacientes().get(idPaciente).setTelefono(telefono);
 		this.getPacientes().get(idPaciente).setDireccion(direccion);
 		guardarPaciente(idPaciente);
+		
+	}
+	public void solicitarCitaEspecialista(String idPaciente, String obtenerIdSeleccionado, String fecha) {
+		// TODO Auto-generated method stub
 		
 	}
 	
