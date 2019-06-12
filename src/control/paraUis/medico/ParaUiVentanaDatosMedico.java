@@ -10,7 +10,10 @@ import java.util.Map;
 import javax.swing.border.LineBorder;
 
 import control.Controller;
+import control.paraUis.ExceptionDatos;
+import control.paraUis.ParaUiOperacionRealizada;
 import control.paraUis.ParaUiVentanaError;
+import control.paraUis.Validator;
 import modelo.clasesDatos.Cita;
 import vista.medico.VentanaDatosMedico;
 
@@ -33,27 +36,30 @@ public class ParaUiVentanaDatosMedico extends VentanaDatosMedico{
 		this.getTxtEstado().setText(ayudante[6]);
 	}
 	private void agregarListener() {
-		this.getBtnModificar().addMouseListener(new MouseAdapter() {
+			this.getBtnModificar().addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent arg0) {
+				Validator validator = new Validator();
+		
 				getTxtTelefono().setEditable(true);
 				getTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
 				getTxtDireccion().setEditable(true);
 				getTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
-				
-			}
-		});
+				String telefono = getTxtTelefono().getText();
+				String direccion = getTxtDireccion().getText();
+			}});
+
 		this.getBtnGestionarCita().addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent arg0) {
 				comprobarCitaDisponible();
 			}
 
 			
 		});
+	}	
 		
-		
-	}
+
 	private void comprobarCitaDisponible() {
 		for(Map.Entry<String, Cita> entry : this.getControl().getMiGestor().getMedicosActivo().get(idMedico).getCitas().entrySet()){
 			System.out.println(entry.getValue().getFechaYHora().contains(this.getControl().fechaYHora()));

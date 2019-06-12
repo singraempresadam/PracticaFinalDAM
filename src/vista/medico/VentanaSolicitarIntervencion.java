@@ -30,14 +30,12 @@ import javax.swing.JList;
 public class VentanaSolicitarIntervencion extends JDialog {
 	protected JTextField txtPaciente;
 	protected JTextField txtCirujano;
-	protected JTextField getTxtBuscar;
 	private JButton btnVerHorario;
-	private JButton btnSolicitarIntervencion;
-	int pX,pY;
 	private JButton btnBuscar;
 	private JPanel panelSolicitarIntervencion;
 	private JPanel panelHorario;
 	private JComboBox comboBoxIntervencion;
+	int pX,pY;
 	
 	public VentanaSolicitarIntervencion() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -212,18 +210,6 @@ public class VentanaSolicitarIntervencion extends JDialog {
 				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraTres.setBackground(new Color(153, 204, 255));
-				
-				
-				btnSolicitarIntervencion = new JButton("Solicitar");
-				btnSolicitarIntervencion.setBounds(741, 466, 89, 23);
-				panelSolicitarIntervencion.add(btnSolicitarIntervencion);
-				btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
-				btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
-				btnSolicitarIntervencion.setContentAreaFilled(false);
-				btnSolicitarIntervencion.setBorderPainted(false);
-				btnSolicitarIntervencion.setOpaque(true);
-				btnSolicitarIntervencion.setRequestFocusEnabled(false);
-				btnSolicitarIntervencion.setFocusable(false);
 				
 				panelHorario = new JPanel();
 				panelHorario.setBounds(120, 300, 500, 150);

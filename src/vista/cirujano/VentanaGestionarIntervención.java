@@ -26,7 +26,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
 public class VentanaGestionarIntervención extends JDialog {
-	private JTextField getTxtObservaciones;
+	private JTextField txtObservaciones;
 	private JTextField txtIntervencion;
 	private JTextField txtEspecialista;
 	private JTextField txtCirujano;
@@ -109,13 +109,13 @@ public class VentanaGestionarIntervención extends JDialog {
 				lblObservacion.setForeground(new Color(0, 102, 204));
 				lblObservacion.setFont(new Font("Verdana", Font.BOLD, 14));
 				
-				getTxtObservaciones = new JTextField();
-				getTxtObservaciones.setBounds(54, 210, 270, 163);
-				panelGestionarIntervencion.add(getTxtObservaciones);
-				getTxtObservaciones.setFont(new Font("Tahoma", Font.PLAIN, 13));
-				getTxtObservaciones.setBackground(Color.WHITE);
-				getTxtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
-				getTxtObservaciones.setColumns(10);
+				txtObservaciones = new JTextField();
+				txtObservaciones.setBounds(54, 210, 270, 163);
+				panelGestionarIntervencion.add(txtObservaciones);
+				txtObservaciones.setFont(new Font("Tahoma", Font.PLAIN, 13));
+				txtObservaciones.setBackground(Color.WHITE);
+				txtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+				txtObservaciones.setColumns(10);
 				
 				JLabel lblEspecialista = new JLabel("Especialista");
 				lblEspecialista.setBounds(399, 170, 100, 19);

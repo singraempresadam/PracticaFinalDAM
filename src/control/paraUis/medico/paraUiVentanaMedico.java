@@ -142,7 +142,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 	private void buscarMedico() {
 		getPanelBuscarMedico().setVisible(false);
 		getPanelBuscarMedico().remove(getScrollListaMedico());
-		setMedicos(new JList<String>(getControl().filtrar(getTxtgetNombre().getText(), getControl().obtenerTodosLosMedicos())));
+		setMedicos(new JList<String>(getControl().filtrar(getTxtBuscarMedico().getText(), getControl().obtenerTodosLosMedicos())));
 		setScrollListaMedico(new JScrollPane(getMedicos()));
 		getScrollListaMedico().setBounds(79, 108, 345, 213);
 		getScrollListaMedico().setBorder(new LineBorder(new Color(0, 102, 204), 2));
@@ -175,10 +175,10 @@ public class paraUiVentanaMedico extends VentanaMedico {
 	}
 	private void aniadirMedico() {
 		Validator validator = new Validator();
-		String nombre = getGetTxtNombreMedico().getText();
-		String apellidos = getGetTxtApellidosMedico().getText();
-		String telefono = getGetTxtTelefonoMedico().getText();
-		String direccion = getGetTxtDireccionMedico().getText();
+		String nombre = getTxtNombreMedico().getText();
+		String apellidos = getTxtApellidosMedico().getText();
+		String telefono = getTxtTelefonoMedico().getText();
+		String direccion = getTxtDireccionMedico().getText();
 		Especialidad especialidad = (Especialidad) getComboBoxEspecialidad().getSelectedItem();
 		String idUnico = control.generarId();
 		String total = nombre + "-" + apellidos + "-" + telefono + "-" + direccion;
@@ -186,10 +186,10 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		try {
 			if (validator.validarDatosMedico(total, getControl()).isResultado()) {
 				getControl().darAltaMedicoNuevo(nombre, apellidos, telefono, direccion, idUnico, especialidad);
-				getGetTxtNombreMedico().setText("");
-				getGetTxtApellidosMedico().setText("");
-				getGetTxtTelefonoMedico().setText("");
-				getGetTxtDireccionMedico().setText("");
+				getTxtNombreMedico().setText("");
+				getTxtApellidosMedico().setText("");
+				getTxtTelefonoMedico().setText("");
+				getTxtDireccionMedico().setText("");
 				crearVentanaOperacionRealizada("Medico registrado con exito");
 				buscarMedico();
 			}

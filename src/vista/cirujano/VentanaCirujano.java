@@ -27,12 +27,12 @@ public class VentanaCirujano extends JDialog{
 	private JTextField txtApellidoCirujano;
 	private JTextField txtTelefonoCirujano;
 	private JTextField txtDireccionCirujano;
-	int pX,pY;
 	private JButton btnBuscarCirujano;
 	private JButton btnConsultarCirujano;
-	private JTextField txtCirujano;
+	private JTextField txtBuscarCirujano;
 	private JPanel panelBuscar;
 	private JButton btnAnadirCirujano;
+	int pX,pY;
 	
 	public VentanaCirujano() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -97,13 +97,13 @@ public class VentanaCirujano extends JDialog{
 						tabbedPane.addTab("Buscar Cirujano", iconbuscar, panelBuscar, null);
 						panelBuscar.setLayout(null);
 						
-						txtCirujano = new JTextField();
-						txtCirujano.setForeground(new Color(0, 0, 102));
-						txtCirujano.setFont(new Font("Tahoma", Font.PLAIN, 13));
-						txtCirujano.setColumns(10);
-						txtCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
-						txtCirujano.setBounds(80, 50, 345, 27);
-						panelBuscar.add(txtCirujano);
+						txtBuscarCirujano = new JTextField();
+						txtBuscarCirujano.setForeground(new Color(0, 0, 102));
+						txtBuscarCirujano.setFont(new Font("Tahoma", Font.PLAIN, 13));
+						txtBuscarCirujano.setColumns(10);
+						txtBuscarCirujano.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+						txtBuscarCirujano.setBounds(80, 50, 345, 27);
+						panelBuscar.add(txtBuscarCirujano);
 						
 						btnBuscarCirujano = new JButton("Buscar");
 						btnBuscarCirujano.setFont(new Font("Verdana", Font.BOLD, 11));
@@ -260,11 +260,11 @@ public class VentanaCirujano extends JDialog{
 		this.btnConsultarCirujano = btnConsultarCirujano;
 	}
 
-	public JTextField getTxtCirujano() {
-		return txtCirujano;
+	public JTextField getTxtBuscarCirujano() {
+		return txtBuscarCirujano;
 	}
 
-	public void setTxtCirujano(JTextField txtCirujano) {
-		this.txtCirujano = txtCirujano;
+	public void setTxtBuscarCirujano(JTextField txtBuscarCirujano) {
+		this.txtBuscarCirujano = txtBuscarCirujano;
 	}
 }

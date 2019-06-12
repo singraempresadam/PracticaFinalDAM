@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -29,12 +28,11 @@ import javax.swing.ImageIcon;
 
 public class VentanaHistorialPaciente extends JDialog {
 	protected JTextField txtPaciente;
-	private JTable tablaTratamiento;
-	private JTable tablaIntervencion;
-	int pX,pY;
 	private JPanel panelTratamientos;
 	private JPanel panelCitasRealizadas;
 	private JPanel panelCitasPendientes;
+	int pX,pY;
+	private JPanel panelHistorialPaciente;
 	
 	public VentanaHistorialPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -43,7 +41,7 @@ public class VentanaHistorialPaciente extends JDialog {
 		setModal(true);
 		setUndecorated(true);
 		
-		JPanel panelHistorialPaciente = new JPanel();
+		panelHistorialPaciente = new JPanel();
 		panelHistorialPaciente.setBorder(new LineBorder(new Color(153, 204, 255)));
 		panelHistorialPaciente.addMouseListener(new MouseAdapter() {
 			@Override
@@ -122,19 +120,16 @@ public class VentanaHistorialPaciente extends JDialog {
 				panelHistorialPaciente.add(lblCitasRealizadas);
 				lblCitasRealizadas.setForeground(new Color(0, 102, 204));
 				lblCitasRealizadas.setFont(new Font("Verdana", Font.BOLD, 13));
+
 				
-				panelTratamientos = new JPanel();
-				panelTratamientos.setBounds(31, 180, 307, 202);
-				panelHistorialPaciente.add(panelTratamientos);
-				
-				panelCitasRealizadas = new JPanel();
-				panelCitasRealizadas.setBounds(400, 288, 253, 164);
-				panelHistorialPaciente.add(panelCitasRealizadas);
-				
-				panelCitasPendientes = new JPanel();
-				panelCitasPendientes.setBounds(400, 68, 253, 158);
-				panelHistorialPaciente.add(panelCitasPendientes);
-		
+	}
+
+	public JPanel getPanelHistorialPaciente() {
+		return panelHistorialPaciente;
+	}
+
+	public void setPanelHistorialPaciente(JPanel panelHistorialPaciente) {
+		this.panelHistorialPaciente = panelHistorialPaciente;
 	}
 
 	public JTextField getTxtPaciente() {
@@ -155,6 +150,4 @@ public class VentanaHistorialPaciente extends JDialog {
 	public JPanel getPanelCitasPendientes() {
 		return panelCitasPendientes;
 	}
-
-	
 	}

@@ -1,7 +1,10 @@
 package control.paraUis.paciente;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.border.LineBorder;
 
 import control.Controller;
 import control.paraUis.ParaUiOperacionRealizada;
@@ -16,17 +19,20 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.setControl(control);
 		this.agregarListener();
 		ayudante=datos.split("-");
-		this.getGetTxtNombre().setText(ayudante[0]);
-		this.getGetTxtApellidos().setText(ayudante[1]);
-		this.getGetTxtTelefono().setText(ayudante[3]);
-		this.getGetTxtDireccion().setText(ayudante[5]);
-		this.getGetTxtFechaNacimiento().setText(ayudante[4]);
+		this.getTxtNombre().setText(ayudante[0]);
+		this.getTxtApellidos().setText(ayudante[1]);
+		this.getTxtTelefono().setText(ayudante[3]);
+		this.getTxtDireccion().setText(ayudante[5]);
+		this.getTxtFechaNacimiento().setText(ayudante[4]);
 	}
 	private void agregarListener() {
 		this.getBtnModificar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Modificar");
+				getTxtTelefono().setEditable(true);
+				getTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
+				getTxtDireccion().setEditable(true);
+				getTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
 			}
 		});
 		this.getBtnEliminar().addMouseListener(new MouseAdapter() {

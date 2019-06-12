@@ -36,8 +36,8 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 		this.getBtnGestionar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				getControl().crearTratamiento(getIdPaciente(),getComboBoxTratamiento().getSelectedItem().toString(),getGetTxtDosis().getText(),getGetTxtFechaInicio().getText(),getGetTxtFechaFin().getText());
-				getControl().modificarCita(getIdCita(),getIdPaciente(),getIdMedico(), getGetTxtObservaciones().getText(), getChckbxConfirmarAsistencia().isValid());
+				getControl().crearTratamiento(getIdPaciente(),getComboBoxTratamiento().getSelectedItem().toString(),getTxtDosis().getText(),getTxtFechaInicio().getText(),getTxtFechaFin().getText());
+				getControl().modificarCita(getIdCita(),getIdPaciente(),getIdMedico(), getTxtObservaciones().getText(), getChckbxConfirmarAsistencia().isValid());
 				dispose();
 			}
 		});

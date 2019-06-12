@@ -30,12 +30,14 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.border.LineBorder;
 
 public class VentanaGestionarCitaEspecialista extends JDialog{
-	private JTextField getTxtDosis;
-	private JTextField getTxtFechaInicio;
-	private JTextField getTxtFechaFin;
-	private JTextField getTxtObservaciones;
+	private JTextField txtDosis;
+	private JTextField txtFechaInicio;
+	private JTextField txtFechaFin;
+	private JTextField txtObservaciones;
 	private JTextField txtNombrePaciente;
 	private JTextField txtNombreMedico;
+	private JButton btnGestionarEspecialista;
+	private JButton btnSolicitarIntervencion;
 	int pX,pY;
 	
 	public VentanaGestionarCitaEspecialista() {
@@ -139,33 +141,33 @@ public class VentanaGestionarCitaEspecialista extends JDialog{
 				comboBoxTratamiento.setBounds(71, 102, 222, 20);
 				panelGestionarCitaEspecialista.add(comboBoxTratamiento);
 				
-				getTxtDosis = new JTextField();
-				getTxtDosis.setHorizontalAlignment(SwingConstants.CENTER);
-				getTxtDosis.setFont(new Font("Tahoma", Font.PLAIN, 11));
-				getTxtDosis.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtDosis.setBounds(180, 140, 113, 20);				
-				getTxtDosis.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtDosis);
+				txtDosis = new JTextField();
+				txtDosis.setHorizontalAlignment(SwingConstants.CENTER);
+				txtDosis.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				txtDosis.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtDosis.setBounds(180, 140, 113, 20);				
+				txtDosis.setColumns(10);
+				panelGestionarCitaEspecialista.add(txtDosis);
 				
-				getTxtFechaInicio = new JTextField();
-				getTxtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
-				getTxtFechaInicio.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtFechaInicio.setBounds(180, 179, 113, 20);				
-				getTxtFechaInicio.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtFechaInicio);
+				txtFechaInicio = new JTextField();
+				txtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
+				txtFechaInicio.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtFechaInicio.setBounds(180, 179, 113, 20);				
+				txtFechaInicio.setColumns(10);
+				panelGestionarCitaEspecialista.add(txtFechaInicio);
 				
-				getTxtFechaFin = new JTextField();
-				getTxtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
-				getTxtFechaFin.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtFechaFin.setBounds(180, 217, 113, 20);	
-				getTxtFechaFin.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtFechaFin);
+				txtFechaFin = new JTextField();
+				txtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
+				txtFechaFin.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtFechaFin.setBounds(180, 217, 113, 20);	
+				txtFechaFin.setColumns(10);
+				panelGestionarCitaEspecialista.add(txtFechaFin);
 				
-				getTxtObservaciones = new JTextField();
-				getTxtObservaciones.setBounds(71, 288, 222, 110);
-				getTxtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
-				getTxtObservaciones.setColumns(10);
-				panelGestionarCitaEspecialista.add(getTxtObservaciones);
+				txtObservaciones = new JTextField();
+				txtObservaciones.setBounds(71, 288, 222, 110);
+				txtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+				txtObservaciones.setColumns(10);
+				panelGestionarCitaEspecialista.add(txtObservaciones);
 				
 				txtNombrePaciente = new JTextField();
 				txtNombrePaciente.setBackground(Color.WHITE);
@@ -195,7 +197,7 @@ public class VentanaGestionarCitaEspecialista extends JDialog{
 				chckbxConfirmarAsistencia.setBackground(new Color(204, 255, 255));
 				panelGestionarCitaEspecialista.add(chckbxConfirmarAsistencia);
 				
-				JButton btnGestionarEspecialista = new JButton("Gestionar");
+				btnGestionarEspecialista = new JButton("Gestionar");
 				btnGestionarEspecialista.setBounds(416, 430, 108, 23);			
 				btnGestionarEspecialista.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnGestionarEspecialista.setBackground(new Color(204, 255, 204));
@@ -204,7 +206,7 @@ public class VentanaGestionarCitaEspecialista extends JDialog{
 				btnGestionarEspecialista.setOpaque(true);
 				panelGestionarCitaEspecialista.add(btnGestionarEspecialista);
 				
-				JButton btnSolicitarIntervencion = new JButton("Solicitar Intervenci\u00F3n");
+				btnSolicitarIntervencion = new JButton("Solicitar Intervenci\u00F3n");
 				btnSolicitarIntervencion.setBounds(534, 430, 184, 23);			
 				btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
 				btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));

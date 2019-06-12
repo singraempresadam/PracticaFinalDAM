@@ -8,10 +8,8 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 
 import java.awt.Font;
-import java.awt.Toolkit;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -35,13 +33,12 @@ import java.awt.BorderLayout;
 import java.awt.event.MouseMotionAdapter;
 
 public class VentanaPaciente extends JDialog {
-	protected JPanel contentPane;
-	protected JTextField getTxtNombre;
-	protected JTextField getTxtApellidos;
-	protected JTextField getTxtTelefono;
-	protected JTextField getTxtFechaNacimiento;
-	protected JTextField getTxtDireccion;
-	protected JTextField getTxtBuscar;
+	protected JTextField txtNombre;
+	protected JTextField txtApellidos;
+	protected JTextField txtTelefono;
+	protected JTextField txtFechaNacimiento;
+	protected JTextField txtDireccion;
+	protected JTextField txtBuscarPaciente;
 	private JPanel panelBuscarPaciente;
 	private JButton btnConsultarPaciente;
 	private JButton btnBuscar;
@@ -116,11 +113,11 @@ public class VentanaPaciente extends JDialog {
 				tabbedPane.addTab("Buscar Paciente", iconbuscar, panelBuscarPaciente, null);
 				panelBuscarPaciente.setLayout(null);
 				
-				getTxtBuscar = new JTextField();
-				getTxtBuscar.setBounds(80, 50, 345, 27);
-				panelBuscarPaciente.add(getTxtBuscar);
-				getTxtBuscar.setColumns(10);
-				getTxtBuscar.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+				txtBuscarPaciente = new JTextField();
+				txtBuscarPaciente.setBounds(80, 50, 345, 27);
+				panelBuscarPaciente.add(txtBuscarPaciente);
+				txtBuscarPaciente.setColumns(10);
+				txtBuscarPaciente.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 				
 				btnBuscar = new JButton("Buscar");
 				btnBuscar.setFont(new Font("Verdana", Font.BOLD, 11));
@@ -180,41 +177,41 @@ public class VentanaPaciente extends JDialog {
 				panelAñadirPaciente.add(lblFechaNacimiento);
 				
 				
-				getTxtNombre = new JTextField();
-				getTxtNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
-				getTxtNombre.setBackground(new Color(255, 255, 255));
-				getTxtNombre.setBounds(347, 51, 169, 20);			
-				getTxtNombre.setColumns(10);
-				getTxtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				panelAñadirPaciente.add(getTxtNombre);
+				txtNombre = new JTextField();
+				txtNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
+				txtNombre.setBackground(new Color(255, 255, 255));
+				txtNombre.setBounds(347, 51, 169, 20);			
+				txtNombre.setColumns(10);
+				txtNombre.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				panelAñadirPaciente.add(txtNombre);
 				
-				getTxtApellidos = new JTextField();
-				getTxtApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
-				getTxtApellidos.setBounds(347, 99, 169, 20);		
-				getTxtApellidos.setColumns(10);
-				getTxtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				panelAñadirPaciente.add(getTxtApellidos);
+				txtApellidos = new JTextField();
+				txtApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
+				txtApellidos.setBounds(347, 99, 169, 20);		
+				txtApellidos.setColumns(10);
+				txtApellidos.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				panelAñadirPaciente.add(txtApellidos);
 				
-				getTxtTelefono = new JTextField();
-				getTxtTelefono.setFont(new Font("Tahoma", Font.BOLD, 13));
-				getTxtTelefono.setBounds(347, 151, 169, 20);			
-				getTxtTelefono.setColumns(10);
-				getTxtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				panelAñadirPaciente.add(getTxtTelefono);
+				txtTelefono = new JTextField();
+				txtTelefono.setFont(new Font("Tahoma", Font.BOLD, 13));
+				txtTelefono.setBounds(347, 151, 169, 20);			
+				txtTelefono.setColumns(10);
+				txtTelefono.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				panelAñadirPaciente.add(txtTelefono);
 				
-				getTxtFechaNacimiento = new JTextField();
-				getTxtFechaNacimiento.setFont(new Font("Tahoma", Font.BOLD, 13));
-				getTxtFechaNacimiento.setBounds(347, 238, 169, 20);				
-				getTxtFechaNacimiento.setColumns(10);
-				getTxtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				panelAñadirPaciente.add(getTxtFechaNacimiento);
+				txtFechaNacimiento = new JTextField();
+				txtFechaNacimiento.setFont(new Font("Tahoma", Font.BOLD, 13));
+				txtFechaNacimiento.setBounds(347, 238, 169, 20);				
+				txtFechaNacimiento.setColumns(10);
+				txtFechaNacimiento.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				panelAñadirPaciente.add(txtFechaNacimiento);
 				
-				getTxtDireccion = new JTextField();
-				getTxtDireccion.setFont(new Font("Tahoma", Font.BOLD, 13));
-				getTxtDireccion.setBounds(347, 193, 169, 20);				
-				getTxtDireccion.setColumns(10);
-				getTxtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				panelAñadirPaciente.add(getTxtDireccion);
+				txtDireccion = new JTextField();
+				txtDireccion.setFont(new Font("Tahoma", Font.BOLD, 13));
+				txtDireccion.setBounds(347, 193, 169, 20);				
+				txtDireccion.setColumns(10);
+				txtDireccion.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				panelAñadirPaciente.add(txtDireccion);
 				
 				btnAnadir = new JButton("A\u00F1adir");	
 				btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -239,52 +236,52 @@ public class VentanaPaciente extends JDialog {
 		return panelBuscarPaciente;
 	}
 
-	public JTextField getGetTxtNombre() {
-		return getTxtNombre;
+	public JTextField getTxtNombre() {
+		return txtNombre;
 	}
 
-	public void setGetTxtNombre(JTextField getTxtNombre) {
-		this.getTxtNombre = getTxtNombre;
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
 	}
 
-	public JTextField getGetTxtApellidos() {
-		return getTxtApellidos;
+	public JTextField getTxtApellidos() {
+		return txtApellidos;
 	}
 
-	public void setGetTxtApellidos(JTextField getTxtApellidos) {
-		this.getTxtApellidos = getTxtApellidos;
+	public void setTxtApellidos(JTextField txtApellidos) {
+		this.txtApellidos = txtApellidos;
 	}
 
-	public JTextField getGetTxtTelefono() {
-		return getTxtTelefono;
+	public JTextField getTxtTelefono() {
+		return txtTelefono;
 	}
 
-	public void setGetTxtTelefono(JTextField getTxtTelefono) {
-		this.getTxtTelefono = getTxtTelefono;
+	public void setTxtTelefono(JTextField txtTelefono) {
+		this.txtTelefono = txtTelefono;
 	}
 
-	public JTextField getGetTxtFechaNacimiento() {
-		return getTxtFechaNacimiento;
+	public JTextField getTxtFechaNacimiento() {
+		return txtFechaNacimiento;
 	}
 
-	public void setGetTxtFechaNacimiento(JTextField getTxtFechaNacimiento) {
-		this.getTxtFechaNacimiento = getTxtFechaNacimiento;
+	public void setTxtFechaNacimiento(JTextField txtFechaNacimiento) {
+		this.txtFechaNacimiento = txtFechaNacimiento;
 	}
 
-	public JTextField getGetTxtDireccion() {
-		return getTxtDireccion;
+	public JTextField getTxtDireccion() {
+		return txtDireccion;
 	}
 
-	public void setGetTxtDireccion(JTextField getTxtDireccion) {
-		this.getTxtDireccion = getTxtDireccion;
+	public void setTxtDireccion(JTextField txtDireccion) {
+		this.txtDireccion = txtDireccion;
 	}
 
-	public JTextField getGetTxtBuscar() {
-		return getTxtBuscar;
+	public JTextField getTxtBuscarPaciente() {
+		return txtBuscarPaciente;
 	}
 
-	public void setGetTxtBuscar(JTextField getTxtBuscar) {
-		this.getTxtBuscar = getTxtBuscar;
+	public void setTxtBuscarPaciente(JTextField txtBuscarPaciente) {
+		this.txtBuscarPaciente = txtBuscarPaciente;
 	}
 
 	public JButton getBtnBuscar() {
