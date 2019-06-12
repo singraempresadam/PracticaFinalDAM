@@ -63,7 +63,7 @@ public class paraUiVentanaCirujano extends VentanaCirujano{
 			public void mouseClicked(MouseEvent arg0) {
 				getPanelBuscar().setVisible(false);
 				getPanelBuscar().remove(getScrollListaCirujano());
-				setCirujanos(new JList<String>(getControl().filtrar(getTxtCirujano().getText(), control.obtenerElementosAMostrarCirujano())));
+				setCirujanos(new JList<String>(getControl().filtrar(getTxtBuscarCirujano().getText(), control.obtenerElementosAMostrarCirujano())));
 				setScrollListaCirujano(new JScrollPane(getCirujanos()));
 				getScrollListaCirujano().setBounds(79, 108, 345, 213);
 				getScrollListaCirujano().setBorder(new LineBorder(new Color(0, 102, 204), 2));

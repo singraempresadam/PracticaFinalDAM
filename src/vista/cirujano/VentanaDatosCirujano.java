@@ -23,14 +23,13 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.border.MatteBorder;
 
 public class VentanaDatosCirujano extends JDialog {
-	protected JTextField getTxtBuscar;
-	int pX,pY;
 	private JTextField txtNombre;
 	private JTextField txtApellidos;
 	private JTextField txtTelefono;
 	private JTextField txtDireccion;
 	private JButton btnHistorialCirujano;
 	private JButton btnGestionarIntervencion;
+	int pX,pY;
 	
 	public VentanaDatosCirujano() {
 		getContentPane().setBackground(new Color(255, 255, 255));

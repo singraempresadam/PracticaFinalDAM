@@ -1,9 +1,11 @@
 package control.paraUis.paciente;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import control.Controller;
@@ -37,25 +39,25 @@ public class ParaUiVentanaHistorialPaciente extends VentanaHistorialPaciente{
 		this.setScrollListaTratamientos(new JScrollPane(this.getTratamientos()));
 		this.getScrollListaTratamientos().setBounds(31, 180, 307, 202);
 		this.getScrollListaTratamientos().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelTratamientos().add(this.getScrollListaTratamientos());
-		
-	}
-	private void crearListaCitasRealizadas() {
-		this.setCitasPendientes((new JList<String>(this.getControl().obtenerCitasPendientes(this.getIdPaciente()))));
-		this.getCitasPendientes().setVisible(true);
-		this.setScrollListaCitasPendientes(new JScrollPane(this.getCitasPendientes()));
-		this.getScrollListaCitasPendientes().setBounds(31, 180, 307, 202);
-		this.getScrollListaCitasPendientes().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelCitasPendientes().add(this.getScrollListaCitasPendientes());
+		getPanelHistorialPaciente().add(this.getScrollListaTratamientos());
 		
 	}
 	private void crearListaCitasPendientes() {
+		this.setCitasPendientes((new JList<String>(this.getControl().obtenerCitasPendientes(this.getIdPaciente()))));
+		this.getCitasPendientes().setVisible(true);
+		this.setScrollListaCitasPendientes(new JScrollPane(this.getCitasPendientes()));
+		this.getScrollListaCitasPendientes().setBounds(400, 68, 253, 158);
+		this.getScrollListaCitasPendientes().setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		getPanelHistorialPaciente().add(this.getScrollListaCitasPendientes());
+		
+	}
+	private void crearListaCitasRealizadas() {
 		this.setCitasRealizadas((new JList<String>(this.getControl().obtenerCitasRealizadas(this.getIdPaciente()))));
 		this.getCitasRealizadas().setVisible(true);
 		this.setScrollListaCitasRealizadas(new JScrollPane(this.getCitasRealizadas()));
-		this.getScrollListaCitasRealizadas().setBounds(31, 180, 307, 202);
+		this.getScrollListaCitasRealizadas().setBounds(400, 288, 253, 164);
 		this.getScrollListaCitasRealizadas().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelCitasRealizadas().add(this.getScrollListaCitasRealizadas());
+		getPanelHistorialPaciente().add(this.getScrollListaCitasRealizadas());
 		
 	}
 	public String getIdPaciente() {

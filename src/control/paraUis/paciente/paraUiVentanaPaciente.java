@@ -63,7 +63,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 			public void mouseClicked(MouseEvent arg0) {
 				getPanelBuscarPaciente().setVisible(false);
 				getPanelBuscarPaciente().remove(getScrollListaPaciente());
-				setPacientes(new JList<String>(getControl().filtrar(getGetTxtBuscar().getText(), control.obtenerElementosAMostrarPaciente())));
+				setPacientes(new JList<String>(getControl().filtrar(getTxtBuscarPaciente().getText(), control.obtenerElementosAMostrarPaciente())));
 				setScrollListaPaciente(new JScrollPane(getPacientes()));
 				getScrollListaPaciente().setBounds(79, 108, 345, 213);
 				getScrollListaPaciente().setBorder(new LineBorder(new Color(0, 102, 204), 2));
@@ -75,23 +75,23 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				Validator validator = new Validator();
-				String nombre = getTxtNombre.getText();
-				String apellidos = getTxtApellidos.getText();
-				String telefono = getTxtTelefono.getText();
-				String direccion = getTxtDireccion.getText();
+				String nombre = txtNombre.getText();
+				String apellidos = txtApellidos.getText();
+				String telefono = txtTelefono.getText();
+				String direccion = txtDireccion.getText();
 				String idUnico = control.generarId();
-				String fechaDeNacimiento = getTxtFechaNacimiento.getText();
+				String fechaDeNacimiento = txtFechaNacimiento.getText();
 				String total = nombre + "-" + apellidos + "-" + telefono + "-" + direccion + "-" + fechaDeNacimiento;
 
 				try {
 					if ((validator.validarDatosPaciente(total, getControl())).isResultado()) {
 						getControl().darAltaPacienteNuevo(nombre, apellidos, telefono, direccion, idUnico,
 								fechaDeNacimiento);
-						getGetTxtNombre().setText("");
-						getGetTxtApellidos().setText("");
-						getGetTxtFechaNacimiento().setText("");
-						getGetTxtTelefono().setText("");
-						getGetTxtDireccion().setText("");
+						getTxtNombre().setText("");
+						getTxtApellidos().setText("");
+						getTxtFechaNacimiento().setText("");
+						getTxtTelefono().setText("");
+						getTxtDireccion().setText("");
 						crearVentanaOperacionRealizada("Paciente registrado con exito");
 					}
 				} catch (ExceptionDatos e) {

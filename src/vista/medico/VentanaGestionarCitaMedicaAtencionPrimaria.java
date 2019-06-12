@@ -29,18 +29,17 @@ import javax.swing.JDialog;
 import javax.swing.border.LineBorder;
 
 public class VentanaGestionarCitaMedicaAtencionPrimaria extends JDialog{
-	
-int pX,pY;
-private JTextField getTxtDosis;
-private JTextField getTxtFechaInicio;
-private JTextField getTxtFechaFin;
-private JTextField getTxtObservaciones;
-private JTextField txtNombrePaciente;
-private JTextField txtNombreMedico;
-private JComboBox comboBoxTratamiento;
-private JCheckBox chckbxConfirmarAsistencia;
-private JButton btnGestionar;
-private JButton btnSolicitarEspecialista;
+	private JTextField txtDosis;
+	private JTextField txtFechaInicio;
+	private JTextField txtFechaFin;
+	private JTextField txtObservaciones;
+	private JTextField txtNombrePaciente;
+	private JTextField txtNombreMedico;
+	private JComboBox comboBoxTratamiento;
+	private JCheckBox chckbxConfirmarAsistencia;
+	private JButton btnGestionar;
+	private JButton btnSolicitarEspecialista;
+	int pX,pY;
 	
 	public VentanaGestionarCitaMedicaAtencionPrimaria() {
 		getContentPane().setBackground(Color.WHITE);
@@ -142,33 +141,33 @@ private JButton btnSolicitarEspecialista;
 				comboBoxTratamiento.setBounds(71, 104, 222, 20);
 				panelGestionarCitaAtencionPrimaria.add(comboBoxTratamiento);
 				
-				getTxtDosis = new JTextField();
-				getTxtDosis.setHorizontalAlignment(SwingConstants.CENTER);
-				getTxtDosis.setFont(new Font("Tahoma", Font.PLAIN, 11));
-				getTxtDosis.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtDosis.setBounds(180, 140, 113, 20);				
-				getTxtDosis.setColumns(10);
-				panelGestionarCitaAtencionPrimaria.add(getTxtDosis);
+				txtDosis = new JTextField();
+				txtDosis.setHorizontalAlignment(SwingConstants.CENTER);
+				txtDosis.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				txtDosis.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtDosis.setBounds(180, 140, 113, 20);				
+				txtDosis.setColumns(10);
+				panelGestionarCitaAtencionPrimaria.add(txtDosis);
 				
-				getTxtFechaInicio = new JTextField();
-				getTxtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
-				getTxtFechaInicio.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtFechaInicio.setBounds(180, 179, 113, 20);				
-				getTxtFechaInicio.setColumns(10);
-				panelGestionarCitaAtencionPrimaria.add(getTxtFechaInicio);
+				txtFechaInicio = new JTextField();
+				txtFechaInicio.setHorizontalAlignment(SwingConstants.CENTER);
+				txtFechaInicio.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtFechaInicio.setBounds(180, 179, 113, 20);				
+				txtFechaInicio.setColumns(10);
+				panelGestionarCitaAtencionPrimaria.add(txtFechaInicio);
 				
-				getTxtFechaFin = new JTextField();
-				getTxtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
-				getTxtFechaFin.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-				getTxtFechaFin.setBounds(180, 217, 113, 20);	
-				getTxtFechaFin.setColumns(10);
-				panelGestionarCitaAtencionPrimaria.add(getTxtFechaFin);
+				txtFechaFin = new JTextField();
+				txtFechaFin.setHorizontalAlignment(SwingConstants.CENTER);
+				txtFechaFin.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+				txtFechaFin.setBounds(180, 217, 113, 20);	
+				txtFechaFin.setColumns(10);
+				panelGestionarCitaAtencionPrimaria.add(txtFechaFin);
 				
-				getTxtObservaciones = new JTextField();
-				getTxtObservaciones.setBounds(71, 288, 222, 110);
-				getTxtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
-				getTxtObservaciones.setColumns(10);
-				panelGestionarCitaAtencionPrimaria.add(getTxtObservaciones);
+				txtObservaciones = new JTextField();
+				txtObservaciones.setBounds(71, 288, 222, 110);
+				txtObservaciones.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+				txtObservaciones.setColumns(10);
+				panelGestionarCitaAtencionPrimaria.add(txtObservaciones);
 				
 				txtNombrePaciente = new JTextField();
 				txtNombrePaciente.setBackground(Color.WHITE);
@@ -218,36 +217,36 @@ private JButton btnSolicitarEspecialista;
 		
 	}
 
-	public JTextField getGetTxtDosis() {
-		return getTxtDosis;
+	public JTextField getTxtDosis() {
+		return txtDosis;
 	}
 
-	public void setGetTxtDosis(JTextField getTxtDosis) {
-		this.getTxtDosis = getTxtDosis;
+	public void setTxtDosis(JTextField txtDosis) {
+		this.txtDosis = txtDosis;
 	}
 
-	public JTextField getGetTxtFechaInicio() {
-		return getTxtFechaInicio;
+	public JTextField getTxtFechaInicio() {
+		return txtFechaInicio;
 	}
 
-	public void setGetTxtFechaInicio(JTextField getTxtFechaInicio) {
-		this.getTxtFechaInicio = getTxtFechaInicio;
+	public void setTxtFechaInicio(JTextField txtFechaInicio) {
+		this.txtFechaInicio = txtFechaInicio;
 	}
 
-	public JTextField getGetTxtFechaFin() {
-		return getTxtFechaFin;
+	public JTextField getTxtFechaFin() {
+		return txtFechaFin;
 	}
 
-	public void setGetTxtFechaFin(JTextField getTxtFechaFin) {
-		this.getTxtFechaFin = getTxtFechaFin;
+	public void setTxtFechaFin(JTextField txtFechaFin) {
+		this.txtFechaFin = txtFechaFin;
 	}
 
-	public JTextField getGetTxtObservaciones() {
-		return getTxtObservaciones;
+	public JTextField getTxtObservaciones() {
+		return txtObservaciones;
 	}
 
-	public void setGetTxtObservaciones(JTextField getTxtObservaciones) {
-		this.getTxtObservaciones = getTxtObservaciones;
+	public void setTxtObservaciones(JTextField txtObservaciones) {
+		this.txtObservaciones = txtObservaciones;
 	}
 
 	public JTextField getTxtNombrePaciente() {

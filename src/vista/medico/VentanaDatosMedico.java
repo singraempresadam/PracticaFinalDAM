@@ -30,7 +30,6 @@ public class VentanaDatosMedico extends JDialog {
 	protected JTextField txtApellidos;
 	protected JTextField txtTelefono;
 	protected JTextField txtDireccion;
-	protected JTextField getTxtBuscar;
 	protected JTextField txtEspecialidad;
 	protected JTextField txtEstado;
 	private JButton btnModificar;
@@ -261,14 +260,6 @@ public class VentanaDatosMedico extends JDialog {
 
 	public void setTxtDireccion(JTextField txtDireccion) {
 		this.txtDireccion = txtDireccion;
-	}
-
-	public JTextField getGetTxtBuscar() {
-		return getTxtBuscar;
-	}
-
-	public void setGetTxtBuscar(JTextField getTxtBuscar) {
-		this.getTxtBuscar = getTxtBuscar;
 	}
 
 	public JTextField getTxtEspecialidad() {

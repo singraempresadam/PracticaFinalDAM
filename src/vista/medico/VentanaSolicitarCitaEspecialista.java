@@ -31,14 +31,12 @@ import java.awt.event.ActionEvent;
 public class VentanaSolicitarCitaEspecialista extends JDialog {
 	protected JTextField txtPaciente;
 	protected JTextField txtMedicoEspecialista;
-	protected JTextField getTxtBuscar;
 	private JButton btnVerHorario;
-	private JButton btnSolicitarIntervencion;
-	int pX,pY;
 	private JButton btnBuscar;
 	private JPanel panelSolicitarCitaEspecialista;
 	private JPanel panelHorario;
-
+	int pX,pY;
+	
 	public VentanaSolicitarCitaEspecialista() {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 740, 500);
@@ -212,18 +210,6 @@ public class VentanaSolicitarCitaEspecialista extends JDialog {
 				lblHoraTres.setFont(new Font("Tahoma", Font.BOLD, 13));
 				lblHoraTres.setBorder(new MatteBorder(0, 2, 1, 1, (Color) new Color(0, 102, 204)));
 				lblHoraTres.setBackground(new Color(153, 204, 255));
-				
-				
-				btnSolicitarIntervencion = new JButton("Solicitar");
-				btnSolicitarIntervencion.setBounds(641, 455, 89, 23);
-				panelSolicitarCitaEspecialista.add(btnSolicitarIntervencion);
-				btnSolicitarIntervencion.setFont(new Font("Verdana", Font.BOLD, 12));
-				btnSolicitarIntervencion.setBackground(new Color(204, 255, 204));
-				btnSolicitarIntervencion.setContentAreaFilled(false);
-				btnSolicitarIntervencion.setBorderPainted(false);
-				btnSolicitarIntervencion.setOpaque(true);
-				btnSolicitarIntervencion.setRequestFocusEnabled(false);
-				btnSolicitarIntervencion.setFocusable(false);
 				
 				panelHorario = new JPanel();
 				panelHorario.setBounds(120, 300, 500, 150);

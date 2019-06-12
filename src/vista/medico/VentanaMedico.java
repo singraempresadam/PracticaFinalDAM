@@ -21,15 +21,13 @@ import javax.swing.JDialog;
 import java.awt.event.MouseMotionAdapter;
 
 public class VentanaMedico extends JDialog {
-	protected JPanel contentPane;
-	protected JTextField getTxtBuscar;
-	private JTextField txtgetNombre;
+	private JTextField txtBuscarMedico;
 	private JTextField txtNombreEspecialista;
 	private JTextField txtNombreMedicoAP;
-	private JTextField getTxtNombreMedico;
-	private JTextField getTxtApellidosMedico;
-	private JTextField getTxtTelefonoMedico;
-	private JTextField getTxtDireccionMedico;
+	private JTextField txtNombreMedico;
+	private JTextField txtApellidosMedico;
+	private JTextField txtTelefonoMedico;
+	private JTextField txtDireccionMedico;
 	private JPanel panelBuscarMedico;
 	private JButton btnBuscar;
 	private JButton btnConsultarMedico;
@@ -46,12 +44,12 @@ public class VentanaMedico extends JDialog {
 	private JPanel panelAnadirMedico;
 	private JPanel panelAnadirMedicoEspecialista;
 	private JPanel panelAnadirMedicoAP;
-	int pX,pY;
 	private JLabel lblConsultaEspecialista;
+	int pX,pY;
 	
 		public VentanaMedico() {
 			getContentPane().setBackground(new Color(255, 255, 255));
-			setBounds(100, 100, 740, 500);
+			setBounds(100, 100, 750, 500);
 			setLocationRelativeTo(null);
 			setModal(true);
 			setUndecorated(true);
@@ -113,11 +111,11 @@ public class VentanaMedico extends JDialog {
 						tabbedPane.addTab("Buscar Médico", iconbuscar, panelBuscarMedico, null);
 						panelBuscarMedico.setLayout(null);
 						
-						txtgetNombre = new JTextField();
-						txtgetNombre.setBounds(80, 50, 345, 27);
-						panelBuscarMedico.add(txtgetNombre);
-						txtgetNombre.setColumns(10);
-						txtgetNombre.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
+						txtBuscarMedico = new JTextField();
+						txtBuscarMedico.setBounds(80, 50, 345, 27);
+						panelBuscarMedico.add(txtBuscarMedico);
+						txtBuscarMedico.setColumns(10);
+						txtBuscarMedico.setBorder(new LineBorder(new Color(0, 102, 204), 2, true));
 						
 						btnBuscar = new JButton("Buscar");
 						btnBuscar.setBackground(new Color(0, 102, 204));
@@ -174,33 +172,33 @@ public class VentanaMedico extends JDialog {
 						lblEspecialidad.setBounds(178, 265, 115, 26);
 						panelAnadirMedico.add(lblEspecialidad);
 						
-						getTxtNombreMedico = new JTextField();
-						getTxtNombreMedico.setColumns(10);
-						getTxtNombreMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtNombreMedico.setBackground(Color.WHITE);
-						getTxtNombreMedico.setBounds(320, 69, 169, 20);
-						panelAnadirMedico.add(getTxtNombreMedico);
+						txtNombreMedico = new JTextField();
+						txtNombreMedico.setColumns(10);
+						txtNombreMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtNombreMedico.setBackground(Color.WHITE);
+						txtNombreMedico.setBounds(320, 69, 169, 20);
+						panelAnadirMedico.add(txtNombreMedico);
 						
-						getTxtApellidosMedico = new JTextField();
-						getTxtApellidosMedico.setColumns(10);
-						getTxtApellidosMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtApellidosMedico.setBackground(Color.WHITE);
-						getTxtApellidosMedico.setBounds(320, 117, 169, 20);
-						panelAnadirMedico.add(getTxtApellidosMedico);
+						txtApellidosMedico = new JTextField();
+						txtApellidosMedico.setColumns(10);
+						txtApellidosMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtApellidosMedico.setBackground(Color.WHITE);
+						txtApellidosMedico.setBounds(320, 117, 169, 20);
+						panelAnadirMedico.add(txtApellidosMedico);
 						
-						getTxtTelefonoMedico = new JTextField();
-						getTxtTelefonoMedico.setColumns(10);
-						getTxtTelefonoMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtTelefonoMedico.setBackground(Color.WHITE);
-						getTxtTelefonoMedico.setBounds(320, 164, 169, 20);
-						panelAnadirMedico.add(getTxtTelefonoMedico);
+						txtTelefonoMedico = new JTextField();
+						txtTelefonoMedico.setColumns(10);
+						txtTelefonoMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtTelefonoMedico.setBackground(Color.WHITE);
+						txtTelefonoMedico.setBounds(320, 164, 169, 20);
+						panelAnadirMedico.add(txtTelefonoMedico);
 						
-						getTxtDireccionMedico = new JTextField();
-						getTxtDireccionMedico.setColumns(10);
-						getTxtDireccionMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
-						getTxtDireccionMedico.setBackground(Color.WHITE);
-						getTxtDireccionMedico.setBounds(320, 211, 169, 20);
-						panelAnadirMedico.add(getTxtDireccionMedico);
+						txtDireccionMedico = new JTextField();
+						txtDireccionMedico.setColumns(10);
+						txtDireccionMedico.setBorder(new LineBorder(new Color(0, 102, 204), 1, true));
+						txtDireccionMedico.setBackground(Color.WHITE);
+						txtDireccionMedico.setBounds(320, 211, 169, 20);
+						panelAnadirMedico.add(txtDireccionMedico);
 						
 						btnAnadirMedico = new JButton("A\u00F1adir");
 						btnAnadirMedico.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -336,16 +334,12 @@ public class VentanaMedico extends JDialog {
 						JComboBox comboBoxConsulta = new JComboBox();
 						comboBoxConsulta.setBounds(581, 244, 114, 20);
 						panelAnadirMedicoAP.add(comboBoxConsulta);
-			
-			this.setMinimumSize(new Dimension(750, 500));
+
 		}
 
-		public JTextField getGetTxtBuscar() {
-			return getTxtBuscar;
-		}
 
-		public JTextField getTxtgetNombre() {
-			return txtgetNombre;
+		public JTextField getTxtBuscarMedico() {
+			return txtBuscarMedico;
 		}
 
 		public JTextField getTxtNombreEspecialista() {
@@ -356,20 +350,20 @@ public class VentanaMedico extends JDialog {
 			return txtNombreMedicoAP;
 		}
 
-		public JTextField getGetTxtNombreMedico() {
-			return getTxtNombreMedico;
+		public JTextField getTxtNombreMedico() {
+			return txtNombreMedico;
 		}
 
-		public JTextField getGetTxtApellidosMedico() {
-			return getTxtApellidosMedico;
+		public JTextField getTxtApellidosMedico() {
+			return txtApellidosMedico;
 		}
 
-		public JTextField getGetTxtTelefonoMedico() {
-			return getTxtTelefonoMedico;
+		public JTextField getTxtTelefonoMedico() {
+			return txtTelefonoMedico;
 		}
 
-		public JTextField getGetTxtDireccionMedico() {
-			return getTxtDireccionMedico;
+		public JTextField getTxtDireccionMedico() {
+			return txtDireccionMedico;
 		}
 
 		public JPanel getPanelBuscarMedico() {

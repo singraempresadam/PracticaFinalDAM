@@ -23,17 +23,19 @@ import javax.swing.border.LineBorder;
 
 public class ventanaPrincipal extends JFrame {
 
-	protected JPanel contentPane;
 	protected JButton botonPaciente;
 	protected JButton botonCirujano;
 	protected JButton botonMedico;
-	int pX,pY;
 	private JLabel lblFechaYHora;
 	private JButton btnUnaHora;
 	private JButton btnTresHoras;
 	private JButton btnDoceHoras;
 	private JButton btnVeinticuatroHoras;
 	private JButton btnUnDia;
+	int pX,pY;
+	private JLabel lblClinicaBuenaSalud;
+	int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+	int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 
 	/**
 	 * Create the frame.
@@ -48,6 +50,7 @@ public class ventanaPrincipal extends JFrame {
 		setUndecorated(true);
 		
 		JPanel panelPrincipal = new JPanel();	
+		panelPrincipal.setBorder(new LineBorder(new Color(153, 204, 255)));
 		panelPrincipal.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -72,6 +75,7 @@ public class ventanaPrincipal extends JFrame {
 					System.exit(0); 
 				}
 			});
+			
 			btnCerrar.setBackground(new Color(0, 153, 255));
 			btnCerrar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/cerrar.png")));
 			btnCerrar.setContentAreaFilled(false);
@@ -81,28 +85,28 @@ public class ventanaPrincipal extends JFrame {
 			panelPrincipal.add(btnCerrar);
 			
 			JButton btnMinimizar = new JButton("");
-			btnMinimizar.setBackground(new Color(0, 153, 255));
+			btnMinimizar.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					setExtendedState(ICONIFIED);
+				}
+			});
+			btnMinimizar.setBackground(Color.WHITE);
 			btnMinimizar.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/minimizar.png")));
 			btnMinimizar.setContentAreaFilled(false);
 			btnMinimizar.setBorderPainted(false);
 			btnMinimizar.setOpaque(true);
-			btnMinimizar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					setExtendedState(ICONIFIED); 
-				}
-			});
-			btnMinimizar.setBounds(681, 0, 36, 31);
+			btnMinimizar.setBounds(678, 0, 36, 31);
 			panelPrincipal.add(btnMinimizar);
-			
-			
-			JLabel lblClinicaBuenaSalud = new JLabel("HEALTHY CODE");
+		
+			lblClinicaBuenaSalud = new JLabel("HEALTHY CODE");
 			lblClinicaBuenaSalud.setIcon(new ImageIcon(ventanaPrincipal.class.getResource("/images/iconventana.png")));
 			lblClinicaBuenaSalud.setHorizontalAlignment(SwingConstants.LEFT);
 			lblClinicaBuenaSalud.setBounds(0, 0, 750, 31);
-			lblClinicaBuenaSalud.setBackground(new Color(51, 153, 255));
+			lblClinicaBuenaSalud.setBackground(Color.WHITE);
 			lblClinicaBuenaSalud.setFont(new Font("Eras Demi ITC", Font.BOLD, 12));
 			lblClinicaBuenaSalud.setOpaque(true);
-			lblClinicaBuenaSalud.setForeground(Color.WHITE);
+			lblClinicaBuenaSalud.setForeground(new Color(0, 102, 153));
 			panelPrincipal.add(lblClinicaBuenaSalud);
 	
 			

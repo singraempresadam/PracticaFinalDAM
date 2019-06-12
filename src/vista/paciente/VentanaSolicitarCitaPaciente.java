@@ -24,10 +24,7 @@ import java.awt.event.MouseAdapter;
 public class VentanaSolicitarCitaPaciente extends JDialog {
 	protected JTextField txtPaciente;
 	protected JTextField txtMedicoAP;
-	protected JTextField getTxtBuscar;
 	private JButton btnVerHorario;
-	private JButton btnSolicitar;
-	int pX,pY;
 	private JButton btnBuscar;
 	private JPanel panelSolicitarCitaPaciente;
 	private JPanel panelHorario;
@@ -35,6 +32,7 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 	private JLabel lblHoraDos;
 	private JLabel lblHoraTres;
 	private JLabel lblHoraFinal;
+	int pX,pY;
 	
 	public VentanaSolicitarCitaPaciente() {
 		getContentPane().setBackground(new Color(255, 255, 255));
@@ -219,18 +217,6 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 				lblHoraFinal.setBorder(new MatteBorder(0, 2, 2, 1, (Color) new Color(0, 102, 204)));
 				lblHoraFinal.setBackground(new Color(153, 204, 255));
 				
-				
-				btnSolicitar = new JButton("Solicitar");
-				btnSolicitar.setBounds(641, 505, 89, 23);
-				panelSolicitarCitaPaciente.add(btnSolicitar);
-				btnSolicitar.setFont(new Font("Verdana", Font.BOLD, 12));
-				btnSolicitar.setBackground(new Color(204, 255, 204));
-				btnSolicitar.setContentAreaFilled(false);
-				btnSolicitar.setBorderPainted(false);
-				btnSolicitar.setOpaque(true);
-				btnSolicitar.setRequestFocusEnabled(false);
-				btnSolicitar.setFocusable(false);
-				
 				panelHorario = new JPanel();
 				panelHorario.setBounds(120, 300, 500, 200);
 				panelSolicitarCitaPaciente.add(panelHorario);
@@ -255,28 +241,12 @@ public class VentanaSolicitarCitaPaciente extends JDialog {
 		this.txtMedicoAP = setTxtIdMedico;
 	}
 
-	public JTextField getGetTxtBuscar() {
-		return getTxtBuscar;
-	}
-
-	public void setGetTxtBuscar(JTextField getTxtBuscar) {
-		this.getTxtBuscar = getTxtBuscar;
-	}
-
 	public JButton getBtnVerHorario() {
 		return btnVerHorario;
 	}
 
 	public void setBtnVerHorario(JButton btnVerHorario) {
 		this.btnVerHorario = btnVerHorario;
-	}
-
-	public JButton getBtnSolicitar() {
-		return btnSolicitar;
-	}
-
-	public void setBtnSolicitar(JButton btnSolicitar) {
-		this.btnSolicitar = btnSolicitar;
 	}
 
 	public JTextField getTxtPaciente() {

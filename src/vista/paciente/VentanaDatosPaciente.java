@@ -22,7 +22,6 @@ public class VentanaDatosPaciente extends JDialog{
 	private JTextField txtTelefono;
 	private JTextField txtFechaNacimiento;
 	private JTextField txtDireccion;
-	private JTextField getTxtBuscar;
 	private JButton btnModificar;
 	private JButton btnEliminar;
 	private JButton btnHistorial;
@@ -203,23 +202,23 @@ public class VentanaDatosPaciente extends JDialog{
 				
 	}
 
-	public JTextField getGetTxtNombre() {
+	public JTextField getTxtNombre() {
 		return txtNombre;
 	}
 
-	public JTextField getGetTxtApellidos() {
+	public JTextField getTxtApellidos() {
 		return txtApellidos;
 	}
 
-	public JTextField getGetTxtTelefono() {
+	public JTextField getTxtTelefono() {
 		return txtTelefono;
 	}
 
-	public JTextField getGetTxtFechaNacimiento() {
+	public JTextField getTxtFechaNacimiento() {
 		return txtFechaNacimiento;
 	}
 
-	public JTextField getGetTxtDireccion() {
+	public JTextField getTxtDireccion() {
 		return txtDireccion;
 	}
 	
@@ -255,8 +254,5 @@ public class VentanaDatosPaciente extends JDialog{
 		this.btnSolicitarCita = btnSolicitarCita;
 	}
 
-	public JTextField getGetTxtBuscar() {
-		return getTxtBuscar;
-	}
 	
 }
