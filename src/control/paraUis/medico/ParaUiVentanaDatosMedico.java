@@ -14,6 +14,7 @@ import control.paraUis.ExceptionDatos;
 import control.paraUis.ParaUiOperacionRealizada;
 import control.paraUis.ParaUiVentanaError;
 import control.paraUis.Validator;
+import control.paraUis.paciente.ParaUiVentanaHistorialPaciente;
 import modelo.clasesDatos.Cita;
 import vista.medico.VentanaDatosMedico;
 
@@ -53,10 +54,16 @@ public class ParaUiVentanaDatosMedico extends VentanaDatosMedico{
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				comprobarCitaDisponible();
-			}
-
-			
+			}	
 		});
+		this.getBtnHistorialMedico().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ParaUiVentanaHistorialMedico paraUiVentanaHistorialMedico = new ParaUiVentanaHistorialMedico();
+				paraUiVentanaHistorialMedico.setVisible(true);
+			}
+		});
+		
 	}	
 		
 

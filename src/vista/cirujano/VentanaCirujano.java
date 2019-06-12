@@ -45,6 +45,7 @@ public class VentanaCirujano extends JDialog{
 		ImageIcon iconbuscar = new ImageIcon(this.getClass().getResource("/images/buscar.png"));
 		
 		JPanel panelCirujano = new JPanel();
+		panelCirujano.setBackground(Color.WHITE);
 		panelCirujano.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -88,6 +89,19 @@ public class VentanaCirujano extends JDialog{
 				panelCirujano.add(lblCirujano);
 				
 						JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+						tabbedPane.addMouseListener(new MouseAdapter() {
+							@Override
+							public void mousePressed(MouseEvent e) {
+								pX=e.getX();
+								pY=e.getY(); 
+							}
+						});
+						tabbedPane.addMouseMotionListener(new MouseMotionAdapter() {
+							@Override
+							public void mouseDragged(MouseEvent e) {
+								setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
+							}
+						});
 						tabbedPane.setBounds(0, 31, 740, 469);
 						panelCirujano.add(tabbedPane);
 						tabbedPane.setBackground(Color.WHITE);

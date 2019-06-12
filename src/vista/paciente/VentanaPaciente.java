@@ -104,6 +104,19 @@ public class VentanaPaciente extends JDialog {
 				panelPaciente.add(lblClinicaBuenaSalud);
 		
 				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+				tabbedPane.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mousePressed(MouseEvent e) {
+						pX=e.getX();
+						pY=e.getY(); 
+					}
+				});
+				tabbedPane.addMouseMotionListener(new MouseMotionAdapter() {
+					@Override
+					public void mouseDragged(MouseEvent e) {
+						setLocation(getLocation().x+e.getX()-pX,getLocation().y+e.getY()-pY);
+					}
+				});
 				panelPaciente.add(tabbedPane);
 				tabbedPane.setBackground(Color.WHITE);
 				tabbedPane.setBounds(0, 31, 740, 466);

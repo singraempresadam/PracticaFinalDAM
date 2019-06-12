@@ -33,7 +33,6 @@ public class ParaUiVentanaHistorialPaciente extends VentanaHistorialPaciente{
 		this.crearListaTratamientos();
 	}
 	private void crearListaTratamientos() {
-		
 		this.setTratamientos(new JList<String>(this.getControl().obtenerTratamiento(this.getIdPaciente())));
 		this.getTratamientos().setVisible(true);
 		this.setScrollListaTratamientos(new JScrollPane(this.getTratamientos()));
