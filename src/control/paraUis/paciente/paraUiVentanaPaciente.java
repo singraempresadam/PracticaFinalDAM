@@ -137,6 +137,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 		getTxtDireccion().setText("");
 	}
 	
+	//GETTER AND SETTER
 	public JScrollPane getScrollListaPaciente() {
 		return scrollListaPaciente;
 	}

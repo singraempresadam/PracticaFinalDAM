@@ -279,6 +279,25 @@ public class Controller {
 		
 	}
 
+	public Object[] obtenerEspecialidades() {
+		return this.getMiGestor().obtenerEspecialidades();
+	}
+
+	public Object[] obtenerTurno() {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerTurno();
+	}
+
+	public String[] obtenerTodosLosMedicosInactivosAtencionPrimaria() {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerTodosLosMedicosInactivosAtencionPrimaria();
+	}
+
+	public String[] obtenerTodosLosMedicosInactivosEspecialistas() {
+		// TODO Auto-generated method stub
+		return this.getMiGestor().obtenerTodosLosMedicosInactivosEspecialistas();
+	}
+
 	
 
 	

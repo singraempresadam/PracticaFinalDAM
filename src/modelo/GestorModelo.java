@@ -19,6 +19,7 @@ import modelo.clasesDatos.Persona;
 import modelo.clasesDatos.Respuesta;
 import modelo.enumeraciones.Especialidad;
 import modelo.enumeraciones.TipoDeIntervencion;
+import modelo.enumeraciones.Turno;
 
 public class GestorModelo {
 	/*
@@ -502,6 +503,22 @@ public class GestorModelo {
 	public void establecerHora(int dia, int hora, int minuto) {
 		this.setHoraSistema(LocalTime.of(hora, minuto));
 		this.setDiaSistema(this.getDiaSistema().plusDays(dia));
+	}
+	public Object[] obtenerEspecialidades() {
+		return Especialidad.values();
+	}
+	public Object[] obtenerTurno() {
+		return Turno.values();
+	}
+	public String[] obtenerTodosLosMedicosInactivosAtencionPrimaria() {
+		String[] filtrar = this.filtrar("Atencion_Primaria", this.obtenerTodosLosMedicos());
+		String[] filtrarSin = this.filtrarSin("Activo",filtrar);
+		return filtrarSin;
+	}
+	public String[] obtenerTodosLosMedicosInactivosEspecialistas() {
+		String[] filtrar = this.filtrarSin("Atencion_Primaria", this.obtenerTodosLosMedicos());
+		String[] filtrarSin = this.filtrarSin("Activo",filtrar);
+		return filtrarSin;
 	}
 	
 	
