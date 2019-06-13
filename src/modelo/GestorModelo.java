@@ -51,8 +51,6 @@ public class GestorModelo {
 		this.cirujanos = dtoCirujano.leerColeccion();
 	}
 	
-	
-	
 	public void recetarUnTratamiento(String idUnicoPaciente, String medicamento, String dosis, String fechaDeInicio,
 			String fechaFin) {
 		this.getPacientes().get(idUnicoPaciente).crearTratamiento(medicamento, dosis, fechaDeInicio, fechaFin);
@@ -187,8 +185,6 @@ public class GestorModelo {
 	{
 		return Paciente.validaFechaNacimiento(fechaNacimiento);
 	}
-	
-	// BLoque para vistas
 
 	public String[] obtenerElementosAMostrarPaciente() {
 		String[] retorno = new String[this.getPacientes().size()];
@@ -292,59 +288,12 @@ public class GestorModelo {
 		}
 		return j;
 	}
-	
-	
 	public String fechaYHora() {
 		return this.getDiaSistema().toString()+" "+this.getHoraSistema().toString();
-	}
-	public LocalDate getDiaSistema() {
-		return diaSistema;
-	}
-	public void setDiaSistema(LocalDate diaSistema) {
-		this.diaSistema = diaSistema;
-	}
-	public LocalTime getHoraSistema() {
-		return horaSistema;
-	}
-	public void setHoraSistema(LocalTime horaSistema) {
-		this.horaSistema = horaSistema;
 	}
 	public Paciente obtenerUnPaciente(String idUnicoPaciente) {
 		return pacientes.get(idUnicoPaciente);
 	}
-
-	public HashMap<String, Paciente> getPacientes() {
-		return pacientes;
-	}
-
-	public HashMap<String, Medico> getMedicos() {
-		return medicos;
-	}
-
-	public HashMap<String, MedicoActivo> getMedicosActivo() {
-		return medicosActivo;
-	}
-
-	public HashMap<String, Cirujano> getCirujanos() {
-		return cirujanos;
-	}
-
-	public DTO<Paciente> getDtoPaciente() {
-		return dtoPaciente;
-	}
-
-	public DTO<Medico> getDtoMedico() {
-		return dtoMedico;
-	}
-
-	public DTO<MedicoActivo> getDtoMedicoActivo() {
-		return dtoMedicoActivo;
-	}
-
-	public DTO<Cirujano> getDtoCirujano() {
-		return dtoCirujano;
-	}
-
 	public String generarId() {
 		int numero = (int) (Math.random() * 999999999) + 100000000;
 		return String.valueOf(numero);
@@ -404,7 +353,6 @@ public class GestorModelo {
 		return this.getDiaSistema().getDayOfWeek().toString();
 	}
 	public LocalDate obtenerPrimerLunesSemanal(int plus) {
-		// TODO Auto-generated method stub
 		return getDiaSistema().plusDays(-plus);
 	}
 	public String obtenerPacienteDeCita(String idCita,String idMedico) {
@@ -435,12 +383,42 @@ public class GestorModelo {
 		
 	}
 	public String[] obtenerCitasRealizadas(String idPaciente) {
-		// TODO Auto-generated method stub
 		return this.filtrar("true", this.getPacientes().get(idPaciente).obtenerCitas());
 	}
 	public String[] obtenerCitasPendientes(String idPaciente) {
-		// TODO Auto-generated method stub
 		return this.filtrar("false", this.getPacientes().get(idPaciente).obtenerCitas());
+	}
+	public String[] obtenerCitasEIntervencionesPendientes(String idPaciente) {
+		String [] citasP = this.obtenerCitasPendientes(idPaciente);
+		String [] intervencionP = this.obtenerIntervencionesPendientes(idPaciente);
+		String [] retorno = new String[intervencionP.length+citasP.length];
+		for (int i = 0; i < citasP.length; i++) 
+			retorno[i]=citasP[i];
+		int j=0;
+		for(int i=citasP.length;i<retorno.length;i++)
+		{
+			retorno[i]=intervencionP[j];
+			j++;
+		}
+		return retorno;
+	}
+	public String[] obtenerCitasEIntervencionesRealizadas(String idPaciente) {
+		String [] citasR = this.obtenerCitasRealizadas(idPaciente);
+		String [] intervencionR = this.obtenerIntervencionesRealizadas(idPaciente);
+		String [] retorno = new String[intervencionR.length+citasR.length];
+		for (int i = 0; i < citasR.length; i++) 
+			retorno[i]=citasR[i];
+		for(int i=citasR.length;i<retorno.length;i++)
+			retorno[i]=intervencionR[i];
+		return retorno;
+	}
+	public String[] obtenerIntervencionesRealizadas(String idPaciente)
+	{
+		return this.filtrar("true", this.getPacientes().get(idPaciente).obtenerIntervenciones());
+	}
+	public String[] obtenerIntervencionesPendientes(String idPaciente)
+	{
+		return this.filtrar("false", this.getPacientes().get(idPaciente).obtenerIntervenciones());
 	}
 	public String[] obtenerCitasRealizadasMedico(String idMedico) {
 		return this.filtrar("true", this.getMedicosActivo().get(idMedico).obtenerCitas());
@@ -467,10 +445,6 @@ public class GestorModelo {
 		this.getCirujanos().get(idCirujano).modificarIntervencion(idIntervencion,observacion,valid);
 		guardarPaciente(idPaciente);
 		guardarCirujano(idCirujano);
-	}
-	private void guardarMedico(String idMedico) {
-		this.getMedicos().put(idMedico,this.getMedicos().get(idMedico));
-		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
 	}
 	private void guardarMedicoActivo(String idMedico) {
 		this.getMedicosActivo().put(idMedico,this.getMedicosActivo().get(idMedico));
@@ -521,13 +495,47 @@ public class GestorModelo {
 		return filtrarSin;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	public LocalDate getDiaSistema() {
+		return diaSistema;
+	}
+	public void setDiaSistema(LocalDate diaSistema) {
+		this.diaSistema = diaSistema;
+	}
+	public LocalTime getHoraSistema() {
+		return horaSistema;
+	}
+	public void setHoraSistema(LocalTime horaSistema) {
+		this.horaSistema = horaSistema;
+	}
+	public HashMap<String, Paciente> getPacientes() {
+		return pacientes;
+	}
 
+	public HashMap<String, Medico> getMedicos() {
+		return medicos;
+	}
+
+	public HashMap<String, MedicoActivo> getMedicosActivo() {
+		return medicosActivo;
+	}
+
+	public HashMap<String, Cirujano> getCirujanos() {
+		return cirujanos;
+	}
+
+	public DTO<Paciente> getDtoPaciente() {
+		return dtoPaciente;
+	}
+
+	public DTO<Medico> getDtoMedico() {
+		return dtoMedico;
+	}
+
+	public DTO<MedicoActivo> getDtoMedicoActivo() {
+		return dtoMedicoActivo;
+	}
+
+	public DTO<Cirujano> getDtoCirujano() {
+		return dtoCirujano;
+	}
 }

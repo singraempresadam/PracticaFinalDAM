@@ -31,6 +31,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 	private JList<String> medicosEspecialistas;
 	private JList<String> medicosAtencionPrimaria;
 
+	@SuppressWarnings("unchecked")
 	public paraUiVentanaMedico(Controller control, Validator validator) {
 		super();
 		this.setControl(control);
@@ -80,7 +81,6 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		this.getPanelAnadirMedicoAP().add(this.getScrollListaMedicoAtencionPrimaria());
 	}
 	private void agregarListener() {
-		// TODO Auto-generated method stub
 		this.getBtnConsultarMedico().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

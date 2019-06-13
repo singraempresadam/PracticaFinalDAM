@@ -20,16 +20,13 @@ import modelo.enumeraciones.Days;
 import vista.paciente.VentanaSolicitarCitaPaciente;
 
 public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaciente{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1285684464416843466L;
 	String idPaciente;
 	Controller control;
 	public JButton botones[][]=new JButton[4][5];
-	private JList<String> medicosAtencionPrimaria;
 
 	private JScrollPane scrollListaMedicoAtencionPrimaria;
+	private JList<String> medicosAtencionPrimaria;
+
 	public ParaUiVentanaSolicitarCitaPaciente(Controller control,String idPaciente) {
 		super();
 		this.setControl(control);
@@ -51,7 +48,6 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 				solicitarHorario();
 			}
 		});
-		
 	}
 	private void solicitarHorario() {
 		String medico=this.obtenerIdSeleccionado();
@@ -85,9 +81,9 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 		int x=0,y=0;
 		for (int i = 0; i < horario.length; i++) {
 			for (int j = 0; j < horario[i].length; j++) {
-				this.botones[i][j] = new JButton();
-				this.botones[i][j].setBounds(x, y, anchuraBoton, alturaBoton);
-				this.getPanelHorario().add(this.botones[i][j]);
+				this.getBotones()[i][j] = new JButton();
+				this.getBotones()[i][j].setBounds(x, y, anchuraBoton, alturaBoton);
+				this.getPanelHorario().add(this.getBotones()[i][j]);
 				x+=anchuraBoton;
 			}
 			x=0;
@@ -104,9 +100,9 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 		this.getLblHoraFinal().setText(horas[3]);
 	}
 	private void crearListenerDos() {
-		for (int i = 0; i < botones.length; i++) {
-			for (int j = 0; j < botones[i].length; j++) {
-				this.botones[i][j].addMouseListener(new MouseAdapter() {
+		for (int i = 0; i < getBotones().length; i++) {
+			for (int j = 0; j < getBotones()[i].length; j++) {
+				this.getBotones()[i][j].addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent arg0) {
 						String fecha = ((JButton) arg0.getSource()).getName();
 						if(((JButton) arg0.getSource()).isEnabled())
@@ -129,35 +125,33 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 	}
 	private void diasNoDisponiblesParaFecha(int plus) {
 		for (int i = 0; i < plus; i++) {
-			for (int j = 0; j < botones.length; j++) {
-				botones[j][i].setBackground(Color.gray);
-				botones[j][i].setEnabled(false);
+			for (int j = 0; j < this.getBotones().length; j++) {
+				this.getBotones()[j][i].setBackground(Color.gray);
+				this.getBotones()[j][i].setEnabled(false);
 			}
 		}
 	}
 	private void asignarNombresABotones(String[] horas, LocalDate firstMonday) {
-		for (int i = 0; i < botones.length; i++) {
-			for (int j = 0; j < botones[i].length; j++) {
-				this.botones[i][j].setName(firstMonday.plusDays(j).toString()+ " "
+		for (int i = 0; i < this.getBotones().length; i++) {
+			for (int j = 0; j < this.getBotones()[i].length; j++) {
+				this.getBotones()[i][j].setName(firstMonday.plusDays(j).toString()+ " "
 						+horas[i]);
 			}
 		}
 	}
 	
 	private void asignarColor(boolean[][] horario, String idMedico) {
-		
-		
-		for (int i = 0; i < botones.length; i++) {
-			for (int j = 0; j < botones[i].length; j++) {
-				if(horario[i][j]) this.botones[i][j].setBackground(Color.green);
+		for (int i = 0; i < this.getBotones().length; i++) {
+			for (int j = 0; j < this.getBotones()[i].length; j++) {
+				if(horario[i][j]) this.getBotones()[i][j].setBackground(Color.green);
 				else {
-					this.botones[i][j].setBackground(Color.red);
-					this.botones[i][j].setEnabled(false);
+					this.getBotones()[i][j].setBackground(Color.red);
+					this.getBotones()[i][j].setEnabled(false);
 				}
 				for(Map.Entry<String, Cita> entry : this.getControl().getMiGestor().getMedicosActivo().get(idMedico).getCitas().entrySet()){
-					if(entry.getValue().getFechaYHora().contains(this.botones[i][j].getName())) {
-						this.botones[i][j].setBackground(Color.red);
-						this.botones[i][j].setEnabled(false);
+					if(entry.getValue().getFechaYHora().contains(this.getBotones()[i][j].getName())) {
+						this.getBotones()[i][j].setBackground(Color.red);
+						this.getBotones()[i][j].setEnabled(false);
 					}
 				}
 			}
@@ -185,12 +179,6 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 		getPanelSolicitarCitaPaciente().add(getScrollListaMedicoAtencionPrimaria());
 		getPanelSolicitarCitaPaciente().setVisible(true);
 	}
-	public String getIdPaciente() {
-		return idPaciente;
-	}
-	public void setIdPaciente(String idPaciente) {
-		this.idPaciente = idPaciente;
-	}
 	private void crearListaTodosLosMedicosAtencionPrimaria() {
 		String[] filtrar = this.getControl().filtrar("Atencion_Primaria", this.getControl().obtenerTodosLosMedicos());
 		String[] filtrarSin = this.getControl().filtrar("Activo",filtrar);
@@ -200,6 +188,14 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 		this.getScrollListaMedicoAtencionPrimaria().setBounds(120, 108, 345, 120);
 		this.getScrollListaMedicoAtencionPrimaria().setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		this.getPanelSolicitarCitaPaciente().add(this.getScrollListaMedicoAtencionPrimaria());
+	}
+	
+
+	public String getIdPaciente() {
+		return idPaciente;
+	}
+	public void setIdPaciente(String idPaciente) {
+		this.idPaciente = idPaciente;
 	}
 	public JList<String> getMedicosAtencionPrimaria() {
 		return medicosAtencionPrimaria;
@@ -218,6 +214,12 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 	}
 	public void setControl(Controller control) {
 		this.control = control;
+	}
+	public JButton[][] getBotones() {
+		return botones;
+	}
+	public void setBotones(JButton[][] botones) {
+		this.botones = botones;
 	}
 	
 	

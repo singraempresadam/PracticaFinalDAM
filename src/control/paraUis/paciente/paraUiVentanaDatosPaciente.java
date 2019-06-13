@@ -11,15 +11,21 @@ import control.paraUis.ParaUiOperacionRealizada;
 import vista.paciente.VentanaDatosPaciente;
 
 public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
-	String[] ayudante;
-	boolean modificar;
-	String idPaciente;
-	Controller control;
+	
+	private Controller control;
+	private String[] ayudante;
+	private boolean modificar;
+	private String idPaciente;
+	
 	public paraUiVentanaDatosPaciente(Controller control, String datos) {
 		super();
 		this.setControl(control);
 		this.setModificar(true);
+		rellenarCamposDatosPaciente(datos);
 		this.agregarListener();
+	}
+	
+	private void rellenarCamposDatosPaciente(String datos) {
 		ayudante=datos.split("-");
 		this.setIdPaciente(ayudante[2]);
 		this.getTxtNombre().setText(ayudante[0]);
@@ -32,53 +38,65 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.getBtnModificar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(isModificar())
-				{
-					getTxtTelefono().setEditable(true);
-					getTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
-					getTxtDireccion().setEditable(true);
-					getTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
-					setModificar(false);
-				}
-				else
-				{
-					getTxtTelefono().setEditable(false);
-					getTxtTelefono().setBorder(new LineBorder(Color.BLUE, 1, true));
-					getTxtDireccion().setEditable(false);
-					getTxtDireccion().setBorder(new LineBorder(Color.BLUE, 1, true));
-					getControl().modificarPaciente(getIdPaciente(),getTxtTelefono().getText(),getTxtDireccion().getText());
-					setModificar(true);
-				}
-				
+				comprobarModificar();
 			}
 		});
 		this.getBtnEliminar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				getControl().eliminarPaciente(ayudante[2]);
-				ParaUiOperacionRealizada paraUiOperacionRealizada = new ParaUiOperacionRealizada("Paciente eliminado");
-				paraUiOperacionRealizada.setVisible(true);
-				//paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente(getControl());
-				//paraUiVentanaPaciente.setVisible(true);
-				dispose();
+				eliminarPaciente();
 			}
 		});
 		this.getBtnHistorial().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ParaUiVentanaHistorialPaciente paraUiVentanaHistorialPaciente = new ParaUiVentanaHistorialPaciente(ayudante[2], getControl());
-				paraUiVentanaHistorialPaciente.setVisible(true);
+				abrirVentanaHistorialPaciente();
 			}
 		});
 		this.getBtnSolicitarCita().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ParaUiVentanaSolicitarCitaPaciente paraUiVentanaSolicitarCitaPaciente = new ParaUiVentanaSolicitarCitaPaciente(getControl(),ayudante[2]);
-				paraUiVentanaSolicitarCitaPaciente.setVisible(true);
+				solicitarCita();
 			}
 		});
-		
 	}
+	
+	private void comprobarModificar() {
+		if(this.isModificar())
+			this.modificarTrue();
+		else
+			this.modificarFalse();
+	}
+	private void modificarFalse() {
+		this.getTxtTelefono().setEditable(false);
+		this.getTxtTelefono().setBorder(new LineBorder(Color.BLUE, 1, true));
+		this.getTxtDireccion().setEditable(false);
+		this.getTxtDireccion().setBorder(new LineBorder(Color.BLUE, 1, true));
+		this.getControl().modificarPaciente(this.getIdPaciente(),this.getTxtTelefono().getText(),this.getTxtDireccion().getText());
+		this.setModificar(true);
+	}
+	private void modificarTrue() {
+		this.getTxtTelefono().setEditable(true);
+		this.getTxtTelefono().setBorder(new LineBorder(Color.RED, 1, true));
+		this.getTxtDireccion().setEditable(true);
+		this.getTxtDireccion().setBorder(new LineBorder(Color.RED, 1, true));
+		this.setModificar(false);
+	}
+	private void eliminarPaciente() {
+		this.getControl().eliminarPaciente(ayudante[2]);
+		ParaUiOperacionRealizada paraUiOperacionRealizada = new ParaUiOperacionRealizada("Paciente eliminado");
+		paraUiOperacionRealizada.setVisible(true);
+		this.dispose();
+	}
+	private void abrirVentanaHistorialPaciente() {
+		ParaUiVentanaHistorialPaciente paraUiVentanaHistorialPaciente = new ParaUiVentanaHistorialPaciente(ayudante[2], getControl());
+		paraUiVentanaHistorialPaciente.setVisible(true);
+	}
+	private void solicitarCita() {
+		ParaUiVentanaSolicitarCitaPaciente paraUiVentanaSolicitarCitaPaciente = new ParaUiVentanaSolicitarCitaPaciente(getControl(),ayudante[2]);
+		paraUiVentanaSolicitarCitaPaciente.setVisible(true);
+	}
+	
 	public String[] getAyudante() {
 		return ayudante;
 	}
@@ -103,6 +121,4 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	public void setIdPaciente(String idPaciente) {
 		this.idPaciente = idPaciente;
 	}
-	
-
 }

@@ -86,7 +86,17 @@ public class Paciente extends Persona implements Serializable{
 		String[] retorno = new String[this.getCitas().size()];
 		int i = 0;
 		for (Entry<String, Cita> cita : this.getCitas().entrySet()) {
-			retorno[i] = cita.getValue().getFechaYHora() + "-" + cita.getValue().isConfirmacion()+"-"+cita.getValue().getIdUnicoCita();
+			retorno[i] = "cita-"+ cita.getValue().getFechaYHora() + "-" + cita.getValue().isConfirmacion()+"-"+cita.getValue().getIdUnicoCita();
+			i++;
+		}
+		return retorno;
+	}
+	public String[] obtenerIntervenciones()
+	{
+		String[] retorno = new String[this.getIntervenciones().size()];
+		int i = 0;
+		for (Entry<String, Intervencion> intervencion : this.getIntervenciones().entrySet()) {
+			retorno[i] = "intervencion-"+ intervencion.getValue().getFechaYHora() + "-" + intervencion.getValue().isConfirmacion()+"-"+intervencion.getValue().getIdUnicoCita();
 			i++;
 		}
 		return retorno;

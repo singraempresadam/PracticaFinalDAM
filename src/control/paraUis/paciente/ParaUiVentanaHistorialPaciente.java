@@ -12,15 +12,17 @@ import control.Controller;
 import vista.paciente.VentanaHistorialPaciente;
 
 public class ParaUiVentanaHistorialPaciente extends VentanaHistorialPaciente{
+	
+	private Controller control;
+	private String idPaciente;
+	private String nombrePaciente;
 	private JScrollPane scrollListaTratamientos;
 	private JScrollPane scrollListaCitasPendientes;
 	private JScrollPane scrollListaCitasRealizadas;
-	String idPaciente;
-	Controller control;
-	String nombrePaciente;
 	private JList<String> tratamientos;
 	private JList<String> citasPendientes;
 	private JList<String> citasRealizadas;
+	
 	public ParaUiVentanaHistorialPaciente(String idPaciente, Controller control) {
 		super();
 		this.setIdPaciente(idPaciente);
@@ -38,25 +40,25 @@ public class ParaUiVentanaHistorialPaciente extends VentanaHistorialPaciente{
 		this.setScrollListaTratamientos(new JScrollPane(this.getTratamientos()));
 		this.getScrollListaTratamientos().setBounds(31, 180, 307, 202);
 		this.getScrollListaTratamientos().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelHistorialPaciente().add(this.getScrollListaTratamientos());
+		this.getPanelHistorialPaciente().add(this.getScrollListaTratamientos());
 		
 	}
 	private void crearListaCitasPendientes() {
-		this.setCitasPendientes((new JList<String>(this.getControl().obtenerCitasPendientes(this.getIdPaciente()))));
+		this.setCitasPendientes((new JList<String>(this.getControl().obtenerCitasEIntervencionesPendientes(this.getIdPaciente()))));
 		this.getCitasPendientes().setVisible(true);
 		this.setScrollListaCitasPendientes(new JScrollPane(this.getCitasPendientes()));
 		this.getScrollListaCitasPendientes().setBounds(400, 68, 253, 158);
 		this.getScrollListaCitasPendientes().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelHistorialPaciente().add(this.getScrollListaCitasPendientes());
+		this.getPanelHistorialPaciente().add(this.getScrollListaCitasPendientes());
 		
 	}
 	private void crearListaCitasRealizadas() {
-		this.setCitasRealizadas((new JList<String>(this.getControl().obtenerCitasRealizadas(this.getIdPaciente()))));
+		this.setCitasRealizadas((new JList<String>(this.getControl().obtenerCitasEIntervencionesRealizadas(this.getIdPaciente()))));
 		this.getCitasRealizadas().setVisible(true);
 		this.setScrollListaCitasRealizadas(new JScrollPane(this.getCitasRealizadas()));
 		this.getScrollListaCitasRealizadas().setBounds(400, 288, 253, 164);
 		this.getScrollListaCitasRealizadas().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-		getPanelHistorialPaciente().add(this.getScrollListaCitasRealizadas());
+		this.getPanelHistorialPaciente().add(this.getScrollListaCitasRealizadas());
 		
 	}
 	public String getIdPaciente() {

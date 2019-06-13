@@ -220,11 +220,12 @@ public class Controller {
 	public String[] obtenerTratamiento(String idPaciente) {
 		return this.getMiGestor().obtenerTratamiento(idPaciente);
 	}
-	public  String[] obtenerCitasRealizadas(String idPaciente) {
-		return this.getMiGestor().obtenerCitasRealizadas(idPaciente);
-	}
-	public String[] obtenerCitasPendientes(String idPaciente) {
-		return this.getMiGestor().obtenerCitasPendientes(idPaciente);
+	
+	public String[] obtenerCitasEIntervencionesPendientes(String idPaciente) {
+		return this.getMiGestor().obtenerCitasEIntervencionesPendientes(idPaciente);
+	}	
+	public String[] obtenerCitasEIntervencionesRealizadas(String idPaciente) {
+		return this.getMiGestor().obtenerCitasEIntervencionesRealizadas(idPaciente);
 	}
 	public String[] obtenerCitasPendientesMedico(String idMedico) {
 		return this.getMiGestor().obtenerCitasPendientesMedico(idMedico);
@@ -297,6 +298,7 @@ public class Controller {
 		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerTodosLosMedicosInactivosEspecialistas();
 	}
+
 
 	
 
