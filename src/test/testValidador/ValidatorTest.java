@@ -27,7 +27,7 @@ class ValidatorTest {
 		String[] datosPacienteBien = {datosPacienteBienUno,datosPacienteBienDos,datosPacienteBienTres};
 		for (int i = 0; i < datosPacienteBien.length; i++) {
 			try {
-				assertTrue(validator.validarDatosPaciente(datosPacienteBien[i], control).isResultado());
+				assertTrue(validator.validarDatosPaciente(datosPacienteBien[i].split("-"), control).isResultado());
 			} catch (ExceptionDatos e) {
 				System.out.println(e.getMsg());
 			}
@@ -35,7 +35,7 @@ class ValidatorTest {
 		String[] datosPacienteMal = {datosPacienteMalUno,datosPacienteMalDos,datosPacienteMalTres};
 		for (int i = 0; i < datosPacienteMal.length; i++) {
 			try {
-				assertFalse(validator.validarDatosPaciente(datosPacienteMal[i], control).isResultado());
+				assertFalse(validator.validarDatosPaciente(datosPacienteMal[i].split("-"), control).isResultado());
 			} catch (ExceptionDatos e) {
 				System.out.println("Debe entrar aqui");
 			}

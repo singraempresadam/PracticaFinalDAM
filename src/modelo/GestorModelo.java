@@ -499,6 +499,10 @@ public class GestorModelo {
 	public HashMap obtenerIntervencionesCirujano(String idCirujano) {
 		return getCirujanos().get(idCirujano).getIntervenciones();
 	}
+	public void establecerHora(int dia, int hora, int minuto) {
+		this.setHoraSistema(LocalTime.of(hora, minuto));
+		this.setDiaSistema(this.getDiaSistema().plusDays(dia));
+	}
 	
 	
 	

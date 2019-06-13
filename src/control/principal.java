@@ -6,9 +6,6 @@ import control.paraUis.paraUiVentanaPrincipal;
 import vista.ventanaPrincipal;
 
 public class principal {
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

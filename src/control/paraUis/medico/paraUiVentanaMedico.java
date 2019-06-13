@@ -30,7 +30,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 	private JList<String> medicosAtencionPrimaria;
 
 	@SuppressWarnings("unchecked")
-	public paraUiVentanaMedico(Controller control) {
+	public paraUiVentanaMedico(Controller control, Validator validator) {
 		super();
 		this.setControl(control);
 		

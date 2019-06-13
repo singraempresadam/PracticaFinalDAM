@@ -16,26 +16,102 @@ import control.paraUis.Validator;
 import vista.paciente.VentanaPaciente;
 
 public class paraUiVentanaPaciente extends VentanaPaciente {
-	private static final long serialVersionUID = -6068763124340799917L;
+	
+	private Controller control;
+	private Validator validator;
 	private JScrollPane scrollListaPaciente;
-	Controller control;
 	private JList<String> pacientes;
-
-	public paraUiVentanaPaciente(Controller control) {
+	
+	public paraUiVentanaPaciente(Controller control, Validator validator) {
 		super();
 		this.setControl(control);
+		this.setValidator(validator);
+		this.crearListaTodosLosPacientes();
 		this.agregarListener();
-		this.setPacientes(new JList<String>(control.obtenerElementosAMostrarPaciente()));
-		this.getPacientes().getSelectionMode();
+	}
+
+	private void crearListaTodosLosPacientes() {
+		this.setPacientes(new JList<String>(this.getControl().obtenerElementosAMostrarPaciente()));
 		this.getPacientes().setVisible(true);
 		this.setScrollListaPaciente(new JScrollPane(pacientes));
 		this.getScrollListaPaciente().setBounds(79, 108, 345, 213);
 		this.getScrollListaPaciente().setBorder(new LineBorder(new Color(0, 102, 204), 2));
 		getPanelBuscarPaciente().add(this.getScrollListaPaciente());
-
 	}
+	private void agregarListener() {
+		this.eventoConsultarPaciente();
+		this.eventoBuscarPaciente();
+		this.eventoAniadirPaciente();
+	}
+	
+	private void eventoConsultarPaciente() {
+		this.getBtnConsultarPaciente().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				crearVentanaDatosPacientes();
+			}
+		});
+	}
+	private void eventoBuscarPaciente() {
+		this.getBtnBuscar().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				buscarPacientes();
+			}
+		});
+	}
+	private void eventoAniadirPaciente() {
+		this.getBtnAnadir().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				aniadirPaciente();
 
-	private String obtenerIdSeleccionado() {
+			}
+		});
+	}
+	
+	private void crearVentanaDatosPacientes() {
+		if (obtenerDatosPacienteSeleccionado() != "") {
+			paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(getControl(),obtenerDatosPacienteSeleccionado());
+			paraUiVentanaDatosPaciente.setVisible(true);
+			dispose();
+		}
+	}
+	private void buscarPacientes() {
+		this.getPanelBuscarPaciente().setVisible(false);
+		this.getPanelBuscarPaciente().remove(getScrollListaPaciente());
+		this.setPacientes(new JList<String>(getControl().filtrar(this.getTxtBuscarPaciente().getText(), this.getControl().obtenerElementosAMostrarPaciente())));
+		this.setScrollListaPaciente(new JScrollPane(this.getPacientes()));
+		this.getScrollListaPaciente().setBounds(79, 108, 345, 213);
+		this.getScrollListaPaciente().setBorder(new LineBorder(new Color(0, 102, 204), 2));
+		this.getPanelBuscarPaciente().add(this.getScrollListaPaciente());
+		this.getPanelBuscarPaciente().setVisible(true);
+	}
+	private void aniadirPaciente() {
+		String[] datosFragmentadosPaciente=this.obtenerDatosPaciente();
+		try {
+			if ((this.getValidator().validarDatosPaciente(datosFragmentadosPaciente, this.getControl())).isResultado()) {
+				this.getControl().darAltaPacienteNuevo(datosFragmentadosPaciente[0], datosFragmentadosPaciente[1], datosFragmentadosPaciente[3], 
+						datosFragmentadosPaciente[4], datosFragmentadosPaciente[2],datosFragmentadosPaciente[5]);
+				this.limpiarCampos();
+				this.crearVentanaOperacionRealizada("Paciente registrado con exito");
+			}
+		} catch (ExceptionDatos e) {
+			this.crearVentanaError(e);
+		}
+	}
+	
+	private String[] obtenerDatosPaciente() {
+		String nombre = this.getTxtNombre().getText();
+		String apellidos = this.getTxtApellidos().getText();
+		String telefono = this.getTxtTelefono().getText();
+		String direccion = this.getTxtDireccion().getText();
+		String idUnico = this.getControl().generarId();
+		String fechaDeNacimiento = this.getTxtFechaNacimiento().getText();
+		String[] total = {nombre , apellidos , idUnico, telefono , direccion , fechaDeNacimiento};
+		return total;
+	}
+	private String obtenerDatosPacienteSeleccionado() {
 		try {
 			return this.getPacientes().getSelectedValuesList().get(0);
 		} catch (IndexOutOfBoundsException e) {
@@ -44,76 +120,33 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 		}
 		return "";
 	}
-
-	private void agregarListener() {
-		this.getBtnConsultarPaciente().addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-				if (obtenerIdSeleccionado() != "") {
-					paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(getControl(),obtenerIdSeleccionado());
-					paraUiVentanaDatosPaciente.setVisible(true);
-					dispose();
-				}
-
-			}
-		});
-		this.getBtnBuscar().addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				getPanelBuscarPaciente().setVisible(false);
-				getPanelBuscarPaciente().remove(getScrollListaPaciente());
-				setPacientes(new JList<String>(getControl().filtrar(getTxtBuscarPaciente().getText(), control.obtenerElementosAMostrarPaciente())));
-				setScrollListaPaciente(new JScrollPane(getPacientes()));
-				getScrollListaPaciente().setBounds(79, 108, 345, 213);
-				getScrollListaPaciente().setBorder(new LineBorder(new Color(0, 102, 204), 2));
-				getPanelBuscarPaciente().add(getScrollListaPaciente());
-				getPanelBuscarPaciente().setVisible(true);
-			}
-		});
-		this.getBtnAnadir().addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				Validator validator = new Validator();
-				String nombre = txtNombre.getText();
-				String apellidos = txtApellidos.getText();
-				String telefono = txtTelefono.getText();
-				String direccion = txtDireccion.getText();
-				String idUnico = control.generarId();
-				String fechaDeNacimiento = txtFechaNacimiento.getText();
-				String total = nombre + "-" + apellidos + "-" + telefono + "-" + direccion + "-" + fechaDeNacimiento;
-
-				try {
-					if ((validator.validarDatosPaciente(total, getControl())).isResultado()) {
-						getControl().darAltaPacienteNuevo(nombre, apellidos, telefono, direccion, idUnico,
-								fechaDeNacimiento);
-						getTxtNombre().setText("");
-						getTxtApellidos().setText("");
-						getTxtFechaNacimiento().setText("");
-						getTxtTelefono().setText("");
-						getTxtDireccion().setText("");
-						crearVentanaOperacionRealizada("Paciente registrado con exito");
-					}
-				} catch (ExceptionDatos e) {
-					ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e.getMsg());
-					paraUiVentanaError.setVisible(true);
-				}
-
-			}
-
-			private void crearVentanaOperacionRealizada(String mensaje) {
-				ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);
-				paraUiOpereacionRealizada.setVisible(true);
-			}
-		});
+	
+	private void crearVentanaOperacionRealizada(String mensaje) {
+		ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);
+		paraUiOpereacionRealizada.setVisible(true);
 	}
-
+	private void crearVentanaError(ExceptionDatos e) {
+		ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e.getMsg());
+		paraUiVentanaError.setVisible(true);
+	}
+	private void limpiarCampos() {
+		getTxtNombre().setText("");
+		getTxtApellidos().setText("");
+		getTxtFechaNacimiento().setText("");
+		getTxtTelefono().setText("");
+		getTxtDireccion().setText("");
+	}
+	
 	public JScrollPane getScrollListaPaciente() {
 		return scrollListaPaciente;
 	}
 
 	public Controller getControl() {
 		return control;
+	}
+
+	public Validator getValidator() {
+		return validator;
 	}
 
 	public JList<String> getPacientes() {
@@ -132,4 +165,8 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 		this.control = control;
 	}
 
+	public void setValidator(Validator validator) {
+		this.validator = validator;
+	}
+	
 }

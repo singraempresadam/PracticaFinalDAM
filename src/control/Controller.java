@@ -274,6 +274,11 @@ public class Controller {
 		
 	}
 
+	public void establecerHora(int dia, int hora, int minuto) {
+		this.getMiGestor().establecerHora(dia,hora,minuto);
+		
+	}
+
 	
 
 	

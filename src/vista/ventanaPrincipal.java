@@ -139,7 +139,7 @@ public class ventanaPrincipal extends JFrame {
 			
 			JPanel panelAvanzar = new JPanel();
 			panelAvanzar.setBackground(new Color(204, 255, 255));
-			panelAvanzar.setBounds(310, 309, 393, 50);
+			panelAvanzar.setBounds(297, 311, 403, 50);
 			panelPrincipal.add(panelAvanzar);
 			GridBagLayout gbl_panelAvanzar = new GridBagLayout();
 			gbl_panelAvanzar.columnWidths = new int[]{0, 0, 0, 0, 0};
@@ -148,7 +148,7 @@ public class ventanaPrincipal extends JFrame {
 			gbl_panelAvanzar.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
 			panelAvanzar.setLayout(gbl_panelAvanzar);
 			
-			btnUnaHora = new JButton("+1 hora");
+			btnUnaHora = new JButton("+ 1 hora");
 			btnUnaHora.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnUnaHora.setForeground(Color.WHITE);
 			btnUnaHora.setContentAreaFilled(false);
@@ -162,7 +162,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnUnaHora.gridy = 0;
 			panelAvanzar.add(btnUnaHora, gbc_btnUnaHora);
 			
-			btnTresHoras = new JButton("+3 horas");
+			btnTresHoras = new JButton("+ 3 horas");
 			btnTresHoras.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnTresHoras.setForeground(Color.WHITE);
 			btnTresHoras.setContentAreaFilled(false);
@@ -175,7 +175,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnTresHoras.gridy = 0;
 			panelAvanzar.add(btnTresHoras, gbc_btnTresHoras);
 			
-			btnDoceHoras = new JButton("+12 horas");
+			btnDoceHoras = new JButton("+ 12 horas");
 			btnDoceHoras.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnDoceHoras.setForeground(Color.WHITE);
 			btnDoceHoras.setContentAreaFilled(false);
@@ -188,7 +188,7 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnDoceHoras.gridy = 0;
 			panelAvanzar.add(btnDoceHoras, gbc_btnDoceHoras);
 			
-			btnVeinticuatroHoras = new JButton("+24 horas");
+			btnVeinticuatroHoras = new JButton("+ 24 horas");
 			btnVeinticuatroHoras.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnVeinticuatroHoras.setForeground(Color.WHITE);
 			btnVeinticuatroHoras.setContentAreaFilled(false);
@@ -201,27 +201,22 @@ public class ventanaPrincipal extends JFrame {
 			gbc_btnVeinticuatroHoras.gridy = 0;
 			panelAvanzar.add(btnVeinticuatroHoras, gbc_btnVeinticuatroHoras);
 			
-			btnUnDia = new JButton("+1 D\u00EDa");
+			lblFechaYHora = new JLabel("");
+			lblFechaYHora.setHorizontalAlignment(SwingConstants.CENTER);
+			lblFechaYHora.setFont(new Font("Tahoma", Font.BOLD, 14));
+			lblFechaYHora.setBorder(new LineBorder(new Color(204, 255, 255), 1, true));
+			lblFechaYHora.setBounds(310, 265, 393, 31);
+			panelPrincipal.add(lblFechaYHora);
+			
+			btnUnDia = new JButton("Dia siguiente 10:00");
+			btnUnDia.setBounds(307, 366, 388, 23);
+			panelPrincipal.add(btnUnDia);
 			btnUnDia.setFont(new Font("Verdana", Font.BOLD, 11));
 			btnUnDia.setForeground(Color.WHITE);
 			btnUnDia.setContentAreaFilled(false);
 			btnUnDia.setBorderPainted(false);
 			btnUnDia.setOpaque(true);
 			btnUnDia.setBackground(new Color(0, 102, 204));
-			GridBagConstraints gbc_btnUnDia = new GridBagConstraints();
-			gbc_btnUnDia.fill = GridBagConstraints.HORIZONTAL;
-			gbc_btnUnDia.gridwidth = 4;
-			gbc_btnUnDia.insets = new Insets(0, 0, 0, 5);
-			gbc_btnUnDia.gridx = 0;
-			gbc_btnUnDia.gridy = 1;
-			panelAvanzar.add(btnUnDia, gbc_btnUnDia);
-			
-			lblFechaYHora = new JLabel("");
-			lblFechaYHora.setHorizontalAlignment(SwingConstants.CENTER);
-			lblFechaYHora.setFont(new Font("Tahoma", Font.BOLD, 14));
-			lblFechaYHora.setBorder(new LineBorder(new Color(204, 255, 255), 1, true));
-			lblFechaYHora.setBounds(310, 278, 393, 31);
-			panelPrincipal.add(lblFechaYHora);
 		
 	}
 

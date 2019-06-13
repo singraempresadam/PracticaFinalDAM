@@ -58,8 +58,8 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 				getControl().eliminarPaciente(ayudante[2]);
 				ParaUiOperacionRealizada paraUiOperacionRealizada = new ParaUiOperacionRealizada("Paciente eliminado");
 				paraUiOperacionRealizada.setVisible(true);
-				paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente(getControl());
-				paraUiVentanaPaciente.setVisible(true);
+				//paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente(getControl());
+				//paraUiVentanaPaciente.setVisible(true);
 				dispose();
 			}
 		});

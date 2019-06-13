@@ -20,7 +20,7 @@ public class paraUiVentanaCirujano extends VentanaCirujano{
 	Controller control;
 	private JList<String> cirujanos;
 	
-	public paraUiVentanaCirujano (Controller control)
+	public paraUiVentanaCirujano (Controller control, Validator validator)
 	{
 		super();
 		this.setControl(control);
