@@ -17,12 +17,13 @@ import vista.cirujano.VentanaCirujano;
 
 public class paraUiVentanaCirujano extends VentanaCirujano{
 	private JScrollPane scrollListaCirujano;
-	Controller control = new Controller();
+	Controller control;
 	private JList<String> cirujanos;
 	
-	public paraUiVentanaCirujano ()
+	public paraUiVentanaCirujano (Controller control)
 	{
 		super();
+		this.setControl(control);
 		this.agregarListener();
 		
 		
@@ -51,7 +52,7 @@ public class paraUiVentanaCirujano extends VentanaCirujano{
 
 				if (obtenerIdSeleccionado() != "") {
 					ParaUiVentanaDatosCirujano paraUiVentanaDatosCirujano = new ParaUiVentanaDatosCirujano(
-							obtenerIdSeleccionado());
+							obtenerIdSeleccionado(),getControl());
 					paraUiVentanaDatosCirujano.setVisible(true);
 					dispose();
 				}

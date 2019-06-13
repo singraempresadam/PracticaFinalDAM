@@ -3,6 +3,7 @@ package modelo.clasesDatos;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import modelo.enumeraciones.TipoDeIntervencion;
 
@@ -74,6 +75,7 @@ public class Cirujano extends Persona implements Serializable{
 	
 	public String obtenerPacienteDeIntervencion(String idIntervencion) {
 		// TODO Auto-generated method stub
+		System.out.println(this.getIntervenciones().get(idIntervencion));
 		return this.getIntervenciones().get(idIntervencion).getIdUnicoPaciente();
 	}
 	public String obtenerMedicoDeIntervencion(String idIntervencion) {
@@ -86,6 +88,15 @@ public class Cirujano extends Persona implements Serializable{
 		this.getIntervenciones().get(idIntervencion).setObservaciones(observacion);
 		
 	}
-	
+
+	public String[] obtenerIntervenciones() {
+		String[] retorno = new String[this.getIntervenciones().size()];
+		int i = 0;
+		for (Entry<String, Intervencion> intervencion : this.getIntervenciones().entrySet()) {
+			retorno[i] = intervencion.getValue().getFechaYHora() + "-" + intervencion.getValue().isConfirmacion()+"-"+intervencion.getValue().getIdUnicoCita();
+			i++;
+		}
+		return retorno;
+	}
 	
 }

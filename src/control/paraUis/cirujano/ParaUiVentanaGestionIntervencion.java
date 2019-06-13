@@ -27,6 +27,10 @@ public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervenci
 		this.setNombrePaciente(this.getControl().obtenerNombrePaciente(this.getIdPaciente()));
 		this.setNombreMedico(this.getControl().obtenerNombreMedico(this.getIdMedico()));
 		this.setNombreCirujano(this.getControl().obtenerNombreCirujano(this.getIdCirujano()));
+		this.getTxtPaciente().setText(this.getNombrePaciente());
+		this.getTxtEspecialista().setText(this.getNombreMedico());
+		this.getTxtCirujano().setText(this.getNombreCirujano());
+		this.getTxtIntervencion().setText(this.getIdIntervencion());
 		this.crearListeners();
 	}
 

@@ -21,6 +21,8 @@ import javax.swing.border.LineBorder;
 
 public class VentanaHistorialCirujano extends JDialog{
 	int pX,pY;
+	private JLabel txtNombreCirujano;
+	private JPanel panelHistorialCirujano;
 	public VentanaHistorialCirujano() {
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 540, 450);
@@ -28,7 +30,7 @@ public class VentanaHistorialCirujano extends JDialog{
 		setModal(true);
 		setUndecorated(true);
 		
-		JPanel panelHistorialCirujano = new JPanel();	
+		panelHistorialCirujano = new JPanel();	
 		panelHistorialCirujano.setBorder(new LineBorder(new Color(153, 204, 255)));
 		panelHistorialCirujano.addMouseListener(new MouseAdapter() {
 			@Override
@@ -83,7 +85,23 @@ public class VentanaHistorialCirujano extends JDialog{
 			lblCitasRealizadas.setFont(new Font("Verdana", Font.BOLD, 13));
 			lblCitasRealizadas.setBounds(10, 240, 270, 15);
 			panelHistorialCirujano.add(lblCitasRealizadas);
+			
+			JLabel txtNombre = new JLabel("Nombre:");
+			txtNombre.setForeground(new Color(0, 102, 204));
+			txtNombre.setFont(new Font("Verdana", Font.BOLD, 13));
+			txtNombre.setBounds(292, 55, 67, 15);
+			panelHistorialCirujano.add(txtNombre);
+			
+			txtNombreCirujano = new JLabel("New label");
+			txtNombreCirujano.setBounds(375, 55, 153, 16);
+			panelHistorialCirujano.add(txtNombreCirujano);
 		
 	}
-
+	public JLabel getTxtNombreCirujano() {
+		return txtNombreCirujano;
+	}
+	public JPanel getPanelHistorialCirujano() {
+		return panelHistorialCirujano;
+	}
+	
 }

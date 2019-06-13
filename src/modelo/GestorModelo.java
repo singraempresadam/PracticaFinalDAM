@@ -447,6 +447,12 @@ public class GestorModelo {
 	public String[] obtenerCitasPendientesMedico(String idMedico) {
 		return this.filtrar("false", this.getMedicosActivo().get(idMedico).obtenerCitas());
 	}
+	public String[] obtenerIntervencionesPendientesCirujano(String idCirujano) {
+		return this.filtrar("false", this.getCirujanos().get(idCirujano).obtenerIntervenciones());
+	}
+	public String[] obtenerIntervencionesRealizadasCirujano(String idCirujano) {
+		return this.filtrar("true", this.getCirujanos().get(idCirujano).obtenerIntervenciones());
+	}
 	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico,boolean asistencia) {
 		System.out.println(idCita + " " + observaciones + " " + asistencia);
 		this.getPacientes().get(idPaciente).modificarCita(idCita,observaciones,asistencia);
@@ -493,6 +499,7 @@ public class GestorModelo {
 	public HashMap obtenerIntervencionesCirujano(String idCirujano) {
 		return getCirujanos().get(idCirujano).getIntervenciones();
 	}
+	
 	
 	
 	

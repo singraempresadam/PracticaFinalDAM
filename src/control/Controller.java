@@ -220,7 +220,9 @@ public class Controller {
 	public String[] obtenerTratamiento(String idPaciente) {
 		return this.getMiGestor().obtenerTratamiento(idPaciente);
 	}
-
+	public  String[] obtenerCitasRealizadas(String idPaciente) {
+		return this.getMiGestor().obtenerCitasRealizadas(idPaciente);
+	}
 	public String[] obtenerCitasPendientes(String idPaciente) {
 		return this.getMiGestor().obtenerCitasPendientes(idPaciente);
 	}
@@ -230,11 +232,12 @@ public class Controller {
 	public String[] obtenerCitasRealizadasMedico(String idMedico) {
 		return this.getMiGestor().obtenerCitasRealizadasMedico(idMedico);
 	}
-
-	public  String[] obtenerCitasRealizadas(String idPaciente) {
-		return this.getMiGestor().obtenerCitasRealizadas(idPaciente);
+	public String[] obtenerIntervencionesPendientesCirujano(String idCirujano) {
+		return this.getMiGestor().obtenerIntervencionesPendientesCirujano(idCirujano);
 	}
-
+	public String[] obtenerIntervencionesRealizadasCirujano(String idCirujano) {
+		return this.getMiGestor().obtenerIntervencionesRealizadasCirujano(idCirujano);
+	}
 	public void modificarCita(String idCita, String observaciones, String idPaciente, String idMedico, boolean asistencia) {
 		this.getMiGestor().modificarCita(idCita, observaciones, idPaciente,idMedico, asistencia);
 		
@@ -270,6 +273,8 @@ public class Controller {
 		this.getMiGestor().solicitarIntervencion(idPaciente, idMedico, obtenerIdSeleccionado, selectedItem, fecha);
 		
 	}
+
+	
 
 	
 	
