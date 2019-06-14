@@ -3,6 +3,7 @@ package lecturaYEscritura;
 import java.util.HashMap;
 
 import modelo.clasesDatos.Cirujano;
+import modelo.clasesDatos.Consulta;
 import modelo.clasesDatos.Medico;
 import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
@@ -33,6 +34,9 @@ public boolean grabarColeccionPaciente (HashMap<String, Paciente> pacientes) {
 		
 		return miDao.grabar(this.ruta, pacientes);
 	}
+public boolean grabarColeccionConsulta (HashMap<String, Consulta> consultas) {
+		return miDao.grabar(this.ruta, consultas);
+}
 public boolean grabarColeccionMedico (HashMap<String, Medico> medicos) {
 	
 	return miDao.grabar(this.ruta, medicos);

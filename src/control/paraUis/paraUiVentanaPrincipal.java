@@ -23,6 +23,7 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 		this.setControl(new Controller());
 		this.setValidator(new Validator());
 		this.getLblFechaYHora().setText(this.getControl().fechaYHora());
+		System.out.println(this.getControl().getMiGestor().getConsultas());
 		crearListeners();
 	}
 

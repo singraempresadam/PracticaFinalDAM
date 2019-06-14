@@ -290,13 +290,19 @@ public class Controller {
 	}
 
 	public String[] obtenerTodosLosMedicosInactivosAtencionPrimaria() {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerTodosLosMedicosInactivosAtencionPrimaria();
 	}
 
 	public String[] obtenerTodosLosMedicosInactivosEspecialistas() {
-		// TODO Auto-generated method stub
 		return this.getMiGestor().obtenerTodosLosMedicosInactivosEspecialistas();
+	}
+
+	public boolean comprobarConsulta(int hora, String consultaSeleccionada) {
+		return this.getMiGestor().comprobarConsulta(hora,consultaSeleccionada);
+	}
+
+	public void asignarConsulta(int hora, String consultaSeleccionada) {
+		this.getMiGestor().asignarConsulta(hora,consultaSeleccionada);
 	}
 
 

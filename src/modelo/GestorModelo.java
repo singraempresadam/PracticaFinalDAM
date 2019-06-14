@@ -12,6 +12,7 @@ import javax.swing.ListModel;
 import lecturaYEscritura.DTO;
 import modelo.clasesDatos.Cirujano;
 import modelo.clasesDatos.Cita;
+import modelo.clasesDatos.Consulta;
 import modelo.clasesDatos.Medico;
 import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
@@ -31,11 +32,14 @@ public class GestorModelo {
 	private HashMap<String, Medico> medicos = new HashMap<String, Medico>();
 	private HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
 	private HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
-
+	private HashMap<String, Consulta> consultas = new HashMap<String, Consulta>();
+	
 	private DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
 	private DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medicos.dat");
 	private DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
 	private DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujanos.dat");
+	private DTO<Consulta> dtoConsulta = new DTO<>("src/Almacen/consultas.dat");
+	
 	private LocalDate diaSistema =LocalDate.of(2019, 6, 3);
 	private LocalTime horaSistema = LocalTime.of(10, 0);
 
@@ -49,6 +53,7 @@ public class GestorModelo {
 		this.medicos=dtoMedico.leerColeccion();
 		this.medicosActivo = dtoMedicoActivo.leerColeccion();
 		this.cirujanos = dtoCirujano.leerColeccion();
+		this.consultas = dtoConsulta.leerColeccion();
 	}
 	
 	public void recetarUnTratamiento(String idUnicoPaciente, String medicamento, String dosis, String fechaDeInicio,
@@ -408,8 +413,12 @@ public class GestorModelo {
 		String [] retorno = new String[intervencionR.length+citasR.length];
 		for (int i = 0; i < citasR.length; i++) 
 			retorno[i]=citasR[i];
+		int j=0;
 		for(int i=citasR.length;i<retorno.length;i++)
-			retorno[i]=intervencionR[i];
+		{
+			retorno[i]=intervencionR[j];
+			j++;
+		}
 		return retorno;
 	}
 	public String[] obtenerIntervencionesRealizadas(String idPaciente)
@@ -537,5 +546,32 @@ public class GestorModelo {
 
 	public DTO<Cirujano> getDtoCirujano() {
 		return dtoCirujano;
+	}
+	
+	public HashMap<String, Consulta> getConsultas() {
+		return consultas;
+	}
+	public void setConsultas(HashMap<String, Consulta> consultas) {
+		this.consultas = consultas;
+	}
+	public DTO<Consulta> getDtoConsulta() {
+		return dtoConsulta;
+	}
+	public void setDtoConsulta(DTO<Consulta> dtoConsulta) {
+		this.dtoConsulta = dtoConsulta;
+	}
+	public boolean comprobarConsulta(int hora, String consultaSeleccionada) {
+		boolean retorno;
+		if(hora==Turno.mañana.getHora())
+			retorno=this.getConsultas().get(consultaSeleccionada).ComprobarTurnoMañanaEntero();
+		else
+			retorno=this.getConsultas().get(consultaSeleccionada).ComprobarTurnoTardeEntero();
+		return retorno;
+	}
+	public void asignarConsulta(int hora, String consultaSeleccionada) {
+		if(hora==Turno.mañana.getHora())
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoMañanaEntero();
+		else
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeEntero();
 	}
 }

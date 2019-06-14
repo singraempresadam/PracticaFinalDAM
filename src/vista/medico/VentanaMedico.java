@@ -46,6 +46,8 @@ public class VentanaMedico extends JDialog {
 	private JPanel panelAnadirMedicoAP;
 	private JLabel lblConsultaEspecialista;
 	int pX,pY;
+	private JComboBox comboBoxConsultaEspecialista;
+	private JComboBox comboBoxConsulta;
 	
 		public VentanaMedico() {
 			getContentPane().setBackground(new Color(255, 255, 255));
@@ -291,7 +293,7 @@ public class VentanaMedico extends JDialog {
 						lblConsultaEspecialista.setBounds(485, 253, 80, 14);
 						panelAnadirMedicoEspecialista.add(lblConsultaEspecialista);
 						
-						JComboBox comboBoxConsultaEspecialista = new JComboBox();
+						comboBoxConsultaEspecialista = new JComboBox();
 						comboBoxConsultaEspecialista.setBounds(575, 251, 114, 20);
 						panelAnadirMedicoEspecialista.add(comboBoxConsultaEspecialista);
 						
@@ -344,7 +346,7 @@ public class VentanaMedico extends JDialog {
 						lblConsulta.setBounds(496, 246, 75, 14);
 						panelAnadirMedicoAP.add(lblConsulta);
 						
-						JComboBox comboBoxConsulta = new JComboBox();
+						comboBoxConsulta = new JComboBox();
 						comboBoxConsulta.setBounds(581, 244, 114, 20);
 						panelAnadirMedicoAP.add(comboBoxConsulta);
 
@@ -466,4 +468,18 @@ public class VentanaMedico extends JDialog {
 		public JComboBox getComboBoxEspecialidad() {
 			return comboBoxEspecialidad;
 		}
+
+
+		public JComboBox getComboBoxConsultaEspecialista() {
+			return comboBoxConsultaEspecialista;
+		}
+
+
+
+		public JComboBox getComboBoxConsulta() {
+			return comboBoxConsulta;
+		}
+
+		
+		
 }

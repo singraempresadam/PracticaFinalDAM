@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.util.HashMap;
 
 import modelo.clasesDatos.Cirujano;
+import modelo.clasesDatos.Consulta;
 import modelo.clasesDatos.Medico;
 import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
@@ -18,10 +19,13 @@ public class PruebaDao {
 	private static HashMap<String, Medico> medicos = new HashMap<String, Medico>();
 	private static HashMap<String, MedicoActivo> medicosActivo = new HashMap<String, MedicoActivo>();
 	private static HashMap<String, Cirujano> cirujanos = new HashMap<String, Cirujano>();
+	private static HashMap<String, Consulta> consultas = new HashMap<String, Consulta>();
+	
 	private static DTO<Paciente> dtoPaciente = new DTO<>("src/Almacen/coleccionPaciente.dat");
 	private static DTO<Medico> dtoMedico = new DTO<>("src/Almacen/medicos.dat");
 	private static DTO<MedicoActivo> dtoMedicoActivo = new DTO<>("src/Almacen/medicosActivo.dat");
 	private static DTO<Cirujano> dtoCirujano = new DTO<>("src/Almacen/cirujanos.dat");
+	private static DTO<Consulta> dtoConsulta = new DTO<>("src/Almacen/consultas.dat");
 	
 	public static void main(String[] args) {
 		
@@ -68,6 +72,18 @@ public class PruebaDao {
 		Medico medicoCuatro = new Medico("Ana", "Cabanillas", "677766147", "Calle Altorra", "456284635", Especialidad.Traumatologo);
 		boolean [] diasRicardo = {true,true,true,true,true};
 		boolean [] diasTestero = {true, false, true, false , true};
+		boolean [][] diasLibres =new boolean[8][5];
+		for (int i = 0; i < diasLibres.length; i++) {
+			for (int j = 0; j < diasLibres[i].length; j++) {
+				diasLibres[i][j]=true;
+				System.out.print(diasLibres[i][j]);
+			}
+			System.out.println();
+		}
+		Consulta consultaUno=new Consulta("1", diasLibres);
+		Consulta consultaDos=new Consulta("2", diasLibres);
+		Consulta consultaTres=new Consulta("3", diasLibres);
+		Consulta consultaCuatro=new Consulta("4", diasLibres);
 		MedicoActivo medicoActivoUno= new MedicoActivo("Ricardo Antonio", "Zarco", "622568656", "Calle grupoperros", "321456789", 
 				Especialidad.Atencion_Primaria, LocalTime.of(10, 0), LocalTime.of(14, 0), 
 				diasRicardo, "1");
@@ -76,7 +92,7 @@ public class PruebaDao {
 				diasTestero, "1");
 		Cirujano cirujanoUno = new Cirujano("Manolo", "Gordillo", "615121512", "Calle Santiago Apostol", "314149692", "2");
 		Cirujano cirujanoDos = new Cirujano("Kiwi", "Pandoso", "621091997", "Calle Enamorado", "321654989", "2");
-		System.out.println(pacientes);
+		
 		pacientes.put(uno.getIdUnico(), uno);
 		pacientes.put(dos.getIdUnico(), dos);
 		pacientes.put(tres.getIdUnico(), tres);
@@ -91,10 +107,18 @@ public class PruebaDao {
 		
 		cirujanos.put(cirujanoUno.getIdUnico(), cirujanoUno);
 		cirujanos.put(cirujanoDos.getIdUnico(), cirujanoDos);
+		
+		consultas.put(consultaUno.getIdConsulta(), consultaUno);
+		consultas.put(consultaDos.getIdConsulta(), consultaDos);
+		consultas.put(consultaTres.getIdConsulta(), consultaTres);
+		consultas.put(consultaCuatro.getIdConsulta(), consultaCuatro);
+		
 		dtoPaciente.grabarColeccionPaciente(pacientes);
 		dtoMedico.grabarColeccionMedico(medicos);
 		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
 		dtoCirujano.grabarColeccionCirujano(cirujanos);
+		dtoConsulta.grabarColeccionConsulta(consultas);
+		System.out.println(dtoConsulta.leerColeccion() + "grabada");
 	}
 	
 	
