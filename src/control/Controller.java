@@ -300,9 +300,14 @@ public class Controller {
 	public boolean comprobarConsulta(int hora, String consultaSeleccionada) {
 		return this.getMiGestor().comprobarConsulta(hora,consultaSeleccionada);
 	}
-
+	public boolean comprobarConsulta(boolean[] dias,int hora, String consultaSeleccionada) {
+		return this.getMiGestor().comprobarConsulta(dias,hora,consultaSeleccionada);
+	}
 	public void asignarConsulta(int hora, String consultaSeleccionada) {
 		this.getMiGestor().asignarConsulta(hora,consultaSeleccionada);
+	}
+	public void asignarConsulta(boolean[] dias,int hora, String consultaSeleccionada) {
+		this.getMiGestor().asignarConsulta(dias,hora,consultaSeleccionada);
 	}
 
 

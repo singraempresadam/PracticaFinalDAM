@@ -44,6 +44,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 			this.getComboBoxTurnoMedicoAP().addItem(this.getControl().obtenerTurno()[i]);
 		}
 		for (int i = 10; i < 19; i+=2) {
+			if(i!=14)
 			this.getComboBoxTurnoEspecialista().addItem(String.valueOf(i));
 		}
 		for (int i = 1; i < 3; i++) {
@@ -275,13 +276,22 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		boolean[] dias = obtenerDias();
 		if(dias != null)
 		{
-			LocalTime horaInicio= LocalTime.of(Integer.valueOf(this.getComboBoxTurnoEspecialista().getSelectedItem().toString()), 0);
+			int horaSeleccionada=Integer.valueOf(this.getComboBoxTurnoEspecialista().getSelectedItem().toString());
+			LocalTime horaInicio= LocalTime.of(horaSeleccionada, 0);
 			LocalTime horaFin = horaInicio.plusHours(2);
 			String[] fragmentarDatos = medico.split("-");
-			this.getControl().darAltaMedicoActivoNuevo(fragmentarDatos[0], fragmentarDatos[1], fragmentarDatos[3], fragmentarDatos[4]
-					, fragmentarDatos[2],Especialidad.valueOf(fragmentarDatos[5]), horaInicio, horaFin, dias,"1");
-			this.crearVentanaOperacionRealizada("Medico especialista dado de alta");
-			this.buscarMedicoEspecialista();
+			String consultaSeleccionada=this.getComboBoxConsultaEspecialista().getSelectedItem().toString();
+			if(this.getControl().comprobarConsulta(dias, horaSeleccionada, consultaSeleccionada))
+			{
+				this.getControl().darAltaMedicoActivoNuevo(fragmentarDatos[0], fragmentarDatos[1], fragmentarDatos[3], fragmentarDatos[4]
+						, fragmentarDatos[2],Especialidad.valueOf(fragmentarDatos[5]), horaInicio, horaFin, dias,"1");
+				this.getControl().asignarConsulta(dias, horaSeleccionada, consultaSeleccionada);
+				this.crearVentanaOperacionRealizada("Medico especialista dado de alta");
+				this.buscarMedicoEspecialista();
+			}
+			else
+				this.crearVentanaError("La consulta no está disponible");
+			
 		}
 	}
 	

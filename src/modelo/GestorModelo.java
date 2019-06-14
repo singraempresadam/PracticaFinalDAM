@@ -574,4 +574,18 @@ public class GestorModelo {
 		else
 			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeEntero();
 	}
+	public boolean comprobarConsulta(boolean[] dias, int hora, String consultaSeleccionada) {
+		boolean retorno;
+		if(hora>=Turno.mañana.getHora() && hora<Turno.tarde.getHora())
+			retorno=this.getConsultas().get(consultaSeleccionada).comprobarTurnoMañanaParcial(dias, hora);
+		else
+			retorno=this.getConsultas().get(consultaSeleccionada).comprobarTurnoTardeParcial(dias, hora);
+		return retorno;
+	}
+	public void asignarConsulta(boolean[] dias, int hora, String consultaSeleccionada) {
+		if(hora>=Turno.mañana.getHora() && hora<Turno.tarde.getHora())
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoMañanaParcial(dias, hora);
+		else
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeParcial(dias, hora);
+	}
 }
