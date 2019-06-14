@@ -122,7 +122,7 @@ public class ParaUiVentanaDatosMedico extends VentanaDatosMedico{
 		boolean citaRealizada=false;
 		for(Map.Entry<String, Cita> entry : this.getControl().getMiGestor().getMedicosActivo().get(this.getIdMedico()).getCitas().entrySet()){
 			System.out.println(entry.getValue().getFechaYHora().contains(this.getControl().fechaYHora()));
-			if(entry.getValue().getFechaYHora().contains(this.getControl().fechaYHora())) {
+			if(entry.getValue().getFechaYHora().contains(this.getControl().fechaYHora()) && !entry.getValue().isConfirmacion()) {
 				this.crearVentanaOperacionRealizada("Tiene una cita disponible");
 				ParaUiVentanaGestionarCitaMedicaAtencionPrimaria PUGCMAP = new ParaUiVentanaGestionarCitaMedicaAtencionPrimaria (this.getControl(), this.getValidator(), entry.getValue().getIdUnicoCita(), this.getIdMedico());
 				PUGCMAP.setVisible(true);

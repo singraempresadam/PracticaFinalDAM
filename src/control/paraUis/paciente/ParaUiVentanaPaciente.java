@@ -15,14 +15,14 @@ import control.paraUis.ParaUiVentanaError;
 import control.paraUis.Validator;
 import vista.paciente.VentanaPaciente;
 
-public class paraUiVentanaPaciente extends VentanaPaciente {
+public class ParaUiVentanaPaciente extends VentanaPaciente {
 	
 	private Controller control;
 	private Validator validator;
 	private JScrollPane scrollListaPaciente;
 	private JList<String> pacientes;
 	
-	public paraUiVentanaPaciente(Controller control, Validator validator) {
+	public ParaUiVentanaPaciente(Controller control, Validator validator) {
 		super();
 		this.setControl(control);
 		this.setValidator(validator);
@@ -72,7 +72,7 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 	
 	private void crearVentanaDatosPacientes() {
 		if (obtenerDatosPacienteSeleccionado() != "") {
-			paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(this.getControl(),this.getValidator(),this.obtenerDatosPacienteSeleccionado());
+			ParaUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new ParaUiVentanaDatosPaciente(this.getControl(),this.getValidator(),this.obtenerDatosPacienteSeleccionado());
 			paraUiVentanaDatosPaciente.setVisible(true);
 			this.buscarPacientes();
 		}

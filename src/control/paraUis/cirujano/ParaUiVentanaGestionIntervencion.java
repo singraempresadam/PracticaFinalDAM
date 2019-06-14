@@ -4,9 +4,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import control.Controller;
+import control.paraUis.ExceptionDatos;
+import control.paraUis.ParaUiOperacionRealizada;
+import control.paraUis.ParaUiVentanaError;
 import vista.cirujano.VentanaGestionarIntervención;
 
-public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervención{
+public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervención {
 	Controller control;
 	String idIntervencion;
 	String idMedico;
@@ -15,15 +18,20 @@ public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervenci
 	String nombreMedico;
 	String nombrePaciente;
 	String nombreCirujano;
-	
-	public ParaUiVentanaGestionIntervencion (Controller control, String idIntervencion, String idCirujano)
-	{
+
+	public ParaUiVentanaGestionIntervencion(Controller control, String idIntervencion, String idCirujano) {
 		super();
 		this.setControl(control);
+		rellenarCampos(idIntervencion, idCirujano);
+		this.crearListeners();
+	}
+
+	private void rellenarCampos(String idIntervencion, String idCirujano) {
 		this.setIdIntervencion(idIntervencion);
 		this.setIdCirujano(idCirujano);
-		this.setIdPaciente(this.getControl().obtenerPacienteDeIntervencion(this.getIdIntervencion(),this.getIdCirujano()));
-		this.setIdMedico(this.getControl().obtenerMedicoDeIntervencion(this.getIdIntervencion(),this.getIdCirujano()));
+		this.setIdPaciente(
+				this.getControl().obtenerPacienteDeIntervencion(this.getIdIntervencion(), this.getIdCirujano()));
+		this.setIdMedico(this.getControl().obtenerMedicoDeIntervencion(this.getIdIntervencion(), this.getIdCirujano()));
 		this.setNombrePaciente(this.getControl().obtenerNombrePaciente(this.getIdPaciente()));
 		this.setNombreMedico(this.getControl().obtenerNombreMedico(this.getIdMedico()));
 		this.setNombreCirujano(this.getControl().obtenerNombreCirujano(this.getIdCirujano()));
@@ -31,17 +39,32 @@ public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervenci
 		this.getTxtEspecialista().setText(this.getNombreMedico());
 		this.getTxtCirujano().setText(this.getNombreCirujano());
 		this.getTxtIntervencion().setText(this.getIdIntervencion());
-		this.crearListeners();
 	}
 
 	private void crearListeners() {
 		this.getBtnGestionarIntervencion().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				getControl().modificarIntervencion(getIdIntervencion(),getTxtObservaciones().getText(),getIdPaciente(),getIdCirujano(), getChckbxConfirmarAsistencia().isValid());
-				dispose();
+				boolean asistencia = getChckbxConfirmarAsistencia().isValid();
+				if (asistencia) {
+					getControl().modificarIntervencion(getIdIntervencion(), getTxtObservaciones().getText(),
+							getIdPaciente(), getIdCirujano(), asistencia);
+					crearVentanaOperacionRealizada("Intervencion realizada con exito");
+					dispose();
+				} else
+					crearVentanaError("No puede realizar intervencion sin asistencia");
 			}
 		});
+	}
+
+	private void crearVentanaOperacionRealizada(String mensaje) {
+		ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);
+		paraUiOpereacionRealizada.setVisible(true);
+	}
+
+	private void crearVentanaError(String e) {
+		ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e);
+		paraUiVentanaError.setVisible(true);
 	}
 
 	public Controller getControl() {
@@ -51,8 +74,6 @@ public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervenci
 	public void setControl(Controller control) {
 		this.control = control;
 	}
-
-	
 
 	public String getIdIntervencion() {
 		return idIntervencion;
@@ -109,5 +130,5 @@ public class ParaUiVentanaGestionIntervencion extends VentanaGestionarIntervenci
 	public void setNombreCirujano(String nombreCirujano) {
 		this.nombreCirujano = nombreCirujano;
 	}
-	
+
 }

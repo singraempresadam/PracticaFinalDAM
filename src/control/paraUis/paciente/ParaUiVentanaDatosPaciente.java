@@ -12,7 +12,7 @@ import control.paraUis.ParaUiVentanaError;
 import control.paraUis.Validator;
 import vista.paciente.VentanaDatosPaciente;
 
-public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
+public class ParaUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	
 	private Controller control;
 	private Validator validator;
@@ -20,12 +20,12 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	private boolean modificar;
 	private String idPaciente;
 	
-	public paraUiVentanaDatosPaciente(Controller control, Validator validator, String datos) {
+	public ParaUiVentanaDatosPaciente(Controller control, Validator validator, String datos) {
 		super();
 		this.setControl(control);
 		this.setValidator(validator);
 		this.setModificar(true);
-		rellenarCamposDatosPaciente(datos);
+		this.rellenarCamposDatosPaciente(datos);
 		this.agregarListener();
 	}
 	

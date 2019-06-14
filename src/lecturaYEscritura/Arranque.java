@@ -13,7 +13,7 @@ import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
 import modelo.enumeraciones.Especialidad;
 
-public class PruebaDao {
+public class Arranque {
 	private static HashMap<String, String> pacientesJose = new HashMap<String, String>();
 	private static HashMap<String, Paciente> pacientes = new HashMap<String, Paciente>();
 	private static HashMap<String, Medico> medicos = new HashMap<String, Medico>();

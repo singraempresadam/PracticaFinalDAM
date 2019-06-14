@@ -54,9 +54,8 @@ public class Validator{
 		return retorno; 
 	}
 	
-	public Respuesta validarDatosCirujano(String datosCirujano, Controller control) throws ExceptionDatos
+	public Respuesta validarDatosCirujano(String[] datosFragmentados, Controller control) throws ExceptionDatos
 	{
-		String datosFragmentados[]= datosCirujano.split("-");
 		Respuesta retorno= new Respuesta(true,"No hay fallo");
 		
 		Respuesta [] retornoArray= new Respuesta [4];
@@ -81,7 +80,6 @@ public class Validator{
 	public Respuesta validarTratamiento(String dosis, String fechaInicio, String fechaFin, Controller control)throws ExceptionDatos {
 		String datosFragmentados[]= {dosis,fechaInicio, fechaFin};
 		Respuesta retorno= new Respuesta(true,"No hay fallo");
-		
 		Respuesta [] retornoArray= new Respuesta [4];
 		try {
 			retornoArray[0]=this.validarDosis(datosFragmentados[0], control);

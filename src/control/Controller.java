@@ -319,28 +319,5 @@ public class Controller {
 	}
 	public void asignarConsulta(boolean[] dias,int hora, String consultaSeleccionada) {
 		this.getMiGestor().asignarConsulta(dias,hora,consultaSeleccionada);
-	}
-
-	
-
-	
-
-	
-
-
-	
-
-	
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-	
+	}	
 }

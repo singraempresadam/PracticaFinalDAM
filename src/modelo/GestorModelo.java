@@ -94,6 +94,8 @@ public class GestorModelo {
 	public void darAltaPacienteNuevo(String nombre, String apellidos, String telefono, String direccion, String idUnico,
 			String fechaDeNacimiento) {
 		Paciente paciente = new Paciente(nombre, apellidos, telefono, direccion, idUnico, fechaDeNacimiento);
+		DTO<Paciente>dtoUnPaciente= new DTO<>("src/Almacen/"+idUnico+".dat");
+		dtoUnPaciente.grabar(paciente);
 		this.getPacientes().put(paciente.getIdUnico(), paciente);
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
 		
@@ -134,16 +136,6 @@ public class GestorModelo {
 		this.getMedicosActivo().remove(idMedico);
 		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
 	}
-	private Medico crearMedicoDeMedicoActivo(String idMedico) {
-		String nombre=this.getMedicosActivo().get(idMedico).getNombre();
-		String apellidos=this.getMedicosActivo().get(idMedico).getApellidos();
-		String telefono=this.getMedicosActivo().get(idMedico).getTelefono();
-		String direccion=this.getMedicosActivo().get(idMedico).getDireccion();
-		String idUnico=this.getMedicosActivo().get(idMedico).getIdUnico();
-		Especialidad especialidad=this.getMedicosActivo().get(idMedico).getEspecialidad();
-		Medico medico = new Medico(nombre, apellidos, telefono, direccion, idUnico, especialidad);
-		return medico;
-	}
 	public void eliminarMedico(String idUnico)
 	{
 		this.getMedicos().remove(idUnico);
@@ -158,6 +150,16 @@ public class GestorModelo {
 	{
 		this.getCirujanos().remove(idUnico);
 		getDtoCirujano().grabarColeccionCirujano(this.getCirujanos());
+	}
+	private Medico crearMedicoDeMedicoActivo(String idMedico) {
+		String nombre=this.getMedicosActivo().get(idMedico).getNombre();
+		String apellidos=this.getMedicosActivo().get(idMedico).getApellidos();
+		String telefono=this.getMedicosActivo().get(idMedico).getTelefono();
+		String direccion=this.getMedicosActivo().get(idMedico).getDireccion();
+		String idUnico=this.getMedicosActivo().get(idMedico).getIdUnico();
+		Especialidad especialidad=this.getMedicosActivo().get(idMedico).getEspecialidad();
+		Medico medico = new Medico(nombre, apellidos, telefono, direccion, idUnico, especialidad);
+		return medico;
 	}
 	
 	public Respuesta getValidatorNombre(String nombre)
@@ -512,6 +514,10 @@ public class GestorModelo {
 	public Object[] obtenerTurno() {
 		return Turno.values();
 	}
+	public Object[] obtenerMedicamentos() {
+		return Medicamento.values();
+	}
+	
 	public String[] obtenerTodosLosMedicosInactivosAtencionPrimaria() {
 		String[] filtrar = this.filtrar("Atencion_Primaria", this.obtenerTodosLosMedicos());
 		String[] filtrarSin = this.filtrarSin("Activo",filtrar);
@@ -522,6 +528,34 @@ public class GestorModelo {
 		String[] filtrarSin = this.filtrarSin("Activo",filtrar);
 		return filtrarSin;
 	}
+	public boolean comprobarConsulta(int hora, String consultaSeleccionada) {
+		boolean retorno;
+		if(hora==Turno.mañana.getHora())
+			retorno=this.getConsultas().get(consultaSeleccionada).ComprobarTurnoMañanaEntero();
+		else
+			retorno=this.getConsultas().get(consultaSeleccionada).ComprobarTurnoTardeEntero();
+		return retorno;
+	}
+	public void asignarConsulta(int hora, String consultaSeleccionada) {
+		if(hora==Turno.mañana.getHora())
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoMañanaEntero();
+		else
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeEntero();
+	}
+	public boolean comprobarConsulta(boolean[] dias, int hora, String consultaSeleccionada) {
+		boolean retorno;
+		if(hora>=Turno.mañana.getHora() && hora<Turno.tarde.getHora())
+			retorno=this.getConsultas().get(consultaSeleccionada).comprobarTurnoMañanaParcial(dias, hora);
+		else
+			retorno=this.getConsultas().get(consultaSeleccionada).comprobarTurnoTardeParcial(dias, hora);
+		return retorno;
+	}
+	public void asignarConsulta(boolean[] dias, int hora, String consultaSeleccionada) {
+		if(hora>=Turno.mañana.getHora() && hora<Turno.tarde.getHora())
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoMañanaParcial(dias, hora);
+		else
+			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeParcial(dias, hora);
+	}
 	
 	public LocalDate getDiaSistema() {
 		return diaSistema;
@@ -529,6 +563,7 @@ public class GestorModelo {
 	public void setDiaSistema(LocalDate diaSistema) {
 		this.diaSistema = diaSistema;
 	}
+	
 	public LocalTime getHoraSistema() {
 		return horaSistema;
 	}
@@ -579,37 +614,5 @@ public class GestorModelo {
 	public void setDtoConsulta(DTO<Consulta> dtoConsulta) {
 		this.dtoConsulta = dtoConsulta;
 	}
-	public boolean comprobarConsulta(int hora, String consultaSeleccionada) {
-		boolean retorno;
-		if(hora==Turno.mañana.getHora())
-			retorno=this.getConsultas().get(consultaSeleccionada).ComprobarTurnoMañanaEntero();
-		else
-			retorno=this.getConsultas().get(consultaSeleccionada).ComprobarTurnoTardeEntero();
-		return retorno;
-	}
-	public void asignarConsulta(int hora, String consultaSeleccionada) {
-		if(hora==Turno.mañana.getHora())
-			this.getConsultas().get(consultaSeleccionada).cambiarTurnoMañanaEntero();
-		else
-			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeEntero();
-	}
-	public boolean comprobarConsulta(boolean[] dias, int hora, String consultaSeleccionada) {
-		boolean retorno;
-		if(hora>=Turno.mañana.getHora() && hora<Turno.tarde.getHora())
-			retorno=this.getConsultas().get(consultaSeleccionada).comprobarTurnoMañanaParcial(dias, hora);
-		else
-			retorno=this.getConsultas().get(consultaSeleccionada).comprobarTurnoTardeParcial(dias, hora);
-		return retorno;
-	}
-	public void asignarConsulta(boolean[] dias, int hora, String consultaSeleccionada) {
-		if(hora>=Turno.mañana.getHora() && hora<Turno.tarde.getHora())
-			this.getConsultas().get(consultaSeleccionada).cambiarTurnoMañanaParcial(dias, hora);
-		else
-			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeParcial(dias, hora);
-	}
-	public Object[] obtenerMedicamentos() {
-		return Medicamento.values();
-	}
-	
-	
+
 }

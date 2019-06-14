@@ -19,7 +19,7 @@ import modelo.enumeraciones.Especialidad;
 import modelo.enumeraciones.Turno;
 import vista.medico.VentanaMedico;
 
-public class paraUiVentanaMedico extends VentanaMedico {
+public class ParaUiVentanaMedico extends VentanaMedico {
 
 
 	private Controller control;
@@ -32,7 +32,7 @@ public class paraUiVentanaMedico extends VentanaMedico {
 	private JList<String> medicosAtencionPrimaria;
 
 	@SuppressWarnings("unchecked")
-	public paraUiVentanaMedico(Controller control, Validator validator) {
+	public ParaUiVentanaMedico(Controller control, Validator validator) {
 		super();
 		this.setControl(control);
 		this.setValidator(validator);

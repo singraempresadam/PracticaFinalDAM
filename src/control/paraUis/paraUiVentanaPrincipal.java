@@ -6,9 +6,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 import control.Controller;
-import control.paraUis.cirujano.paraUiVentanaCirujano;
-import control.paraUis.medico.paraUiVentanaMedico;
-import control.paraUis.paciente.paraUiVentanaPaciente;
+import control.paraUis.cirujano.ParaUiVentanaCirujano;
+import control.paraUis.medico.ParaUiVentanaMedico;
+import control.paraUis.paciente.ParaUiVentanaPaciente;
 import vista.ventanaPrincipal;
 
 public class paraUiVentanaPrincipal extends ventanaPrincipal{
@@ -104,15 +104,15 @@ public class paraUiVentanaPrincipal extends ventanaPrincipal{
 	}
 	
 	private void crearVentanaPacientes() {
-		paraUiVentanaPaciente paraUiVentanaPaciente = new paraUiVentanaPaciente(this.getControl(),this.getValidator());
+		ParaUiVentanaPaciente paraUiVentanaPaciente = new ParaUiVentanaPaciente(this.getControl(),this.getValidator());
 		paraUiVentanaPaciente.setVisible(true);
 	}
 	private void crearVentanaMedicos() {
-		paraUiVentanaMedico paraUiVentanaMedico = new paraUiVentanaMedico(this.getControl(),this.getValidator());
+		ParaUiVentanaMedico paraUiVentanaMedico = new ParaUiVentanaMedico(this.getControl(),this.getValidator());
 		paraUiVentanaMedico.setVisible(true);
 	}
 	private void crearVentanaCirujanos() {
-		paraUiVentanaCirujano paraUiVentanaCirujano = new paraUiVentanaCirujano(getControl(),this.getValidator());
+		ParaUiVentanaCirujano paraUiVentanaCirujano = new ParaUiVentanaCirujano(getControl(),this.getValidator());
 		paraUiVentanaCirujano.setVisible(true);
 	}
 	

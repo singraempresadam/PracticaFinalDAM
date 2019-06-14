@@ -103,5 +103,4 @@ public class VentanaHistorialCirujano extends JDialog{
 	public JPanel getPanelHistorialCirujano() {
 		return panelHistorialCirujano;
 	}
-	
 }
