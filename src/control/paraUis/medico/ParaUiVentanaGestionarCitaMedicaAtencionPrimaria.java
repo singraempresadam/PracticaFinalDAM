@@ -4,27 +4,33 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import control.Controller;
+import control.paraUis.ExceptionDatos;
+import control.paraUis.ParaUiOperacionRealizada;
+import control.paraUis.ParaUiVentanaError;
+import control.paraUis.Validator;
 import modelo.enumeraciones.Especialidad;
 import modelo.enumeraciones.Medicamento;
 import vista.medico.VentanaGestionarCitaMedicaAtencionPrimaria;
 
 public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGestionarCitaMedicaAtencionPrimaria{
-	Controller control;
-	String idCita;
-	String idMedico;
-	String idPaciente;
-	String nombreMedico;
-	String nombrePaciente;
-	boolean AtencionPrimaria;
-	public ParaUiVentanaGestionarCitaMedicaAtencionPrimaria(Controller control, String idCita, String idMedico) {
+	private Controller control;
+	private Validator validator;
+	private String idCita;
+	private String idMedico;
+	private String idPaciente;
+	private String nombreMedico;
+	private String nombrePaciente;
+	private boolean AtencionPrimaria;
+	@SuppressWarnings("unchecked")
+	public ParaUiVentanaGestionarCitaMedicaAtencionPrimaria(Controller control, Validator validator, String idCita, String idMedico) {
 		super();
 		this.setControl(control);
 		this.setIdCita(idCita);
 		this.setIdMedico(idMedico);
 		this.setAtencionPrimaria(this.getControl().comprobarAtencionPrimaria(idMedico));
-		Medicamento[] values = Medicamento.values();
-		for (int i = 0; i < values.length; i++) {
-			this.getComboBoxTratamiento().addItem(values[i]);
+		
+		for (int i = 0; i < this.getControl().obtenerMedicamentos().length; i++) {
+			this.getComboBoxTratamiento().addItem(this.getControl().obtenerMedicamentos()[i]);
 		}
 		if(!this.isAtencionPrimaria())
 		{
@@ -38,36 +44,72 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 		this.getTxtNombrePaciente().setText(this.getNombrePaciente());
 		this.getTxtNombreMedico().setText(this.getNombreMedico());
 		this.agregarListener();
-		
-		
 	}
 	private void agregarListener() {
 		this.getBtnGestionar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				getControl().crearTratamiento(getIdPaciente(),getComboBoxTratamiento().getSelectedItem().toString(),getTxtDosis().getText(),getTxtFechaInicio().getText(),getTxtFechaFin().getText());
-				getControl().modificarCita(getIdCita(),getTxtObservaciones().getText(),getIdPaciente(),getIdMedico(), getChckbxConfirmarAsistencia().isValid());
-				dispose();
+				getionarCita();
 			}
 		});
 		this.getBtnSolicitar().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if(isAtencionPrimaria())
-				{
-					ParaUiVentanaSolicitarCitaEspecialista paraUiVentanaSolicitarCitaEspecialista = new ParaUiVentanaSolicitarCitaEspecialista(control, idPaciente);
-					paraUiVentanaSolicitarCitaEspecialista.setVisible(true);
-				}
-				else
-				{
-					ParaUiVentanaSolicitarIntervencion paraUiVentanaSolicitarIntervencion = new ParaUiVentanaSolicitarIntervencion(control,idPaciente, idMedico);
-					paraUiVentanaSolicitarIntervencion.setVisible(true);
-				}
-				dispose();
+				solicitarCitaSiguienteNivel();
 			}
 		});
 		
 	}
+	private void getionarCita() {
+		boolean gestionada=false;
+		String Dosis=this.getTxtDosis().getText();
+		String fechaInicio=this.getTxtFechaInicio().getText();
+		String fechaFin=this.getTxtFechaFin().getText();
+		String observaciones=this.getTxtObservaciones().getText();
+		boolean asistencia=this.getChckbxConfirmarAsistencia().isValid();
+		try {
+			if(this.getValidator().validarTratamiento(Dosis,fechaInicio,fechaFin, this.getControl()).isResultado())	
+				if(asistencia)
+				{
+					this.getControl().crearTratamiento(this.getIdPaciente(),this.getComboBoxTratamiento().getSelectedItem().toString(),Dosis,fechaInicio,fechaFin);
+					this.getControl().modificarCita(this.getIdCita(),observaciones,this.getIdPaciente(),getIdMedico(),true);
+					this.crearVentanaOperacionRealizada("Gestion completada");
+					gestionada=true;
+				}
+			else
+				crearVentanaError("No puede gestionar una cita sin asistencia");
+		} catch (ExceptionDatos e) {
+			this.crearVentanaError(e);
+		}
+		this.dispose();
+	}
+	private void solicitarCitaSiguienteNivel() {
+		if(this.isAtencionPrimaria())
+		{
+			ParaUiVentanaSolicitarCitaEspecialista paraUiVentanaSolicitarCitaEspecialista = new ParaUiVentanaSolicitarCitaEspecialista(control, idPaciente);
+			paraUiVentanaSolicitarCitaEspecialista.setVisible(true);
+		}
+		else
+		{
+			ParaUiVentanaSolicitarIntervencion paraUiVentanaSolicitarIntervencion = new ParaUiVentanaSolicitarIntervencion(control,idPaciente, idMedico);
+			paraUiVentanaSolicitarIntervencion.setVisible(true);
+		}
+		this.crearVentanaOperacionRealizada("Gestion completada");
+		this.dispose();
+	}
+	private void crearVentanaOperacionRealizada(String mensaje) {
+		ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);
+		paraUiOpereacionRealizada.setVisible(true);
+	}
+	private void crearVentanaError(ExceptionDatos e) {
+		ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e.getMsg());
+		paraUiVentanaError.setVisible(true);
+	}
+	private void crearVentanaError(String e) {
+		ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e);
+		paraUiVentanaError.setVisible(true);
+	}
+
 	public Controller getControl() {
 		return control;
 	}
@@ -109,6 +151,12 @@ public class ParaUiVentanaGestionarCitaMedicaAtencionPrimaria extends VentanaGes
 	}
 	public void setAtencionPrimaria(boolean atencionPrimaria) {
 		AtencionPrimaria = atencionPrimaria;
+	}
+	public Validator getValidator() {
+		return validator;
+	}
+	public void setValidator(Validator validator) {
+		this.validator = validator;
 	}
 	
 	

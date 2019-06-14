@@ -72,9 +72,9 @@ public class paraUiVentanaPaciente extends VentanaPaciente {
 	
 	private void crearVentanaDatosPacientes() {
 		if (obtenerDatosPacienteSeleccionado() != "") {
-			paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(getControl(),obtenerDatosPacienteSeleccionado());
+			paraUiVentanaDatosPaciente paraUiVentanaDatosPaciente = new paraUiVentanaDatosPaciente(this.getControl(),this.getValidator(),this.obtenerDatosPacienteSeleccionado());
 			paraUiVentanaDatosPaciente.setVisible(true);
-			dispose();
+			this.buscarPacientes();
 		}
 	}
 	private void buscarPacientes() {

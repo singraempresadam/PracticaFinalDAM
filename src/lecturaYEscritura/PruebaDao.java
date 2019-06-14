@@ -71,16 +71,19 @@ public class PruebaDao {
 		Medico medicoTres = new Medico("Mario", "Rodriguez", "62345698", "Calle AltaGracia", "123658947", Especialidad.Ginecologo);
 		Medico medicoCuatro = new Medico("Ana", "Cabanillas", "677766147", "Calle Altorra", "456284635", Especialidad.Traumatologo);
 		boolean [] diasRicardo = {true,true,true,true,true};
-		boolean [] diasTestero = {true, false, true, false , true};
 		boolean [][] diasLibres =new boolean[8][5];
 		for (int i = 0; i < diasLibres.length; i++) {
 			for (int j = 0; j < diasLibres[i].length; j++) {
 				diasLibres[i][j]=true;
-				System.out.print(diasLibres[i][j]);
 			}
-			System.out.println();
 		}
-		Consulta consultaUno=new Consulta("1", diasLibres);
+		boolean[][] diasLibresUno = new boolean[8][5];
+		for (int i = 0; i < diasLibresUno.length; i++) {
+			for (int j = 0; j < diasLibresUno[i].length; j++) {
+				diasLibresUno[i][j]=false;
+			}
+		}
+		Consulta consultaUno=new Consulta("1", diasLibresUno);
 		Consulta consultaDos=new Consulta("2", diasLibres);
 		Consulta consultaTres=new Consulta("3", diasLibres);
 		Consulta consultaCuatro=new Consulta("4", diasLibres);
@@ -89,7 +92,7 @@ public class PruebaDao {
 				diasRicardo, "1");
 		MedicoActivo medicoActivoDos= new MedicoActivo("Testero", "Zardasco", "622568656", "Calle grupoperros", "123654251", 
 				Especialidad.Atencion_Primaria, LocalTime.of(16, 0), LocalTime.of(20, 0), 
-				diasTestero, "1");
+				diasRicardo, "1");
 		Cirujano cirujanoUno = new Cirujano("Manolo", "Gordillo", "615121512", "Calle Santiago Apostol", "314149692", "2");
 		Cirujano cirujanoDos = new Cirujano("Kiwi", "Pandoso", "621091997", "Calle Enamorado", "321654989", "2");
 		
@@ -118,7 +121,6 @@ public class PruebaDao {
 		dtoMedicoActivo.grabarColeccionMedicoActivo(medicosActivo);
 		dtoCirujano.grabarColeccionCirujano(cirujanos);
 		dtoConsulta.grabarColeccionConsulta(consultas);
-		System.out.println(dtoConsulta.leerColeccion() + "grabada");
 	}
 	
 	

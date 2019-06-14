@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
 import control.Controller;
+import control.paraUis.ParaUiOperacionRealizada;
 import control.paraUis.ParaUiVentanaError;
 import modelo.GestorModelo;
 import modelo.clasesDatos.Cita;
@@ -107,12 +108,19 @@ public class ParaUiVentanaSolicitarCitaPaciente extends VentanaSolicitarCitaPaci
 						String fecha = ((JButton) arg0.getSource()).getName();
 						if(((JButton) arg0.getSource()).isEnabled())
 						getControl().solicitarCitaPaciente(idPaciente, obtenerIdSeleccionado(), fecha);
+						crearVentanaOperacionRealizada("Cita confirmada");
 						dispose();
 					}
 				});
 			}
 		}
 	}
+	
+	private void crearVentanaOperacionRealizada(String mensaje) {
+		ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);
+		paraUiOpereacionRealizada.setVisible(true);
+	}
+	
 	private int asignarPlusAlDiaActual(String diaActual) {
 		int plus=0;
 		for (Days dia : Days.values()) {

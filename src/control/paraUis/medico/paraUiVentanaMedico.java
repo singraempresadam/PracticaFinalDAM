@@ -133,8 +133,9 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		});
 	}
 	private void consultarMedico() {
-		ParaUiVentanaDatosMedico paraUiVentanaDatosMedico = new ParaUiVentanaDatosMedico(obtenerDatosMedicoSeleccionado(), this.getControl());
+		ParaUiVentanaDatosMedico paraUiVentanaDatosMedico = new ParaUiVentanaDatosMedico(obtenerDatosMedicoSeleccionado(), this.getControl(), this.getValidator());
 		paraUiVentanaDatosMedico.setVisible(true);
+		this.buscarMedico();
 	}
 	private void buscarMedico() {
 		getPanelBuscarMedico().setVisible(false);
@@ -315,7 +316,6 @@ public class paraUiVentanaMedico extends VentanaMedico {
 		getTxtDireccionMedico().setText("");
 	}
 	
-
 	
 	//GETTER AND SETTERS
 	public JScrollPane getScrollListaMedico() {

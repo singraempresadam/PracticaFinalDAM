@@ -8,31 +8,35 @@ import javax.swing.border.LineBorder;
 
 import control.Controller;
 import control.paraUis.ParaUiOperacionRealizada;
+import control.paraUis.ParaUiVentanaError;
+import control.paraUis.Validator;
 import vista.paciente.VentanaDatosPaciente;
 
 public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	
 	private Controller control;
+	private Validator validator;
 	private String[] ayudante;
 	private boolean modificar;
 	private String idPaciente;
 	
-	public paraUiVentanaDatosPaciente(Controller control, String datos) {
+	public paraUiVentanaDatosPaciente(Controller control, Validator validator, String datos) {
 		super();
 		this.setControl(control);
+		this.setValidator(validator);
 		this.setModificar(true);
 		rellenarCamposDatosPaciente(datos);
 		this.agregarListener();
 	}
 	
 	private void rellenarCamposDatosPaciente(String datos) {
-		ayudante=datos.split("-");
-		this.setIdPaciente(ayudante[2]);
-		this.getTxtNombre().setText(ayudante[0]);
-		this.getTxtApellidos().setText(ayudante[1]);
-		this.getTxtTelefono().setText(ayudante[3]);
-		this.getTxtDireccion().setText(ayudante[5]);
-		this.getTxtFechaNacimiento().setText(ayudante[4]);
+		this.setAyudante(datos.split("-"));
+		this.setIdPaciente(this.getAyudante()[2]);
+		this.getTxtNombre().setText(this.getAyudante()[0]);
+		this.getTxtApellidos().setText(this.getAyudante()[1]);
+		this.getTxtTelefono().setText(this.getAyudante()[3]);
+		this.getTxtDireccion().setText(this.getAyudante()[4]);
+		this.getTxtFechaNacimiento().setText(this.getAyudante()[5]);
 	}
 	private void agregarListener() {
 		this.getBtnModificar().addMouseListener(new MouseAdapter() {
@@ -72,8 +76,20 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 		this.getTxtTelefono().setBorder(new LineBorder(Color.BLUE, 1, true));
 		this.getTxtDireccion().setEditable(false);
 		this.getTxtDireccion().setBorder(new LineBorder(Color.BLUE, 1, true));
-		this.getControl().modificarPaciente(this.getIdPaciente(),this.getTxtTelefono().getText(),this.getTxtDireccion().getText());
+		comprobarPaciente();
 		this.setModificar(true);
+	}
+	private void comprobarPaciente() {
+		String telefono=this.getTxtTelefono().getText();
+		String direccion=this.getTxtDireccion().getText();
+		boolean telefonoValido=this.getValidator().validarTelefono(telefono, this.getControl()).isResultado();
+		boolean direccionValida=this.getValidator().validarDireccion(direccion, this.getControl()).isResultado();
+		if(telefonoValido && direccionValida){
+			this.getControl().modificarPaciente(this.getIdPaciente(),this.getTxtTelefono().getText(),this.getTxtDireccion().getText());
+			this.crearVentanaOperacionRealizada("Modificacion realizada con exito");
+		}	
+		else
+			this.crearVentanaError("Alguno de los campos a modificar no es valido");
 	}
 	private void modificarTrue() {
 		this.getTxtTelefono().setEditable(true);
@@ -91,6 +107,14 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	private void abrirVentanaHistorialPaciente() {
 		ParaUiVentanaHistorialPaciente paraUiVentanaHistorialPaciente = new ParaUiVentanaHistorialPaciente(ayudante[2], getControl());
 		paraUiVentanaHistorialPaciente.setVisible(true);
+	}
+	private void crearVentanaOperacionRealizada(String mensaje) {
+		ParaUiOperacionRealizada paraUiOpereacionRealizada = new ParaUiOperacionRealizada(mensaje);
+		paraUiOpereacionRealizada.setVisible(true);
+	}
+	private void crearVentanaError(String e) {
+		ParaUiVentanaError paraUiVentanaError = new ParaUiVentanaError(e);
+		paraUiVentanaError.setVisible(true);
 	}
 	private void solicitarCita() {
 		ParaUiVentanaSolicitarCitaPaciente paraUiVentanaSolicitarCitaPaciente = new ParaUiVentanaSolicitarCitaPaciente(getControl(),ayudante[2]);
@@ -121,4 +145,13 @@ public class paraUiVentanaDatosPaciente extends VentanaDatosPaciente {
 	public void setIdPaciente(String idPaciente) {
 		this.idPaciente = idPaciente;
 	}
+
+	public Validator getValidator() {
+		return validator;
+	}
+
+	public void setValidator(Validator validator) {
+		this.validator = validator;
+	}
+	
 }

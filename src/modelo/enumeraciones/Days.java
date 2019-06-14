@@ -5,7 +5,10 @@ public enum Days {
 	Martes(1,"Martes", "TUESDAY"),
 	Miercoles(2,"Miercoles", "WEDNESDAY"),
 	Jueves(3,"Jueves","THURSDAY"),
-	Viernes(4,"Viernes","FRIDAY");
+	Viernes(4,"Viernes","FRIDAY"),
+	Sabado(-2,"Sabado","SATURDAY"),
+	Domingo(-1,"Domingo","SUNDAY")
+	;
 	
 	
 	private int plusDays;

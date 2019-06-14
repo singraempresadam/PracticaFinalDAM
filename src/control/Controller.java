@@ -114,6 +114,9 @@ public class Controller {
 	{
 		return this.getMiGestor().getValidatorFechaDeNacimiento(fechaNacimiento);
 	}
+	public Respuesta getValidatorDosis(String dosis) {
+		return this.getMiGestor().getValidatorDosis(dosis);
+	}
 	
 	
 	public String fechaYHora()
@@ -251,7 +254,12 @@ public class Controller {
 	public void modificarPaciente(String idPaciente, String telefono, String direccion) {
 		this.getMiGestor().modificarPaciente(idPaciente,telefono,direccion);
 	}
-
+	public void modificarMedico(String idMedico, String telefono, String direccion) {
+		this.getMiGestor().modificarMedico(idMedico,telefono,direccion);
+	}
+	public void modificarMedicoActivo(String idMedico, String telefono, String direccion) {
+		this.getMiGestor().modificarMedicoActivo(idMedico,telefono,direccion);
+	}
 	public void darBajaMedicoActivo(String idMedico) {
 		this.getMiGestor().darBajaMedicoActivo(idMedico);
 		
@@ -283,6 +291,9 @@ public class Controller {
 	public Object[] obtenerEspecialidades() {
 		return this.getMiGestor().obtenerEspecialidades();
 	}
+	public Object[] obtenerMedicamentos() {
+		return this.getMiGestor().obtenerMedicamentos();
+	}
 
 	public Object[] obtenerTurno() {
 		// TODO Auto-generated method stub
@@ -309,6 +320,12 @@ public class Controller {
 	public void asignarConsulta(boolean[] dias,int hora, String consultaSeleccionada) {
 		this.getMiGestor().asignarConsulta(dias,hora,consultaSeleccionada);
 	}
+
+	
+
+	
+
+	
 
 
 	

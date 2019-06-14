@@ -18,7 +18,9 @@ import modelo.clasesDatos.MedicoActivo;
 import modelo.clasesDatos.Paciente;
 import modelo.clasesDatos.Persona;
 import modelo.clasesDatos.Respuesta;
+import modelo.clasesDatos.Tratamiento;
 import modelo.enumeraciones.Especialidad;
+import modelo.enumeraciones.Medicamento;
 import modelo.enumeraciones.TipoDeIntervencion;
 import modelo.enumeraciones.Turno;
 
@@ -189,6 +191,9 @@ public class GestorModelo {
 	public Respuesta getValidatorFechaDeNacimiento(String fechaNacimiento)
 	{
 		return Paciente.validaFechaNacimiento(fechaNacimiento);
+	}
+	public Respuesta getValidatorDosis(String dosis) {
+		return Tratamiento.validaDosis(dosis);
 	}
 
 	public String[] obtenerElementosAMostrarPaciente() {
@@ -459,6 +464,10 @@ public class GestorModelo {
 		this.getMedicosActivo().put(idMedico,this.getMedicosActivo().get(idMedico));
 		this.getDtoMedicoActivo().grabarColeccionMedicoActivo(this.getMedicosActivo());
 	}
+	private void guardarMedico(String idMedico) {
+		this.getMedicos().put(idMedico,this.getMedicos().get(idMedico));
+		this.getDtoMedico().grabarColeccionMedico(this.getMedicos());
+	}
 	private void guardarPaciente(String idPaciente) {
 		this.getPacientes().put(idPaciente, this.getPacientes().get(idPaciente));
 		this.getDtoPaciente().grabarColeccionPaciente(this.getPacientes());
@@ -470,8 +479,18 @@ public class GestorModelo {
 	public void modificarPaciente(String idPaciente, String telefono, String direccion) {
 		this.getPacientes().get(idPaciente).setTelefono(telefono);
 		this.getPacientes().get(idPaciente).setDireccion(direccion);
-		guardarPaciente(idPaciente);
-		
+		this.guardarPaciente(idPaciente);
+	}
+	public void modificarMedico(String idMedico, String telefono, String direccion) {
+		this.getMedicos().get(idMedico).setTelefono(telefono);
+		this.getMedicos().get(idMedico).setDireccion(direccion);
+		this.guardarMedico(idMedico);
+	}
+	
+	public void modificarMedicoActivo(String idMedico, String telefono, String direccion) {
+		this.getMedicosActivo().get(idMedico).setTelefono(telefono);
+		this.getMedicosActivo().get(idMedico).setDireccion(direccion);
+		this.guardarMedicoActivo(idMedico);
 	}
 	public boolean comprobarAtencionPrimaria(String idMedico) {
 		boolean retorno;
@@ -588,4 +607,9 @@ public class GestorModelo {
 		else
 			this.getConsultas().get(consultaSeleccionada).cambiarTurnoTardeParcial(dias, hora);
 	}
+	public Object[] obtenerMedicamentos() {
+		return Medicamento.values();
+	}
+	
+	
 }

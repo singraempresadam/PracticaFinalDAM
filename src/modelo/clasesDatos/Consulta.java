@@ -42,7 +42,15 @@ public class Consulta implements Serializable{
 		}
 		return retorno;
 	}
-	
+	private void mostrar()
+	{
+		for (int  i= 0;  i< libre.length; i++) {
+			for (int j = 0; j < libre[i].length; j++) {
+				System.out.print(libre[i][j]);
+			}
+			System.out.println();
+		}
+	}
 	public void cambiarTurnoMañanaParcial(boolean[] dias, int numero)
 	{
 		int inicio=numero-10;
@@ -56,6 +64,7 @@ public class Consulta implements Serializable{
 	{
 		boolean retorno=true;
 		int inicio=numero-10;
+		mostrar();
 		System.out.println(dias.length);
 		System.out.println(inicio);
 		System.out.println(this.getLibre()[0].length);
