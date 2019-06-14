@@ -9,7 +9,7 @@ public class Principal {
 	/*
 	 * 
 	 * 		Antes nos pedían y no hacíamos.
-	 * 		Ahora nos piden la mitad y damos el doble.
+	 * 		Ahora nos piden la mitad y damos el doble. 
 	 * 
 	 * 
 	 */
